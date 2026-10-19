@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি — হিফজুল কুরআন, কওমি-আলিয়া ও আধুনিক প্রযুক্তির সমন্বয়। ভর্তি, নোটিশ ও প্রকাশনা।">
+<meta name="theme-color" content="#0f4c3a">
+<link rel="icon" href="office/icon-192.png">
+<style>:root{color-scheme:light}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>বায়তুশ শরফ হিফজ একাডেমি — খাগড়াছড়ি</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiro+Bangla&family=Hind+Siliguri:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap">
+<style>
+/* Layout: sticky header → hero with Quranic line → sections on a 1100px column; alternating tinted bands */
+:root{
+  --bg:#f6f8f6; --surface:#ffffff; --band:#e9f0ec; --ink:#14231d; --muted:#53655d;
+  --line:#d3ded8; --brand:#0f4c3a; --brand-2:#1b6b52; --gold:#b9852a; --gold-soft:#f5ead3;
+  --on-brand:#f4f8f5; --ok:#1d7a4c; --warn:#a35b12;
+  --f-display:"Tiro Bangla","Noto Serif Bengali",Georgia,serif;
+  --f-body:"Hind Siliguri","Noto Sans Bengali",system-ui,sans-serif;
+  --f-ar:"Amiri","Scheherazade New","Traditional Arabic",serif;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1714; --surface:#15211c; --band:#122520; --ink:#e4ece8; --muted:#9db0a7;
+  --line:#28392f; --brand:#7fc8a9; --brand-2:#9ad8bd; --gold:#e0b45e; --gold-soft:#2c2414;
+  --on-brand:#0b1511; --ok:#6fcf9b; --warn:#e9a75c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1714; --surface:#15211c; --band:#122520; --ink:#e4ece8; --muted:#9db0a7;
+  --line:#28392f; --brand:#7fc8a9; --brand-2:#9ad8bd; --gold:#e0b45e; --gold-soft:#2c2414;
+  --on-brand:#0b1511; --ok:#6fcf9b; --warn:#e9a75c; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.7}
+a{color:var(--brand-2)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:16px}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.3;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.6rem,4vw,2.2rem);color:var(--brand)}
+h3{font-size:1.25rem}
+p{margin:0}
+.eyebrow{font-size:.82rem;letter-spacing:.06em;color:var(--gold);font-weight:600}
+.sec{padding-block:64px}
+.sec.band{background:var(--band)}
+.sec-head{display:grid;gap:8px;margin-bottom:32px;max-width:65ch}
+.sec-head p{color:var(--muted)}
+
+/* sample strip */
+.sample{background:var(--gold-soft);color:var(--ink);font-size:.85rem;text-align:center;padding:6px 16px}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.mark{width:42px;height:42px;flex:none}
+.logo b{font-family:var(--f-display);font-weight:400;font-size:1.15rem;line-height:1.2;display:block}
+.logo small{color:var(--muted);font-size:.75rem}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px;flex-wrap:wrap}
+nav a{display:block;padding:6px 12px;border-radius:6px;text-decoration:none;color:var(--ink);font-weight:500}
+nav a:hover{background:var(--band)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;color:var(--ink);font:inherit}
+.cart-btn{position:relative;background:var(--brand);color:var(--on-brand);border:0;border-radius:8px;padding:7px 14px;font:inherit;font-weight:600;cursor:pointer}
+.cart-btn span{background:var(--gold);color:#1a1205;border-radius:99px;padding:0 7px;margin-inline-start:6px;font-size:.8rem}
+@media (max-width:860px){
+  .menu-btn{display:block}
+  nav{position:absolute;inset-inline:0;top:100%;background:var(--surface);border-bottom:1px solid var(--line);padding:8px 16px 14px}
+  nav ul{flex-direction:column}
+  .logo small{display:none}
+}
+
+/* hero */
+.hero{background:#0f4c3a;color:#f4f8f5;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;opacity:.09;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 4l7 19h19l-15 11 6 19-17-12-17 12 6-19L4 23h19z' fill='none' stroke='white' stroke-width='1.2'/%3E%3C/svg%3E");}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;padding-block:56px;align-items:center}
+.ayah{font-family:var(--f-ar);font-size:clamp(1.8rem,5vw,2.6rem);direction:rtl;line-height:1.8;color:var(--gold)}
+:root .hero .ayah{color:#e7c27a}
+.hero h1{font-size:clamp(2rem,6vw,3.2rem);margin-top:8px;color:inherit}
+.hero p.lead{margin-top:14px;max-width:52ch;opacity:.92}
+.ayah-tr{font-size:.9rem;opacity:.8;margin-top:4px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.btn{display:inline-block;padding:11px 22px;border-radius:8px;font-weight:600;text-decoration:none;border:2px solid transparent;cursor:pointer;font:inherit;font-weight:600}
+.btn.gold{background:#e7c27a;color:#1a1205}
+.btn.ghost{border-color:currentColor;color:inherit;background:transparent}
+.btn.brand{background:var(--brand);color:var(--on-brand)}
+.btn.line{border-color:var(--brand);color:var(--brand);background:transparent}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.18);border-radius:var(--r);overflow:hidden}
+.facts div{background:rgba(0,0,0,.18);padding:18px}
+.facts b{display:block;font-family:var(--f-display);font-size:2rem;font-weight:400;color:#e7c27a;font-variant-numeric:tabular-nums}
+.facts span{font-size:.9rem;opacity:.9}
+@media (max-width:800px){.hero .wrap{grid-template-columns:1fr}}
+
+/* about */
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
+.about p+p{margin-top:12px}
+.pillars{display:grid;gap:14px}
+.pillar{border-inline-start:3px solid var(--gold);padding:4px 0 4px 14px}
+.pillar b{display:block;color:var(--brand)}
+.pillar span{color:var(--muted);font-size:.95rem}
+@media (max-width:800px){.about{grid-template-columns:1fr}}
+
+/* departments */
+.depts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.dept{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:grid;gap:10px;align-content:start}
+.dept .step{font-size:.8rem;color:var(--gold);font-weight:700;letter-spacing:.04em}
+.dept p{color:var(--muted);font-size:.95rem}
+.dept ul{margin:0;padding-inline-start:18px;font-size:.93rem}
+
+/* routine */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:480px}
+th,td{text-align:start;padding:10px 14px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+th{background:var(--band);font-weight:600;color:var(--brand)}
+tr:last-child td{border-bottom:0}
+
+/* admission */
+.adm{display:grid;grid-template-columns:1fr 1.15fr;gap:32px;align-items:start}
+.adm-info{display:grid;gap:20px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.box h3{margin-bottom:8px;color:var(--brand)}
+.box ul{margin:0;padding-inline-start:20px}
+.fees{width:100%;min-width:0}
+.fees td{padding:7px 0;border-bottom:1px dashed var(--line)}
+.fees td:last-child{text-align:end;font-weight:600}
+form{display:grid;gap:14px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:grid;gap:4px;font-weight:500;font-size:.95rem}
+input,select,textarea{font:inherit;font-size:1rem;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%}
+textarea{min-height:80px;resize:vertical}
+@media (max-width:800px){.adm{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+.result{display:grid;gap:10px;background:var(--gold-soft);border:1px solid var(--gold);border-radius:var(--r);padding:16px}
+.result pre{white-space:pre-wrap;font-family:var(--f-body);margin:0;font-size:.95rem;background:var(--surface);padding:12px;border-radius:8px;border:1px solid var(--line)}
+.result .acts{display:flex;flex-wrap:wrap;gap:10px}
+.small{font-size:.85rem;color:var(--muted)}
+
+/* books */
+.books{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.book{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.cover{aspect-ratio:4/3;max-width:100%;display:grid;place-items:center;padding:20px;position:relative}
+.cover .jacket{width:58%;aspect-ratio:3/4;border-radius:4px 10px 10px 4px;box-shadow:0 10px 24px rgba(0,0,0,.28), inset 6px 0 0 rgba(0,0,0,.18);display:grid;align-content:space-between;padding:14px 12px 12px 18px;color:#fff}
+.jacket .t{font-family:var(--f-display);font-size:1.15rem;line-height:1.25}
+.jacket .s{font-size:.66rem;opacity:.9}
+.jacket .geo{height:34px;background:repeating-linear-gradient(45deg,rgba(255,255,255,.25) 0 6px,transparent 6px 12px);border-radius:3px}
+.c1{background:#dfeee6}.c1 .jacket{background:#1b6b52}
+.c2{background:#f3e7cf}.c2 .jacket{background:#8a4f1d}
+.c3{background:#e0e6f1}.c3 .jacket{background:#23395d}
+:root[data-theme="dark"] .c1, :root[data-theme="dark"] .c2, :root[data-theme="dark"] .c3{background:var(--band)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .c1,:root:not([data-theme="light"]) .c2,:root:not([data-theme="light"]) .c3{background:var(--band)}}
+.binfo{padding:18px;display:grid;gap:8px;align-content:start}
+.binfo .meta{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.75rem;padding:2px 9px;border-radius:99px;background:var(--band);color:var(--brand);font-weight:600}
+.chip.new{background:var(--gold-soft);color:var(--warn)}
+.binfo p{color:var(--muted);font-size:.93rem}
+.buy{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+.price{font-size:1.35rem;font-weight:700;color:var(--brand);font-variant-numeric:tabular-nums}
+.price s{font-size:.9rem;color:var(--muted);font-weight:400;margin-inline-start:6px}
+
+/* cart drawer */
+.drawer{position:fixed;inset:0;z-index:50;display:grid;grid-template-columns:1fr minmax(0,440px)}
+.drawer .shade{background:rgba(0,0,0,.45)}
+.drawer .panel{background:var(--surface);overflow-y:auto;padding:20px 18px calc(20px + env(safe-area-inset-bottom,0px));display:grid;gap:14px;align-content:start;padding-top:calc(20px + env(safe-area-inset-top,0px))}
+@media (max-width:500px){.drawer{grid-template-columns:0 1fr}}
+.citem{display:grid;grid-template-columns:1fr auto;gap:6px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:30px;height:30px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;cursor:pointer}
+.tot{display:flex;justify-content:space-between;font-weight:700;font-size:1.1rem}
+.x{justify-self:end;background:none;border:0;font-size:1.6rem;color:var(--ink);cursor:pointer;line-height:1}
+
+/* notices */
+.notices{display:grid;gap:12px}
+.notice{display:grid;grid-template-columns:auto 1fr;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.date{width:66px;text-align:center;border-radius:8px;background:var(--brand);color:var(--on-brand);padding:6px 0;line-height:1.2}
+.date b{display:block;font-size:1.1rem;font-family:var(--f-display);font-weight:400}
+.date span{font-size:.75rem}
+.notice h3{font-size:1.08rem;font-family:var(--f-body);font-weight:600}
+.notice p{color:var(--muted);font-size:.93rem;margin-top:2px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.filters button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding:4px 14px;font:inherit;font-size:.9rem;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--brand);color:var(--on-brand);border-color:var(--brand)}
+
+/* contact & footer */
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.contact .box b{display:block;color:var(--brand);margin-bottom:4px}
+.copyline{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.copyline button{font:inherit;font-size:.8rem;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:6px;padding:2px 10px;cursor:pointer}
+footer{background:#0f4c3a;color:#f4f8f5;padding-block:28px;font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:8px 18px;border-radius:8px;z-index:60;font-size:.95rem}
+</style>
+</head>
+<body>
+<style>
+.strip{background:var(--gold-soft);color:var(--ink);font-size:.9rem;text-align:center;padding:7px 16px}
+.strip a{color:var(--warn);font-weight:600}
+.mission{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:10px;counter-reset:m}
+.mission li{display:grid;grid-template-columns:28px 1fr;gap:10px;color:var(--ink)}
+.mission li::before{counter-increment:m;content:counter(m);width:28px;height:28px;border-radius:50%;background:var(--band);color:var(--brand);display:grid;place-items:center;font-weight:700;font-size:.85rem}
+.vision{font-family:var(--f-display);font-size:1.2rem;line-height:1.7;color:var(--ink)}
+.dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:.92rem;margin:4px 0 0}
+.dl dt{color:var(--muted)}.dl dd{margin:0;font-weight:500}
+details{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);margin-top:12px}
+summary{cursor:pointer;padding:14px 18px;font-weight:600;color:var(--brand)}
+details .tbl-wrap{border:0;border-top:1px solid var(--line);border-radius:0 0 var(--r) var(--r)}
+details table{min-width:640px;font-size:.92rem}
+.ar{font-family:var(--f-ar);direction:rtl;unicode-bidi:isolate}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media (max-width:800px){.two{grid-template-columns:1fr}}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.steps li{display:grid;grid-template-columns:auto 1fr;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.steps .n{font-family:var(--f-display);font-size:1.4rem;color:var(--gold);min-width:1.4em;text-align:center}
+.steps b{display:block;color:var(--brand)}
+.steps span{color:var(--muted);font-size:.93rem}
+.rule{display:grid;gap:4px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.rule:last-child{border-bottom:0}
+.rule b{color:var(--brand)}
+.rule span{color:var(--muted);font-size:.93rem}
+.cards3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.lvl{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.lvl div{border-radius:var(--r);padding:14px;border:1px solid var(--line);background:var(--surface)}
+.lvl b{display:block}
+.lvl span{font-size:.88rem;color:var(--muted)}
+.lvl .l4 b{color:var(--ok)}.lvl .l3 b{color:var(--brand-2)}.lvl .l2 b{color:var(--gold)}.lvl .l1 b{color:var(--warn)}
+.timeline{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.timeline li{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.timeline li:last-child{border-bottom:0}
+.timeline .when{font-weight:700;color:var(--brand)}
+.timeline .now .when::after{content:"চলছে";margin-inline-start:8px;font-size:.72rem;background:var(--gold-soft);color:var(--warn);padding:1px 8px;border-radius:99px}
+@media (max-width:500px){.timeline li{grid-template-columns:1fr;gap:2px}}
+.catalog{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-top:28px}
+.cat h3{font-size:1.1rem;color:var(--brand);margin-bottom:6px}
+.blist{list-style:none;margin:0;padding:0}
+.blist li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.blist li:last-child{border-bottom:0}
+.blist button{flex:none;font:inherit;font-size:.82rem;border:1px solid var(--brand);color:var(--brand);background:transparent;border-radius:6px;padding:2px 10px;cursor:pointer}
+.blist button.added{background:var(--brand);color:var(--on-brand)}
+.phones{display:grid;gap:6px}
+</style>
+
+<div class="strip">২০২৭ শিক্ষাবর্ষে ভর্তি চলছে • ভর্তি পরীক্ষা ডিসেম্বর ২০২৬ • <a href="#admission">আবেদন করুন</a></div>
+
+<header>
+  <div class="wrap hbar">
+    <a class="logo" href="#home">
+      <svg class="mark" viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="6" y="6" width="36" height="36" rx="4" fill="var(--brand)" transform="rotate(45 24 24)"/>
+        <rect x="9" y="9" width="30" height="30" rx="3" fill="none" stroke="var(--gold)" stroke-width="1.6"/>
+        <path d="M14 30c3-1.5 6.5-2 10-.5 3.5-1.5 7-1 10 .5V18c-3-1.5-6.5-2-10-.5-3.5-1.5-7-1-10 .5z" fill="var(--on-brand)"/>
+        <path d="M24 17.5V29.5" stroke="var(--brand)" stroke-width="1.2"/>
+      </svg>
+      <span><b>বায়তুশ শরফ হিফজ একাডেমি</b><small>খাগড়াছড়ি • জব্বারিয়া ইন্টারন্যাশনাল</small></span>
+    </a>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="cart-btn" id="cartOpen" type="button">বইয়ের অর্ডার<span id="cartCount">০</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">মেনু</button>
+    </div>
+    <nav id="nav">
+      <ul>
+        <li><a href="#about">পরিচিতি</a></li>
+        <li><a href="#depts">বিভাগ</a></li>
+        <li><a href="#method">হিফজ পদ্ধতি</a></li>
+        <li><a href="#campus">ক্যাম্পাস জীবন</a></li>
+        <li><a href="#admission">ভর্তি</a></li>
+        <li><a href="#books">প্রকাশনা</a></li>
+        <li><a href="#notice">নোটিশ</a></li>
+        <li><a href="#contact">যোগাযোগ</a></li>
+        <li><a href="student.html" style="color:var(--gold);font-weight:700">অভিভাবক লগইন</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="ayah" lang="ar">وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ</div>
+      <div class="ayah-tr">“আমি কুরআনকে উপদেশ গ্রহণের জন্য সহজ করে দিয়েছি।” — সূরা আল-কামার, ১৭</div>
+      <h1>খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি</h1>
+      <p class="lead">হিফজুল কুরআন, কওমি-আলিয়া ও আধুনিক প্রযুক্তির অনন্য সমন্বয়। বিজ্ঞানসম্মত হিফজ পদ্ধতি, আরবি-ইংরেজির চার দক্ষতা, রোবোটিক্স ও স্মার্ট ক্লাসরুম, এক ক্যাম্পাসে।</p>
+      <div class="cta">
+        <a class="btn gold" href="#admission">ভর্তির আবেদন</a>
+        <a class="btn ghost" href="#depts">বিভাগসমূহ দেখুন</a>
+      </div>
+    </div>
+    <div class="facts" aria-label="এক নজরে">
+      <div><b>৩</b><span>প্রধান বিভাগ</span></div>
+      <div><b>৫</b><span>ভর্তির এন্ট্রি পয়েন্ট</span></div>
+      <div><b>৩২</b><span>নিজস্ব প্রকাশিত বই</span></div>
+      <div><b>জানু ২০২৭</b><span>নতুন শিক্ষাবর্ষের ক্লাস শুরু</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="wrap about">
+    <div>
+      <div class="sec-head"><span class="eyebrow">আমাদের ভিশন</span><h2>আলোকিত প্রজন্ম, বিশ্বমঞ্চে ইসলামের প্রতিনিধি</h2></div>
+      <p class="vision">এমন একটি আদর্শ ও আলোকিত প্রজন্ম গড়ে তোলা, যারা বিশুদ্ধভাবে কুরআনে কারীমের হাফেজ, দ্বীনি জ্ঞানে সুগভীর মুহাক্কিক আলেম, আধুনিক বিজ্ঞান-প্রযুক্তি ও রোবোটিক্সে পারদর্শী, বহুভাষিক (বাংলা, আরবি ও ইংরেজি) এবং উত্তম চরিত্র ও নেতৃত্বের গুণে বিশ্বমঞ্চে ইসলামের প্রতিনিধিত্ব করতে সক্ষম, ইনশাআল্লাহ।</p>
+    </div>
+    <div>
+      <span class="eyebrow">আমাদের মিশন</span>
+      <ol class="mission">
+        <li><span>প্রথম শ্রেণি থেকেই বিজ্ঞানসম্মত নূরানী ও তাহফিজ পদ্ধতিতে বিশুদ্ধ তিলাওয়াত ও তাজবীদের মজবুত ভিত্তি।</span></li>
+        <li><span>সহীহ আকীদা, মাসনুন দোয়া ও সুন্নাহভিত্তিক জীবনাচরণ এবং চারিত্রিক তারবিয়াহ।</span></li>
+        <li><span>কওমি ধারার মাদানি নেসাব ও দরসে নিজামীর সাথে আলিয়া ধারার দাখিল-আলিম বোর্ড পরীক্ষার সমন্বয়।</span></li>
+        <li><span>প্রথম শ্রেণি থেকেই আরবি ও ইংরেজির শ্রবণ, কথন, পঠন ও লিখন দক্ষতা।</span></li>
+        <li><span>রোবোটিক্স, আইসিটি ও STEM শিক্ষার মাধ্যমে গবেষণাধর্মী মনন।</span></li>
+        <li><span>শিশু মনস্তত্ত্বের আলোকে আনন্দময়, ভীতিহীন ও ফলাফলভিত্তিক (OBE) শিক্ষণ পরিবেশ।</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec band" id="depts">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">শিক্ষা বিভাগ</span><h2>তিনটি বিভাগ, প্রতিটি শিশুর জন্য উপযুক্ত পথ</h2><p>প্রতিটি শ্রেণি দুই সেমিস্টারে ভাগ। শ্রেণিভিত্তিক পূর্ণ পাঠ্যতালিকা প্রতিটি বিভাগের নিচে খুলে দেখুন।</p></div>
+    <div class="depts">
+      <div class="dept"><span class="step">৬ বছর • ১ম–৬ষ্ঠ শ্রেণি</span><h3>জেনারেল হিফজ বিভাগ</h3><p>দ্রুততম সময়ে মানসম্মত হিফজুল কুরআন, সাথে ষষ্ঠ শ্রেণি সমমান সাধারণ শিক্ষা। যারা সম্পূর্ণ মনোযোগ হিফজে দিতে চায় তাদের জন্য।</p>
+        <dl class="dl"><dt>ভর্তির বয়স</dt><dd>৬ বছর</dd><dt>অগ্রগতি</dt><dd>কায়েদা → আমপারা → হিফজ → দাওর → মুতাশাবিহাত ও ক্বেরাত</dd><dt>সাপ্তাহিক</dt><dd>~২৮–৩০ ঘণ্টা</dd><dt>পরবর্তী পথ</dt><dd>কিতাব বিভাগ (মানবিক)</dd></dl></div>
+      <div class="dept"><span class="step">৬ বছর • ১ম–৬ষ্ঠ শ্রেণি</span><h3>একাডেমিক হিফজ বিভাগ</h3><p>হিফজুল কুরআন + পূর্ণাঙ্গ জাতীয় কারিকুলাম + আরবি/ইংরেজি চার দক্ষতা + রোবোটিক্স। হিফজের পাশাপাশি বিজ্ঞান, ভাষা ও প্রযুক্তিতে সমান দক্ষতা।</p>
+        <dl class="dl"><dt>ভর্তির বয়স</dt><dd>৬–৭ বছর</dd><dt>অগ্রগতি</dt><dd>কায়েদা → আমপারা → হিফজ → দাওর (সুষম সময়ে)</dd><dt>সাপ্তাহিক</dt><dd>~৩২–৩৪ ঘণ্টা</dd><dt>পরবর্তী পথ</dt><dd>কিতাব বিভাগ (বিজ্ঞান/মানবিক)</dd></dl></div>
+      <div class="dept"><span class="step">৭ বছর • ১ম বর্ষ–দাওরায়ে হাদিস</span><h3>কিতাব বিভাগ</h3><p>কুরআন-হাদিসের তাফাক্কুহ, কওমি ও আলিয়া বোর্ডের স্বীকৃতি এবং উচ্চতর গবেষণা। হিফজ সমাপ্তকারী বা সরাসরি দ্বীনি শিক্ষায় আগ্রহীদের জন্য।</p>
+        <dl class="dl"><dt>ভর্তির বয়স</dt><dd>১২ বছর (বা হিফজ শেষে)</dd><dt>যোগ্যতা</dt><dd>শুদ্ধ কুরআন পঠন ও ৫ম শ্রেণি সমমান</dd><dt>সাপ্তাহিক</dt><dd>~৩৬–৪০ ঘণ্টা</dd><dt>পরবর্তী পথ</dt><dd>দাওরায়ে হাদিস / আলিম / ইফতা</dd></dl></div>
+    </div>
+
+    <details>
+      <summary>জেনারেল হিফজ বিভাগ — শ্রেণিভিত্তিক পাঠ্যতালিকা</summary>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>শ্রেণি</th><th>সেমিস্টার</th><th>কুরআন, সুন্নাহ ও আরবি</th><th>মাইলফলক</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="2">নাজেরা ১ম বর্ষ (১ম শ্রেণি)</td><td>১ম</td><td>আদর্শ হিফজ কায়েদা + নূরানী পদ্ধতি</td><td>আরবি ২৯ হরফ, মাখরাজ ও প্রাথমিক শব্দ</td></tr>
+          <tr><td>২য়</td><td>আদর্শ আমপারা + নূরানী পদ্ধতি</td><td>৩০তম পারা মুখস্থ ও তিলাওয়াত</td></tr>
+          <tr><td rowspan="2">নাজেরা ২য় বর্ষ (২য় শ্রেণি)</td><td>১ম</td><td>কুরআন মাজিদ নাজেরা সম্পূর্ণ + সুন্নাহ</td><td>তারতীলসহ দ্রুত ও বিশুদ্ধ পাঠ</td></tr>
+          <tr><td>২য়</td><td>হিফজ শুরু (৫ পারা) + সুন্নাহ</td><td>আনুষ্ঠানিক হিফজ (পারা ৩০–২৬)</td></tr>
+          <tr><td rowspan="2">হিফজ ১ম বর্ষ (৩য় শ্রেণি)</td><td>১ম</td><td>হিফজ ৬–৮ পারা + এসো আরবি শিখি ১</td><td>সবক, সবকী ও মনজিল পদ্ধতি</td></tr>
+          <tr><td>২য়</td><td>হিফজ ৯–১২ পারা + এসো আরবি শিখি ২</td><td>মোট ১২ পারা</td></tr>
+          <tr><td rowspan="2">হিফজ ২য় বর্ষ (৪র্থ শ্রেণি)</td><td>১ম</td><td>হিফজ ১৩–১৬ পারা + এসো আরবি শিখি ৩</td><td>আরবি বাক্য গঠন, মোট ১৬ পারা</td></tr>
+          <tr><td>২য়</td><td>হিফজ ১৭–২০ পারা + কাসাসুন্নাবিয়্যিন ১</td><td>নবীগণের জীবনকাহিনী, মোট ২০ পারা</td></tr>
+          <tr><td rowspan="2">হিফজ ৩য় বর্ষ (৫ম শ্রেণি)</td><td>১ম</td><td>হিফজ ২১–২৫ পারা + আত-তামরীনুল কিতাবী</td><td>মাদানি নেসাব প্রস্তুতি, ২৫ পারা</td></tr>
+          <tr><td>২য়</td><td>হিফজ ২৬–৩০ পারা + আত-তামরীনুল কিতাবী</td><td>সম্পূর্ণ ৩০ পারা হিফজ</td></tr>
+          <tr><td rowspan="2">দাওর বর্ষ (৬ষ্ঠ শ্রেণি)</td><td>১ম</td><td>পূর্ণাঙ্গ দাওর + আত-তামরীনুত তাতবীকী</td><td>হিফজ মজবুতিকরণ</td></tr>
+          <tr><td>২য়</td><td>মুতাশাবিহাত ও ক্বেরাত</td><td>হিফজ সনদ ও কিতাব বিভাগের প্রস্তুতি</td></tr>
+        </tbody></table></div>
+      <p class="small" style="padding:10px 18px">প্রতিটি শ্রেণিতে বাংলা, ইংরেজি ও প্রাথমিক গণিত পড়ানো হয় একাডেমির সমন্বিত পাঠ্যবই দিয়ে।</p>
+    </details>
+
+    <details>
+      <summary>একাডেমিক হিফজ বিভাগ — শ্রেণিভিত্তিক পাঠ্যতালিকা</summary>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>শ্রেণি</th><th>কুরআন ও সুন্নাহ</th><th>জাতীয় কারিকুলাম</th><th>ভাষা</th><th>রোবোটিক্স</th></tr></thead>
+        <tbody>
+          <tr><td>১ম শ্রেণি</td><td>আদর্শ কায়েদা → আমপারা</td><td>বাংলা, ইংরেজি, গণিত</td><td><span class="ar">العربية بين يدي أولادنا ١</span> + English 4 Skills L1</td><td>ফান উইথ রোবোটিক্স ০১</td></tr>
+          <tr><td>২য় শ্রেণি</td><td>নাজেরা সম্পূর্ণ → হিফজ শুরু (৫ পারা)</td><td>বাংলা, ইংরেজি, গণিত, পরিবেশ পরিচিতি</td><td><span class="ar">العربية بين يدي أولادنا ٢</span> + L2</td><td>ফান উইথ রোবোটিক্স ০২</td></tr>
+          <tr><td>৩য় শ্রেণি</td><td>হিফজ ৬–১২ পারা + এসো আরবি শিখি</td><td>বাংলা, ইংরেজি, গণিত, প্রাথমিক বিজ্ঞান</td><td><span class="ar">العربية بين يدي أولادنا ٣</span> + L3</td><td>ফান উইথ রোবোটিক্স ০৩</td></tr>
+          <tr><td>৪র্থ শ্রেণি</td><td>হিফজ ১৩–২০ পারা + কাসাসুন্নাবিয়্যিন</td><td>বাংলা, ইংরেজি, গণিত, বিজ্ঞান, বিজিএস</td><td><span class="ar">العربية بين يدي أولادنا ٤</span> + L4</td><td>ফান উইথ রোবোটিক্স ০৪</td></tr>
+          <tr><td>৫ম শ্রেণি</td><td>হিফজ ২১–৩০ পারা + তামরীন</td><td>বাংলা, ইংরেজি, গণিত, বিজ্ঞান, বিজিএস</td><td><span class="ar">العربية بين يدي أولادنا ٥</span> + L5</td><td>ফান উইথ রোবোটিক্স ০৫</td></tr>
+          <tr><td>৬ষ্ঠ (দাওর)</td><td>পূর্ণ দাওর, মুতাশাবিহাত ও ক্বেরাত</td><td>৬ষ্ঠ শ্রেণির পূর্ণাঙ্গ বিষয় (NCTB)</td><td><span class="ar">العربية بين يدي أولادنا ٦</span> + L6</td><td>রোবোটিক্স ক্যাপস্টোন প্রজেক্ট</td></tr>
+        </tbody></table></div>
+    </details>
+
+    <details>
+      <summary>কিতাব বিভাগ — ৭ বছরের সমন্বিত পাঠ্যতালিকা</summary>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>বর্ষ</th><th>প্রধান কিতাব (মাদানি নেসাব ও কওমি)</th><th>বোর্ড ও সমমান</th><th>রোবোটিক্স ও বিজ্ঞান</th></tr></thead>
+        <tbody>
+          <tr><td>১ম বর্ষ (৬ষ্ঠ)</td><td class="ar">الطريق إلى العربية، التمرين الكتابي، قصص النبيين ١، الطريق إلى الصرف</td><td>৬ষ্ঠ শ্রেণির বাংলা, ইংরেজি, গণিত, বিজ্ঞান</td><td>বিল্ড উইথ রোবোটিক্স ০১</td></tr>
+          <tr><td>২য় বর্ষ (৭ম)</td><td class="ar">الطريق إلى القرآن، الطريق إلى الفقه، الطريق إلى النحو، القراءة الراشدة</td><td>৭ম শ্রেণির বিষয়সমূহ</td><td>বিল্ড উইথ রোবোটিক্স ০২ (মাইক্রোকন্ট্রোলার ও IoT)</td></tr>
+          <tr><td>৩য় বর্ষ (৮ম)</td><td class="ar">مختصر القدوري، هداية النحو، تيسير المنطق، الطريق إلى البلاغة</td><td>বেফাক ৮ম ও জুনিয়র বৃত্তি</td><td>বিল্ড উইথ রোবোটিক্স ০৩ (অটোমেশন)</td></tr>
+          <tr><td>৪র্থ বর্ষ (৯ম)</td><td class="ar">ترجمة معاني القرآن، أصول الشاشي، دروس البلاغة، الهداية ١-٢</td><td>দাখিল ৯ম ও বেফাক সানাবিয়্যাহ</td><td>ইনোভেট উইথ রোবোটিক্স ০১ (রোবটিক আর্ম ও AI)</td></tr>
+          <tr><td>৫ম বর্ষ (১০ম)</td><td class="ar">الطريق إلى تفسير القرآن، الهداية ٣، الفوز الكبير، العقيدة الطحاوية</td><td>দাখিল বোর্ড পরীক্ষা</td><td>ইনোভেট উইথ রোবোটিক্স ০২ (বিজ্ঞান মেলা)</td></tr>
+          <tr><td>৬ষ্ঠ বর্ষ (আলিম)</td><td class="ar">مشكاة المصابيح، الهداية ٤، تفسير البيضاوي، شرح نخبة الفكر</td><td>আলিম বোর্ড ও বেফাক ফযীলত</td><td>ইনোভেট উইথ রোবোটিক্স ০৩ (রিসার্চ পেপার)</td></tr>
+          <tr><td>৭ম বর্ষ (দাওরায়ে হাদিস)</td><td class="ar">صحيح البخاري، صحيح مسلم، جامع الترمذي، سنن أبي داود، النسائي، ابن ماجة</td><td>আল-হাইআতুল উলয়া কেন্দ্রীয় পরীক্ষা</td><td>সমাপনী গবেষণা থিসিস</td></tr>
+        </tbody></table></div>
+    </details>
+  </div>
+</section>
+
+<section class="sec" id="method">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">বৈজ্ঞানিক হিফজ পদ্ধতি</span><h2>২০ বার তিলাওয়াত, ১০ বার সংযোগ (রাবত পদ্ধতি)</h2><p>প্রতিটি পৃষ্ঠা এই সাতটি ধাপে মুখস্থ করানো হয়, যাতে হিফজ শুরু থেকেই মজবুত হয়।</p></div>
+    <div class="two">
+      <ol class="steps">
+        <li><span class="n">১</span><div><b>পূর্ণ পৃষ্ঠা দর্শন ও তিলাওয়াত</b><span>উস্তাদের সামনে দেখে দেখে ৩–৫ বার শুদ্ধ পাঠ।</span></div></li>
+        <li><span class="n">২</span><div><b>১ম আয়াত ২০ বার</b><span>পূর্ণ মনোযোগে একাকী ২০ বার পড়ে মুখস্থ।</span></div></li>
+        <li><span class="n">৩</span><div><b>২য় আয়াত ২০ বার</b><span>একইভাবে ২০ বার পড়ে মুখস্থ।</span></div></li>
+        <li><span class="n">৪</span><div><b>১ম ও ২য় আয়াত মিলিয়ে ১০ বার</b><span>সংযোগ (রাবত) করে না দেখে পাঠ।</span></div></li>
+        <li><span class="n">৫</span><div><b>৩য় আয়াত ২০ বার</b><span>পৃথকভাবে ২০ বার পড়ে আয়ত্ত।</span></div></li>
+        <li><span class="n">৬</span><div><b>২য় ও ৩য় আয়াত মিলিয়ে ১০ বার</b><span>পরপর আয়াতের সংযোগ পাঠ।</span></div></li>
+        <li><span class="n">৭</span><div><b>সম্পূর্ণ অংশ ৫ বার</b><span>পুরো পৃষ্ঠা একটানা না দেখে উস্তাদকে শোনানো।</span></div></li>
+      </ol>
+      <div class="box">
+        <h3>হিফজের ৫টি সোনালী মূলনীতি</h3>
+        <div class="rule"><b>মুসহাফের অভিন্নতা</b><span>শুরু থেকে শেষ পর্যন্ত একই ১৫ লাইনের মুসহাফ, যাতে পৃষ্ঠার অবস্থান মনে গেঁথে যায়।</span></div>
+        <div class="rule"><b>উস্তাদের কাছে তালকিন</b><span>নিজে পড়ার আগে অভিজ্ঞ উস্তাদের কাছে শুনে পাঠ সংশোধন।</span></div>
+        <div class="rule"><b>অবিরাম তাকরার</b><span>যত বেশি পুনরাবৃত্তি, তত মজবুত হিফজ। একদিনের বিরতিও ক্ষতি করে।</span></div>
+        <div class="rule"><b>রিভিশনে অগ্রাধিকার</b><span>নতুন সবকের চেয়ে সবকী ও মনজিল রিভিশন সবসময় আগে।</span></div>
+        <div class="rule"><b>ধৈর্য ও সংহতিকরণ</b><span>প্রথম দুই বছরে দ্রুত ভুলে যাওয়া স্বাভাবিক। হতাশ না হয়ে রিভিশন চালিয়ে যাওয়া।</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec band" id="campus">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">ক্যাম্পাস জীবন</span><h2>নিরাপদ, আনন্দময় ও শৃঙ্খলাপূর্ণ পরিবেশ</h2></div>
+    <div class="cards3">
+      <div class="box"><h3>হিফজ হাউজ</h3><p class="small">১ম–৬ষ্ঠ শ্রেণি। সিনিয়র উস্তাদদের তত্ত্বাবধানে দৈনিক হিফজ রুটিন, ঘুম, পুষ্টি ও আদব। অডিও কুরআন প্লেয়ার ও আরামদায়ক খাট।</p></div>
+      <div class="box"><h3>একাডেমিক হাউজ</h3><p class="small">কিতাব ১ম–৪র্থ বর্ষ। স্টাডি আওয়ার, বিজ্ঞান প্রজেক্ট ও ইংরেজি চর্চা। স্টাডি রুম, বিজ্ঞান ক্লাব ও ইন্টারনেট ল্যাব।</p></div>
+      <div class="box"><h3>কিতাব হাউজ</h3><p class="small">উচ্চতর শ্রেণি ও দাওরায়ে হাদিস। বোর্ড পরীক্ষা প্রস্তুতি, মুতালাআ ও নেতৃত্ব বিকাশ। ইসলামিক রিসার্চ লাইব্রেরি ও সেমিনার রুম।</p></div>
+    </div>
+
+    <div class="two" style="margin-top:28px">
+      <div>
+        <h3 style="margin-bottom:12px;color:var(--brand)">হিফজ বিভাগের দৈনিক রুটিন</h3>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>সময়</th><th>কার্যক্রম</th></tr></thead>
+          <tbody>
+            <tr><td>ফজরের ১ ঘণ্টা ২০ মিনিট আগে</td><td>জাগরণ, তাহাজ্জুদ ও সবক হাজিরা</td></tr>
+            <tr><td>ফজর</td><td>নামাজ, আমল ও দোয়া</td></tr>
+            <tr><td>ফজরের পর – ৯:৩০</td><td>আমুখতা শেখা ও হাজিরা (নাস্তার বিরতিসহ)</td></tr>
+            <tr><td>৯:৩০ – ১২:০০</td><td>মশক শেষে বিশ্রাম</td></tr>
+            <tr><td>১২:০০ – ১:০০</td><td>গোসল ও দুপুরের খাবার</td></tr>
+            <tr><td>জোহর – আসর</td><td>আমুখতা হাজিরা, পেছনের পারা ও সাত সবক চর্চা</td></tr>
+            <tr><td>আসর – মাগরিব</td><td>তিলাওয়াত, মাসায়েল চর্চা ও মাঠে খেলাধুলা</td></tr>
+            <tr><td>মাগরিব – এশা</td><td>নতুন সবক শেখা</td></tr>
+            <tr><td>এশা – ১০:০০</td><td>নামাজ, রাতের খাবার ও সাত সবক শোনানো</td></tr>
+            <tr><td>১০:১৫ থেকে</td><td>পর্যাপ্ত ঘুম</td></tr>
+          </tbody></table></div>
+      </div>
+      <div class="box">
+        <h3>অভিভাবকের জন্য আমাদের অঙ্গীকার</h3>
+        <div class="rule"><b>শারীরিক শাস্তি সম্পূর্ণ নিষিদ্ধ</b><span>শিক্ষার্থীর প্রতি শারীরিক বা মানসিক নির্যাতনের কোনো সুযোগ নেই। এর বদলে পজিটিভ কাউন্সেলিং।</span></div>
+        <div class="rule"><b>প্রশিক্ষিত শিক্ষক</b><span>প্রতি শিক্ষাবর্ষের আগে ১৫ দিনের পেডাগজি, চাইল্ড সাইকোলজি ও স্মার্ট ক্লাসরুম প্রশিক্ষণ বাধ্যতামূলক।</span></div>
+        <div class="rule"><b>আর্থিক স্বচ্ছতা</b><span>শিক্ষকদের জন্য অভিভাবক বা শিক্ষার্থীর কাছ থেকে ব্যক্তিগত উপহার বা অর্থ গ্রহণ নিষিদ্ধ।</span></div>
+        <div class="rule"><b>স্মার্ট ক্লাসরুম, নিয়ন্ত্রিত স্ক্রিন</b><span>৩–৫ মিনিটের মিউজিকমুক্ত শিক্ষামূলক কনটেন্ট, শিক্ষকের নিয়ন্ত্রণে বড় পর্দায়। শিক্ষার্থীর ব্যক্তিগত ডিভাইস নিষিদ্ধ।</span></div>
+        <div class="rule"><b>পাঠ্যবইয়ে QR কোড</b><span>প্রতি অধ্যায়ের QR কোড স্ক্যান করে অভিভাবকও ঘরে বসে পাঠের ডিজিটাল কনটেন্ট দেখতে পারবেন।</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin:32px 0 12px;color:var(--brand)">ফলাফলভিত্তিক (OBE) মূল্যায়ন: চার স্তরের রুব্রিক</h3>
+    <div class="lvl">
+      <div class="l4"><b>লেভেল ৪ • অসাধারণ</b><span>সঠিক মাখরাজ ও হরকতে সাবলীল পাঠ, স্বতঃস্ফূর্ত আমল।</span></div>
+      <div class="l3"><b>লেভেল ৩ • ভালো</b><span>অধিকাংশ সঠিক, সামান্য সহায়তা লাগে।</span></div>
+      <div class="l2"><b>লেভেল ২ • সন্তোষজনক</b><span>মৌলিক বিষয় চেনে, প্রয়োগে ভুল হয়।</span></div>
+      <div class="l1"><b>লেভেল ১ • নিবিড় যত্ন</b><span>বিশেষ মনোযোগ ও অভিভাবক বৈঠক।</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="admission">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">ভর্তি ২০২৭</span><h2>ভর্তির তথ্য ও আবেদন</h2><p>পাঁচটি স্তরে ভর্তি নেওয়া হয়। ফরম পূরণ করে আবেদনটি কপি করুন এবং অফিসের নম্বরে পাঠান।</p></div>
+    <div class="tbl-wrap" style="margin-bottom:28px"><table>
+      <thead><tr><th>শ্রেণি / স্তর</th><th>বয়স</th><th>পূর্ব যোগ্যতা</th><th>ভর্তি মূল্যায়ন</th><th>ব্রিজ কোর্স</th></tr></thead>
+      <tbody>
+        <tr><td>১ম শ্রেণি (নাজেরা ১ম বর্ষ)</td><td>৫–৬ বছর</td><td>প্রয়োজন নেই</td><td>মৌখিক প্রস্তুতি ও ইন্টারভিউ</td><td>প্রয়োজন নেই</td></tr>
+        <tr><td>৩য় শ্রেণি (হিফজ ১ম বর্ষ)</td><td>৭–৮ বছর</td><td>নাজেরা সমাপ্ত / আংশিক হিফজ</td><td>তিলাওয়াত ও সাক্ষরতা পরীক্ষা</td><td>নাজেরা সংহতিকরণ (২–৪ সপ্তাহ)</td></tr>
+        <tr><td>৬ষ্ঠ শ্রেণি (কিতাব ১ম বর্ষ)</td><td>১১–১২ বছর</td><td>হিফজ সমাপ্ত বা ৫ম শ্রেণি সমমান</td><td>লিখিত (বাংলা, গণিত, আরবি) ও তিলাওয়াত</td><td>ডায়াগনস্টিক ব্রিজ টার্ম (৪–৬ সপ্তাহ)</td></tr>
+        <tr><td>৯ম শ্রেণি (দাখিল ট্র্যাক)</td><td>১৪–১৫ বছর</td><td>৮ম শ্রেণি সমমান / হাফতুম</td><td>দাখিল প্রস্তুতিমূলক স্ক্রিনিং</td><td>ইনটেনসিভ ক্যাচ-আপ মডিউল</td></tr>
+        <tr><td>দাওরায়ে হাদিস</td><td>১৮–১৯ বছর</td><td>মিশকাত / ফযীলত সমাপ্ত</td><td>কওমি বোর্ড সনদ ও ইন্টারভিউ</td><td>হাদিস গবেষণা মডিউল</td></tr>
+      </tbody></table></div>
+
+    <div class="adm">
+      <div class="adm-info">
+        <div class="box"><h3>ভর্তি ক্যালেন্ডার</h3>
+          <ol class="timeline">
+            <li><span class="when">অক্টোবর–নভেম্বর ২০২৬</span><span>ভর্তি ফরম ও তথ্য বিতরণ</span></li>
+            <li><span class="when">ডিসেম্বর ২০২৬</span><span>শিক্ষার্থী ভর্তি পরীক্ষা</span></li>
+            <li><span class="when">জানুয়ারি ২০২৭</span><span>ভবন উদ্বোধন, ওরিয়েন্টেশন ও সেমিস্টার-১ ক্লাস শুরু</span></li>
+          </ol>
+        </div>
+        <div class="box"><h3>বেতন ও ফি</h3><p>ভর্তি ফি, মাসিক বেতন ও আবাসিক খরচ জানতে অফিসে যোগাযোগ করুন।</p>
+          <div class="phones" style="margin-top:8px"><b>০১৮২০৭১৭১৭৭</b><b>০১৮৬৭৯৩৪৭৪৪</b><b>০১৮৭৭৪১৮৪৩১</b></div></div>
+      </div>
+      <div class="box">
+        <form id="admForm" novalidate>
+          <div class="row2">
+            <label for="a_name">শিক্ষার্থীর নাম<input id="a_name" required></label>
+            <label for="a_dob">জন্ম তারিখ<input id="a_dob" type="date"></label>
+          </div>
+          <div class="row2">
+            <label for="a_father">পিতার নাম<input id="a_father" required></label>
+            <label for="a_phone">অভিভাবকের মোবাইল<input id="a_phone" type="tel" inputmode="tel" required></label>
+          </div>
+          <div class="row2">
+            <label for="a_dept">বিভাগ<select id="a_dept"><option>জেনারেল হিফজ বিভাগ</option><option>একাডেমিক হিফজ বিভাগ</option><option>কিতাব বিভাগ</option></select></label>
+            <label for="a_class">যে শ্রেণিতে ভর্তি<select id="a_class"><option>১ম শ্রেণি (নাজেরা ১ম বর্ষ)</option><option>৩য় শ্রেণি (হিফজ ১ম বর্ষ)</option><option>৬ষ্ঠ শ্রেণি (কিতাব ১ম বর্ষ)</option><option>৯ম শ্রেণি (দাখিল ট্র্যাক)</option><option>দাওরায়ে হাদিস</option></select></label>
+          </div>
+          <label for="a_addr">ঠিকানা<textarea id="a_addr"></textarea></label>
+          <label for="a_prev">বর্তমান পড়া (যেমন: আমপারা শেষ, ৫ পারা হিফজ)<input id="a_prev"></label>
+          <p class="small" id="admErr" role="alert" hidden>শিক্ষার্থীর নাম, পিতার নাম ও মোবাইল নম্বর লিখুন।</p>
+          <button class="btn brand" type="submit">আবেদন তৈরি করুন</button>
+        </form>
+        <div class="result" id="admOut" hidden style="margin-top:16px">
+          <b>আবেদন তৈরি হয়েছে</b>
+          <pre id="admText"></pre>
+          <div class="acts"><button class="btn brand" type="button" data-copy="admText">কপি করুন</button><a class="btn line" id="admWa" target="_blank" rel="noopener" hidden>WhatsApp-এ পাঠান</a></div>
+          <p class="small">কপি করে ০১৮২০৭১৭১৭৭ নম্বরে মেসেজ করুন, bsjiha@gmail.com-এ ইমেইল করুন, অথবা অফিসে এসে জমা দিন।</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec band" id="books">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">একাডেমির প্রকাশনা</span><h2>আমাদের নিজস্ব বই</h2><p>একাডেমির শিক্ষকদের হাতে তৈরি ৩২টি বই। অন্য মাদরাসা ও অভিভাবকরাও অর্ডার করতে পারেন। বই বেছে অর্ডার তৈরি করুন; দাম ও ডেলিভারি ফোনে জানানো হবে।</p></div>
+    <div class="books" id="bookList"></div>
+    <div class="catalog" id="catalog"></div>
+  </div>
+</section>
+
+<section class="sec" id="notice">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">নোটিশ বোর্ড</span><h2>সাম্প্রতিক ঘোষণা</h2></div>
+    <div class="filters" id="filters"></div>
+    <div class="notices" id="noticeList"></div>
+  </div>
+</section>
+
+<section class="sec band" id="contact">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">যোগাযোগ</span><h2>আমাদের সাথে কথা বলুন</h2></div>
+    <div class="contact">
+      <div class="box"><b>ঠিকানা</b><p id="c_addr">খাগড়াছড়ি বায়তুশ শরফ কমপ্লেক্স, বায়তুশ শরফ সড়ক, আরামবাগ, সদর, খাগড়াছড়ি পার্বত্য জেলা</p></div>
+      <div class="box"><b>মোবাইল</b>
+        <div class="phones">
+          <div class="copyline"><span id="p1">০১৮২০৭১৭১৭৭</span><button type="button" data-copy="p1">কপি</button></div>
+          <div class="copyline"><span id="p2">০১৮৬৭৯৩৪৭৪৪</span><button type="button" data-copy="p2">কপি</button></div>
+          <div class="copyline"><span id="p3">০১৮৭৭৪১৮৪৩১</span><button type="button" data-copy="p3">কপি</button></div>
+        </div></div>
+      <div class="box"><b>ইমেইল</b><div class="copyline"><span id="c_mail">bsjiha@gmail.com</span><button type="button" data-copy="c_mail">কপি</button></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© ২০২৬ খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি</span><span>হিফজুল কুরআন, কওমি-আলিয়া ও আধুনিক প্রযুক্তির সমন্বয়</span></div>
+</footer>
+
+<div class="drawer" id="drawer" hidden>
+  <div class="shade" id="shade"></div>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <button class="x" type="button" id="cartClose" aria-label="বন্ধ করুন">×</button>
+    <h2 id="cartTitle" style="font-size:1.5rem">বইয়ের অর্ডার</h2>
+    <div id="cartItems"></div>
+    <p class="small">দাম ও ডেলিভারি চার্জ অর্ডার নিশ্চিত করার সময় ফোনে জানানো হবে। মাদরাসার জন্য বেশি কপিতে বিশেষ ব্যবস্থা।</p>
+    <form id="orderForm" novalidate>
+      <label for="o_name">নাম / প্রতিষ্ঠানের নাম<input id="o_name"></label>
+      <label for="o_phone">মোবাইল<input id="o_phone" type="tel" inputmode="tel"></label>
+      <label for="o_addr">ডেলিভারি ঠিকানা<textarea id="o_addr"></textarea></label>
+      <p class="small" id="ordErr" role="alert" hidden></p>
+      <button class="btn brand" type="submit">অর্ডার তৈরি করুন</button>
+    </form>
+    <div class="result" id="ordOut" hidden>
+      <b>অর্ডার তৈরি হয়েছে</b>
+      <pre id="ordText"></pre>
+      <div class="acts"><button class="btn brand" type="button" data-copy="ordText">কপি করুন</button><a class="btn line" id="ordWa" target="_blank" rel="noopener" hidden>WhatsApp-এ পাঠান</a></div>
+      <p class="small">কপি করে ০১৮২০৭১৭১৭৭ নম্বরে মেসেজ করুন। দাম ও ডেলিভারি নিশ্চিত করতে আমরা ফোন করব।</p>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script src="config.js"></script>
+<script>
+// WhatsApp নম্বর নিশ্চিত হলে এখানে বসান (যেমন "8801820717177"); তখন "WhatsApp-এ পাঠান" বোতাম দেখা যাবে
+const WA_NUMBER = "";
+const FEATURED = [
+  {id:"b02", cls:"c1", level:"১ম শ্রেণি", tag:"মুদ্রণ চলছে", desc:"হিফজ শিক্ষার্থীদের জন্য এক খণ্ডে বাংলা, English ও গণিত। বড় ফন্ট, শিশু-উপযোগী উপস্থাপন।"},
+  {id:"b25", cls:"c2", level:"২য় শ্রেণি", tag:"নতুন", desc:"ফনিক্সভিত্তিক ইংরেজি, বাস্তব জীবনের গণিত ও ইসলামি ঘরানার সাহিত্য।"},
+  {id:"b01", cls:"c3", level:"নূরানী / কায়েদা", tag:"", desc:"আরবি ২৯ হরফ ও মাখরাজ থেকে শুরু করে অনর্গল নাজেরা পড়ার ভিত্তি।"}
+];
+const CATS = [
+  {name:"সমন্বিত পাঠ্যবই (বাংলা • English • গণিত)", items:[["b02","আমার প্রথম পাঠ"],["b25","আমার দ্বিতীয় পাঠ"],["b26","আমার তৃতীয় পাঠ"],["b27","আমার চতুর্থ পাঠ"],["b28","আমার পঞ্চম পাঠ"],["b29","আমার ষষ্ঠ পাঠ"]]},
+  {name:"কুরআন ও হিফজ", items:[["b01","আদর্শ হিফজ কায়দা"],["b16","আদর্শ হিফজ ডায়েরি"],["b17","আদর্শ শিক্ষার্থী ডায়েরি"]]},
+  {name:"আরবি ভাষা", items:[["b18","আল আরবিয়্যাতু লিআওলাদিনা – ০১"],["b03","সহজ নাহুমীর"],["b10","আরবি শব্দার্থ সংকলন – ১ম শ্রেণি"],["b11","আরবি শব্দার্থ সংকলন – ২য় শ্রেণি"],["b12","আরবি শব্দার্থ সংকলন – ৩য় শ্রেণি"],["b13","আরবি শব্দার্থ সংকলন – ৪র্থ শ্রেণি"],["b14","আরবি শব্দার্থ সংকলন – ৫ম শ্রেণি"],["b15","আরবি শব্দার্থ সংকলন – ৬ষ্ঠ শ্রেণি"],["b20","শব্দার্থ সংকলন – এসো আরবি শিখি ১ম খণ্ড"],["b21","শব্দার্থ সংকলন – এসো আরবি শিখি ২য় খণ্ড"],["b22","শব্দার্থ সংকলন – এসো আরবি শিখি ৩য় খণ্ড"],["b23","শব্দার্থ সংকলন – আত তামরিনুল কিতাবি"],["b24","শব্দার্থ সংকলন – মুনশায়িব"]]},
+  {name:"ইংরেজি ভাষা", items:[["b19","ইংলিশ ফর ফিউচার"],["b04","ইংলিশ ভোকাবুলারি – ১ম শ্রেণি"],["b05","ইংলিশ ভোকাবুলারি – ২য় শ্রেণি"],["b06","ইংলিশ ভোকাবুলারি – ৩য় শ্রেণি"],["b07","ইংলিশ ভোকাবুলারি – ৪র্থ শ্রেণি"],["b08","ইংলিশ ভোকাবুলারি – ৫ম শ্রেণি"],["b09","ইংলিশ ভোকাবুলারি – ৬ষ্ঠ শ্রেণি"]]},
+  {name:"বিজ্ঞান ও প্রযুক্তি", items:[["b30","লিটল ইঞ্জিনিয়ার – ০১"]]},
+  {name:"শিক্ষক সহায়িকা", items:[["b31","আরবিতে ক্লাস পরিচালনা"],["b32","ইংরেজিতে ক্লাস পরিচালনা"]]}
+];
+const TITLE = {}; CATS.forEach(c=>c.items.forEach(([id,t])=>TITLE[id]=t));
+const ORDER = CATS.flatMap(c=>c.items.map(i=>i[0]));
+const NOTICES = [
+  {d:"2026-10-01", tag:"ভর্তি", t:"২০২৭ শিক্ষাবর্ষে ভর্তি কার্যক্রম শুরু", p:"জেনারেল হিফজ, একাডেমিক হিফজ ও কিতাব বিভাগে ভর্তির আবেদন নেওয়া হচ্ছে। ওয়েবসাইটের ফরম পূরণ করে বা অফিসে এসে আবেদন করা যাবে।"},
+  {d:"2026-10-01", tag:"প্রকাশনা", t:"«আমার প্রথম পাঠ» সমন্বিত বইয়ের মুদ্রণ চলছে", p:"অক্টোবর ২০২৬-এ মুদ্রণ ও স্মার্ট ক্লাসরুমের সরঞ্জাম প্রস্তুতির কাজ চলছে। অগ্রিম অর্ডার নেওয়া হচ্ছে।"},
+  {d:"2026-11-01", tag:"নিয়োগ", t:"শিক্ষক নিয়োগ বিজ্ঞপ্তি", p:"নভেম্বর ২০২৬-এ শিক্ষক নিয়োগ বিজ্ঞপ্তি, স্ক্রিনিং ও চূড়ান্ত নিয়োগপত্র প্রদান করা হবে।"},
+  {d:"2026-12-01", tag:"ভর্তি", t:"শিক্ষার্থী ভর্তি পরীক্ষা — ডিসেম্বর ২০২৬", p:"সুনির্দিষ্ট তারিখ ও সময় আবেদনকারী অভিভাবকদের ফোনে জানানো হবে।"},
+  {d:"2027-01-01", tag:"একাডেমিক", t:"ভবন উদ্বোধন ও সেমিস্টার-১ ক্লাস শুরু", p:"জানুয়ারি ২০২৭-এ ওরিয়েন্টেশনের মাধ্যমে নতুন শিক্ষাবর্ষের আনুষ্ঠানিক সূচনা।"}
+];
+const bn = n => String(n).replace(/\d/g, d => "০১২৩৪৫৬৭৮৯"[d]);
+const MONTHS = ["জানু","ফেব্রু","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগস্ট","সেপ্টে","অক্টো","নভে","ডিসে"];
+const $ = id => document.getElementById(id);
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function toast(msg){const t=$("toast");t.textContent=msg;t.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>t.hidden=true,2200)}
+
+// menu
+const nav=$("nav"), menuBtn=$("menuBtn"), mq=matchMedia("(max-width:860px)");
+function syncNav(){ nav.hidden = mq.matches && menuBtn.getAttribute("aria-expanded")!=="true"; }
+menuBtn.onclick=()=>{menuBtn.setAttribute("aria-expanded", menuBtn.getAttribute("aria-expanded")==="true"?"false":"true");syncNav()};
+nav.addEventListener("click",e=>{if(e.target.tagName==="A"&&mq.matches){menuBtn.setAttribute("aria-expanded","false");syncNav()}});
+mq.addEventListener?.("change",syncNav); syncNav();
+
+// books
+$("bookList").innerHTML = FEATURED.map(b=>`
+  <article class="book">
+    <div class="cover ${b.cls}"><div class="jacket"><div><div class="s">বায়তুশ শরফ হিফজ একাডেমি</div><div class="t">${TITLE[b.id]}</div></div><div class="geo"></div><div class="s">${b.id==="b01"?"কুরআন শিক্ষা":"বাংলা • English • গণিত"}</div></div></div>
+    <div class="binfo">
+      <div class="meta"><span class="chip">${b.level}</span>${b.tag?`<span class="chip new">${b.tag}</span>`:""}</div>
+      <h3>${TITLE[b.id]}</h3><p>${b.desc}</p>
+      <div class="buy"><span class="small">দাম জানতে যোগাযোগ করুন</span><button class="btn brand" type="button" data-add="${b.id}">অর্ডারে যোগ</button></div>
+    </div>
+  </article>`).join("");
+$("catalog").innerHTML = CATS.map(c=>`<div class="box cat"><h3>${c.name}</h3><ul class="blist">${c.items.map(([id,t])=>`<li><span>${t}</span><button type="button" data-add="${id}" data-pick="${id}">যোগ</button></li>`).join("")}</ul></div>`).join("");
+
+// cart
+let cart = {};
+try{ cart = JSON.parse(localStorage.getItem("bs_cart2")||"{}")||{} }catch(e){ cart={} }
+for(const k in cart) if(!TITLE[k]) delete cart[k];
+function save(){ try{localStorage.setItem("bs_cart2",JSON.stringify(cart))}catch(e){} }
+function count(){ return Object.values(cart).reduce((a,b)=>a+b,0) }
+function renderCart(){
+  $("cartCount").textContent = bn(count());
+  const ids = ORDER.filter(id=>cart[id]);
+  $("cartItems").innerHTML = ids.length ? ids.map(id=>`
+    <div class="citem"><div><b>${TITLE[id]}</b><div class="small">${bn(cart[id])} কপি</div></div>
+    <div class="qty"><button type="button" data-dec="${id}" aria-label="কমান">−</button><span>${bn(cart[id])}</span><button type="button" data-add="${id}" aria-label="বাড়ান">+</button></div></div>`).join("")
+    : '<p class="small">এখনো কোনো বই বাছাই করা হয়নি। প্রকাশনা অংশ থেকে “যোগ” চাপুন।</p>';
+  document.querySelectorAll("[data-pick]").forEach(b=>{const n=cart[b.dataset.pick]||0;b.classList.toggle("added",n>0);b.textContent=n?bn(n)+" কপি":"যোগ"});
+  save();
+}
+document.addEventListener("click",e=>{
+  const a=e.target.closest("[data-add]"), d=e.target.closest("[data-dec]");
+  if(a){cart[a.dataset.add]=(cart[a.dataset.add]||0)+1;renderCart();$("ordOut").hidden=true;if(!a.closest(".drawer"))toast("অর্ডারে যোগ হয়েছে: "+TITLE[a.dataset.add])}
+  if(d){cart[d.dataset.dec]--; if(cart[d.dataset.dec]<=0)delete cart[d.dataset.dec]; renderCart();$("ordOut").hidden=true}
+  const c=e.target.closest("[data-copy]");
+  if(c){const el=$(c.dataset.copy), txt=el.textContent;
+    const fallback=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);toast("লেখাটি সিলেক্ট করা হয়েছে, কপি করুন")};
+    try{navigator.clipboard.writeText(txt).then(()=>toast("কপি হয়েছে"),fallback)}catch(err){fallback()}}
+});
+const openCart=()=>{$("drawer").hidden=false;document.body.style.overflow="hidden"};
+const closeCart=()=>{$("drawer").hidden=true;document.body.style.overflow=""};
+$("cartOpen").onclick=openCart; $("cartClose").onclick=closeCart; $("shade").onclick=closeCart;
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
+renderCart();
+
+function setWa(id, text){ const a=$(id); if(WA_NUMBER){a.href="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(text);a.hidden=false} }
+
+$("orderForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const err=$("ordErr"), n=$("o_name").value.trim(), p=$("o_phone").value.trim(), ad=$("o_addr").value.trim();
+  if(!count()){err.textContent="অন্তত একটি বই যোগ করুন।";err.hidden=false;return}
+  if(!n||!p||!ad){err.textContent="নাম, মোবাইল ও ঠিকানা লিখুন।";err.hidden=false;return}
+  err.hidden=true;
+  const lines=ORDER.filter(id=>cart[id]).map(id=>`• ${TITLE[id]} — ${bn(cart[id])} কপি`);
+  const txt=`বইয়ের অর্ডার — খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি\n\n${lines.join("\n")}\nমোট: ${bn(count())} কপি\n\nনাম: ${n}\nমোবাইল: ${p}\nঠিকানা: ${ad}`;
+  $("ordText").textContent=txt; setWa("ordWa",txt); $("ordOut").hidden=false; $("ordOut").scrollIntoView({block:"nearest"});
+});
+
+$("admForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const v=id=>$(id).value.trim();
+  if(!v("a_name")||!v("a_father")||!v("a_phone")){$("admErr").hidden=false;return}
+  $("admErr").hidden=true;
+  let dob=v("a_dob"); if(dob){const [y,m,d]=dob.split("-");dob=bn(+d)+" "+MONTHS[+m-1]+" "+bn(y)}
+  const txt=`ভর্তির আবেদন — খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি (শিক্ষাবর্ষ ২০২৭)\n\nশিক্ষার্থীর নাম: ${v("a_name")}\nজন্ম তারিখ: ${dob||"—"}\nপিতার নাম: ${v("a_father")}\nঅভিভাবকের মোবাইল: ${v("a_phone")}\nবিভাগ: ${v("a_dept")}\nশ্রেণি: ${v("a_class")}\nবর্তমান পড়া: ${v("a_prev")||"—"}\nঠিকানা: ${v("a_addr")||"—"}`;
+  $("admText").textContent=txt; setWa("admWa",txt); $("admOut").hidden=false; $("admOut").scrollIntoView({block:"nearest"});
+});
+
+// notices
+const tags=["সব",...new Set(NOTICES.map(n=>n.tag))]; let cur="সব";
+function renderNotices(){
+  $("filters").innerHTML=tags.map(t=>`<button type="button" aria-pressed="${t===cur}" data-tag="${t}">${t}</button>`).join("");
+  $("noticeList").innerHTML=NOTICES.filter(n=>cur==="সব"||n.tag===cur).map(n=>{const [y,m]=n.d.split("-");
+    return `<article class="notice"><div class="date"><b>${MONTHS[+m-1]}</b><span>${bn(y)}</span></div><div><span class="chip">${n.tag}</span><h3>${esc(n.t)}</h3><p>${esc(n.p)}</p></div></article>`}).join("");
+}
+$("filters").addEventListener("click",e=>{const b=e.target.closest("[data-tag]");if(b){cur=b.dataset.tag;renderNotices()}});
+renderNotices();
+</script>
+<script src="live.js"></script>
+</body>
+</html>
