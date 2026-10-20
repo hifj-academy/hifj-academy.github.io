@@ -6,6 +6,7 @@
 <title>বায়তুশ শরফ অফিস</title>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#0f4c3a">
+<meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
@@ -133,7 +134,7 @@ tr:last-child td{border-bottom:0}
 <script>
 "use strict";
 /* ============ মূল তথ্য ও সংরক্ষণ ============ */
-const APP_VER = "1.1";
+const APP_VER = "1.2";
 const TABLES = ["students","applications","attendance","staff","staffAttendance","payments","waivers","requests","classes","feeHeads","users","settings","notices","books"];
 const SITE_URL = "https://hifj-academy.github.io";
 const PORTAL_URL = SITE_URL + "/student.html";
@@ -881,8 +882,10 @@ VIEWS.website = arg => {
   return head + `<form data-form="saveSite" class="card"><h2>ভর্তি</h2>
     <label class="chk"><input type="checkbox" name="admissionOpen" ${s.admissionOpen!==false?"checked":""}> ওয়েবসাইটে “ভর্তি চলছে” দেখান</label>
     <label style="margin-top:10px">ওয়েবসাইটের উপরের ঘোষণা<input name="admissionMsg" value="${esc(s.admissionMsg||"")}"></label>
+    <div class="fgrid" style="margin-top:12px"><label>আবেদনের শেষ তারিখ (ঐচ্ছিক)<input type="date" name="admissionDeadline" value="${esc(s.admissionDeadline||"")}"></label><label>হোয়াটসঅ্যাপ হেল্পলাইন নম্বর<input name="whatsapp" value="${esc(s.whatsapp||"")}" placeholder="যেমন: ০১৮২০৭১৭১৭৭"></label></div>
     <h2 style="margin-top:18px">প্রদর্শন</h2>
     <label class="chk"><input type="checkbox" name="showStats" ${s.showStats!==false?"checked":""}> মোট শিক্ষার্থী ও শিক্ষক সংখ্যা ওয়েবসাইটে দেখান</label>
+    <label class="chk"><input type="checkbox" name="showFees" ${s.showFees!==false?"checked":""}> ফি ও মাসিক বেতন ওয়েবসাইটে দেখান (সেটিংসের হার ও ফি-এর খাত থেকে)</label>
     <div class="fgrid" style="margin-top:12px"><label>ওয়েবসাইটের ঠিকানা<input name="siteUrl" value="${esc(s.siteUrl||SITE_URL)}"></label><label>অভিভাবক লগইন পাতার ঠিকানা<input name="portalUrl" value="${esc(s.portalUrl||PORTAL_URL)}"></label></div>
     <p class="small muted">ভর্তি ও অভিযোগ ফরমের লিংক সেটিংস পাতায় দিলে ওয়েবসাইটে “অনলাইনে আবেদন” বোতাম দেখাবে।</p>
     <div class="actions"><button class="btn">সংরক্ষণ</button></div></form>`;
@@ -895,7 +898,7 @@ Object.assign(FORMS, {
   saveBook(f){ const d = formData(f); const old = d.id ? get("books", d.id) : null;
     const b = Object.assign(old || { id:uid("B"), order:all("books").length+1 }, { name:d.name.trim(), category:d.category, level:d.level, price:num(d.price), mrp:num(d.mrp), status:d.status, stock:num(d.stock), desc:d.desc, published:!!d.published, featured:!!d.featured });
     put("books", b); closeModal(); render(); toast("বইয়ের তথ্য সংরক্ষিত"); },
-  saveSite(f){ const d = formData(f); setS({ admissionOpen:!!d.admissionOpen, admissionMsg:d.admissionMsg, showStats:!!d.showStats, siteUrl:d.siteUrl.trim(), portalUrl:d.portalUrl.trim() }); render(); toast("সংরক্ষিত — সিঙ্কের পর ওয়েবসাইটে দেখাবে"); }
+  saveSite(f){ const d = formData(f); setS({ admissionOpen:!!d.admissionOpen, admissionMsg:d.admissionMsg, admissionDeadline:d.admissionDeadline||"", whatsapp:d.whatsapp||"", showStats:!!d.showStats, showFees:!!d.showFees, siteUrl:d.siteUrl.trim(), portalUrl:d.portalUrl.trim() }); render(); toast("সংরক্ষিত — সিঙ্কের পর ওয়েবসাইটে দেখাবে"); }
 });
 
 Object.assign(ACTS, {
