@@ -2,940 +2,431 @@
 <html lang="bn">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>বায়তুশ শরফ অফিস</title>
-<link rel="manifest" href="manifest.webmanifest">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>বায়তুশ শরফ হিফজ একাডেমি — খাগড়াছড়ি</title>
+<meta name="description" content="খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি — হিফজুল কুরআন, কওমি-আলিয়া ও আধুনিক প্রযুক্তির অনন্য সমন্বয়। জেনারেল হিফজ, একাডেমিক হিফজ ও কিতাব বিভাগে ২০২৭ শিক্ষাবর্ষে ভর্তি চলছে।">
+<meta name="keywords" content="হিফজ মাদরাসা খাগড়াছড়ি, হিফজ একাডেমি, বায়তুশ শরফ, Hifz Academy Khagrachari, Baitush Sharaf, কওমি আলিয়া, নূরানী, নাজেরা">
+<meta property="og:title" content="বায়তুশ শরফ হিফজ একাডেমি — খাগড়াছড়ি">
+<meta property="og:description" content="হিফজুল কুরআন, কওমি-আলিয়া ও আধুনিক প্রযুক্তির অনন্য সমন্বয়। ২০২৭ শিক্ষাবর্ষে ভর্তি চলছে।">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="বায়তুশ শরফ হিফজ একাডেমি">
+<meta property="og:locale" content="bn_BD">
+<meta property="og:image" content="https://hifj-academy.github.io/assets/img/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="বায়তুশ শরফ হিফজ একাডেমি, খাগড়াছড়ি">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="https://hifj-academy.github.io/">
 <meta name="theme-color" content="#0f4c3a">
-<meta name="robots" content="noindex,nofollow">
-<link rel="icon" href="icon-192.png">
-<link rel="apple-touch-icon" href="icon-192.png">
-<style>
-:root{
-  --bg:#f3f6f4; --surface:#fff; --band:#e7efea; --ink:#15231d; --muted:#5a6b63; --line:#d5e0da;
-  --brand:#0f4c3a; --brand2:#1b6b52; --gold:#b9852a; --goldsoft:#f6ecd6;
-  --ok:#1d7a4c; --oksoft:#e2f3e9; --bad:#b3261e; --badsoft:#fbe7e5; --warn:#9a5b0f; --warnsoft:#fbefdc;
-  --f:"Nirmala UI","Noto Sans Bengali","Hind Siliguri","Vrinda","SolaimanLipi",system-ui,sans-serif;
-}
-*{box-sizing:border-box}
-html,body{margin:0;height:100%}
-body{font-family:var(--f);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.55}
-button,input,select,textarea{font:inherit;color:inherit}
-a{color:var(--brand2)}
-:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
-.app{display:grid;grid-template-columns:230px 1fr;min-height:100%}
-aside{background:var(--brand);color:#eef5f1;padding:14px 10px;position:sticky;top:0;height:100vh;overflow-y:auto}
-.brand{display:flex;gap:10px;align-items:center;padding:4px 6px 14px;border-bottom:1px solid rgba(255,255,255,.15);margin-bottom:10px}
-.brand img,.brand .lg{width:38px;height:38px;border-radius:8px;background:#e7c27a;flex:none;object-fit:cover;display:grid;place-items:center;color:#1a1205;font-weight:700}
-.brand b{display:block;font-size:.95rem;line-height:1.25}
-.brand small{opacity:.75;font-size:.75rem}
-aside nav a{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:8px;color:inherit;text-decoration:none;margin-bottom:2px}
-aside nav a:hover{background:rgba(255,255,255,.08)}
-aside nav a.on{background:#e7c27a;color:#1a1205;font-weight:600}
-.pill{background:var(--bad);color:#fff;border-radius:99px;padding:0 7px;font-size:.75rem}
-.who{margin-top:14px;padding:10px;border-top:1px solid rgba(255,255,255,.15);font-size:.85rem}
-.who button{margin-top:6px;background:transparent;border:1px solid rgba(255,255,255,.4);color:inherit;border-radius:6px;padding:3px 10px;cursor:pointer}
-main{padding:18px 22px 60px;min-width:0}
-.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
-.top h1{margin:0;font-size:1.45rem;color:var(--brand)}
-.sync{font-size:.82rem;color:var(--muted);display:flex;gap:8px;align-items:center}
-.dot{width:9px;height:9px;border-radius:50%;background:var(--muted);display:inline-block}
-.dot.on{background:var(--ok)}.dot.off{background:var(--bad)}
-.btn.menu{display:none}
-@media (max-width:860px){
-  .app{grid-template-columns:1fr}
-  aside{position:fixed;inset:0 auto 0 0;width:250px;z-index:40;transform:translateX(-100%);transition:transform .2s}
-  aside.open{transform:none}
-  .btn.menu{display:inline-block}
-  main{padding:14px 14px 60px}
-}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:16px}
-.card h2{margin:0 0 12px;font-size:1.1rem;color:var(--brand)}
-.grid{display:grid;gap:12px}
-.g4{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
-.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px}
-.stat span{color:var(--muted);font-size:.85rem}
-.stat b{display:block;font-size:1.6rem;color:var(--brand);font-variant-numeric:tabular-nums;line-height:1.3}
-.stat small{color:var(--muted)}
-.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
-.row>*{min-width:0}
-label{display:grid;gap:3px;font-size:.88rem;font-weight:600;color:var(--muted)}
-input,select,textarea{border:1px solid var(--line);border-radius:7px;padding:7px 10px;background:#fff;font-weight:400;color:var(--ink);min-width:0}
-textarea{min-height:64px}
-.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.btn{border:1px solid var(--brand);background:var(--brand);color:#fff;border-radius:7px;padding:7px 14px;cursor:pointer;font-weight:600;white-space:nowrap;text-decoration:none;display:inline-block}
-.btn.l{background:#fff;color:var(--brand)}
-.btn.g{background:var(--gold);border-color:var(--gold);color:#1a1205}
-.btn.r{background:var(--bad);border-color:var(--bad)}
-.btn.s{padding:3px 10px;font-size:.85rem}
-.btn.wa{background:#1f9d55;border-color:#1f9d55}
-.btn:disabled{opacity:.5;cursor:not-allowed}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
-.tabs a{padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:var(--surface);text-decoration:none;color:var(--ink)}
-.tabs a.on{background:var(--brand);color:#fff;border-color:var(--brand)}
-.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
-table{border-collapse:collapse;width:100%}
-th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:start;vertical-align:top;font-variant-numeric:tabular-nums}
-th{background:var(--band);color:var(--brand);font-weight:600;white-space:nowrap}
-tr:last-child td{border-bottom:0}
-.tag{display:inline-block;padding:1px 9px;border-radius:99px;font-size:.78rem;font-weight:600;background:var(--band);color:var(--brand)}
-.tag.ok{background:var(--oksoft);color:var(--ok)}.tag.bad{background:var(--badsoft);color:var(--bad)}.tag.warn{background:var(--warnsoft);color:var(--warn)}
-.muted{color:var(--muted)}.small{font-size:.85rem}
-.empty{padding:26px;text-align:center;color:var(--muted)}
-.banner{border-radius:10px;padding:12px 14px;margin-bottom:14px;background:var(--warnsoft);color:var(--warn);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
-.att{display:inline-flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
-.att label{display:block;cursor:pointer;font-weight:600;color:var(--ink)}
-.att input{display:none}
-.att span{display:block;padding:3px 10px;font-size:.85rem}
-.att input:checked+span.P{background:var(--ok);color:#fff}
-.att input:checked+span.A{background:var(--bad);color:#fff}
-.att input:checked+span.L,.att input:checked+span.CL,.att input:checked+span.ML{background:var(--gold);color:#1a1205}
-.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-size:.85rem}
-.cal div{padding:6px 0;border-radius:6px;background:var(--band)}
-.cal .h{background:none;font-weight:600;color:var(--muted)}
-.cal .fri{color:var(--bad)}
-.cal .today{background:var(--brand);color:#fff;font-weight:700}
-.cal .x{background:none}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:60;display:grid;place-items:start center;overflow-y:auto;padding:30px 12px}
-.modal .box{background:var(--surface);border-radius:12px;padding:18px;width:min(720px,100%)}
-.modal h2{margin:0 0 14px;color:var(--brand);font-size:1.2rem}
-.actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:14px}
-.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:8px 18px;border-radius:8px;z-index:80}
-.login{min-height:100%;display:grid;place-items:center;padding:20px;background:var(--brand)}
-.login .box{background:#fff;border-radius:14px;padding:24px;width:min(420px,100%)}
-.login h1{margin:0 0 4px;color:var(--brand);font-size:1.3rem}
-.chk{display:flex;gap:6px;align-items:center;font-weight:400;color:var(--ink)}
-.chk input{width:auto}
-.mlist{display:flex;flex-wrap:wrap;gap:6px}
-.mlist label{display:flex;gap:4px;align-items:center;border:1px solid var(--line);border-radius:7px;padding:3px 9px;font-weight:400;color:var(--ink)}
-.right{text-align:end}
-#print{display:none}
-@media print{
-  body>*:not(#print){display:none!important}
-  #print{display:block}
-  @page{size:A4;margin:10mm}
-}
-.pr{font-family:var(--f);color:#000;font-size:13px}
-.pr h1{font-size:18px;margin:0}.pr h2{font-size:15px;margin:6px 0}
-.pr table{border-collapse:collapse;width:100%}
-.pr th,.pr td{border:1px solid #444;padding:4px 6px;background:none;color:#000}
-.phead{display:flex;gap:10px;align-items:center;justify-content:center;text-align:center;border-bottom:2px solid #000;padding-bottom:6px;margin-bottom:8px}
-.phead img{width:54px;height:54px;object-fit:contain}
-.rcpt{height:136mm;padding:4mm 2mm;position:relative;overflow:hidden}
-.rcpt+.rcpt{border-top:1px dashed #000}
-.copy{position:absolute;top:4mm;right:2mm;border:1px solid #000;padding:1px 8px;font-size:11px}
-.sig{display:flex;justify-content:space-between;margin-top:26px}
-.sig span{border-top:1px solid #000;padding-top:2px;min-width:140px;text-align:center}
-</style>
+<link rel="canonical" href="https://hifj-academy.github.io/">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/logo-192.png">
+<link rel="apple-touch-icon" href="assets/img/logo-192.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="author" content="খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি">
+<meta name="format-detection" content="telephone=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiro+Bangla&family=Hind+Siliguri:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"School","name":"খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি","alternateName":"Khagrachari Baitush Sharaf Jabbaria International Hifz Academy","url":"https://hifj-academy.github.io/","logo":"https://hifj-academy.github.io/assets/img/logo-512.png","image":"https://hifj-academy.github.io/assets/img/og-cover.jpg","email":"bsjiha@gmail.com","telephone":"+8801820717177","sameAs":["https://www.facebook.com/profile.php?id=61592286354148"],"address":{"@type":"PostalAddress","streetAddress":"খাগড়াছড়ি বায়তুশ শরফ কমপ্লেক্স, বায়তুশ শরফ সড়ক, আরামবাগ","addressLocality":"খাগড়াছড়ি সদর","addressRegion":"খাগড়াছড়ি","addressCountry":"BD"}}
+</script>
+<link rel="stylesheet" href="assets/css/main.css?v=3.0.0">
 </head>
 <body>
-<div id="root"></div>
-<div id="print"></div>
-<script>
-"use strict";
-/* ============ মূল তথ্য ও সংরক্ষণ ============ */
-const APP_VER = "1.2";
-const TABLES = ["students","applications","attendance","staff","staffAttendance","payments","waivers","requests","classes","feeHeads","users","settings","notices","books"];
-const SITE_URL = "https://hifj-academy.github.io";
-const PORTAL_URL = SITE_URL + "/student.html";
-let DB = {}; TABLES.forEach(t => DB[t] = {});
-let META = { dirty:{}, lastSync:0, device:"", rc:1, sync:{url:"",key:"",auto:true}, logo:"", sent:{}, lastSnap:"" };
-let ME = null;         // লগইনকৃত ব্যবহারকারী
-const UI = {};         // অস্থায়ী পর্দার অবস্থা
+<a class="skip" href="#home">মূল বিষয়ে যান</a>
+<noscript><div class="nojs">সম্পূর্ণ ওয়েবসাইট দেখতে ব্রাউজারে JavaScript চালু করুন।</div></noscript>
 
-const DIG = "০১২৩৪৫৬৭৮৯";
-const bn = s => String(s ?? "").replace(/\d/g, d => DIG[d]);
-const en = s => String(s ?? "").replace(/[০-৯]/g, d => DIG.indexOf(d));
-const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const num = v => { const n = parseFloat(en(v).replace(/,/g,"")); return isFinite(n) ? n : 0; };
-const money = n => "৳ " + bn(Math.round(n).toLocaleString("en-IN"));
-const pad = n => String(n).padStart(2,"0");
-const ymd = d => d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate());
-const today = () => ymd(new Date());
-const thisMonth = () => today().slice(0,7);
-const MONTHS = ["জানুয়ারি","ফেব্রুয়ারি","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগস্ট","সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বর"];
-const DAYS = ["রবি","সোম","মঙ্গল","বুধ","বৃহঃ","শুক্র","শনি"];
-const mName = ym => { if(!ym) return ""; const [y,m] = ym.split("-"); return MONTHS[+m-1]+" "+bn(y); };
-const dFmt = s => { if(!s) return "—"; const [y,m,d] = s.split("-"); return bn(+d)+" "+MONTHS[+m-1]+" "+bn(y); };
-const uid = p => p + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
-function monthsRange(a, b){ const out=[]; if(!a||!b||a>b) return out; let [y,m]=a.split("-").map(Number); const [by,bm]=b.split("-").map(Number); while(y<by||(y===by&&m<=bm)){ out.push(y+"-"+pad(m)); m++; if(m>12){m=1;y++;} } return out; }
-function addMonths(ym, k){ let [y,m]=ym.split("-").map(Number); m+=k; while(m>12){m-=12;y++;} while(m<1){m+=12;y--;} return y+"-"+pad(m); }
+<div class="topbar"><div class="wrap">
+  <div class="tl"><span>☎ <a href="tel:+8801820717177">০১৮২০৭১৭১৭৭</a>, <a href="tel:+8801867934744">০১৮৬৭৯৩৪৭৪৪</a></span><span>✉ <a href="mailto:bsjiha@gmail.com">bsjiha@gmail.com</a></span><span>ⓕ <a href="https://www.facebook.com/profile.php?id=61592286354148" target="_blank" rel="noopener">ফেসবুক পেজ</a></span></div>
+  <div class="tr"><a href="#notice">নোটিশ</a><a href="#faq">প্রশ্নোত্তর</a><a href="#career">ক্যারিয়ার</a><a href="student.html">অভিভাবক লগইন</a><a href="#admission" class="hl" data-apply>অনলাইনে আবেদন</a></div>
+</div></div>
 
-/* টাকার অঙ্ক কথায় */
-const W = ",এক,দুই,তিন,চার,পাঁচ,ছয়,সাত,আট,নয়,দশ,এগারো,বারো,তেরো,চৌদ্দ,পনেরো,ষোলো,সতেরো,আঠারো,উনিশ,বিশ,একুশ,বাইশ,তেইশ,চব্বিশ,পঁচিশ,ছাব্বিশ,সাতাশ,আটাশ,ঊনত্রিশ,ত্রিশ,একত্রিশ,বত্রিশ,তেত্রিশ,চৌত্রিশ,পঁয়ত্রিশ,ছত্রিশ,সাঁইত্রিশ,আটত্রিশ,ঊনচল্লিশ,চল্লিশ,একচল্লিশ,বিয়াল্লিশ,তেতাল্লিশ,চুয়াল্লিশ,পঁয়তাল্লিশ,ছেচল্লিশ,সাতচল্লিশ,আটচল্লিশ,ঊনপঞ্চাশ,পঞ্চাশ,একান্ন,বাহান্ন,তিপ্পান্ন,চুয়ান্ন,পঞ্চান্ন,ছাপ্পান্ন,সাতান্ন,আটান্ন,ঊনষাট,ষাট,একষট্টি,বাষট্টি,তেষট্টি,চৌষট্টি,পঁয়ষট্টি,ছেষট্টি,সাতষট্টি,আটষট্টি,ঊনসত্তর,সত্তর,একাত্তর,বাহাত্তর,তিয়াত্তর,চুয়াত্তর,পঁচাত্তর,ছিয়াত্তর,সাতাত্তর,আটাত্তর,ঊনআশি,আশি,একাশি,বিরাশি,তিরাশি,চুরাশি,পঁচাশি,ছিয়াশি,সাতাশি,আটাশি,ঊননব্বই,নব্বই,একানব্বই,বিরানব্বই,তিরানব্বই,চুরানব্বই,পঁচানব্বই,ছিয়ানব্বই,সাতানব্বই,আটানব্বই,নিরানব্বই".split(",");
-function inWords(n){
-  n = Math.floor(Math.abs(n)); if(n===0) return "শূন্য";
-  const p=[]; const cr=Math.floor(n/1e7); n%=1e7;
-  if(cr) p.push(inWords(cr)+" কোটি");
-  const lk=Math.floor(n/1e5); n%=1e5; if(lk) p.push(W[lk]+" লক্ষ");
-  const th=Math.floor(n/1000); n%=1000; if(th) p.push(W[th]+" হাজার");
-  const h=Math.floor(n/100); n%=100; if(h) p.push(W[h]+" শত");
-  if(n) p.push(W[n]);
-  return p.join(" ");
-}
-
-/* IndexedDB সংরক্ষণ (ব্যর্থ হলে localStorage) */
-const IDB = {
-  db:null,
-  open(){ return new Promise(res => { try{ const r = indexedDB.open("bjha_mms",1); r.onupgradeneeded = () => r.result.createObjectStore("kv"); r.onsuccess = () => { this.db = r.result; res(true); }; r.onerror = () => res(false); }catch(e){ res(false); } }); },
-  get(k){ return new Promise(res => { if(!this.db){ try{ res(JSON.parse(localStorage.getItem("bjha_"+k))); }catch(e){ res(null); } return; } const q=this.db.transaction("kv").objectStore("kv").get(k); q.onsuccess=()=>res(q.result??null); q.onerror=()=>res(null); }); },
-  set(k,v){ return new Promise(res => { if(!this.db){ try{ localStorage.setItem("bjha_"+k, JSON.stringify(v)); }catch(e){} res(); return; } const t=this.db.transaction("kv","readwrite"); t.objectStore("kv").put(v,k); t.oncomplete=()=>res(); t.onerror=()=>res(); }); },
-  del(k){ return new Promise(res => { if(!this.db){ try{localStorage.removeItem("bjha_"+k);}catch(e){} res(); return; } const t=this.db.transaction("kv","readwrite"); t.objectStore("kv").delete(k); t.oncomplete=()=>res(); }); },
-  keys(){ return new Promise(res => { if(!this.db){ res([]); return; } const q=this.db.transaction("kv").objectStore("kv").getAllKeys(); q.onsuccess=()=>res(q.result||[]); q.onerror=()=>res([]); }); }
-};
-let saveT = null;
-function save(){ clearTimeout(saveT); saveT = setTimeout(flush, 250); }
-async function flush(){ await IDB.set("db", DB); await IDB.set("meta", META); await dailySnapshot(); }
-async function dailySnapshot(){
-  const d = today(); if(META.lastSnap === d) return;
-  META.lastSnap = d; await IDB.set("snap-"+d, DB); await IDB.set("meta", META);
-  const ks = (await IDB.keys()).filter(k => String(k).startsWith("snap-")).sort();
-  while(ks.length > 7) await IDB.del(ks.shift());
-}
-
-/* রেকর্ড পরিচালনা */
-function put(t, rec){ rec.updatedAt = Date.now(); rec.by = ME ? ME.id : ""; DB[t][rec.id] = rec; META.dirty[t+"|"+rec.id] = 1; save(); return rec; }
-function remove(t, id){ const r = DB[t][id]; if(r){ r.deleted = true; put(t, r); } }
-const all = t => Object.values(DB[t]).filter(r => !r.deleted);
-const get = (t, id) => { const r = DB[t][id]; return r && !r.deleted ? r : null; };
-const S = () => DB.settings.main || {};
-function setS(patch){ put("settings", Object.assign({id:"main"}, S(), patch)); }
-
-/* ভূমিকা ও অনুমতি */
-const ROLES = { admin:"ব্যবস্থাপক", office:"অফিস সহকারী", teacher:"শিক্ষক" };
-const CAN = {
-  admin:["dashboard","approvals","applications","students","attendance","fees","staff","website","settings","backup"],
-  office:["dashboard","approvals","applications","students","attendance","fees","staff","website","backup"],
-  teacher:["dashboard","attendance","students"]
-};
-const can = page => ME && CAN[ME.role].includes(page);
-const isAdmin = () => ME && ME.role === "admin";
-
-async function hashPin(pin, salt){
-  const s = salt + ":" + en(pin);
-  try{ const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s)); return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join(""); }
-  catch(e){ let h=2166136261; for(const c of s){ h^=c.charCodeAt(0); h=Math.imul(h,16777619); } return "f"+(h>>>0).toString(16); }
-}
-
-function genPin(){ try{ const a = new Uint32Array(1); crypto.getRandomValues(a); return String(100000 + a[0] % 900000); }catch(e){ return String(100000 + Math.floor(Math.random()*900000)); } }
-
-/* শ্রেণি ও শিক্ষার্থী সহায়ক */
-const DEPTS = ["নূরানী বিভাগ","জেনারেল হিফজ বিভাগ","একাডেমিক হিফজ বিভাগ","কিতাব বিভাগ"];
-const classesSorted = () => all("classes").sort((a,b)=>(a.order||0)-(b.order||0));
-const className = id => { const c = get("classes", id); return c ? c.name + (c.dept ? " ("+c.dept.replace(" বিভাগ","")+")" : "") : "—"; };
-const activeStudents = () => all("students").filter(s => s.status !== "left");
-const classOptions = (sel, withAll) => (withAll?`<option value="">সব শ্রেণি</option>`:"") + DEPTS.map(d => {
-  const cs = classesSorted().filter(c => c.dept === d); if(!cs.length) return "";
-  return `<optgroup label="${esc(d)}">` + cs.map(c => `<option value="${c.id}" ${c.id===sel?"selected":""}>${esc(c.name)}</option>`).join("") + `</optgroup>`;
-}).join("") + classesSorted().filter(c=>!DEPTS.includes(c.dept)).map(c => `<option value="${c.id}" ${c.id===sel?"selected":""}>${esc(c.name)}</option>`).join("");
-const studentLabel = s => s ? `${s.id} — ${s.name}` : "";
-
-/* ফোন ও হোয়াটসঅ্যাপ */
-function waPhone(p){ let d = en(p).replace(/\D/g,""); if(!d) return ""; if(d.startsWith("880")) return d; if(d.startsWith("0")) return "88"+d; if(d.length===10 && d.startsWith("1")) return "880"+d; return d; }
-function waLink(phone, msg){ const p = waPhone(phone); return p ? "https://wa.me/"+p+"?text="+encodeURIComponent(msg) : ""; }
-function fillTpl(tpl, map){ return String(tpl||"").replace(/\{([^}]+)\}/g, (m,k) => map[k] ?? m); }
-
-/* ফি ও বকেয়া হিসাব */
-function paidMonths(sid){ const set = new Set(); all("payments").filter(p=>p.sid===sid).forEach(p => (p.items||[]).forEach(i => { if(i.month) set.add(i.month); })); return set; }
-function waivedMonths(sid){ const set = new Set(); all("waivers").filter(w=>w.sid===sid && w.status==="approved").forEach(w => (w.months||[]).forEach(m=>set.add(m))); return set; }
-function dueCutoff(){ const d = new Date(); const day = num(S().dueDay)||10; return d.getDate() >= day ? thisMonth() : addMonths(thisMonth(), -1); }
-function startMonth(s){ const a = (s.admissionDate||today()).slice(0,7); const ss = S().sessionStart || ""; return ss && ss > a ? ss : a; }
-function unpaid(s, upto){
-  if(!s || !(num(s.monthlyFee) > 0)) return [];
-  const p = paidMonths(s.id), w = waivedMonths(s.id);
-  return monthsRange(startMonth(s), upto || dueCutoff()).filter(m => !p.has(m) && !w.has(m));
-}
-function duesList(){
-  return activeStudents().map(s => { const m = unpaid(s); return { s, months:m, amount:m.length*num(s.monthlyFee) }; }).filter(x => x.amount > 0).sort((a,b)=>b.amount-a.amount);
-}
-
-/* সাধারণ UI */
-function toast(msg){ const t = document.createElement("div"); t.className="toast"; t.textContent = msg; document.body.appendChild(t); setTimeout(()=>t.remove(), 2400); }
-function modal(html){ closeModal(); const m = document.createElement("div"); m.className="modal"; m.id="modal"; m.innerHTML = `<div class="box">${html}</div>`; m.addEventListener("mousedown", e => { if(e.target===m) closeModal(); }); document.body.appendChild(m); const f = m.querySelector("input,select,textarea"); if(f) f.focus(); }
-function closeModal(){ const m = document.getElementById("modal"); if(m) m.remove(); }
-function confirmBox(msg, onYes, yesLabel){ UI.onYes = onYes; modal(`<h2>নিশ্চিত করুন</h2><p>${msg}</p><div class="actions"><button class="btn l" data-act="closeModal">বাতিল</button><button class="btn r" data-act="yes">${yesLabel||"হ্যাঁ"}</button></div>`); }
-function printHTML(html){ document.getElementById("print").innerHTML = `<div class="pr">${html}</div>`; setTimeout(()=>window.print(), 100); }
-function printHead(title){ const s = S(); return `<div class="phead">${META.logo?`<img src="${META.logo}" alt="">`:""}<div><h1>${esc(s.instName||"")}</h1><div>${esc(s.address||"")}</div><div>${esc(s.phones||"")}</div>${title?`<h2>${esc(title)}</h2>`:""}</div></div>`; }
-function download(name, text, type){ const b = new Blob([text], {type: type||"application/json"}); const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = name; document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 500); }
-const formData = f => { const o = {}; new FormData(f).forEach((v,k) => { if(k in o){ o[k] = [].concat(o[k], v); } else o[k] = v; }); return o; };
-
-/* CSV */
-function toCSV(rows, cols){ const q = v => { v = String(v ?? ""); return /[",\n]/.test(v) ? '"'+v.replace(/"/g,'""')+'"' : v; }; return "﻿" + [cols.map(c=>q(c[1])).join(",")].concat(rows.map(r => cols.map(c => q(r[c[0]])).join(","))).join("\n"); }
-function parseCSV(text){
-  text = text.replace(/^﻿/,""); const rows=[]; let row=[], cur="", q=false;
-  for(let i=0;i<text.length;i++){ const c=text[i];
-    if(q){ if(c==='"'){ if(text[i+1]==='"'){cur+='"';i++;} else q=false; } else cur+=c; }
-    else if(c==='"') q=true; else if(c===','){ row.push(cur); cur=""; } else if(c==='\n'){ row.push(cur); rows.push(row); row=[]; cur=""; } else if(c!=='\r') cur+=c; }
-  if(cur||row.length){ row.push(cur); rows.push(row); }
-  return rows.filter(r => r.some(x => x.trim()));
-}
-
-/* সিঙ্ক — গুগল শিটের সাথে */
-let syncing = false;
-async function syncNow(manual){
-  const cfg = META.sync || {};
-  if(!cfg.url || !cfg.key){ if(manual) toast("সেটিংসে সিঙ্ক লিংক ও কী দিন"); return; }
-  if(!navigator.onLine){ if(manual) toast("ইন্টারনেট নেই — সংযোগ পেলে সিঙ্ক হবে"); return; }
-  if(syncing) return; syncing = true; setSyncBadge("সিঙ্ক হচ্ছে…");
-  try{
-    const changes = Object.keys(META.dirty).map(k => { const i = k.indexOf("|"); const t = k.slice(0,i), id = k.slice(i+1); return DB[t] && DB[t][id] ? {t, r:DB[t][id]} : null; }).filter(Boolean);
-    const res = await fetch(cfg.url, { method:"POST", headers:{"Content-Type":"text/plain;charset=utf-8"}, body: JSON.stringify({ key:cfg.key, since:META.lastSync||0, changes, device:META.device, ver:APP_VER }) });
-    const j = await res.json();
-    if(!j.ok) throw new Error(j.error || "সার্ভার ত্রুটি");
-    changes.forEach(c => { const k = c.t+"|"+c.r.id; if(DB[c.t][c.r.id] && DB[c.t][c.r.id].updatedAt === c.r.updatedAt) delete META.dirty[k]; });
-    let got = 0;
-    (j.records||[]).forEach(({t, r}) => { if(!DB[t] || !r || !r.id) return; const cur = DB[t][r.id]; if(META.dirty[t+"|"+r.id]) return; if(!cur || (r.updatedAt||0) >= (cur.updatedAt||0)){ if(!cur || cur.updatedAt !== r.updatedAt) got++; DB[t][r.id] = r; } });
-    META.lastSync = j.now; META.lastSyncAt = Date.now(); await flush();
-    setSyncBadge();
-    if(manual) toast("সিঙ্ক সম্পন্ন" + (got ? " — নতুন/হালনাগাদ " + bn(got) + "টি" : ""));
-    if(got) render();
-  }catch(e){ setSyncBadge("সিঙ্ক ব্যর্থ"); if(manual) toast("সিঙ্ক হয়নি: " + e.message); }
-  syncing = false;
-}
-function setSyncBadge(text){
-  const el = document.getElementById("syncb"); if(!el) return;
-  const pending = Object.keys(META.dirty).length;
-  const online = navigator.onLine;
-  el.innerHTML = `<span class="dot ${online?"on":"off"}"></span>${text || (online?"অনলাইন":"অফলাইন")} • ${META.lastSyncAt ? "শেষ সিঙ্ক " + bn(new Date(META.lastSyncAt).toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"})) : "সিঙ্ক হয়নি"}${pending?` • অপেক্ষমাণ ${bn(pending)}`:""} <button class="btn s l" data-act="sync">সিঙ্ক</button>`;
-}
-window.addEventListener("online", () => { setSyncBadge(); if(META.sync.auto) syncNow(); });
-window.addEventListener("offline", () => setSyncBadge());
-setInterval(() => { if(META.sync && META.sync.auto && ME) syncNow(); }, 5*60*1000);
-
-/* প্রাথমিক ডেটা */
-function seedDefaults(instName){
-  const now = Date.now(); let o = 0;
-  const add = (dept, names) => names.forEach(n => put("classes", {id:uid("C"), name:n, dept, order:++o}));
-  add("নূরানী বিভাগ", ["শিশু শ্রেণি (নূরানী)"]);
-  add("জেনারেল হিফজ বিভাগ", ["নাজেরা ১ম বর্ষ","নাজেরা ২য় বর্ষ","হিফজ ১ম বর্ষ","হিফজ ২য় বর্ষ","হিফজ ৩য় বর্ষ","দাওর বর্ষ"]);
-  add("একাডেমিক হিফজ বিভাগ", ["নাজেরা ১ম বর্ষ","নাজেরা ২য় বর্ষ","হিফজ ১ম বর্ষ","হিফজ ২য় বর্ষ","হিফজ ৩য় বর্ষ","দাওর বর্ষ"]);
-  add("কিতাব বিভাগ", ["১ম বর্ষ","২য় বর্ষ","৩য় বর্ষ","৪র্থ বর্ষ","৫ম বর্ষ","৬ষ্ঠ বর্ষ","৭ম বর্ষ (দাওরায়ে হাদিস)"]);
-  ["ভর্তি ফি","সেশন ফি","পরীক্ষা ফি","বই-খাতা","ডায়েরি","পোশাক","অন্যান্য"].forEach((n,i) => put("feeHeads", {id:uid("F"), name:n, amount:0, order:i}));
-  put("settings", { id:"main", instName, address:"খাগড়াছড়ি বায়তুশ শরফ কমপ্লেক্স, বায়তুশ শরফ সড়ক, আরামবাগ, সদর, খাগড়াছড়ি", phones:"০১৮২০৭১৭১৭৭, ০১৮৬৭৯৩৪৭৪৪, ০১৮৭৭৪১৮৪৩১", email:"bsjiha@gmail.com",
-    idPrefix:"STD-", nextId:101, staffPrefix:"T-", nextStaff:1, dueDay:10, sessionStart:"2027-01", feeRes:0, feeNonRes:0, buildings:0, rooms:0, shopUrl:"",
-    tplDue:"আসসালামু আলাইকুম। {নাম} ({আইডি})-এর {মাস} মাসের বেতন {টাকা} বকেয়া আছে। অনুগ্রহ করে দ্রুত পরিশোধ করুন। প্রয়োজনীয় বই-খাতা: {দোকান}\n— {প্রতিষ্ঠান}",
-    tplAbsent:"আসসালামু আলাইকুম। আজ {তারিখ} আপনার সন্তান {নাম} ({আইডি}) মাদরাসায় অনুপস্থিত। কারণ জানালে কৃতজ্ঞ হব।\n— {প্রতিষ্ঠান}",
-    tplApproved:"আসসালামু আলাইকুম। আলহামদুলিল্লাহ, {নাম}-এর ভর্তি অনুমোদিত হয়েছে। শিক্ষার্থী আইডি: {আইডি}, শ্রেণি: {শ্রেণি}।\nঅভিভাবক অ্যাকাউন্ট: {পোর্টাল}\nআইডি: {আইডি}, পিন: {পিন} (পিন কাউকে জানাবেন না)\n— {প্রতিষ্ঠান}",
-    tplPin:"আসসালামু আলাইকুম। {নাম}-এর অভিভাবক অ্যাকাউন্টের নতুন পিন: {পিন}\nলগইন: {পোর্টাল} (আইডি: {আইডি})\nপিন কাউকে জানাবেন না।\n— {প্রতিষ্ঠান}",
-    admissionOpen:true, admissionMsg:"২০২৭ শিক্ষাবর্ষে ভর্তি চলছে • ভর্তি পরীক্ষা ডিসেম্বর ২০২৬", showStats:true,
-    formAdmission:"", formRequest:"" });
-}
-/* ============ পর্দা ও নেভিগেশন ============ */
-const NAV = [
-  ["dashboard","📊 ড্যাশবোর্ড"],["approvals","✅ অনুমোদন"],["applications","📝 ভর্তি আবেদন"],["students","👨‍🎓 শিক্ষার্থী"],
-  ["attendance","📋 হাজিরা"],["fees","💰 ফি ও রসিদ"],["staff","👥 শিক্ষক-কর্মচারী"],["website","🌐 ওয়েবসাইট"],["settings","⚙️ সেটিংস"],["backup","💾 ব্যাকআপ ও সিঙ্ক"]
-];
-const TITLES = Object.fromEntries(NAV.map(([k,v]) => [k, v.replace(/^\S+\s/,"")]));
-function pendingCount(){ return all("applications").filter(a=>a.status==="pending").length + all("waivers").filter(w=>w.status==="pending").length + all("requests").filter(r=>r.status!=="done").length; }
-function route(){ const h = location.hash.slice(1) || "dashboard"; const [page, ...rest] = h.split("/"); return { page, arg: decodeURIComponent(rest.join("/")) }; }
-
-function render(){
-  const root = document.getElementById("root");
-  if(!all("users").length){ root.innerHTML = viewSetup(); return; }
-  if(!ME){ root.innerHTML = viewLogin(); return; }
-  let { page, arg } = route();
-  if(page === "student"){ if(!can("students")) page = "dashboard"; }
-  else if(!can(page)) page = "dashboard";
-  const pc = pendingCount(); const s = S();
-  root.innerHTML = `<div class="app">
-    <aside id="side"><div class="brand">${META.logo?`<img src="${META.logo}" alt="">`:`<span class="lg">ব</span>`}<span><b>${esc(s.instName||"মাদরাসা")}</b><small>ম্যানেজমেন্ট সফটওয়্যার</small></span></div>
-      <nav>${NAV.filter(([k])=>can(k)).map(([k,v]) => `<a href="#${k}" class="${(page===k||(page==="student"&&k==="students"))?"on":""}"><span>${v}</span>${k==="approvals"&&pc?`<span class="pill">${bn(pc)}</span>`:""}</a>`).join("")}</nav>
-      <button class="btn g s" id="installBtn" data-act="installApp" style="margin:10px 0;width:100%" ${UI.installEvt?"":"hidden"}>⬇ অ্যাপ ইনস্টল করুন</button><div class="who">${esc(ME.name)}<br><span class="small" style="opacity:.75">${ROLES[ME.role]}</span><br><button data-act="logout">লগআউট</button></div>
-    </aside>
-    <main><div class="top"><div class="row" style="align-items:center"><button class="btn l s menu" data-act="menu">☰ মেনু</button><h1>${page==="student"?"শিক্ষার্থীর প্রোফাইল":TITLES[page]}</h1></div><div class="sync" id="syncb"></div></div>
-    <div id="view">${(VIEWS[page]||VIEWS.dashboard)(arg)}</div></main></div>`;
-  setSyncBadge();
-}
-window.addEventListener("hashchange", () => { render(); window.scrollTo(0,0); });
-
-/* ---------- প্রথমবার সেটআপ ও লগইন ---------- */
-function viewSetup(){
-  return `<div class="login"><div class="box"><h1>প্রথমবার সেটআপ</h1><p class="muted small">এই কম্পিউটারে সফটওয়্যার চালু করতে প্রতিষ্ঠানের নাম ও ব্যবস্থাপকের তথ্য দিন। আগে অন্য কম্পিউটারে চালু থাকলে নিচের “সিঙ্ক থেকে আনুন” ব্যবহার করুন।</p>
-  <form data-form="setup" class="grid">
-    <label>প্রতিষ্ঠানের নাম<input name="inst" required value="খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি"></label>
-    <label>ব্যবস্থাপকের নাম<input name="name" required></label>
-    <label>পিন (৪–৮ সংখ্যা)<input name="pin" required inputmode="numeric" type="password" minlength="4" maxlength="8"></label>
-    <label>পিন আবার<input name="pin2" required inputmode="numeric" type="password"></label>
-    <button class="btn">চালু করুন</button>
-  </form>
-  <details style="margin-top:16px"><summary class="small">সিঙ্ক থেকে আনুন (আগের ডেটা)</summary>
-  <form data-form="setupSync" class="grid" style="margin-top:10px"><label>সিঙ্ক লিংক<input name="url" required></label><label>সিঙ্ক কী<input name="key" required></label><button class="btn l">ডেটা আনুন</button></form>
-  <p class="small muted">অথবা ব্যাকআপ ফাইল থেকে: <input type="file" accept=".json" data-change="restoreFile"></p></details></div></div>`;
-}
-function viewLogin(){
-  const us = all("users").filter(u => u.active !== false);
-  return `<div class="login"><div class="box"><h1>${esc(S().instName||"")}</h1><p class="muted small">মাদরাসা ম্যানেজমেন্ট সফটওয়্যার — লগইন</p>
-  <form data-form="login" class="grid"><label>ব্যবহারকারী<select name="uid">${us.map(u=>`<option value="${u.id}">${esc(u.name)} (${ROLES[u.role]})</option>`).join("")}</select></label>
-  <label>পিন<input name="pin" type="password" inputmode="numeric" required autofocus></label><button class="btn">প্রবেশ করুন</button></form></div></div>`;
-}
-
-const VIEWS = {};
-
-/* ---------- ড্যাশবোর্ড ---------- */
-VIEWS.dashboard = () => {
-  const s = S(), t = today();
-  const st = activeStudents(), staff = all("staff").filter(x=>x.active!==false);
-  let P=0, T=0; all("attendance").filter(a=>a.date===t).forEach(a => Object.values(a.marks||{}).forEach(v => { T++; if(v==="P") P++; }));
-  let sP=0, sT=0; const sa = get("staffAttendance", t); if(sa) Object.values(sa.marks||{}).forEach(v => { sT++; if(v==="P") sP++; });
-  const feeToday = all("payments").filter(p=>p.date===t).reduce((a,p)=>a+num(p.total),0);
-  const feeMonth = all("payments").filter(p=>(p.date||"").startsWith(thisMonth())).reduce((a,p)=>a+num(p.total),0);
-  const dues = duesList(), dueTotal = dues.reduce((a,d)=>a+d.amount,0);
-  const pc = pendingCount();
-  const dueDay = num(s.dueDay)||10; const isDueDay = new Date().getDate() >= dueDay;
-  const sentThisMonth = Object.keys(META.sent||{}).filter(k=>k.endsWith("|"+thisMonth())).length;
-  const byDept = DEPTS.map(d => [d, st.filter(x => (get("classes",x.classId)||{}).dept===d).length]);
-  // ক্যালেন্ডার
-  const now = new Date(), y = now.getFullYear(), m = now.getMonth(); const first = new Date(y,m,1).getDay(); const days = new Date(y,m+1,0).getDate();
-  let cal = DAYS.map((d,i)=>`<div class="h ${i===5?"fri":""}">${d}</div>`).join("") + "<div class='x'></div>".repeat(first);
-  for(let d=1; d<=days; d++){ const wd = (first+d-1)%7; cal += `<div class="${d===now.getDate()?"today":""} ${wd===5?"fri":""}">${bn(d)}</div>`; }
-  return `
-  ${pc && isAdmin() ? `<div class="banner"><span>অনুমোদনের অপেক্ষায় ${bn(pc)}টি বিষয়</span><a class="btn s g" href="#approvals">দেখুন</a></div>`:""}
-  ${isDueDay && dues.length && can("fees") ? `<div class="banner"><span>আজ বকেয়া রিমাইন্ডারের দিন (প্রতি মাসের ${bn(dueDay)} তারিখ) — ${bn(dues.length)} জনের বকেয়া, পাঠানো হয়েছে ${bn(sentThisMonth)} জনকে</span><a class="btn s wa" href="#fees/dues">রিমাইন্ডার পাঠান</a></div>`:""}
-  <div class="grid g4" style="margin-bottom:16px">
-    <div class="stat"><span>মোট শিক্ষার্থী</span><b>${bn(st.length)}</b><small>${byDept.filter(x=>x[1]).map(x=>x[0].replace(" বিভাগ","")+" "+bn(x[1])).join(" • ")||"এখনো কেউ নেই"}</small></div>
-    <div class="stat"><span>শিক্ষক-কর্মচারী</span><b>${bn(staff.length)}</b><small>আজ উপস্থিত ${sT?bn(sP)+"/"+bn(sT):"— হাজিরা নেওয়া হয়নি"}</small></div>
-    <div class="stat"><span>আজকের শিক্ষার্থী উপস্থিতি</span><b>${T?bn(Math.round(P*100/T))+"%":"—"}</b><small>${T?bn(P)+" জন উপস্থিত, "+bn(T-P)+" জন অনুপস্থিত/ছুটি":"আজ হাজিরা নেওয়া হয়নি"}</small></div>
-    <div class="stat"><span>আজকের ফি আদায়</span><b>${money(feeToday)}</b><small>এ মাসে ${money(feeMonth)}</small></div>
-    <div class="stat"><span>মোট বকেয়া</span><b>${money(dueTotal)}</b><small>${bn(dues.length)} জন শিক্ষার্থী</small></div>
-    <div class="stat"><span>ভবন ও শ্রেণিকক্ষ</span><b>${bn(num(s.buildings))} / ${bn(num(s.rooms))}</b><small>শ্রেণি ${bn(all("classes").length)}টি</small></div>
+<header>
+  <div class="wrap hbar">
+    <a class="logo" href="#home"><img src="assets/img/logo-192.png" alt=""><span><b>বায়তুশ শরফ হিফজ একাডেমি</b><small>খাগড়াছড়ি • জব্বারিয়া ইন্টারন্যাশনাল</small></span></a>
+    <div id="navwrap">
+      <ul class="nav" id="nav">
+        <li><a href="#home">প্রথম পাতা</a></li>
+        <li><button type="button" aria-expanded="false">পরিচিতি</button><ul class="sub">
+          <li><a href="#about">আমাদের সম্পর্কে</a></li><li><a href="#about">ভিশন ও মিশন</a></li><li><a href="#message">কর্তৃপক্ষের বাণী</a></li><li><a href="#unique">যা আমাদের অনন্য করেছে</a></li><li><a href="#strategy">কৌশলগত পরিকল্পনা ২০২৬–২০৪৫</a></li></ul></li>
+        <li><button type="button" aria-expanded="false">একাডেমিক</button><ul class="sub">
+          <li><a href="#depts">শিক্ষা বিভাগ</a></li><li><a href="#syllabus">শ্রেণিভিত্তিক পাঠ্যক্রম</a></li><li><a href="#method">বৈজ্ঞানিক হিফজ পদ্ধতি</a></li><li><a href="#assess">মূল্যায়ন পদ্ধতি</a></li><li><a href="#calendar">একাডেমিক ক্যালেন্ডার</a></li></ul></li>
+        <li><button type="button" aria-expanded="false">ভর্তি</button><ul class="sub">
+          <li><a href="#admission">ভর্তি প্রক্রিয়া</a></li><li><a href="#entry">ভর্তির যোগ্যতা ও বয়স</a></li><li><a href="#fees">ফি ও বেতন</a></li><li><a href="#admission" data-apply>অনলাইনে আবেদন</a></li></ul></li>
+        <li><button type="button" aria-expanded="false">ক্যাম্পাস জীবন</button><ul class="sub">
+          <li><a href="#campus">আবাসিক হাউজ</a></li><li><a href="#routine">দৈনিক রুটিন</a></li><li><a href="#promise">অভিভাবকের প্রতি অঙ্গীকার</a></li><li><a href="#campus">স্মার্ট ক্লাসরুম</a></li></ul></li>
+        <li><a href="#books">প্রকাশনা</a></li>
+        <li><a href="#notice">নোটিশ</a></li>
+        <li><a href="#contact">যোগাযোগ</a></li>
+      </ul>
+    </div>
+    <div class="hact"><button class="cart-btn" id="cartOpen" type="button">বই অর্ডার<span id="cartCount">০</span></button><button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navwrap">☰ মেনু</button></div>
   </div>
-  <div class="grid g2">
-    <div class="card"><h2>${MONTHS[m]} ${bn(y)}</h2><div class="cal">${cal}</div></div>
-    <div class="card"><h2>দ্রুত কাজ</h2><div class="row">
-      ${can("attendance")?`<a class="btn" href="#attendance">আজকের হাজিরা</a>`:""}
-      ${can("fees")?`<a class="btn" href="#fees">ফি আদায়</a>`:""}
-      ${can("applications")?`<a class="btn l" href="#applications/new">নতুন ভর্তি আবেদন</a>`:""}
-      ${can("students")?`<a class="btn l" href="#students">শিক্ষার্থী খুঁজুন</a>`:""}
+</header>
+
+<div class="ribbon" id="ribbon"><div class="wrap"><span id="ribbonText"><b>ভর্তি চলছে: ২০২৭ শিক্ষাবর্ষ</b> • ভর্তি পরীক্ষা ডিসেম্বর ২০২৬ • ক্লাস শুরু জানুয়ারি ২০২৭</span><a class="btn brand" style="padding:5px 14px;font-size:.9rem" href="#admission" data-apply>আবেদন করুন</a></div></div>
+
+<main id="home">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="ayah" lang="ar">وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ</div>
+      <div class="ayah-tr">“আমি কুরআনকে উপদেশ গ্রহণের জন্য সহজ করে দিয়েছি।” — সূরা আল-কামার, ১৭</div>
+      <h1>খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি</h1>
+      <p class="lead">মুহাক্কিক আলেম ও বিশ্বমানের হাফেজে কুরআন গড়ার লক্ষ্যে হিফজুল কুরআন, কওমি-আলিয়া সমন্বিত শিক্ষা এবং আরবি-ইংরেজি, বিজ্ঞান ও রোবোটিক্সের অনন্য সমন্বয়।</p>
+      <div class="cta"><a class="btn gold" href="#admission" data-apply>অনলাইনে ভর্তির আবেদন</a><a class="btn ghost" href="#depts">বিভাগসমূহ দেখুন</a></div>
     </div>
-    <h2 style="margin-top:18px">সাম্প্রতিক আদায়</h2>
-    ${all("payments").sort((a,b)=>b.updatedAt-a.updatedAt).slice(0,5).map(p => { const s2 = get("students",p.sid); return `<div class="small" style="display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:4px 0"><span>${esc(s2?s2.name:p.sid)} • ${dFmt(p.date)}</span><b>${money(p.total)}</b></div>`; }).join("") || `<p class="muted small">এখনো কোনো আদায় নেই</p>`}
+    <div class="facts" aria-label="এক নজরে">
+      <div><b>৩</b><span>প্রধান শিক্ষা বিভাগ</span></div>
+      <div id="factStudents"><b>৫</b><span>ভর্তির এন্ট্রি পয়েন্ট</span></div>
+      <div><b>৩২</b><span>নিজস্ব প্রকাশিত বই</span></div>
+      <div><b>২০২৭</b><span>নতুন শিক্ষাবর্ষ শুরু</span></div>
     </div>
-  </div>`;
-};
+  </div>
+</section>
 
-/* ---------- অনুমোদন ---------- */
-VIEWS.approvals = () => {
-  const apps = all("applications").filter(a=>a.status==="pending");
-  const ws = all("waivers").filter(w=>w.status==="pending");
-  const rq = all("requests").filter(r=>r.status!=="done").sort((a,b)=>b.updatedAt-a.updatedAt);
-  const adm = isAdmin();
-  return `${!adm?`<div class="banner">অনুমোদন দিতে পারেন শুধু ব্যবস্থাপক। এখানে অবস্থা দেখতে পারবেন।</div>`:""}
-  <div class="card"><h2>ভর্তি আবেদন (${bn(apps.length)})</h2>${apps.length?`<div class="tw"><table><tr><th>আবেদন</th><th>শিক্ষার্থী</th><th>শ্রেণি</th><th>মোবাইল</th><th>উৎস</th><th></th></tr>
-    ${apps.map(a=>`<tr><td>${esc(a.id)}<br><span class="small muted">${dFmt((a.createdAt||"").slice(0,10))}</span></td><td><b>${esc(a.name)}</b><br><span class="small">পিতা: ${esc(a.father)}</span></td><td>${esc(a.dept||"")}<br>${esc(a.wantedClass||"")}</td><td>${esc(bn(a.phone))}</td><td>${a.source==="form"?"অনলাইন ফরম":"অফিস"}</td>
-    <td>${adm?`<button class="btn s" data-act="approveApp" data-id="${a.id}">অনুমোদন</button> <button class="btn s l" data-act="rejectApp" data-id="${a.id}">বাতিল</button>`:`<span class="tag warn">অপেক্ষমাণ</span>`}</td></tr>`).join("")}</table></div>`:`<p class="muted">কোনো আবেদন অপেক্ষমাণ নেই</p>`}</div>
-  <div class="card"><h2>ফি মওকুফের আবেদন (${bn(ws.length)})</h2>${ws.length?`<div class="tw"><table><tr><th>শিক্ষার্থী</th><th>মাস</th><th>টাকা</th><th>কারণ</th><th></th></tr>
-    ${ws.map(w=>{const s=get("students",w.sid); return `<tr><td>${esc(studentLabel(s)||w.sid)}</td><td>${(w.months||[]).map(mName).join(", ")}</td><td>${money((w.months||[]).length*num(s&&s.monthlyFee))}</td><td>${esc(w.reason)}</td>
-    <td>${adm?`<button class="btn s" data-act="waiver" data-id="${w.id}" data-v="approved">অনুমোদন</button> <button class="btn s l" data-act="waiver" data-id="${w.id}" data-v="rejected">বাতিল</button>`:`<span class="tag warn">অপেক্ষমাণ</span>`}</td></tr>`;}).join("")}</table></div>`:`<p class="muted">কোনো মওকুফ আবেদন নেই</p>`}</div>
-  <div class="card"><h2>অভিভাবকের অভিযোগ ও অনুরোধ (${bn(rq.length)})</h2>${rq.length?rq.map(r=>`<div style="border-bottom:1px solid var(--line);padding:8px 0"><span class="tag">${esc(r.type||"অনুরোধ")}</span> <b>${esc(r.guardian||"")}</b> ${r.sid?"• "+esc(r.sid):""} • ${esc(bn(r.phone||""))} <span class="small muted">${dFmt((r.createdAt||"").slice(0,10))}</span><p style="margin:4px 0">${esc(r.details)}</p>
-    ${adm||ME.role==="office"?`<button class="btn s" data-act="reqDone" data-id="${r.id}">সমাধান হয়েছে</button> ${r.phone?`<a class="btn s wa" target="_blank" href="${waLink(r.phone,"আসসালামু আলাইকুম। আপনার বার্তাটি আমরা পেয়েছি। — "+(S().instName||""))}">হোয়াটসঅ্যাপে উত্তর</a>`:""}`:""}</div>`).join(""):`<p class="muted">নতুন কোনো বার্তা নেই। অভিভাবকের ফরম থেকে আসা বার্তা সিঙ্কের পর এখানে দেখা যাবে।</p>`}</div>`;
-};
+<!-- গুরুত্বপূর্ণ আপডেট ও সেবা -->
+<section class="sec" id="notice">
+  <div class="wrap upd">
+    <div>
+      <div class="sec-head" style="margin-bottom:18px"><span class="eyebrow">গুরুত্বপূর্ণ আপডেট</span><h2>নোটিশ বোর্ড</h2></div>
+      <div class="nlist" id="noticeList"></div>
+      <p class="small muted" style="margin-top:10px" id="noticeNote"></p>
+    </div>
+    <div>
+      <div class="sec-head" style="margin-bottom:18px"><span class="eyebrow">এক ক্লিকে</span><h2>আমাদের সেবা</h2></div>
+      <div class="services">
+        <a href="#admission" data-apply><b>অনলাইনে আবেদন</b><span>ঘরে বসে ভর্তির ফরম</span></a>
+        <a href="student.html"><b>অভিভাবক লগইন</b><span>হাজিরা, বকেয়া ও রসিদ</span></a>
+        <a href="#" id="svcWa" target="_blank" rel="noopener"><b>হোয়াটসঅ্যাপ হেল্পলাইন</b><span>সরাসরি অফিসে বার্তা</span></a>
+        <a href="#contact" id="svcReq"><b>অভিযোগ ও অনুরোধ</b><span>ছুটির আবেদন, পরামর্শ</span></a>
+        <a href="#books"><b>বই অর্ডার</b><span>৩২টি নিজস্ব প্রকাশনা</span></a>
+        <a href="#career"><b>শিক্ষক নিয়োগ</b><span>আমাদের সাথে কাজ করুন</span></a>
+      </div>
+    </div>
+  </div>
+</section>
 
-/* ---------- ভর্তি আবেদন ---------- */
-function appForm(a){
-  a = a || {};
-  return `<form data-form="saveApp" class="fgrid"><input type="hidden" name="id" value="${esc(a.id||"")}">
-  <label>শিক্ষার্থীর নাম *<input name="name" required value="${esc(a.name)}"></label>
-  <label>পিতার নাম *<input name="father" required value="${esc(a.father)}"></label>
-  <label>মাতার নাম<input name="mother" value="${esc(a.mother)}"></label>
-  <label>জন্ম তারিখ<input name="dob" type="date" value="${esc(a.dob)}"></label>
-  <label>অভিভাবকের মোবাইল *<input name="phone" required value="${esc(a.phone)}"></label>
-  <label>হোয়াটসঅ্যাপ নম্বর<input name="whatsapp" value="${esc(a.whatsapp)}"></label>
-  <label>বিভাগ<select name="dept">${DEPTS.map(d=>`<option ${a.dept===d?"selected":""}>${d}</option>`).join("")}</select></label>
-  <label>যে শ্রেণিতে ভর্তি<input name="wantedClass" value="${esc(a.wantedClass)}" placeholder="যেমন: নাজেরা ১ম বর্ষ"></label>
-  <label>থাকা<select name="residential"><option ${a.residential==="অনাবাসিক"?"selected":""}>অনাবাসিক</option><option ${a.residential==="আবাসিক"?"selected":""}>আবাসিক</option></select></label>
-  <label>বর্তমান পড়া<input name="prevStudy" value="${esc(a.prevStudy)}" placeholder="যেমন: আমপারা শেষ, ৫ পারা হিফজ"></label>
-  <label style="grid-column:1/-1">ঠিকানা<textarea name="address">${esc(a.address)}</textarea></label>
-  <label style="grid-column:1/-1">মন্তব্য<textarea name="note">${esc(a.note)}</textarea></label>
-  <div style="grid-column:1/-1" class="actions"><a class="btn l" href="#applications">বাতিল</a><button class="btn">আবেদন সংরক্ষণ</button></div></form>`;
-}
-VIEWS.applications = arg => {
-  if(arg === "new") return `<div class="card"><h2>নতুন ভর্তি আবেদন (অফিসে জমা দেওয়া কাগজের ফরম)</h2>${appForm()}</div>`;
-  const tab = ["pending","approved","rejected"].includes(arg) ? arg : "pending";
-  const list = all("applications").filter(a=>a.status===tab).sort((a,b)=>b.updatedAt-a.updatedAt);
-  const fa = S().formAdmission;
-  return `<div class="row" style="justify-content:space-between;margin-bottom:12px"><div class="tabs" style="margin:0">
-    <a href="#applications/pending" class="${tab==="pending"?"on":""}">অপেক্ষমাণ (${bn(all("applications").filter(a=>a.status==="pending").length)})</a>
-    <a href="#applications/approved" class="${tab==="approved"?"on":""}">অনুমোদিত</a><a href="#applications/rejected" class="${tab==="rejected"?"on":""}">বাতিল</a></div>
-    <div class="row"><a class="btn" href="#applications/new">+ নতুন আবেদন</a>${fa?`<button class="btn l" data-act="copy" data-text="${esc(fa)}">অনলাইন ফরমের লিংক কপি</button>`:""}</div></div>
-  ${list.length?`<div class="tw"><table><tr><th>আবেদন নং</th><th>শিক্ষার্থী</th><th>বিভাগ / শ্রেণি</th><th>মোবাইল</th><th>অবস্থা</th><th></th></tr>
-  ${list.map(a=>`<tr><td>${esc(a.id)}<br><span class="small muted">${dFmt((a.createdAt||"").slice(0,10))}</span></td><td><b>${esc(a.name)}</b><br><span class="small">পিতা: ${esc(a.father)}${a.prevStudy?" • "+esc(a.prevStudy):""}</span></td><td>${esc(a.dept)}<br>${esc(a.wantedClass)}</td><td>${esc(bn(a.phone))}</td>
-  <td>${a.status==="approved"?`<span class="tag ok">অনুমোদিত</span><br><a href="#student/${esc(a.studentId)}">${esc(a.studentId)}</a>`:a.status==="rejected"?`<span class="tag bad">বাতিল</span><br><span class="small">${esc(a.rejectReason||"")}</span>`:`<span class="tag warn">অপেক্ষমাণ</span>`}</td>
-  <td>${a.status==="pending"&&isAdmin()?`<button class="btn s" data-act="approveApp" data-id="${a.id}">অনুমোদন</button> `:""}${a.status==="approved"&&a.phone?`<a class="btn s wa" target="_blank" href="${waLink(a.whatsapp||a.phone, fillTpl(S().tplApproved,{নাম:a.name,আইডি:a.studentId,শ্রেণি:className((get("students",a.studentId)||{}).classId),প্রতিষ্ঠান:S().instName}))}">জানান</a>`:""}</td></tr>`).join("")}</table></div>`:`<div class="card empty">এই তালিকায় কোনো আবেদন নেই।${tab==="pending"?" অনলাইন ফরমে জমা পড়া আবেদন সিঙ্ক করলে এখানে আসবে।":""}</div>`}`;
-};
+<!-- পরিচিতি -->
+<section class="sec band" id="about">
+  <div class="wrap about">
+    <div>
+      <div class="sec-head"><span class="eyebrow">আমাদের সম্পর্কে</span><h2>আলোকিত প্রজন্ম, বিশ্বমঞ্চে ইসলামের প্রতিনিধি</h2></div>
+      <p>খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি খাগড়াছড়ি বায়তুশ শরফ কমপ্লেক্সের একটি বিশেষায়িত দ্বীনি শিক্ষাপ্রতিষ্ঠান। এখানে প্রথম শ্রেণি থেকেই বিজ্ঞানসম্মত পদ্ধতিতে হিফজুল কুরআনের পাশাপাশি জাতীয় কারিকুলাম, আরবি ও ইংরেজি ভাষার চার দক্ষতা এবং রোবোটিক্স-STEM শিক্ষা দেওয়া হয়।</p>
+      <p style="margin-top:12px">হিফজ শেষে শিক্ষার্থী কিতাব বিভাগে কওমি ধারার মাদানি নেসাব ও আলিয়া ধারার দাখিল-আলিম বোর্ড পরীক্ষার সমন্বিত পথে দাওরায়ে হাদিস পর্যন্ত পড়তে পারে।</p>
+      <p class="vision" style="margin-top:18px"><span class="eyebrow" style="display:block;font-family:var(--fb)">আমাদের ভিশন</span>এমন একটি আদর্শ ও আলোকিত প্রজন্ম গড়ে তোলা, যারা বিশুদ্ধভাবে কুরআনে কারীমের হাফেজ, দ্বীনি জ্ঞানে সুগভীর মুহাক্কিক আলেম, আধুনিক বিজ্ঞান-প্রযুক্তি ও রোবোটিক্সে পারদর্শী, বহুভাষিক এবং উত্তম চরিত্র ও নেতৃত্বের গুণে বিশ্বমঞ্চে ইসলামের প্রতিনিধিত্ব করতে সক্ষম, ইনশাআল্লাহ।</p>
+    </div>
+    <div>
+      <span class="eyebrow">আমাদের মিশন</span>
+      <ol class="mission">
+        <li><span>প্রথম শ্রেণি থেকেই বিজ্ঞানসম্মত নূরানী ও তাহফিজ পদ্ধতিতে বিশুদ্ধ তিলাওয়াত ও তাজবীদের মজবুত ভিত্তি।</span></li>
+        <li><span>সহীহ আকীদা, মাসনুন দোয়া ও সুন্নাহভিত্তিক জীবনাচরণ এবং চারিত্রিক তারবিয়াহ।</span></li>
+        <li><span>কওমি মাদানি নেসাব ও দরসে নিজামীর সাথে আলিয়া ধারার দাখিল-আলিম বোর্ড পরীক্ষার সমন্বয়।</span></li>
+        <li><span>প্রথম শ্রেণি থেকেই আরবি ও ইংরেজির শ্রবণ, কথন, পঠন ও লিখন দক্ষতা।</span></li>
+        <li><span>রোবোটিক্স, আইসিটি ও STEM শিক্ষার মাধ্যমে গবেষণাধর্মী মনন।</span></li>
+        <li><span>শিশু মনস্তত্ত্বের আলোকে আনন্দময়, ভীতিহীন ও ফলাফলভিত্তিক (OBE) শিক্ষণ পরিবেশ।</span></li>
+      </ol>
+    </div>
+  </div>
+  <div class="wrap" id="message" style="margin-top:34px">
+    <div class="msg"><span class="eyebrow">কর্তৃপক্ষের বাণী</span>
+      <p style="margin-top:8px">আলহামদুলিল্লাহ। কুরআনের হাফেজ হওয়া একজন শিশুর জন্য দুনিয়া ও আখিরাতের সবচেয়ে বড় সম্মান। আমরা চাই, আমাদের প্রতিটি শিক্ষার্থী বিশুদ্ধ তিলাওয়াত ও মজবুত হিফজের পাশাপাশি সময়ের জ্ঞান-বিজ্ঞানেও দক্ষ হয়ে উঠুক, যাতে সে দ্বীনের সঠিক প্রতিনিধি হয়ে সমাজ ও উম্মাহর সেবা করতে পারে।</p>
+      <p>সে লক্ষ্যে আমরা নিজস্ব পাঠ্যবই, প্রশিক্ষিত শিক্ষক, শারীরিক শাস্তিমুক্ত আনন্দময় পরিবেশ এবং অভিভাবকের সাথে নিয়মিত যোগাযোগের ব্যবস্থা করেছি। আল্লাহ তাআলা আমাদের এই প্রচেষ্টা কবুল করুন।</p>
+      <p class="sig">— কর্তৃপক্ষ, খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি</p>
+    </div>
+  </div>
+</section>
 
-/* ---------- শিক্ষার্থী ---------- */
-function studentForm(s){
-  s = s || { admissionDate: today(), status:"active", residential:"অনাবাসিক" };
-  return `<h2>${s.id?"শিক্ষার্থীর তথ্য সম্পাদনা — "+esc(s.id):"নতুন শিক্ষার্থী"}</h2><form data-form="saveStudent" class="fgrid"><input type="hidden" name="id" value="${esc(s.id||"")}">
-  <label>নাম *<input name="name" required value="${esc(s.name)}"></label><label>নাম (ইংরেজিতে)<input name="nameEn" value="${esc(s.nameEn)}"></label>
-  <label>পিতার নাম<input name="father" value="${esc(s.father)}"></label><label>মাতার নাম<input name="mother" value="${esc(s.mother)}"></label>
-  <label>জন্ম তারিখ<input type="date" name="dob" value="${esc(s.dob)}"></label><label>জন্মনিবন্ধন নং<input name="birthReg" value="${esc(s.birthReg)}"></label>
-  <label>অভিভাবকের মোবাইল<input name="phone" value="${esc(s.phone)}"></label><label>হোয়াটসঅ্যাপ<input name="whatsapp" value="${esc(s.whatsapp)}"></label>
-  <label>শ্রেণি *<select name="classId" required>${classOptions(s.classId)}</select></label>
-  <label>গ্রুপ / শাখা<input name="group" value="${esc(s.group)}" placeholder="যেমন: গ্রুপ ১"></label><label>রোল<input name="roll" value="${esc(s.roll)}"></label>
-  <label>থাকা<select name="residential"><option ${s.residential==="অনাবাসিক"?"selected":""}>অনাবাসিক</option><option ${s.residential==="আবাসিক"?"selected":""}>আবাসিক</option></select></label>
-  <label>ভর্তির তারিখ<input type="date" name="admissionDate" value="${esc(s.admissionDate)}"></label>
-  <label>মাসিক বেতন (টাকা)<input name="monthlyFee" inputmode="numeric" value="${esc(s.monthlyFee??"")}" placeholder="খালি রাখলে সেটিংসের হার"></label>
-  <label>হিফজ অগ্রগতি<input name="hifz" value="${esc(s.hifz)}" placeholder="যেমন: ১০ পারা"></label>
-  <label>অবস্থা<select name="status"><option value="active" ${s.status!=="left"?"selected":""}>অধ্যয়নরত</option><option value="left" ${s.status==="left"?"selected":""}>প্রস্থান করেছে</option></select></label>
-  <label style="grid-column:1/-1">ঠিকানা<textarea name="address">${esc(s.address)}</textarea></label>
-  <label style="grid-column:1/-1">মন্তব্য<textarea name="note">${esc(s.note)}</textarea></label>
-  <div class="actions" style="grid-column:1/-1"><button type="button" class="btn l" data-act="closeModal">বাতিল</button><button class="btn">সংরক্ষণ</button></div></form>`;
-}
-VIEWS.students = () => {
-  const f = UI.sf || (UI.sf = { q:"", cls:"", st:"active" });
-  const q = f.q.trim().toLowerCase();
-  let list = all("students").filter(s => (f.st==="all" || (f.st==="left" ? s.status==="left" : s.status!=="left")) && (!f.cls || s.classId===f.cls) && (!q || [s.id,s.name,s.nameEn,s.father,s.phone,en(s.phone)].join(" ").toLowerCase().includes(q)));
-  list.sort((a,b) => a.id.localeCompare(b.id, "en", {numeric:true}));
-  const adm = isAdmin(), off = ME.role !== "teacher";
-  return `<div class="card"><div class="row">
-    <label style="flex:2 1 220px">খুঁজুন (নাম/আইডি/মোবাইল)<input data-change="sf" data-k="q" value="${esc(f.q)}" placeholder="লিখুন…"></label>
-    <label style="flex:1 1 180px">শ্রেণি<select data-change="sf" data-k="cls">${classOptions(f.cls,true)}</select></label>
-    <label style="flex:1 1 140px">অবস্থা<select data-change="sf" data-k="st"><option value="active" ${f.st==="active"?"selected":""}>অধ্যয়নরত</option><option value="left" ${f.st==="left"?"selected":""}>প্রস্থান</option><option value="all" ${f.st==="all"?"selected":""}>সবাই</option></select></label>
-  </div><div class="row" style="margin-top:12px">
-    ${adm?`<button class="btn" data-act="newStudent">+ সরাসরি ভর্তি</button><button class="btn l" data-act="promote">শ্রেণি প্রমোশন</button><label class="btn l" style="display:inline-block;color:var(--brand)">CSV ইমপোর্ট<input type="file" accept=".csv" data-change="importCSV" hidden></label>`:""}
-    ${off?`<button class="btn l" data-act="exportCSV">CSV এক্সপোর্ট</button><button class="btn l" data-act="printRegister">ভর্তি রেজিস্টার প্রিন্ট</button>`:""}
-    <span class="muted small" style="align-self:center">${bn(list.length)} জন</span></div></div>
-  ${list.length?`<div class="tw"><table><tr><th>আইডি</th><th>নাম</th><th>পিতা</th><th>শ্রেণি</th><th>গ্রুপ</th><th>মোবাইল</th><th>হিফজ</th><th></th></tr>
-  ${list.map(s=>`<tr><td>${esc(s.id)}</td><td><a href="#student/${encodeURIComponent(s.id)}"><b>${esc(s.name)}</b></a>${s.residential==="আবাসিক"?` <span class="tag">আবাসিক</span>`:""}</td><td>${esc(s.father)}</td><td>${esc(className(s.classId))}</td><td>${esc(s.group)}</td><td>${esc(bn(s.phone))}</td><td>${esc(s.hifz)}</td>
-  <td>${off?`<button class="btn s l" data-act="editStudent" data-id="${esc(s.id)}">সম্পাদনা</button>`:""}</td></tr>`).join("")}</table></div>`
-  :`<div class="card empty">কোনো শিক্ষার্থী পাওয়া যায়নি। ভর্তি আবেদন অনুমোদন করলে বা CSV ইমপোর্ট করলে এখানে তালিকা আসবে।</div>`}`;
-};
-VIEWS.student = id => {
-  const s = get("students", id); if(!s) return `<div class="card empty">শিক্ষার্থী পাওয়া যায়নি</div>`;
-  const m = thisMonth(); let P=0,A=0,L=0;
-  all("attendance").filter(a=>a.date.startsWith(m)).forEach(a => { const v = (a.marks||{})[s.id]; if(v==="P")P++; else if(v==="A")A++; else if(v==="L")L++; });
-  const dues = unpaid(s); const pays = all("payments").filter(p=>p.sid===s.id).sort((a,b)=>b.date.localeCompare(a.date));
-  const row = (k,v) => `<tr><th style="width:38%">${k}</th><td>${v||"—"}</td></tr>`;
-  return `<div class="row" style="margin-bottom:12px"><a class="btn l" href="#students">← তালিকা</a>${ME.role!=="teacher"?`<button class="btn l" data-act="editStudent" data-id="${esc(s.id)}">সম্পাদনা</button>`:""}${can("fees")?`<a class="btn" href="#fees/collect/${encodeURIComponent(s.id)}">ফি আদায়</a>`:""}${s.phone?`<a class="btn wa" target="_blank" href="${waLink(s.whatsapp||s.phone,"আসসালামু আলাইকুম। ")}">অভিভাবককে হোয়াটসঅ্যাপ</a>`:""}</div>
-  <div class="grid g2"><div class="card"><h2>${esc(s.name)} <span class="tag">${esc(s.id)}</span> ${s.status==="left"?`<span class="tag bad">প্রস্থান</span>`:""}</h2><div class="tw"><table>
-  ${row("নাম (ইংরেজি)",esc(s.nameEn))}${row("পিতা",esc(s.father))}${row("মাতা",esc(s.mother))}${row("জন্ম তারিখ",dFmt(s.dob))}${row("জন্মনিবন্ধন",esc(bn(s.birthReg)))}${row("শ্রেণি",esc(className(s.classId)))}${row("গ্রুপ / রোল",esc(s.group)+" / "+esc(bn(s.roll)))}${row("থাকা",esc(s.residential))}${row("ভর্তির তারিখ",dFmt(s.admissionDate))}${row("মোবাইল",esc(bn(s.phone)))}${row("হোয়াটসঅ্যাপ",esc(bn(s.whatsapp)))}${row("ঠিকানা",esc(s.address))}${row("হিফজ অগ্রগতি",esc(s.hifz))}${row("মন্তব্য",esc(s.note))}
-  </table></div></div>
-  <div>${ME.role!=="teacher"?`<div class="card"><h2>অভিভাবক অ্যাকাউন্ট</h2><p class="small">লগইন: ${esc(S().portalUrl||PORTAL_URL)} • আইডি: <b>${esc(s.id)}</b> • পিন: ${s.pinHash?`<span class="tag ok">তৈরি আছে</span>`:`<span class="tag warn">এখনো তৈরি হয়নি</span>`}</p><button class="btn s" data-act="newPin" data-id="${esc(s.id)}">${s.pinHash?"নতুন পিন দিন":"পিন তৈরি করুন"}</button></div>`:""}<div class="card"><h2>${MONTHS[+m.slice(5)-1]} মাসের হাজিরা</h2><div class="grid g4"><div class="stat"><span>উপস্থিত</span><b>${bn(P)}</b></div><div class="stat"><span>অনুপস্থিত</span><b>${bn(A)}</b></div><div class="stat"><span>ছুটি</span><b>${bn(L)}</b></div></div></div>
-  ${can("fees")?`<div class="card"><h2>ফি</h2><p>মাসিক বেতন: <b>${money(num(s.monthlyFee))}</b> • বকেয়া: <b style="color:${dues.length?"var(--bad)":"var(--ok)"}">${dues.length?money(dues.length*num(s.monthlyFee))+" ("+dues.map(mName).join(", ")+")":"নেই"}</b></p>
-  ${pays.length?`<div class="tw"><table><tr><th>রসিদ</th><th>তারিখ</th><th>বিবরণ</th><th class="right">টাকা</th><th></th></tr>${pays.map(p=>`<tr><td>${esc(p.receiptNo)}</td><td>${dFmt(p.date)}</td><td class="small">${(p.items||[]).map(i=>esc(i.head)+(i.month?" ("+mName(i.month)+")":"")).join(", ")}</td><td class="right">${money(p.total)}</td><td><button class="btn s l" data-act="printReceipt" data-id="${p.id}">রসিদ</button></td></tr>`).join("")}</table></div>`:`<p class="muted small">কোনো পরিশোধ নেই</p>`}</div>`:""}</div></div>`;
-};
+<!-- অনন্য বৈশিষ্ট্য -->
+<section class="sec" id="unique">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">কেন বায়তুশ শরফ</span><h2>যা আমাদের অনন্য করেছে</h2></div>
+    <div class="feat">
+      <div class="card"><span class="ic">ح</span><h3>বৈজ্ঞানিক রাবত হিফজ পদ্ধতি</h3><p>২০ বার তিলাওয়াত ও ১০ বার সংযোগের সাত ধাপে প্রতিটি পৃষ্ঠা মুখস্থ, একই ১৫ লাইনের মুসহাফে।</p></div>
+      <div class="card"><span class="ic">ك</span><h3>কওমি-আলিয়া সমন্বিত পাঠ্যক্রম</h3><p>মাদানি নেসাব ও দরসে নিজামীর সাথে দাখিল-আলিম বোর্ড পরীক্ষার প্রস্তুতি, দাওরায়ে হাদিস পর্যন্ত।</p></div>
+      <div class="card"><span class="ic">ع</span><h3>আরবি ও ইংরেজির চার দক্ষতা</h3><p>প্রথম শ্রেণি থেকেই শোনা, বলা, পড়া ও লেখা। শিক্ষকরা শ্রেণিকক্ষে আরবিতে কথা বলেন।</p></div>
+      <div class="card"><span class="ic">৩২</span><h3>নিজস্ব পাঠ্যবই</h3><p>হিফজ শিক্ষার্থীদের উপযোগী করে একাডেমির শিক্ষকদের হাতে তৈরি ৩২টি বই — বাংলা, English, গণিত, আরবি, প্রযুক্তি।</p></div>
+      <div class="card"><span class="ic">⚙</span><h3>রোবোটিক্স ও STEM</h3><p>প্রতিটি শ্রেণিতে বয়স-উপযোগী রোবোটিক্স কোর্স, কিতাব বিভাগে মাইক্রোকন্ট্রোলার, IoT ও AI প্রজেক্ট।</p></div>
+      <div class="card"><span class="ic">QR</span><h3>স্মার্ট ক্লাসরুম</h3><p>৩–৫ মিনিটের মিউজিকমুক্ত শিক্ষামূলক কনটেন্ট, পাঠ্যবইয়ে QR কোড, শিক্ষকের নিয়ন্ত্রণে বড় পর্দা।</p></div>
+      <div class="card"><span class="ic">✓</span><h3>শারীরিক শাস্তিমুক্ত পরিবেশ</h3><p>শারীরিক বা মানসিক শাস্তি সম্পূর্ণ নিষিদ্ধ। এর বদলে পজিটিভ কাউন্সেলিং ও আনন্দময় শিখন।</p></div>
+      <div class="card"><span class="ic">১৫</span><h3>প্রশিক্ষিত শিক্ষক</h3><p>প্রতি শিক্ষাবর্ষের আগে ১৫ দিনের পেডাগজি, শিশু মনস্তত্ত্ব ও স্মার্ট ক্লাসরুম বুটক্যাম্প বাধ্যতামূলক।</p></div>
+      <div class="card"><span class="ic">ID</span><h3>অভিভাবক অ্যাকাউন্ট</h3><p>শিক্ষার্থী আইডি ও পিন দিয়ে ঘরে বসে হাজিরা, বকেয়া ও পরিশোধের রসিদ দেখার সুবিধা।</p></div>
+    </div>
+  </div>
+</section>
 
-/* ---------- হাজিরা ---------- */
-VIEWS.attendance = arg => {
-  const [tab0] = (arg||"").split("/"); const tab = ["students","staff","report","staffReport"].includes(tab0) ? tab0 : "students";
-  if(ME.role==="teacher" && tab.startsWith("staff")) return `<div class="card empty">অনুমতি নেই</div>`;
-  const tabs = `<div class="tabs"><a href="#attendance/students" class="${tab==="students"?"on":""}">শিক্ষার্থী হাজিরা</a><a href="#attendance/report" class="${tab==="report"?"on":""}">শিক্ষার্থী রিপোর্ট</a>${ME.role!=="teacher"?`<a href="#attendance/staff" class="${tab==="staff"?"on":""}">শিক্ষক-কর্মচারী হাজিরা</a><a href="#attendance/staffReport" class="${tab==="staffReport"?"on":""}">শিক্ষক রিপোর্ট</a>`:""}</div>`;
-  const a = UI.att || (UI.att = { date:today(), cls:(classesSorted()[0]||{}).id||"", from:thisMonth()+"-01", to:today() });
-  if(tab === "students"){
-    const list = activeStudents().filter(s=>s.classId===a.cls).sort((x,y)=>(num(x.roll)-num(y.roll))||x.id.localeCompare(y.id,"en",{numeric:true}));
-    const rec = get("attendance", a.date+"_"+a.cls); const marks = (rec&&rec.marks)||{};
-    const absent = rec ? list.filter(s=>marks[s.id]==="A") : [];
-    return tabs + `<div class="card"><div class="row"><label>তারিখ<input type="date" data-change="att" data-k="date" value="${a.date}"></label><label style="flex:1 1 240px">শ্রেণি<select data-change="att" data-k="cls">${classOptions(a.cls)}</select></label>${rec?`<span class="tag ok" style="align-self:center">এই দিনের হাজিরা নেওয়া হয়েছে</span>`:""}</div></div>
-    ${list.length?`<form data-form="saveAtt"><div class="tw"><table><tr><th>রোল</th><th>আইডি</th><th>নাম</th><th>হাজিরা</th></tr>${list.map(s=>{const v=marks[s.id]||"P"; return `<tr><td>${esc(bn(s.roll))}</td><td>${esc(s.id)}</td><td>${esc(s.name)}</td><td><span class="att">${[["P","উপস্থিত"],["A","অনুপস্থিত"],["L","ছুটি"]].map(([k,l])=>`<label><input type="radio" name="${esc(s.id)}" value="${k}" ${v===k?"checked":""}><span class="${k}">${l}</span></label>`).join("")}</span></td></tr>`;}).join("")}</table></div>
-    <div class="actions"><button class="btn">হাজিরা সংরক্ষণ</button></div></form>
-    ${absent.length?`<div class="card" style="margin-top:14px"><h2>অনুপস্থিত — অভিভাবককে জানান</h2>${absent.map(s=>`<div class="row" style="justify-content:space-between;border-bottom:1px solid var(--line);padding:6px 0"><span>${esc(s.name)} (${esc(s.id)})</span>${s.phone||s.whatsapp?`<a class="btn s wa" target="_blank" href="${waLink(s.whatsapp||s.phone, fillTpl(S().tplAbsent,{নাম:s.name,আইডি:s.id,তারিখ:dFmt(a.date),প্রতিষ্ঠান:S().instName}))}">হোয়াটসঅ্যাপ</a>`:`<span class="muted small">নম্বর নেই</span>`}</div>`).join("")}</div>`:""}`
-    :`<div class="card empty">এই শ্রেণিতে কোনো শিক্ষার্থী নেই</div>`}`;
-  }
-  if(tab === "report"){
-    const list = activeStudents().filter(s=>!a.cls||s.classId===a.cls).sort((x,y)=>(num(x.roll)-num(y.roll))||x.id.localeCompare(y.id,"en",{numeric:true}));
-    const recs = all("attendance").filter(r=>r.date>=a.from && r.date<=a.to && (!a.cls||r.classId===a.cls));
-    const c = {}; list.forEach(s=>c[s.id]={P:0,A:0,L:0}); recs.forEach(r=>Object.entries(r.marks||{}).forEach(([sid,v])=>{ if(c[sid]&&c[sid][v]!=null) c[sid][v]++; }));
-    UI.attReport = { list, c, title:`শিক্ষার্থী হাজিরা রিপোর্ট — ${className(a.cls)} — ${dFmt(a.from)} থেকে ${dFmt(a.to)}` };
-    return tabs + `<div class="card"><div class="row"><label style="flex:1 1 220px">শ্রেণি<select data-change="att" data-k="cls">${classOptions(a.cls,true)}</select></label><label>শুরু<input type="date" data-change="att" data-k="from" value="${a.from}"></label><label>শেষ<input type="date" data-change="att" data-k="to" value="${a.to}"></label>
-    <button class="btn l s" data-act="attPreset" data-v="month">এই মাস</button><button class="btn l s" data-act="attPreset" data-v="term">প্রান্তিক (৪ মাস)</button><button class="btn l s" data-act="attPreset" data-v="year">এই বছর</button><button class="btn" data-act="printAtt">প্রিন্ট</button></div></div>
-    <div class="tw"><table><tr><th>আইডি</th><th>নাম</th><th>শ্রেণি</th><th class="right">উপস্থিত</th><th class="right">অনুপস্থিত</th><th class="right">ছুটি</th><th class="right">উপস্থিতির হার</th></tr>${list.map(s=>{const x=c[s.id]; const t=x.P+x.A+x.L; return `<tr><td>${esc(s.id)}</td><td>${esc(s.name)}</td><td class="small">${esc(className(s.classId))}</td><td class="right">${bn(x.P)}</td><td class="right">${bn(x.A)}</td><td class="right">${bn(x.L)}</td><td class="right">${t?bn(Math.round(x.P*100/t))+"%":"—"}</td></tr>`;}).join("")||`<tr><td colspan="7" class="empty">কোনো তথ্য নেই</td></tr>`}</table></div>`;
-  }
-  const staff = all("staff").filter(x=>x.active!==false).sort((x,y)=>x.id.localeCompare(y.id,"en",{numeric:true}));
-  const ST = [["P","উপস্থিত"],["A","অনুপস্থিত"],["CL","নৈমিত্তিক ছুটি"],["ML","চিকিৎসা ছুটি"],["L","অন্যান্য ছুটি"]];
-  if(tab === "staff"){
-    const rec = get("staffAttendance", a.date); const marks = (rec&&rec.marks)||{};
-    return tabs + `<div class="card"><div class="row"><label>তারিখ<input type="date" data-change="att" data-k="date" value="${a.date}"></label>${rec?`<span class="tag ok" style="align-self:center">হাজিরা নেওয়া হয়েছে</span>`:""}</div></div>
-    ${staff.length?`<form data-form="saveStaffAtt"><div class="tw"><table><tr><th>আইডি</th><th>নাম</th><th>পদবি</th><th>হাজিরা</th></tr>${staff.map(s=>{const v=marks[s.id]||"P"; return `<tr><td>${esc(s.id)}</td><td>${esc(s.name)}</td><td>${esc(s.designation)}</td><td><span class="att">${ST.map(([k,l])=>`<label><input type="radio" name="${esc(s.id)}" value="${k}" ${v===k?"checked":""}><span class="${k}">${l}</span></label>`).join("")}</span></td></tr>`;}).join("")}</table></div><div class="actions"><button class="btn">হাজিরা সংরক্ষণ</button></div></form>`
-    :`<div class="card empty">আগে “শিক্ষক-কর্মচারী” পাতায় তালিকা যোগ করুন</div>`}`;
-  }
-  // staffReport
-  const recs = all("staffAttendance").filter(r=>r.date>=a.from && r.date<=a.to);
-  const c = {}; staff.forEach(s=>c[s.id]={P:0,A:0,CL:0,ML:0,L:0}); recs.forEach(r=>Object.entries(r.marks||{}).forEach(([sid,v])=>{ if(c[sid]&&c[sid][v]!=null) c[sid][v]++; }));
-  UI.staffReport = { staff, c, title:`শিক্ষক-কর্মচারী হাজিরা রিপোর্ট — ${dFmt(a.from)} থেকে ${dFmt(a.to)}` };
-  return tabs + `<div class="card"><div class="row"><label>শুরু<input type="date" data-change="att" data-k="from" value="${a.from}"></label><label>শেষ<input type="date" data-change="att" data-k="to" value="${a.to}"></label><button class="btn l s" data-act="attPreset" data-v="month">এই মাস</button><button class="btn l s" data-act="attPreset" data-v="year">এই বছর</button><button class="btn" data-act="printStaffAtt">প্রিন্ট</button></div></div>
-  <div class="tw"><table><tr><th>আইডি</th><th>নাম</th>${ST.map(x=>`<th class="right">${x[1]}</th>`).join("")}</tr>${staff.map(s=>`<tr><td>${esc(s.id)}</td><td>${esc(s.name)}</td>${ST.map(x=>`<td class="right">${bn(c[s.id][x[0]])}</td>`).join("")}</tr>`).join("")||`<tr><td colspan="7" class="empty">কোনো তথ্য নেই</td></tr>`}</table></div>`;
-};
+<!-- বিভাগ -->
+<section class="sec band" id="depts">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">শিক্ষা বিভাগ</span><h2>তিনটি বিভাগ, প্রতিটি শিশুর জন্য উপযুক্ত পথ</h2><p>প্রতিটি শ্রেণি দুই সেমিস্টারে বিভক্ত। নূরানী থেকে দাওরায়ে হাদিস পর্যন্ত ধারাবাহিক পথ।</p></div>
+    <div class="grid g3">
+      <div class="card dept"><span class="top">৬ বছর • ১ম–৬ষ্ঠ শ্রেণি</span><h3>জেনারেল হিফজ বিভাগ</h3><p>দ্রুততম সময়ে মানসম্মত হিফজুল কুরআন, সাথে ষষ্ঠ শ্রেণি সমমান বাংলা, ইংরেজি ও গণিত। যারা সম্পূর্ণ মনোযোগ হিফজে দিতে চায়।</p>
+        <dl class="dl"><dt>ভর্তির বয়স</dt><dd>৬ বছর</dd><dt>অগ্রগতি</dt><dd>কায়েদা → আমপারা → হিফজ → দাওর → মুতাশাবিহাত ও ক্বেরাত</dd><dt>সাপ্তাহিক</dt><dd>~২৮–৩০ ঘণ্টা</dd><dt>পরবর্তী পথ</dt><dd>কিতাব বিভাগ (মানবিক)</dd></dl></div>
+      <div class="card dept"><span class="top">৬ বছর • ১ম–৬ষ্ঠ শ্রেণি</span><h3>একাডেমিক হিফজ বিভাগ</h3><p>হিফজুল কুরআন + পূর্ণাঙ্গ জাতীয় কারিকুলাম + আরবি-ইংরেজি চার দক্ষতা + রোবোটিক্স। হিফজের পাশাপাশি বিজ্ঞান, ভাষা ও প্রযুক্তিতে সমান দক্ষতা।</p>
+        <dl class="dl"><dt>ভর্তির বয়স</dt><dd>৬–৭ বছর</dd><dt>অগ্রগতি</dt><dd>কায়েদা → আমপারা → হিফজ → দাওর (সুষম সময়ে)</dd><dt>সাপ্তাহিক</dt><dd>~৩২–৩৪ ঘণ্টা</dd><dt>পরবর্তী পথ</dt><dd>কিতাব বিভাগ (বিজ্ঞান/মানবিক)</dd></dl></div>
+      <div class="card dept"><span class="top">৭ বছর • ১ম বর্ষ–দাওরায়ে হাদিস</span><h3>কিতাব বিভাগ</h3><p>কুরআন-হাদিসের তাফাক্কুহ, কওমি ও আলিয়া বোর্ডের স্বীকৃতি এবং উচ্চতর গবেষণা। হিফজ সমাপ্তকারী বা সরাসরি দ্বীনি শিক্ষায় আগ্রহীদের জন্য।</p>
+        <dl class="dl"><dt>ভর্তির বয়স</dt><dd>১২ বছর (বা হিফজ শেষে)</dd><dt>যোগ্যতা</dt><dd>শুদ্ধ কুরআন পঠন ও ৫ম শ্রেণি সমমান</dd><dt>সাপ্তাহিক</dt><dd>~৩৬–৪০ ঘণ্টা</dd><dt>পরবর্তী পথ</dt><dd>দাওরায়ে হাদিস / আলিম / ইফতা</dd></dl></div>
+    </div>
+    <div id="syllabus" style="margin-top:22px">
+    <details class="acc"><summary>জেনারেল হিফজ বিভাগ — শ্রেণিভিত্তিক পাঠ্যক্রম</summary><div class="tw"><table>
+      <tr><th>শ্রেণি</th><th>সেমিস্টার</th><th>কুরআন, সুন্নাহ ও আরবি</th><th>মাইলফলক</th></tr>
+      <tr><td rowspan="2">নাজেরা ১ম বর্ষ (১ম শ্রেণি)</td><td>১ম</td><td>আদর্শ হিফজ কায়েদা + নূরানী পদ্ধতি</td><td>আরবি ২৯ হরফ, মাখরাজ ও প্রাথমিক শব্দ</td></tr>
+      <tr><td>২য়</td><td>আদর্শ আমপারা + নূরানী পদ্ধতি</td><td>৩০তম পারা মুখস্থ ও তিলাওয়াত</td></tr>
+      <tr><td rowspan="2">নাজেরা ২য় বর্ষ (২য় শ্রেণি)</td><td>১ম</td><td>কুরআন মাজিদ নাজেরা সম্পূর্ণ + সুন্নাহ</td><td>তারতীলসহ দ্রুত ও বিশুদ্ধ পাঠ</td></tr>
+      <tr><td>২য়</td><td>হিফজ শুরু (৫ পারা) + সুন্নাহ</td><td>আনুষ্ঠানিক হিফজ (পারা ৩০–২৬)</td></tr>
+      <tr><td rowspan="2">হিফজ ১ম বর্ষ (৩য় শ্রেণি)</td><td>১ম</td><td>হিফজ ৬–৮ পারা + এসো আরবি শিখি ১</td><td>সবক, সবকী ও মনজিল পদ্ধতি</td></tr>
+      <tr><td>২য়</td><td>হিফজ ৯–১২ পারা + এসো আরবি শিখি ২</td><td>মোট ১২ পারা</td></tr>
+      <tr><td rowspan="2">হিফজ ২য় বর্ষ (৪র্থ শ্রেণি)</td><td>১ম</td><td>হিফজ ১৩–১৬ পারা + এসো আরবি শিখি ৩</td><td>আরবি বাক্য গঠন, মোট ১৬ পারা</td></tr>
+      <tr><td>২য়</td><td>হিফজ ১৭–২০ পারা + কাসাসুন্নাবিয়্যিন ১</td><td>নবীগণের জীবনকাহিনী, মোট ২০ পারা</td></tr>
+      <tr><td rowspan="2">হিফজ ৩য় বর্ষ (৫ম শ্রেণি)</td><td>১ম</td><td>হিফজ ২১–২৫ পারা + আত-তামরীনুল কিতাবী</td><td>মাদানি নেসাব প্রস্তুতি, ২৫ পারা</td></tr>
+      <tr><td>২য়</td><td>হিফজ ২৬–৩০ পারা + আত-তামরীনুল কিতাবী</td><td>সম্পূর্ণ ৩০ পারা হিফজ</td></tr>
+      <tr><td rowspan="2">দাওর বর্ষ (৬ষ্ঠ শ্রেণি)</td><td>১ম</td><td>পূর্ণাঙ্গ দাওর + আত-তামরীনুত তাতবীকী</td><td>হিফজ মজবুতিকরণ</td></tr>
+      <tr><td>২য়</td><td>মুতাশাবিহাত ও ক্বেরাত</td><td>হিফজ সনদ ও কিতাব বিভাগের প্রস্তুতি</td></tr>
+    </table></div><p class="small muted" style="padding:10px 18px">প্রতিটি শ্রেণিতে বাংলা, English ও গণিত পড়ানো হয় একাডেমির সমন্বিত পাঠ্যবই «আমার প্রথম পাঠ» থেকে «আমার ষষ্ঠ পাঠ» দিয়ে।</p></details>
+    <details class="acc"><summary>একাডেমিক হিফজ বিভাগ — শ্রেণিভিত্তিক পাঠ্যক্রম</summary><div class="tw"><table>
+      <tr><th>শ্রেণি</th><th>কুরআন ও সুন্নাহ</th><th>জাতীয় কারিকুলাম</th><th>ভাষা</th><th>রোবোটিক্স</th></tr>
+      <tr><td>১ম শ্রেণি</td><td>আদর্শ কায়েদা → আমপারা</td><td>বাংলা, ইংরেজি, গণিত</td><td><span class="ar">العربية بين يدي أولادنا ١</span> + English 4 Skills L1</td><td>ফান উইথ রোবোটিক্স ০১</td></tr>
+      <tr><td>২য় শ্রেণি</td><td>নাজেরা সম্পূর্ণ → হিফজ শুরু (৫ পারা)</td><td>বাংলা, ইংরেজি, গণিত, পরিবেশ পরিচিতি</td><td><span class="ar">العربية بين يدي أولادنا ٢</span> + L2</td><td>ফান উইথ রোবোটিক্স ০২</td></tr>
+      <tr><td>৩য় শ্রেণি</td><td>হিফজ ৬–১২ পারা + এসো আরবি শিখি</td><td>বাংলা, ইংরেজি, গণিত, প্রাথমিক বিজ্ঞান</td><td><span class="ar">العربية بين يدي أولادنا ٣</span> + L3</td><td>ফান উইথ রোবোটিক্স ০৩</td></tr>
+      <tr><td>৪র্থ শ্রেণি</td><td>হিফজ ১৩–২০ পারা + কাসাসুন্নাবিয়্যিন</td><td>বাংলা, ইংরেজি, গণিত, বিজ্ঞান, বিজিএস</td><td><span class="ar">العربية بين يدي أولادنا ٤</span> + L4</td><td>ফান উইথ রোবোটিক্স ০৪</td></tr>
+      <tr><td>৫ম শ্রেণি</td><td>হিফজ ২১–৩০ পারা + তামরীন</td><td>বাংলা, ইংরেজি, গণিত, বিজ্ঞান, বিজিএস</td><td><span class="ar">العربية بين يدي أولادنا ٥</span> + L5</td><td>ফান উইথ রোবোটিক্স ০৫</td></tr>
+      <tr><td>৬ষ্ঠ (দাওর)</td><td>পূর্ণ দাওর, মুতাশাবিহাত ও ক্বেরাত</td><td>৬ষ্ঠ শ্রেণির পূর্ণাঙ্গ বিষয় (NCTB)</td><td><span class="ar">العربية بين يدي أولادنا ٦</span> + L6</td><td>রোবোটিক্স ক্যাপস্টোন প্রজেক্ট</td></tr>
+    </table></div></details>
+    <details class="acc"><summary>কিতাব বিভাগ — ৭ বছরের সমন্বিত পাঠ্যক্রম</summary><div class="tw"><table>
+      <tr><th>বর্ষ</th><th>প্রধান কিতাব</th><th>বোর্ড ও সমমান</th><th>রোবোটিক্স ও বিজ্ঞান</th></tr>
+      <tr><td>১ম বর্ষ (৬ষ্ঠ)</td><td class="ar">الطريق إلى العربية، التمرين الكتابي، قصص النبيين ١، الطريق إلى الصرف</td><td>৬ষ্ঠ শ্রেণির বাংলা, ইংরেজি, গণিত, বিজ্ঞান</td><td>বিল্ড উইথ রোবোটিক্স ০১</td></tr>
+      <tr><td>২য় বর্ষ (৭ম)</td><td class="ar">الطريق إلى القرآن، الطريق إلى الفقه، الطريق إلى النحو، القراءة الراشدة</td><td>৭ম শ্রেণির বিষয়সমূহ</td><td>বিল্ড উইথ রোবোটিক্স ০২ (মাইক্রোকন্ট্রোলার ও IoT)</td></tr>
+      <tr><td>৩য় বর্ষ (৮ম)</td><td class="ar">مختصر القدوري، هداية النحو، تيسير المنطق، الطريق إلى البلاغة</td><td>বেফাক ৮ম ও জুনিয়র বৃত্তি</td><td>বিল্ড উইথ রোবোটিক্স ০৩ (অটোমেশন)</td></tr>
+      <tr><td>৪র্থ বর্ষ (৯ম)</td><td class="ar">ترجمة معاني القرآن، أصول الشاشي، دروس البلاغة، الهداية ١-٢</td><td>দাখিল ৯ম ও বেফাক সানাবিয়্যাহ</td><td>ইনোভেট উইথ রোবোটিক্স ০১ (রোবটিক আর্ম ও AI)</td></tr>
+      <tr><td>৫ম বর্ষ (১০ম)</td><td class="ar">الطريق إلى تفسير القرآن، الهداية ٣، الفوز الكبير، العقيدة الطحاوية</td><td>দাখিল বোর্ড পরীক্ষা</td><td>ইনোভেট উইথ রোবোটিক্স ০২ (বিজ্ঞান মেলা)</td></tr>
+      <tr><td>৬ষ্ঠ বর্ষ (আলিম)</td><td class="ar">مشكاة المصابيح، الهداية ٤، تفسير البيضاوي، شرح نخبة الفكر</td><td>আলিম বোর্ড ও বেফাক ফযীলত</td><td>ইনোভেট উইথ রোবোটিক্স ০৩ (রিসার্চ পেপার)</td></tr>
+      <tr><td>৭ম বর্ষ (দাওরায়ে হাদিস)</td><td class="ar">صحيح البخاري، صحيح مسلم، جامع الترمذي، سنن أبي داود، النسائي، ابن ماجة</td><td>আল-হাইআতুল উলয়া কেন্দ্রীয় পরীক্ষা</td><td>সমাপনী গবেষণা থিসিস</td></tr>
+    </table></div></details>
+    </div>
+  </div>
+</section>
 
-/* ---------- ফি ও রসিদ ---------- */
-VIEWS.fees = arg => {
-  const [tab0, sidArg] = (arg||"").split("/"); const tab = ["collect","dues","report","waivers"].includes(tab0) ? tab0 : "collect";
-  const tabs = `<div class="tabs"><a href="#fees/collect" class="${tab==="collect"?"on":""}">ফি আদায়</a><a href="#fees/dues" class="${tab==="dues"?"on":""}">বকেয়া ও রিমাইন্ডার</a><a href="#fees/report" class="${tab==="report"?"on":""}">আদায় রিপোর্ট</a><a href="#fees/waivers" class="${tab==="waivers"?"on":""}">মওকুফ</a></div>`;
-  const s0 = S();
-  if(tab === "collect"){
-    if(sidArg) UI.feeSid = decodeURIComponent(sidArg);
-    const s = UI.feeSid ? get("students", UI.feeSid) : null;
-    const pick = `<div class="card"><label>শিক্ষার্থী নির্বাচন (আইডি বা নাম লিখুন)<input list="stuList" data-change="feePick" value="${esc(studentLabel(s))}" placeholder="যেমন: STD-101"></label><datalist id="stuList">${activeStudents().map(x=>`<option value="${esc(studentLabel(x))}">`).join("")}</datalist></div>`;
-    if(!s) return tabs + pick;
-    const fee = num(s.monthlyFee); const due = unpaid(s, addMonths(thisMonth(), 2)); const cut = dueCutoff();
-    const heads = all("feeHeads").sort((a,b)=>(a.order||0)-(b.order||0));
-    return tabs + pick + `<form data-form="savePay" class="card"><h2>${esc(s.name)} <span class="tag">${esc(s.id)}</span> <span class="small muted">${esc(className(s.classId))}</span></h2>
-    <p class="small">মাসিক বেতন: <b>${money(fee)}</b>${fee?"":" — শিক্ষার্থীর প্রোফাইলে মাসিক বেতন নির্ধারণ করুন"}</p>
-    ${fee?`<h2 style="font-size:1rem">মাসিক বেতন — মাস বাছাই করুন</h2><div class="mlist">${due.map(m=>`<label><input type="checkbox" name="months" value="${m}" data-change="payCalc" ${m<=cut?"checked":""}>${mName(m)}${m<=cut?` <span class="tag bad">বকেয়া</span>`:` <span class="tag">অগ্রিম</span>`}</label>`).join("")||`<span class="muted">কোনো বকেয়া নেই</span>`}</div>`:""}
-    <h2 style="font-size:1rem;margin-top:16px">অন্যান্য ফি</h2><div class="fgrid">${heads.map(h=>`<label>${esc(h.name)}<input name="head_${h.id}" inputmode="numeric" placeholder="${h.amount?bn(h.amount):"০"}" data-change="payCalc"></label>`).join("")}</div>
-    <div class="fgrid" style="margin-top:12px"><label>তারিখ<input type="date" name="date" value="${today()}"></label><label>পরিশোধের মাধ্যম<select name="method"><option>নগদ (ক্যাশ)</option><option>বিকাশ</option><option>নগদ (মোবাইল)</option><option>ব্যাংক</option></select></label><label>লেনদেন নং / মন্তব্য<input name="note"></label></div>
-    <div class="row" style="justify-content:space-between;margin-top:16px;align-items:center"><div style="font-size:1.3rem">মোট: <b id="payTotal">${money(due.filter(m=>m<=cut).length*fee)}</b><div class="small muted" id="payWords"></div></div><button class="btn g">আদায় ও রসিদ প্রিন্ট</button></div></form>`;
-  }
-  if(tab === "dues"){
-    const dl = duesList(); const m = thisMonth();
-    return tabs + `<div class="banner"><span>বকেয়া হিসাব: প্রতি মাসের ${bn(num(s0.dueDay)||10)} তারিখের পর ওই মাস বকেয়া ধরা হয়। নিচের বোতাম চাপলে হোয়াটসঅ্যাপে মেসেজ তৈরি হয়ে খুলবে, শুধু “Send” চাপুন।</span>${dl.length?`<button class="btn s wa" data-act="nextReminder">ক্রমানুসারে পরেরটি পাঠান</button>`:""}</div>
-    ${dl.length?`<div class="tw"><table><tr><th>আইডি</th><th>নাম</th><th>শ্রেণি</th><th>বকেয়া মাস</th><th class="right">টাকা</th><th></th></tr>${dl.map(d=>{const sent=(META.sent||{})[d.s.id+"|"+m]; const ph=d.s.whatsapp||d.s.phone; return `<tr><td>${esc(d.s.id)}</td><td><a href="#student/${encodeURIComponent(d.s.id)}">${esc(d.s.name)}</a></td><td class="small">${esc(className(d.s.classId))}</td><td class="small">${d.months.map(mName).join(", ")}</td><td class="right"><b>${money(d.amount)}</b></td>
-    <td>${ph?`<a class="btn s wa" target="_blank" data-act="markSent" data-id="${esc(d.s.id)}" href="${waLink(ph, dueMsg(d))}">${sent?"আবার পাঠান":"রিমাইন্ডার"}</a>`:`<span class="muted small">নম্বর নেই</span>`} ${sent?`<span class="tag ok">পাঠানো ${dFmt(sent)}</span>`:""} <a class="btn s l" href="#fees/collect/${encodeURIComponent(d.s.id)}">আদায়</a></td></tr>`;}).join("")}
-    <tr><th colspan="4">মোট</th><th class="right">${money(dl.reduce((a,d)=>a+d.amount,0))}</th><th></th></tr></table></div>`:`<div class="card empty">আলহামদুলিল্লাহ, কোনো বকেয়া নেই</div>`}`;
-  }
-  if(tab === "report"){
-    const r = UI.fr || (UI.fr = { from:thisMonth()+"-01", to:today() });
-    const pays = all("payments").filter(p=>p.date>=r.from && p.date<=r.to).sort((a,b)=>a.date.localeCompare(b.date)||a.receiptNo.localeCompare(b.receiptNo));
-    const byHead = {}, byMethod = {}; pays.forEach(p => { (p.items||[]).forEach(i => byHead[i.head]=(byHead[i.head]||0)+num(i.amount)); byMethod[p.method]=(byMethod[p.method]||0)+num(p.total); });
-    const total = pays.reduce((a,p)=>a+num(p.total),0);
-    UI.feeReport = { pays, byHead, byMethod, total, r };
-    return tabs + `<div class="card"><div class="row"><label>শুরু<input type="date" data-change="fr" data-k="from" value="${r.from}"></label><label>শেষ<input type="date" data-change="fr" data-k="to" value="${r.to}"></label><button class="btn" data-act="printFeeReport">প্রিন্ট</button></div></div>
-    <div class="grid g4" style="margin-bottom:14px"><div class="stat"><span>মোট আদায়</span><b>${money(total)}</b><small>${bn(pays.length)}টি রসিদ</small></div>${Object.entries(byMethod).map(([k,v])=>`<div class="stat"><span>${esc(k)}</span><b>${money(v)}</b></div>`).join("")}</div>
-    <div class="grid g2"><div class="card"><h2>খাতভিত্তিক</h2>${Object.entries(byHead).map(([k,v])=>`<div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:4px 0"><span>${esc(k)}</span><b>${money(v)}</b></div>`).join("")||`<p class="muted">কোনো আদায় নেই</p>`}</div></div>
-    <div class="tw"><table><tr><th>রসিদ</th><th>তারিখ</th><th>শিক্ষার্থী</th><th>বিবরণ</th><th>মাধ্যম</th><th class="right">টাকা</th><th></th></tr>${pays.map(p=>{const s=get("students",p.sid);return `<tr><td>${esc(p.receiptNo)}</td><td>${dFmt(p.date)}</td><td>${esc(studentLabel(s)||p.sid)}</td><td class="small">${(p.items||[]).map(i=>esc(i.head)+(i.month?" ("+mName(i.month)+")":"")).join(", ")}</td><td class="small">${esc(p.method)}</td><td class="right">${money(p.total)}</td><td><button class="btn s l" data-act="printReceipt" data-id="${p.id}">রসিদ</button>${isAdmin()?` <button class="btn s l" data-act="delPay" data-id="${p.id}">মুছুন</button>`:""}</td></tr>`;}).join("")||`<tr><td colspan="7" class="empty">এই সময়ে কোনো আদায় নেই</td></tr>`}</table></div>`;
-  }
-  // waivers
-  const ws = all("waivers").sort((a,b)=>b.updatedAt-a.updatedAt);
-  const ws0 = UI.wSid ? get("students", UI.wSid) : null;
-  return tabs + `<div class="card"><h2>নতুন মওকুফ আবেদন</h2><p class="small muted">অফিস আবেদন করবে, ব্যবস্থাপক অনুমোদন দিলে সেই মাসগুলো বকেয়া থেকে বাদ যাবে।</p>
-  <label>শিক্ষার্থী<input list="stuList2" data-change="wPick" value="${esc(studentLabel(ws0))}"></label><datalist id="stuList2">${activeStudents().map(x=>`<option value="${esc(studentLabel(x))}">`).join("")}</datalist>
-  ${ws0?`<form data-form="saveWaiver" style="margin-top:10px"><div class="mlist">${unpaid(ws0, addMonths(thisMonth(),6)).map(m=>`<label><input type="checkbox" name="months" value="${m}">${mName(m)}</label>`).join("")||"<span class='muted'>কোনো মাস বাকি নেই</span>"}</div><label style="margin-top:10px">কারণ<input name="reason" required placeholder="যেমন: এতিম, আর্থিক অসচ্ছলতা"></label><div class="actions"><button class="btn">আবেদন পাঠান</button></div></form>`:""}</div>
-  <div class="tw"><table><tr><th>শিক্ষার্থী</th><th>মাস</th><th>কারণ</th><th>অবস্থা</th></tr>${ws.map(w=>{const s=get("students",w.sid);return `<tr><td>${esc(studentLabel(s)||w.sid)}</td><td class="small">${(w.months||[]).map(mName).join(", ")}</td><td>${esc(w.reason)}</td><td>${w.status==="approved"?`<span class="tag ok">অনুমোদিত</span>`:w.status==="rejected"?`<span class="tag bad">বাতিল</span>`:`<span class="tag warn">অপেক্ষমাণ</span>`}</td></tr>`;}).join("")||`<tr><td colspan="4" class="empty">কোনো মওকুফ নেই</td></tr>`}</table></div>`;
-};
-function dueMsg(d){ const s0 = S(); return fillTpl(s0.tplDue, { নাম:d.s.name, আইডি:d.s.id, মাস:d.months.map(mName).join(", "), টাকা:money(d.amount), প্রতিষ্ঠান:s0.instName, দোকান:s0.shopUrl||"" }); }
-function receiptHTML(p){
-  const s = get("students", p.sid) || {name:p.sid, id:p.sid}; const s0 = S(); const by = get("users", p.by);
-  const one = copy => `<div class="rcpt"><span class="copy">${copy}</span>${printHead("টাকা প্রাপ্তির রসিদ")}
-    <table style="margin-bottom:6px"><tr><td>রসিদ নং: <b>${esc(p.receiptNo)}</b></td><td>তারিখ: ${dFmt(p.date)}</td></tr><tr><td>শিক্ষার্থী: <b>${esc(s.name)}</b> (${esc(s.id)})</td><td>শ্রেণি: ${esc(className(s.classId))}</td></tr><tr><td>পিতা: ${esc(s.father||"")}</td><td>মাধ্যম: ${esc(p.method)}${p.note?" — "+esc(p.note):""}</td></tr></table>
-    <table><tr><th style="width:8%">ক্রম</th><th>বিবরণ</th><th style="width:22%;text-align:right">টাকা</th></tr>${(p.items||[]).map((i,k)=>`<tr><td>${bn(k+1)}</td><td>${esc(i.head)}${i.month?" — "+mName(i.month):""}</td><td style="text-align:right">${bn(num(i.amount).toLocaleString("en-IN"))}</td></tr>`).join("")}
-    <tr><th colspan="2" style="text-align:right">মোট</th><th style="text-align:right">${money(p.total)}</th></tr></table>
-    <p style="margin:6px 0">কথায়: <b>${inWords(p.total)} টাকা মাত্র</b></p>${s0.shopUrl?`<p class="small" style="margin:0">প্রয়োজনীয় বই, খাতা, কলম ও ডায়েরি: ${esc(s0.shopUrl)}</p>`:""}
-    <div class="sig"><span>আদায়কারী${by?": "+esc(by.name):""}</span><span>অভিভাবকের স্বাক্ষর</span></div></div>`;
-  return one("অফিস কপি") + one("অভিভাবক কপি");
-}
+<!-- হিফজ পদ্ধতি -->
+<section class="sec" id="method">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">বৈজ্ঞানিক হিফজ পদ্ধতি</span><h2>২০ বার তিলাওয়াত, ১০ বার সংযোগ — রাবত পদ্ধতি</h2><p>প্রতিটি পৃষ্ঠা এই সাতটি ধাপে মুখস্থ করানো হয়, যাতে হিফজ শুরু থেকেই মজবুত হয়।</p></div>
+    <div class="two">
+      <ol class="steps">
+        <li><span class="n">১</span><div><b>পূর্ণ পৃষ্ঠা দর্শন ও তিলাওয়াত</b><span>উস্তাদের সামনে দেখে দেখে ৩–৫ বার শুদ্ধ পাঠ।</span></div></li>
+        <li><span class="n">২</span><div><b>১ম আয়াত ২০ বার</b><span>পূর্ণ মনোযোগে একাকী ২০ বার পড়ে মুখস্থ।</span></div></li>
+        <li><span class="n">৩</span><div><b>২য় আয়াত ২০ বার</b><span>একইভাবে ২০ বার পড়ে মুখস্থ।</span></div></li>
+        <li><span class="n">৪</span><div><b>১ম ও ২য় আয়াত মিলিয়ে ১০ বার</b><span>সংযোগ (রাবত) করে না দেখে পাঠ।</span></div></li>
+        <li><span class="n">৫</span><div><b>৩য় আয়াত ২০ বার</b><span>পৃথকভাবে ২০ বার পড়ে আয়ত্ত।</span></div></li>
+        <li><span class="n">৬</span><div><b>২য় ও ৩য় আয়াত মিলিয়ে ১০ বার</b><span>পরপর আয়াতের সংযোগ পাঠ।</span></div></li>
+        <li><span class="n">৭</span><div><b>সম্পূর্ণ অংশ ৫ বার</b><span>পুরো পৃষ্ঠা একটানা না দেখে উস্তাদকে শোনানো।</span></div></li>
+      </ol>
+      <div class="card"><h3 style="color:var(--brand);margin-bottom:6px">হিফজের ৫টি সোনালী মূলনীতি</h3>
+        <div class="rule"><b>মুসহাফের অভিন্নতা</b><span>শুরু থেকে শেষ পর্যন্ত একই ১৫ লাইনের মুসহাফ, যাতে পৃষ্ঠার অবস্থান মনে গেঁথে যায়।</span></div>
+        <div class="rule"><b>উস্তাদের কাছে তালকিন</b><span>নিজে পড়ার আগে অভিজ্ঞ উস্তাদের কাছে শুনে পাঠ সংশোধন।</span></div>
+        <div class="rule"><b>অবিরাম তাকরার</b><span>যত বেশি পুনরাবৃত্তি, তত মজবুত হিফজ। একদিনের বিরতিও ক্ষতি করে।</span></div>
+        <div class="rule"><b>রিভিশনে অগ্রাধিকার</b><span>নতুন সবকের চেয়ে সবকী ও মনজিল রিভিশন সবসময় আগে।</span></div>
+        <div class="rule"><b>ধৈর্য ও সংহতিকরণ</b><span>প্রথম দুই বছরে দ্রুত ভুলে যাওয়া স্বাভাবিক। হতাশ না হয়ে রিভিশন চালিয়ে যাওয়া।</span></div>
+      </div>
+    </div>
+    <div id="assess" style="margin-top:34px">
+      <h3 style="color:var(--brand);margin-bottom:12px">ফলাফলভিত্তিক (OBE) মূল্যায়ন: চার স্তরের রুব্রিক</h3>
+      <div class="lvl">
+        <div><b style="color:#1d7a4c">লেভেল ৪ • অসাধারণ</b><span>সঠিক মাখরাজ ও হরকতে সাবলীল পাঠ, স্বতঃস্ফূর্ত আমল।</span></div>
+        <div><b style="color:var(--brand-2)">লেভেল ৩ • ভালো</b><span>অধিকাংশ সঠিক, সামান্য সহায়তা লাগে।</span></div>
+        <div><b style="color:var(--gold)">লেভেল ২ • সন্তোষজনক</b><span>মৌলিক বিষয় চেনে, প্রয়োগে ভুল হয়।</span></div>
+        <div><b style="color:#a35b12">লেভেল ১ • নিবিড় যত্ন</b><span>বিশেষ মনোযোগ, কাউন্সেলিং ও অভিভাবক বৈঠক।</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-/* ---------- শিক্ষক-কর্মচারী ---------- */
-function staffForm(s){
-  s = s || { joinDate: today(), active:true };
-  return `<h2>${s.id?"তথ্য সম্পাদনা — "+esc(s.id):"নতুন শিক্ষক / কর্মচারী"}</h2><form data-form="saveStaff" class="fgrid"><input type="hidden" name="id" value="${esc(s.id||"")}">
-  <label>নাম *<input name="name" required value="${esc(s.name)}"></label><label>পদবি<input name="designation" value="${esc(s.designation)}" placeholder="যেমন: সহকারী শিক্ষক (হিফজ)"></label>
-  <label>বিভাগ<select name="dept"><option value="">—</option>${DEPTS.concat(["অফিস","আবাসিক","অন্যান্য"]).map(d=>`<option ${s.dept===d?"selected":""}>${d}</option>`).join("")}</select></label>
-  <label>মোবাইল<input name="phone" value="${esc(s.phone)}"></label><label>যোগদানের তারিখ<input type="date" name="joinDate" value="${esc(s.joinDate)}"></label>
-  <label>শিক্ষাগত যোগ্যতা<input name="qualification" value="${esc(s.qualification)}"></label><label>দায়িত্ব<input name="duty" value="${esc(s.duty)}" placeholder="যেমন: গ্রুপ ২ জিম্মাদার"></label>
-  <label>অবস্থা<select name="active"><option value="1" ${s.active!==false?"selected":""}>কর্মরত</option><option value="0" ${s.active===false?"selected":""}>অব্যাহতি</option></select></label>
-  <label style="grid-column:1/-1">ঠিকানা<textarea name="address">${esc(s.address)}</textarea></label>
-  <div class="actions" style="grid-column:1/-1"><button type="button" class="btn l" data-act="closeModal">বাতিল</button><button class="btn">সংরক্ষণ</button></div></form>`;
-}
-VIEWS.staff = () => {
-  const list = all("staff").sort((a,b)=>a.id.localeCompare(b.id,"en",{numeric:true}));
-  return `<div class="row" style="margin-bottom:12px">${isAdmin()?`<button class="btn" data-act="newStaff">+ নতুন শিক্ষক / কর্মচারী</button>`:""}</div>
-  ${list.length?`<div class="tw"><table><tr><th>আইডি</th><th>নাম</th><th>পদবি</th><th>বিভাগ</th><th>দায়িত্ব</th><th>মোবাইল</th><th>অবস্থা</th><th></th></tr>${list.map(s=>`<tr><td>${esc(s.id)}</td><td><b>${esc(s.name)}</b></td><td>${esc(s.designation)}</td><td class="small">${esc(s.dept)}</td><td class="small">${esc(s.duty)}</td><td>${esc(bn(s.phone))}</td><td>${s.active!==false?`<span class="tag ok">কর্মরত</span>`:`<span class="tag bad">অব্যাহতি</span>`}</td><td>${isAdmin()?`<button class="btn s l" data-act="editStaff" data-id="${esc(s.id)}">সম্পাদনা</button>`:""}</td></tr>`).join("")}</table></div>`:`<div class="card empty">এখনো কোনো শিক্ষক-কর্মচারী যোগ করা হয়নি</div>`}`;
-};
+<!-- ক্যাম্পাস জীবন -->
+<section class="sec band" id="campus">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">ক্যাম্পাস জীবন ও সুযোগ-সুবিধা</span><h2>নিরাপদ, আনন্দময় ও শৃঙ্খলাপূর্ণ পরিবেশ</h2></div>
+    <div class="grid g3">
+      <div class="card"><span class="chip">১ম–৬ষ্ঠ শ্রেণি</span><h3 style="margin:8px 0 6px">হিফজ হাউজ</h3><p class="muted small">সিনিয়র উস্তাদদের তত্ত্বাবধানে দৈনিক হিফজ রুটিন, ঘুম, পুষ্টি ও আদব। অডিও কুরআন প্লেয়ার ও আরামদায়ক খাট।</p></div>
+      <div class="card"><span class="chip">কিতাব ১ম–৪র্থ বর্ষ</span><h3 style="margin:8px 0 6px">একাডেমিক হাউজ</h3><p class="muted small">স্টাডি আওয়ার, বিজ্ঞান প্রজেক্ট ও ইংরেজি চর্চা। স্টাডি রুম, বিজ্ঞান ক্লাব ও ইন্টারনেট ল্যাব।</p></div>
+      <div class="card"><span class="chip">উচ্চতর শ্রেণি ও দাওরা</span><h3 style="margin:8px 0 6px">কিতাব হাউজ</h3><p class="muted small">বোর্ড পরীক্ষা প্রস্তুতি, মুতালাআ ও নেতৃত্ব বিকাশ। ইসলামিক রিসার্চ লাইব্রেরি ও সেমিনার রুম।</p></div>
+    </div>
+    <div class="two" style="margin-top:26px">
+      <div id="routine"><h3 style="color:var(--brand);margin-bottom:12px">হিফজ বিভাগের দৈনিক রুটিন</h3>
+        <div class="tw"><table style="min-width:0">
+          <tr><th>সময়</th><th>কার্যক্রম</th></tr>
+          <tr><td>ফজরের ১ ঘণ্টা ২০ মিনিট আগে</td><td>জাগরণ, তাহাজ্জুদ ও সবক হাজিরা</td></tr>
+          <tr><td>ফজর</td><td>নামাজ, আমল ও দোয়া</td></tr>
+          <tr><td>ফজরের পর – ৯:৩০</td><td>আমুখতা শেখা ও হাজিরা (নাস্তার বিরতিসহ)</td></tr>
+          <tr><td>৯:৩০ – ১২:০০</td><td>মশক শেষে বিশ্রাম</td></tr>
+          <tr><td>১২:০০ – ১:০০</td><td>গোসল ও দুপুরের খাবার</td></tr>
+          <tr><td>জোহর – আসর</td><td>আমুখতা হাজিরা, পেছনের পারা ও সাত সবক চর্চা</td></tr>
+          <tr><td>আসর – মাগরিব</td><td>তিলাওয়াত, মাসায়েল চর্চা ও মাঠে খেলাধুলা</td></tr>
+          <tr><td>মাগরিব – এশা</td><td>নতুন সবক শেখা</td></tr>
+          <tr><td>এশা – ১০:০০</td><td>নামাজ, রাতের খাবার ও সাত সবক শোনানো</td></tr>
+          <tr><td>১০:১৫ থেকে</td><td>পর্যাপ্ত ঘুম</td></tr>
+        </table></div></div>
+      <div class="card" id="promise"><h3 style="color:var(--brand);margin-bottom:6px">অভিভাবকের প্রতি আমাদের অঙ্গীকার</h3>
+        <div class="rule"><b>শারীরিক শাস্তি সম্পূর্ণ নিষিদ্ধ</b><span>শারীরিক বা মানসিক নির্যাতনের কোনো সুযোগ নেই; পুনরাবৃত্তিতে শিক্ষকের তাৎক্ষণিক বরখাস্ত।</span></div>
+        <div class="rule"><b>প্রশিক্ষিত শিক্ষক</b><span>পেডাগজি, শিশু মনস্তত্ত্ব ও স্মার্ট ক্লাসরুম প্রশিক্ষণে উত্তীর্ণ শিক্ষকরাই পড়ান।</span></div>
+        <div class="rule"><b>আর্থিক স্বচ্ছতা</b><span>শিক্ষকরা অভিভাবক বা শিক্ষার্থীর কাছ থেকে ব্যক্তিগত উপহার, হাদিয়া বা অর্থ নেন না। সব লেনদেনে রসিদ।</span></div>
+        <div class="rule"><b>নিয়ন্ত্রিত স্ক্রিন</b><span>শিক্ষার্থীর ব্যক্তিগত ডিভাইস নিষিদ্ধ; শিক্ষামূলক কনটেন্ট শুধু শিক্ষকের নিয়ন্ত্রণে বড় পর্দায়।</span></div>
+        <div class="rule"><b>নিয়মিত যোগাযোগ</b><span>অনুপস্থিতি ও বকেয়ার খবর হোয়াটসঅ্যাপে, অগ্রগতি অভিভাবক অ্যাকাউন্টে।</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-/* ---------- সেটিংস ---------- */
-VIEWS.settings = () => {
-  const s = S(); const us = all("users"); const cs = classesSorted(); const fh = all("feeHeads").sort((a,b)=>(a.order||0)-(b.order||0));
-  return `<form data-form="saveSettings" class="card"><h2>প্রতিষ্ঠানের তথ্য</h2><div class="fgrid">
-    <label style="grid-column:1/-1">প্রতিষ্ঠানের নাম<input name="instName" value="${esc(s.instName)}"></label><label style="grid-column:1/-1">ঠিকানা<input name="address" value="${esc(s.address)}"></label>
-    <label>ফোন<input name="phones" value="${esc(s.phones)}"></label><label>ইমেইল<input name="email" value="${esc(s.email)}"></label>
-    <label>ভবন সংখ্যা<input name="buildings" inputmode="numeric" value="${esc(bn(s.buildings||0))}"></label><label>শ্রেণিকক্ষ সংখ্যা<input name="rooms" inputmode="numeric" value="${esc(bn(s.rooms||0))}"></label>
-    <label>লোগো (রসিদ ও প্রিন্টে)<input type="file" accept="image/*" data-change="logo"></label>
-    <label>বই-খাতা কেনার লিংক (ওয়েবসাইট)<input name="shopUrl" value="${esc(s.shopUrl)}" placeholder="https://"></label>
-  </div><h2 style="margin-top:18px">আইডি, ফি ও বকেয়া</h2><div class="fgrid">
-    <label>শিক্ষার্থী আইডির শুরু<input name="idPrefix" value="${esc(s.idPrefix)}"></label><label>পরবর্তী আইডি নম্বর<input name="nextId" inputmode="numeric" value="${esc(s.nextId)}"></label>
-    <label>শিক্ষক আইডির শুরু<input name="staffPrefix" value="${esc(s.staffPrefix)}"></label><label>পরবর্তী শিক্ষক নম্বর<input name="nextStaff" inputmode="numeric" value="${esc(s.nextStaff)}"></label>
-    <label>মাসিক বেতন — অনাবাসিক<input name="feeNonRes" inputmode="numeric" value="${esc(bn(s.feeNonRes||0))}"></label><label>মাসিক বেতন — আবাসিক<input name="feeRes" inputmode="numeric" value="${esc(bn(s.feeRes||0))}"></label>
-    <label>বকেয়া ধরার তারিখ (প্রতি মাসের)<input name="dueDay" inputmode="numeric" value="${esc(bn(s.dueDay||10))}"></label><label>শিক্ষাবর্ষ শুরুর মাস<input type="month" name="sessionStart" value="${esc(s.sessionStart)}"></label>
-  </div><h2 style="margin-top:18px">হোয়াটসঅ্যাপ মেসেজের নমুনা</h2><p class="small muted">{নাম} {আইডি} {মাস} {টাকা} {তারিখ} {শ্রেণি} {দোকান} {প্রতিষ্ঠান} — এগুলো নিজে থেকে বসে যাবে।</p><div class="grid">
-    <label>বকেয়া রিমাইন্ডার<textarea name="tplDue">${esc(s.tplDue)}</textarea></label><label>অনুপস্থিতি<textarea name="tplAbsent">${esc(s.tplAbsent)}</textarea></label><label>ভর্তি অনুমোদন<textarea name="tplApproved">${esc(s.tplApproved)}</textarea></label>
-  </div><h2 style="margin-top:18px">অনলাইন ফরমের লিংক (গুগল ফরম)</h2><div class="fgrid"><label>ভর্তির আবেদন ফরম<input name="formAdmission" value="${esc(s.formAdmission)}"></label><label>অভিযোগ ও অনুরোধ ফরম<input name="formRequest" value="${esc(s.formRequest)}"></label></div>
-  <div class="actions"><button class="btn">সংরক্ষণ</button></div></form>
+<!-- ভর্তি -->
+<section class="sec" id="admission">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">ভর্তি ২০২৭</span><h2>ভর্তি প্রক্রিয়া</h2><p>অনলাইনে বা অফিসে এসে আবেদন করা যায়। ভর্তি অনুমোদিত হলে শিক্ষার্থী আইডি ও অভিভাবক অ্যাকাউন্টের পিন হোয়াটসঅ্যাপে পাঠানো হয়।</p></div>
+    <ol class="proc">
+      <li><b>আবেদন</b><span>অনলাইন ফরম পূরণ বা অফিস থেকে ফরম সংগ্রহ</span></li>
+      <li><b>ভর্তি মূল্যায়ন</b><span>বয়স ও স্তর অনুযায়ী মৌখিক/লিখিত পরীক্ষা ও তিলাওয়াত</span></li>
+      <li><b>ফলাফল ও অনুমোদন</b><span>নির্বাচিতদের ফোন ও হোয়াটসঅ্যাপে জানানো</span></li>
+      <li><b>আইডি ও পিন</b><span>শিক্ষার্থী আইডি ও অভিভাবক অ্যাকাউন্ট চালু</span></li>
+      <li><b>ভর্তি সম্পন্ন</b><span>কাগজপত্র জমা, ফি পরিশোধ ও ওরিয়েন্টেশন</span></li>
+    </ol>
+    <div class="row" style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:34px"><a class="btn brand" href="#contact" id="applyBtn" data-apply>অনলাইনে ভর্তির আবেদন করুন →</a><span class="muted small" style="align-self:center" id="applyNote">অথবা অফিসে যোগাযোগ করুন: ০১৮২০৭১৭১৭৭</span></div>
 
-  <div class="card"><h2>ব্যবহারকারী ও প্রবেশাধিকার</h2><p class="small muted">যাকে প্রবেশাধিকার দেবেন শুধু তিনিই পিন দিয়ে ঢুকতে পারবেন। ব্যবস্থাপক অনুমোদন দেন; অফিস সহকারী ফি, ভর্তি ও শিক্ষার্থীর তথ্য দেন; শিক্ষক হাজিরা নেন।</p>
-  <div class="tw"><table><tr><th>নাম</th><th>ভূমিকা</th><th>অবস্থা</th><th></th></tr>${us.map(u=>`<tr><td>${esc(u.name)}</td><td>${ROLES[u.role]}</td><td>${u.active!==false?`<span class="tag ok">সক্রিয়</span>`:`<span class="tag bad">বন্ধ</span>`}</td><td>${u.id!==ME.id?`<button class="btn s l" data-act="toggleUser" data-id="${u.id}">${u.active!==false?"বন্ধ করুন":"চালু করুন"}</button>`:""} <button class="btn s l" data-act="resetPin" data-id="${u.id}">পিন বদল</button></td></tr>`).join("")}</table></div>
-  <form data-form="addUser" class="row" style="margin-top:12px"><label>নাম<input name="name" required></label><label>ভূমিকা<select name="role"><option value="office">অফিস সহকারী</option><option value="teacher">শিক্ষক</option><option value="admin">ব্যবস্থাপক</option></select></label><label>পিন<input name="pin" required inputmode="numeric" minlength="4"></label><button class="btn">যোগ করুন</button></form></div>
+    <h3 id="entry" style="color:var(--brand);margin-bottom:12px">ভর্তির যোগ্যতা ও বয়স (৫টি এন্ট্রি পয়েন্ট)</h3>
+    <div class="tw" style="margin-bottom:30px"><table>
+      <tr><th>শ্রেণি / স্তর</th><th>বয়স</th><th>পূর্ব যোগ্যতা</th><th>ভর্তি মূল্যায়ন</th><th>ব্রিজ কোর্স</th></tr>
+      <tr><td>১ম শ্রেণি (নাজেরা ১ম বর্ষ)</td><td>৫–৬ বছর</td><td>প্রয়োজন নেই</td><td>মৌখিক প্রস্তুতি ও ইন্টারভিউ</td><td>প্রয়োজন নেই</td></tr>
+      <tr><td>৩য় শ্রেণি (হিফজ ১ম বর্ষ)</td><td>৭–৮ বছর</td><td>নাজেরা সমাপ্ত / আংশিক হিফজ</td><td>তিলাওয়াত ও সাক্ষরতা পরীক্ষা</td><td>নাজেরা সংহতিকরণ (২–৪ সপ্তাহ)</td></tr>
+      <tr><td>৬ষ্ঠ শ্রেণি (কিতাব ১ম বর্ষ)</td><td>১১–১২ বছর</td><td>হিফজ সমাপ্ত বা ৫ম শ্রেণি সমমান</td><td>লিখিত (বাংলা, গণিত, আরবি) ও তিলাওয়াত</td><td>ডায়াগনস্টিক ব্রিজ টার্ম (৪–৬ সপ্তাহ)</td></tr>
+      <tr><td>৯ম শ্রেণি (দাখিল ট্র্যাক)</td><td>১৪–১৫ বছর</td><td>৮ম শ্রেণি সমমান / হাফতুম</td><td>দাখিল প্রস্তুতিমূলক স্ক্রিনিং</td><td>ইনটেনসিভ ক্যাচ-আপ মডিউল</td></tr>
+      <tr><td>দাওরায়ে হাদিস</td><td>১৮–১৯ বছর</td><td>মিশকাত / ফযীলত সমাপ্ত</td><td>কওমি বোর্ড সনদ ও ইন্টারভিউ</td><td>হাদিস গবেষণা মডিউল</td></tr>
+    </table></div>
 
-  <div class="grid g2"><div class="card"><h2>শ্রেণি</h2><div class="tw"><table><tr><th>ক্রম</th><th>শ্রেণি</th><th>বিভাগ</th><th></th></tr>${cs.map(c=>`<tr><td>${bn(c.order||0)}</td><td>${esc(c.name)}</td><td class="small">${esc(c.dept)}</td><td><button class="btn s l" data-act="delClass" data-id="${c.id}">মুছুন</button></td></tr>`).join("")}</table></div>
-  <form data-form="addClass" class="row" style="margin-top:10px"><label>শ্রেণির নাম<input name="name" required></label><label>বিভাগ<select name="dept">${DEPTS.map(d=>`<option>${d}</option>`).join("")}</select></label><label>ক্রম<input name="order" inputmode="numeric" style="width:70px"></label><button class="btn">যোগ</button></form></div>
-  <div class="card"><h2>ফি-এর খাত (মাসিক বেতন ছাড়া)</h2><div class="tw"><table><tr><th>খাত</th><th class="right">নির্ধারিত টাকা</th><th></th></tr>${fh.map(h=>`<tr><td>${esc(h.name)}</td><td class="right">${money(num(h.amount))}</td><td><button class="btn s l" data-act="delHead" data-id="${h.id}">মুছুন</button></td></tr>`).join("")}</table></div>
-  <form data-form="addHead" class="row" style="margin-top:10px"><label>খাতের নাম<input name="name" required></label><label>টাকা<input name="amount" inputmode="numeric" style="width:100px"></label><button class="btn">যোগ</button></form></div></div>`;
-};
+    <div class="grid g2">
+      <div class="card" id="fees"><h3 style="color:var(--brand);margin-bottom:8px">ফি ও বেতন</h3><div id="feeBox"><p class="muted">ভর্তি ফি, মাসিক বেতন ও আবাসিক খরচ জানতে অফিসে যোগাযোগ করুন।</p></div>
+        <p class="small muted" style="margin-top:10px">পরিশোধ: নগদ (অফিসে), বিকাশ, নগদ বা ব্যাংক। প্রতিটি পরিশোধে রসিদ দেওয়া হয়।</p></div>
+      <div class="card" id="calendar"><h3 style="color:var(--brand);margin-bottom:8px">ভর্তি ও একাডেমিক ক্যালেন্ডার</h3>
+        <ol class="timeline">
+          <li><span class="when">অক্টোবর–নভেম্বর ২০২৬</span><span>ভর্তি আবেদন ও তথ্য বিতরণ</span></li>
+          <li><span class="when">ডিসেম্বর ২০২৬</span><span>শিক্ষার্থী ভর্তি পরীক্ষা ও শিক্ষক প্রশিক্ষণ বুটক্যাম্প</span></li>
+          <li><span class="when">জানুয়ারি ২০২৭</span><span>ভবন উদ্বোধন, ওরিয়েন্টেশন ও সেমিস্টার-১ ক্লাস শুরু</span></li>
+        </ol>
+        <p class="small muted" style="margin-top:8px">প্রয়োজনীয় কাগজ: শিক্ষার্থীর জন্মনিবন্ধন, ছবি, অভিভাবকের জাতীয় পরিচয়পত্র এবং প্রযোজ্য হলে আগের প্রতিষ্ঠানের ছাড়পত্র।</p></div>
+    </div>
+  </div>
+</section>
 
-/* ---------- ব্যাকআপ ও সিঙ্ক ---------- */
-VIEWS.backup = () => {
-  const c = META.sync || {};
-  return `<div class="card"><h2>অনলাইন সিঙ্ক (গুগল শিট)</h2><p class="small muted">সফটওয়্যার পুরোপুরি অফলাইনে চলে। ইন্টারনেট পেলে আপনার গুগল শিটের সাথে তথ্য আদান-প্রদান হয়, অনলাইন ফরমের আবেদন নামে, আর অন্য কম্পিউটারের তথ্য মিলে যায়। শিটটি আপনার নিজের গুগল অ্যাকাউন্টে থাকে।</p>
-  ${isAdmin()?`<form data-form="saveSync" class="fgrid"><label style="grid-column:1/-1">সিঙ্ক লিংক (Web app URL)<input name="url" value="${esc(c.url)}" placeholder="https://script.google.com/macros/s/.../exec"></label><label>সিঙ্ক কী<input name="key" value="${esc(c.key)}"></label><label class="chk"><input type="checkbox" name="auto" ${c.auto!==false?"checked":""}> প্রতি ৫ মিনিটে নিজে থেকে সিঙ্ক</label><div class="actions" style="grid-column:1/-1"><button class="btn">সংরক্ষণ</button><button type="button" class="btn g" data-act="sync">এখনই সিঙ্ক</button></div></form>`:`<button class="btn g" data-act="sync">এখনই সিঙ্ক</button>`}
-  <p class="small">অপেক্ষমাণ পরিবর্তন: <b>${bn(Object.keys(META.dirty).length)}</b> • শেষ সিঙ্ক: ${META.lastSyncAt?bn(new Date(META.lastSyncAt).toLocaleString("en-GB")):"হয়নি"}</p></div>
-  <div class="card"><h2>ব্যাকআপ</h2><p class="small muted">প্রতিদিন প্রথমবার চালু করলে এই কম্পিউটারে নিজে থেকে একটি ব্যাকআপ রাখা হয় (শেষ ৭ দিনের)। নিরাপত্তার জন্য সপ্তাহে একবার ব্যাকআপ ফাইল নামিয়ে পেনড্রাইভ বা গুগল ড্রাইভে রাখুন।</p>
-  <div class="row"><button class="btn" data-act="downloadBackup">ব্যাকআপ ফাইল নামান</button>${isAdmin()?`<label class="btn l" style="color:var(--brand)">ফাইল থেকে রিস্টোর<input type="file" accept=".json" data-change="restoreFile" hidden></label>`:""}</div>
-  ${isAdmin()?`<h2 style="margin-top:16px;font-size:1rem">স্বয়ংক্রিয় ব্যাকআপ থেকে এক ক্লিকে রিস্টোর</h2><div id="snaps" class="row"><button class="btn s l" data-act="loadSnaps">তালিকা দেখুন</button></div>`:""}</div>`;
-};
-/* ============ কাজ (ইভেন্ট) ============ */
-function nextStudentId(){ const s = S(); const pre = s.idPrefix || "STD-"; let n = num(s.nextId) || 101; while(DB.students[pre+n]) n++; setS({ nextId: n+1 }); return pre+n; }
-function nextStaffId(){ const s = S(); const pre = s.staffPrefix || "T-"; let n = num(s.nextStaff) || 1; while(DB.staff[pre+pad(n)]) n++; setS({ nextStaff: n+1 }); return pre+pad(n); }
-function defaultFee(res){ const s = S(); return num(res==="আবাসিক" ? s.feeRes : s.feeNonRes); }
-const afterRender = fn => setTimeout(fn, 0);
+<!-- কৌশলগত পরিকল্পনা -->
+<section class="sec band" id="strategy">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">ভবিষ্যৎ পরিকল্পনা</span><h2>কৌশলগত পথরেখা ২০২৬–২০৪৫</h2></div>
+    <div class="tw"><table>
+      <tr><th>পর্যায়</th><th>সময়কাল</th><th>মূল লক্ষ্য</th><th>প্রত্যাশিত ফলাফল</th></tr>
+      <tr><td>ভিত্তি</td><td>জুন–ডিসেম্বর ২০২৬</td><td>অবকাঠামো, ল্যাব, শিক্ষক নিয়োগ ও প্রশিক্ষণ, নিজস্ব পাঠ্যবই মুদ্রণ</td><td>২০২৭ শিক্ষাবর্ষের সূচনা</td></tr>
+      <tr><td>স্বল্পমেয়াদি</td><td>২০২৭–২০৩০</td><td>১ম–৪র্থ শ্রেণির হিফজ ও প্রাথমিক কিতাব শাখার পূর্ণ বাস্তবায়ন, আন্তর্জাতিক মানের ভাষা ল্যাব</td><td>হিফজ ও ভাষা দক্ষতায় মডেল প্রতিষ্ঠান</td></tr>
+      <tr><td>মধ্যমেয়াদি</td><td>২০৩০–২০৩৫</td><td>দাখিল ও কওমি বোর্ডের কেন্দ্রীয় পরীক্ষা, পূর্ণাঙ্গ রোবোটিক্স ও সায়েন্স ল্যাব</td><td>বোর্ড পরীক্ষায় মেধার স্বাক্ষর</td></tr>
+      <tr><td>দীর্ঘমেয়াদি</td><td>২০৩৫–২০৪৫</td><td>দাওরায়ে হাদিস, ইফতা, উচ্চতর ইসলামিক গবেষণা কেন্দ্র ও আন্তর্জাতিক স্কলারশিপ</td><td>মুহাক্কিক আলেম ও আন্তর্জাতিক মানের স্কলার</td></tr>
+    </table></div>
+  </div>
+</section>
 
-const FORMS = {
-  async setup(f){ const d = formData(f); if(en(d.pin) !== en(d.pin2)) return toast("দুইবারের পিন মিলছে না"); if(en(d.pin).length < 4) return toast("পিন কমপক্ষে ৪ সংখ্যার দিন");
-    seedDefaults(d.inst.trim()); const id = uid("U"); const u = { id, name:d.name.trim(), role:"admin", active:true }; u.pinHash = await hashPin(d.pin, id); put("users", u); ME = u; try{ sessionStorage.setItem("bjha_me", id); }catch(e){} await flush(); location.hash = "#dashboard"; render(); toast("আলহামদুলিল্লাহ, সফটওয়্যার চালু হয়েছে"); },
-  async setupSync(f){ const d = formData(f); META.sync = { url:d.url.trim(), key:d.key.trim(), auto:true }; await syncNow(true); render(); },
-  async login(f){ const d = formData(f); const u = get("users", d.uid); if(!u) return; const h = await hashPin(d.pin, u.id); if(h !== u.pinHash) return toast("পিন সঠিক নয়"); ME = u; try{ sessionStorage.setItem("bjha_me", u.id); }catch(e){} render(); if(META.sync.auto) syncNow(); },
-  saveApp(f){ const d = formData(f); const old = d.id ? get("applications", d.id) : null;
-    const a = Object.assign(old || { id:"APP-"+Date.now().toString().slice(-8), status:"pending", source:"office", createdAt:new Date().toISOString() }, d); a.id = old ? old.id : a.id;
-    put("applications", a); toast("আবেদন সংরক্ষিত — ব্যবস্থাপকের অনুমোদনের অপেক্ষায়"); location.hash = "#applications/pending"; },
-  async approveApp(f){ if(!isAdmin()) return; const d = formData(f); const a = get("applications", d.appId); if(!a) return;
-    const sid = nextStudentId(); const fee = d.monthlyFee !== "" ? num(d.monthlyFee) : defaultFee(a.residential);
-    const pin = genPin(); const pinHash = await hashPin(pin, sid);
-    put("students", { id:sid, name:a.name, father:a.father, mother:a.mother, dob:a.dob, phone:a.phone, whatsapp:a.whatsapp, address:a.address, residential:a.residential, classId:d.classId, group:d.group, roll:d.roll, admissionDate:d.admissionDate||today(), monthlyFee:fee, hifz:a.prevStudy, note:a.note, status:"active", appId:a.id, pinHash });
-    a.status = "approved"; a.studentId = sid; a.approvedBy = ME.id; a.approvedAt = new Date().toISOString(); put("applications", a);
-    closeModal(); render(); toast("অনুমোদিত — শিক্ষার্থী আইডি " + sid);
-    const ph = a.whatsapp || a.phone; const s0 = S();
-    const msg = fillTpl(s0.tplApproved, { নাম:a.name, আইডি:sid, শ্রেণি:className(d.classId), প্রতিষ্ঠান:s0.instName, পিন:pin, পোর্টাল:s0.portalUrl||PORTAL_URL });
-    modal(`<h2>ভর্তি অনুমোদিত: ${esc(sid)}</h2><p>${esc(a.name)} এখন শিক্ষার্থী তালিকায় আছে।</p><p>অভিভাবক অ্যাকাউন্টের পিন: <b style="font-size:1.4rem;letter-spacing:.1em">${bn(pin)}</b><br><span class="small muted">পিনটি শুধু এখন দেখা যাবে, কোথাও সংরক্ষিত থাকে না। হারালে প্রোফাইল থেকে নতুন পিন দিন।</span></p><div class="actions"><button class="btn l" data-act="closeModal">বন্ধ করুন</button>${ph?`<a class="btn wa" target="_blank" href="${waLink(ph, msg)}">হোয়াটসঅ্যাপে আইডি ও পিন পাঠান</a>`:""}</div>`); },
-  rejectApp(f){ const d = formData(f); const a = get("applications", d.appId); if(!a) return; a.status = "rejected"; a.rejectReason = d.reason; a.approvedBy = ME.id; put("applications", a); closeModal(); render(); toast("আবেদন বাতিল করা হয়েছে"); },
-  saveStudent(f){ const d = formData(f); const old = d.id ? get("students", d.id) : null;
-    if(!old && !isAdmin()) return toast("নতুন শিক্ষার্থী যোগ হয় ভর্তি আবেদন অনুমোদনের মাধ্যমে");
-    const s = Object.assign(old || {}, d); if(!old) s.id = nextStudentId();
-    s.monthlyFee = d.monthlyFee === "" ? defaultFee(s.residential) : num(d.monthlyFee);
-    put("students", s); closeModal(); render(); toast("সংরক্ষিত — " + s.id); },
-  promote(f){ const d = formData(f); const ids = [].concat(d.sids||[]); if(!ids.length || !d.to) return toast("শিক্ষার্থী ও নতুন শ্রেণি বাছাই করুন");
-    ids.forEach(id => { const s = get("students", id); if(s){ (s.history = s.history||[]).push({ from:s.classId, to:d.to, date:today() }); s.classId = d.to; put("students", s); } });
-    closeModal(); render(); toast(bn(ids.length)+" জন শিক্ষার্থী প্রমোশন পেয়েছে"); },
-  saveAtt(f){ const a = UI.att; const marks = {}; new FormData(f).forEach((v,k)=>marks[k]=v);
-    const id = a.date+"_"+a.cls; const old = get("attendance", id); put("attendance", Object.assign(old||{}, { id, date:a.date, classId:a.cls, marks })); render(); toast("হাজিরা সংরক্ষিত"); },
-  saveStaffAtt(f){ const a = UI.att; const marks = {}; new FormData(f).forEach((v,k)=>marks[k]=v); const old = get("staffAttendance", a.date); put("staffAttendance", Object.assign(old||{}, { id:a.date, date:a.date, marks })); render(); toast("হাজিরা সংরক্ষিত"); },
-  savePay(f){ const s = get("students", UI.feeSid); if(!s) return; const d = formData(f); const items = [];
-    [].concat(d.months||[]).forEach(m => items.push({ head:"মাসিক বেতন", month:m, amount:num(s.monthlyFee) }));
-    all("feeHeads").forEach(h => { const v = num(d["head_"+h.id]); if(v > 0) items.push({ head:h.name, amount:v }); });
-    if(!items.length) return toast("অন্তত একটি মাস বা ফি দিন");
-    const total = items.reduce((a,i)=>a+num(i.amount),0);
-    const p = put("payments", { id:uid("P"), receiptNo: new Date().getFullYear()+"-"+META.device+"-"+String(META.rc++).padStart(4,"0"), sid:s.id, date:d.date||today(), items, total, method:d.method, note:d.note });
-    render(); toast("আদায় সংরক্ষিত — রসিদ " + p.receiptNo); printHTML(receiptHTML(p)); },
-  saveWaiver(f){ const d = formData(f); const months = [].concat(d.months||[]); if(!months.length) return toast("মাস বাছাই করুন");
-    put("waivers", { id:uid("W"), sid:UI.wSid, months, reason:d.reason, status:"pending" }); UI.wSid = ""; render(); toast("মওকুফের আবেদন পাঠানো হয়েছে"); },
-  saveStaff(f){ const d = formData(f); const old = d.id ? get("staff", d.id) : null; const s = Object.assign(old||{}, d); if(!old) s.id = nextStaffId(); s.active = d.active !== "0"; put("staff", s); closeModal(); render(); toast("সংরক্ষিত — " + s.id); },
-  saveSettings(f){ const d = formData(f); ["buildings","rooms","nextId","nextStaff","feeRes","feeNonRes","dueDay"].forEach(k => d[k] = num(d[k])); setS(d); render(); toast("সেটিংস সংরক্ষিত"); },
-  async addUser(f){ if(!isAdmin()) return; const d = formData(f); if(en(d.pin).length<4) return toast("পিন কমপক্ষে ৪ সংখ্যার দিন"); const id = uid("U"); put("users", { id, name:d.name.trim(), role:d.role, active:true, pinHash: await hashPin(d.pin, id) }); render(); toast("ব্যবহারকারী যোগ হয়েছে"); },
-  async newPin(f){ const d = formData(f); const u = get("users", d.uid); if(!u) return; if(!isAdmin() && u.id!==ME.id) return; if(en(d.pin).length<4) return toast("পিন কমপক্ষে ৪ সংখ্যার দিন"); u.pinHash = await hashPin(d.pin, u.id); put("users", u); closeModal(); toast("পিন বদলানো হয়েছে"); },
-  addClass(f){ const d = formData(f); put("classes", { id:uid("C"), name:d.name.trim(), dept:d.dept, order:num(d.order)||all("classes").length+1 }); render(); },
-  addHead(f){ const d = formData(f); put("feeHeads", { id:uid("F"), name:d.name.trim(), amount:num(d.amount), order:all("feeHeads").length }); render(); },
-  saveSync(f){ const d = formData(f); META.sync = { url:d.url.trim(), key:d.key.trim(), auto:!!d.auto }; save(); toast("সিঙ্ক সেটিংস সংরক্ষিত"); syncNow(true); }
-};
+<!-- প্রকাশনা -->
+<section class="sec" id="books">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">একাডেমির প্রকাশনা</span><h2>আমাদের নিজস্ব বই</h2><p>হিফজ শিক্ষার্থীদের উপযোগী করে একাডেমির শিক্ষকদের হাতে তৈরি। অন্য মাদরাসা ও অভিভাবকরাও অর্ডার করতে পারেন।</p></div>
+    <div class="books" id="bookList"></div>
+    <div class="catalog" id="catalog"></div>
+  </div>
+</section>
 
-const ACTS = {
-  closeModal(){ closeModal(); },
-  yes(){ const f = UI.onYes; closeModal(); if(f) f(); },
-  menu(){ document.getElementById("side").classList.toggle("open"); },
-  logout(){ ME = null; try{ sessionStorage.removeItem("bjha_me"); }catch(e){} render(); },
-  sync(){ syncNow(true); },
-  copy(el){ const t = el.dataset.text; try{ navigator.clipboard.writeText(t).then(()=>toast("কপি হয়েছে"), ()=>prompt("কপি করুন", t)); }catch(e){ toast(t); } },
-  approveApp(el){ const a = get("applications", el.dataset.id); if(!a) return;
-    const fee = defaultFee(a.residential);
-    modal(`<h2>ভর্তি অনুমোদন — ${esc(a.name)}</h2><p class="small">পিতা: ${esc(a.father)} • ${esc(a.dept||"")} • চাওয়া শ্রেণি: ${esc(a.wantedClass||"—")} • ${esc(a.residential||"")}<br>বর্তমান পড়া: ${esc(a.prevStudy||"—")} • মোবাইল: ${esc(bn(a.phone))}<br>ঠিকানা: ${esc(a.address||"—")}</p>
-    <form data-form="approveApp" class="fgrid"><input type="hidden" name="appId" value="${esc(a.id)}"><label>শ্রেণি<select name="classId" required>${classOptions(classesSorted().find(c=>c.dept===a.dept && a.wantedClass && c.name.includes(a.wantedClass.replace(/\s*\(.*$/,"")))?.id)}</select></label>
-    <label>গ্রুপ<input name="group"></label><label>রোল<input name="roll"></label><label>মাসিক বেতন<input name="monthlyFee" inputmode="numeric" value="${fee||""}"></label><label>ভর্তির তারিখ<input type="date" name="admissionDate" value="${today()}"></label>
-    <p class="small muted" style="grid-column:1/-1">অনুমোদন দিলে নতুন আইডি হবে: <b>${esc((S().idPrefix||"STD-")+(num(S().nextId)||101))}</b> (বা পরের খালি নম্বর)</p>
-    <div class="actions" style="grid-column:1/-1"><button type="button" class="btn l" data-act="closeModal">বাতিল</button><button class="btn">অনুমোদন দিন ও আইডি তৈরি করুন</button></div></form>`); },
-  rejectApp(el){ modal(`<h2>আবেদন বাতিল</h2><form data-form="rejectApp"><input type="hidden" name="appId" value="${esc(el.dataset.id)}"><label>কারণ<input name="reason" required></label><div class="actions"><button type="button" class="btn l" data-act="closeModal">ফিরে যান</button><button class="btn r">বাতিল করুন</button></div></form>`); },
-  waiver(el){ if(!isAdmin()) return; const w = get("waivers", el.dataset.id); if(!w) return; w.status = el.dataset.v; w.approvedBy = ME.id; put("waivers", w); render(); toast(w.status==="approved"?"মওকুফ অনুমোদিত":"মওকুফ বাতিল"); },
-  reqDone(el){ const r = get("requests", el.dataset.id); if(!r) return; r.status = "done"; r.doneBy = ME.id; put("requests", r); render(); },
-  newStudent(){ modal(studentForm()); },
-  editStudent(el){ modal(studentForm(get("students", el.dataset.id))); },
-  newStaff(){ modal(staffForm()); },
-  editStaff(el){ modal(staffForm(get("staff", el.dataset.id))); },
-  promote(){ UI.promFrom = UI.promFrom || (classesSorted()[0]||{}).id; promoteModal(); },
-  exportCSV(){ const rows = all("students").map(s => Object.assign({}, s, { className:(get("classes",s.classId)||{}).name||"", dept:(get("classes",s.classId)||{}).dept||"", status:s.status==="left"?"প্রস্থান":"অধ্যয়নরত" })); download("শিক্ষার্থী-"+today()+".csv", toCSV(rows, CSV_COLS), "text/csv;charset=utf-8"); },
-  printRegister(){ const list = activeStudents().sort((a,b)=>a.id.localeCompare(b.id,"en",{numeric:true}));
-    printHTML(printHead("ভর্তি রেজিস্টার — " + dFmt(today())) + `<table><tr><th>ক্রম</th><th>আইডি</th><th>নাম</th><th>পিতা / মাতা</th><th>জন্ম তারিখ</th><th>শ্রেণি</th><th>ভর্তির তারিখ</th><th>মোবাইল</th><th>ঠিকানা</th></tr>${list.map((s,i)=>`<tr><td>${bn(i+1)}</td><td>${esc(s.id)}</td><td>${esc(s.name)}</td><td>${esc(s.father||"")}<br>${esc(s.mother||"")}</td><td>${dFmt(s.dob)}</td><td>${esc(className(s.classId))}</td><td>${dFmt(s.admissionDate)}</td><td>${esc(bn(s.phone||""))}</td><td>${esc(s.address||"")}</td></tr>`).join("")}</table>`); },
-  attPreset(el){ const v = el.dataset.v, d = new Date(); const a = UI.att;
-    if(v==="month"){ a.from = thisMonth()+"-01"; a.to = today(); }
-    if(v==="term"){ const m = d.getMonth(); const st = Math.floor(m/4)*4; a.from = d.getFullYear()+"-"+pad(st+1)+"-01"; a.to = today(); }
-    if(v==="year"){ a.from = d.getFullYear()+"-01-01"; a.to = today(); } render(); },
-  printAtt(){ const r = UI.attReport; if(!r) return; printHTML(printHead(r.title) + `<table><tr><th>আইডি</th><th>নাম</th><th>উপস্থিত</th><th>অনুপস্থিত</th><th>ছুটি</th><th>হার</th></tr>${r.list.map(s=>{const x=r.c[s.id], t=x.P+x.A+x.L; return `<tr><td>${esc(s.id)}</td><td>${esc(s.name)}</td><td>${bn(x.P)}</td><td>${bn(x.A)}</td><td>${bn(x.L)}</td><td>${t?bn(Math.round(x.P*100/t))+"%":"—"}</td></tr>`;}).join("")}</table>`); },
-  printStaffAtt(){ const r = UI.staffReport; if(!r) return; const ST=[["P","উপস্থিত"],["A","অনুপস্থিত"],["CL","নৈমিত্তিক"],["ML","চিকিৎসা"],["L","অন্যান্য ছুটি"]]; printHTML(printHead(r.title) + `<table><tr><th>আইডি</th><th>নাম</th>${ST.map(x=>`<th>${x[1]}</th>`).join("")}</tr>${r.staff.map(s=>`<tr><td>${esc(s.id)}</td><td>${esc(s.name)}</td>${ST.map(x=>`<td>${bn(r.c[s.id][x[0]])}</td>`).join("")}</tr>`).join("")}</table>`); },
-  printReceipt(el){ const p = get("payments", el.dataset.id); if(p) printHTML(receiptHTML(p)); },
-  delPay(el){ confirmBox("এই রসিদটি মুছে ফেলবেন? মুছলে সংশ্লিষ্ট মাস আবার বকেয়া দেখাবে।", () => { remove("payments", el.dataset.id); render(); toast("রসিদ মুছে ফেলা হয়েছে"); }, "মুছুন"); },
-  printFeeReport(){ const r = UI.feeReport; if(!r) return; printHTML(printHead(`আদায় রিপোর্ট — ${dFmt(r.r.from)} থেকে ${dFmt(r.r.to)}`) + `<table><tr><th>রসিদ</th><th>তারিখ</th><th>শিক্ষার্থী</th><th>বিবরণ</th><th>মাধ্যম</th><th>টাকা</th></tr>${r.pays.map(p=>{const s=get("students",p.sid);return `<tr><td>${esc(p.receiptNo)}</td><td>${dFmt(p.date)}</td><td>${esc(studentLabel(s)||p.sid)}</td><td>${(p.items||[]).map(i=>esc(i.head)+(i.month?" ("+mName(i.month)+")":"")).join(", ")}</td><td>${esc(p.method)}</td><td style="text-align:right">${bn(num(p.total).toLocaleString("en-IN"))}</td></tr>`;}).join("")}<tr><th colspan="5" style="text-align:right">মোট</th><th style="text-align:right">${money(r.total)}</th></tr></table><h2>খাতভিত্তিক</h2><table>${Object.entries(r.byHead).map(([k,v])=>`<tr><td>${esc(k)}</td><td style="text-align:right">${money(v)}</td></tr>`).join("")}</table><p>কথায়: ${inWords(r.total)} টাকা মাত্র</p>`); },
-  markSent(el){ META.sent = META.sent || {}; META.sent[el.dataset.id+"|"+thisMonth()] = today(); save(); setTimeout(render, 300); return true; },
-  nextReminder(){ const m = thisMonth(); const d = duesList().find(x => !(META.sent||{})[x.s.id+"|"+m] && (x.s.whatsapp||x.s.phone)); if(!d) return toast("এ মাসে সবাইকে রিমাইন্ডার পাঠানো হয়েছে");
-    window.open(waLink(d.s.whatsapp||d.s.phone, dueMsg(d)), "_blank"); META.sent[d.s.id+"|"+m] = today(); save(); render(); toast(d.s.name + " — রিমাইন্ডার খোলা হয়েছে"); },
-  toggleUser(el){ const u = get("users", el.dataset.id); if(!u) return; u.active = u.active === false; put("users", u); render(); },
-  resetPin(el){ modal(`<h2>নতুন পিন</h2><form data-form="newPin"><input type="hidden" name="uid" value="${esc(el.dataset.id)}"><label>নতুন পিন<input name="pin" required inputmode="numeric" minlength="4"></label><div class="actions"><button type="button" class="btn l" data-act="closeModal">বাতিল</button><button class="btn">বদলান</button></div></form>`); },
-  delClass(el){ if(activeStudents().some(s=>s.classId===el.dataset.id)) return toast("এই শ্রেণিতে শিক্ষার্থী আছে, আগে তাদের অন্য শ্রেণিতে নিন"); confirmBox("শ্রেণিটি মুছবেন?", () => { remove("classes", el.dataset.id); render(); }, "মুছুন"); },
-  delHead(el){ confirmBox("এই ফি-এর খাতটি মুছবেন? আগের রসিদ ঠিক থাকবে।", () => { remove("feeHeads", el.dataset.id); render(); }, "মুছুন"); },
-  downloadBackup(){ download("মাদরাসা-ব্যাকআপ-"+today()+".json", JSON.stringify({ app:"bjha-mms", ver:APP_VER, at:new Date().toISOString(), DB })); toast("ব্যাকআপ ফাইল নামানো হয়েছে"); },
-  async loadSnaps(){ const ks = (await IDB.keys()).filter(k=>String(k).startsWith("snap-")).sort().reverse(); document.getElementById("snaps").innerHTML = ks.map(k=>`<button class="btn s l" data-act="restoreSnap" data-k="${k}">${dFmt(k.slice(5))}</button>`).join("") || `<span class="muted small">এখনো কোনো স্বয়ংক্রিয় ব্যাকআপ নেই</span>`; },
-  restoreSnap(el){ const k = el.dataset.k; confirmBox(`${dFmt(k.slice(5))} তারিখের ব্যাকআপে ফিরে যাবেন? এর পরের পরিবর্তনগুলো মুছে যাবে।`, async () => { const d = await IDB.get(k); if(d) applyRestore(d); }, "রিস্টোর করুন"); }
-};
-function applyRestore(data){
-  const now = Date.now(); const nd = {}; TABLES.forEach(t => nd[t] = data[t] || {});
-  DB = nd; META.dirty = {}; TABLES.forEach(t => Object.values(DB[t]).forEach(r => { r.updatedAt = now; META.dirty[t+"|"+r.id] = 1; }));
-  flush().then(() => { if(ME && !get("users", ME.id)) ME = null; render(); toast("রিস্টোর সম্পন্ন"); });
-}
-function promoteModal(){
-  const from = UI.promFrom; const list = activeStudents().filter(s=>s.classId===from).sort((a,b)=>a.id.localeCompare(b.id,"en",{numeric:true}));
-  modal(`<h2>শ্রেণি প্রমোশন</h2><form data-form="promote" class="grid"><div class="fgrid"><label>বর্তমান শ্রেণি<select data-change="promFrom">${classOptions(from)}</select></label><label>নতুন শ্রেণি<select name="to" required>${classOptions("")}</select></label></div>
-  <div class="mlist">${list.map(s=>`<label><input type="checkbox" name="sids" value="${esc(s.id)}" checked>${esc(s.name)} (${esc(s.id)})</label>`).join("") || `<span class="muted">এই শ্রেণিতে কেউ নেই</span>`}</div>
-  <div class="actions"><button type="button" class="btn l" data-act="closeModal">বাতিল</button><button class="btn">প্রমোশন দিন</button></div></form>`);
-}
-const CSV_COLS = [["id","আইডি"],["name","নাম"],["nameEn","নাম (ইংরেজি)"],["father","পিতা"],["mother","মাতা"],["dob","জন্ম তারিখ"],["birthReg","জন্মনিবন্ধন"],["phone","মোবাইল"],["whatsapp","হোয়াটসঅ্যাপ"],["className","শ্রেণি"],["dept","বিভাগ"],["group","গ্রুপ"],["roll","রোল"],["residential","থাকা"],["admissionDate","ভর্তির তারিখ"],["monthlyFee","মাসিক বেতন"],["hifz","হিফজ"],["address","ঠিকানা"],["status","অবস্থা"]];
+<!-- প্রশ্নোত্তর -->
+<section class="sec band" id="faq">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">প্রশ্নোত্তর</span><h2>অভিভাবকদের সাধারণ প্রশ্ন</h2></div>
+    <div class="faq" style="max-width:860px">
+      <details><summary>কত বছর বয়সে ভর্তি করা যায়?</summary><p>প্রথম শ্রেণিতে (নাজেরা ১ম বর্ষ) ৫–৬ বছর বয়সে। এছাড়া ৩য় শ্রেণি, কিতাব ১ম বর্ষ, দাখিল ট্র্যাক ও দাওরায়ে হাদিসেও নির্দিষ্ট যোগ্যতায় ভর্তি নেওয়া হয়। বিস্তারিত “ভর্তির যোগ্যতা” টেবিলে।</p></details>
+      <details><summary>জেনারেল হিফজ আর একাডেমিক হিফজ বিভাগের পার্থক্য কী?</summary><p>জেনারেল হিফজে মূল মনোযোগ হিফজে, সাথে বাংলা-ইংরেজি-গণিতের মৌলিক পাঠ। একাডেমিক হিফজে হিফজের পাশাপাশি পূর্ণাঙ্গ জাতীয় কারিকুলাম, আরবি-ইংরেজির চার দক্ষতা ও রোবোটিক্স পড়ানো হয়।</p></details>
+      <details><summary>হিফজের পাশাপাশি সাধারণ শিক্ষা পড়ানো হয় কি?</summary><p>হ্যাঁ। প্রতিটি শ্রেণিতে বাংলা, ইংরেজি ও গণিত পড়ানো হয় একাডেমির নিজস্ব সমন্বিত পাঠ্যবই দিয়ে, যাতে হিফজ শেষে শিক্ষার্থী মূলধারার পড়াশোনায় পিছিয়ে না পড়ে।</p></details>
+      <details><summary>আবাসিক ব্যবস্থা আছে কি?</summary><p>হ্যাঁ। শ্রেণি অনুযায়ী তিনটি আবাসিক হাউজ আছে — হিফজ হাউজ, একাডেমিক হাউজ ও কিতাব হাউজ — প্রতিটির দায়িত্বে অভিজ্ঞ মেন্টর।</p></details>
+      <details><summary>শিক্ষার্থীদের শাস্তি দেওয়া হয় কি?</summary><p>না। শারীরিক ও মানসিক শাস্তি সম্পূর্ণ নিষিদ্ধ। এর বদলে পজিটিভ কাউন্সেলিং ও প্রয়োজনে অভিভাবকের সাথে বৈঠক করা হয়।</p></details>
+      <details><summary>সন্তানের অগ্রগতি কীভাবে জানব?</summary><p>ভর্তির পর শিক্ষার্থী আইডি ও পিন দেওয়া হয়। “অভিভাবক লগইন” থেকে হাজিরা, বকেয়া ও পরিশোধের রসিদ দেখা যায়। অনুপস্থিতি ও বকেয়ার খবর হোয়াটসঅ্যাপেও জানানো হয়।</p></details>
+      <details><summary>বেতন কীভাবে পরিশোধ করব?</summary><p>অফিসে নগদে, অথবা বিকাশ, নগদ বা ব্যাংকের মাধ্যমে। প্রতিটি পরিশোধে রসিদ দেওয়া হয় এবং তা অভিভাবক অ্যাকাউন্টেও দেখা যায়।</p></details>
+      <details><summary>শিক্ষার্থী মোবাইল ফোন রাখতে পারবে কি?</summary><p>না। শিক্ষার্থীর ব্যক্তিগত ডিভাইস নিষিদ্ধ। শিক্ষামূলক কনটেন্ট শুধু শিক্ষকের নিয়ন্ত্রণে শ্রেণিকক্ষের বড় পর্দায় দেখানো হয়।</p></details>
+    </div>
+  </div>
+</section>
 
-const CHANGES = {
-  sf(el, ev){ if(el.tagName==="INPUT" && ev.type!=="input") return; if(el.tagName!=="INPUT" && ev.type==="input") return; UI.sf[el.dataset.k] = el.value; UI.refocus = el.dataset.k; render(); },
-  att(el, ev){ if(ev.type==="input") return; UI.att[el.dataset.k] = el.value; render(); },
-  fr(el, ev){ if(ev.type==="input") return; UI.fr[el.dataset.k] = el.value; render(); },
-  feePick(el, ev){ const id = el.value.split(" — ")[0].trim(); if(get("students", id)){ UI.feeSid = id; location.hash = "#fees/collect/"+encodeURIComponent(id); render(); } },
-  wPick(el){ const id = el.value.split(" — ")[0].trim(); if(get("students", id)){ UI.wSid = id; render(); } },
-  payCalc(el){ const f = el.closest("form"); const s = get("students", UI.feeSid); if(!f||!s) return; const d = formData(f);
-    let t = [].concat(d.months||[]).length * num(s.monthlyFee); all("feeHeads").forEach(h => t += num(d["head_"+h.id]));
-    document.getElementById("payTotal").textContent = money(t); document.getElementById("payWords").textContent = t ? "কথায়: " + inWords(t) + " টাকা মাত্র" : ""; },
-  promFrom(el, ev){ if(ev.type==="input") return; UI.promFrom = el.value; promoteModal(); },
-  logo(el){ const file = el.files[0]; if(!file) return; const r = new FileReader(); r.onload = () => { const img = new Image(); img.onload = () => { const c = document.createElement("canvas"); const k = 160/Math.max(img.width,img.height); c.width = img.width*k; c.height = img.height*k; c.getContext("2d").drawImage(img,0,0,c.width,c.height); META.logo = c.toDataURL("image/png"); save(); render(); toast("লোগো যোগ হয়েছে"); }; img.src = r.result; }; r.readAsDataURL(file); },
-  importCSV(el){ const file = el.files[0]; if(!file) return; const r = new FileReader(); r.onload = () => {
-    const rows = parseCSV(r.result); if(rows.length < 2) return toast("ফাইলে কোনো তথ্য নেই");
-    const head = rows[0].map(h => { h = h.trim(); const c = CSV_COLS.find(x => x[1]===h || x[0]===h); return c ? c[0] : null; });
-    if(!head.includes("name")) return toast("‘নাম’ কলাম পাওয়া যায়নি — এক্সপোর্ট করা ফাইলের কলাম নাম ব্যবহার করুন");
-    let n = 0;
-    rows.slice(1).forEach(row => { const o = {}; head.forEach((k,i) => { if(k) o[k] = (row[i]||"").trim(); }); if(!o.name) return;
-      let cls = classesSorted().find(c => c.name===o.className && (!o.dept || c.dept===o.dept)) || classesSorted().find(c => c.name===o.className);
-      if(!cls && o.className){ cls = put("classes", { id:uid("C"), name:o.className, dept:o.dept||"", order:all("classes").length+1 }); }
-      const old = o.id ? DB.students[o.id] : null;
-      const s = Object.assign(old || {}, o, { classId: cls ? cls.id : (old && old.classId) || "", status: o.status==="প্রস্থান" ? "left" : "active", monthlyFee: o.monthlyFee!==undefined && o.monthlyFee!=="" ? num(o.monthlyFee) : defaultFee(o.residential) });
-      delete s.className; delete s.dept; if(!s.id) s.id = nextStudentId(); s.deleted = false; put("students", s); n++; });
-    render(); toast(bn(n) + " জন শিক্ষার্থী ইমপোর্ট হয়েছে"); }; r.readAsText(file, "utf-8"); },
-  restoreFile(el){ const file = el.files[0]; if(!file) return; const r = new FileReader(); r.onload = () => { try{ const j = JSON.parse(r.result); if(!j.DB) throw 0;
-      if(!all("users").length){ applyRestore(j.DB); return; }
-      confirmBox(`${dFmt((j.at||"").slice(0,10))} তারিখের ব্যাকআপ রিস্টোর করবেন? বর্তমান তথ্যের জায়গায় ব্যাকআপের তথ্য বসবে।`, () => applyRestore(j.DB), "রিস্টোর করুন");
-    }catch(e){ toast("এটি সঠিক ব্যাকআপ ফাইল নয়"); } }; r.readAsText(file); }
-};
+<!-- ক্যারিয়ার -->
+<section class="sec" id="career">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">ক্যারিয়ার</span><h2>আমাদের সাথে শিক্ষকতা করুন</h2><p>আন্তরিক, দীর্ঘমেয়াদি সেবাদানে আগ্রহী এবং নিজ বিষয়ে গভীর জ্ঞানসম্পন্ন উস্তাদদের আমরা স্বাগত জানাই।</p></div>
+    <div class="career">
+      <div class="card"><h3 style="color:var(--brand)">সুযোগ-সুবিধা</h3><ul>
+        <li>সহকারী শিক্ষকের প্রারম্ভিক মূল বেতন ১৬,০০০ টাকা, সাথে পারফরম্যান্স ইনসেনটিভ ও বাৎসরিক ইনক্রিমেন্ট</li>
+        <li>দূরবর্তী শিক্ষকদের জন্য আবাসন ও দৈনিক দুই বেলা পুষ্টিকর খাবার</li>
+        <li>যথাযথ পারফরম্যান্স মূল্যায়নে চাকরি স্থায়ীকরণ</li>
+        <li>আরবি ও ইংরেজিতে ক্লাস পরিচালনার নিয়মিত প্রশিক্ষণ</li></ul></div>
+      <div class="card"><h3 style="color:var(--brand)">নিয়োগ প্রক্রিয়া</h3><ul>
+        <li>নিয়োগ বিজ্ঞপ্তি নোটিশ বোর্ডে প্রকাশ করা হয়</li>
+        <li>স্ক্রিনিং ও সাক্ষাৎকারের পর চূড়ান্ত নিয়োগপত্র</li>
+        <li>যোগদানের আগে ১৫ দিনের পেডাগজি ও শিশু মনস্তত্ত্ব বুটক্যাম্পে উত্তীর্ণ হওয়া বাধ্যতামূলক</li></ul>
+        <p style="margin-top:12px">জীবনবৃত্তান্ত পাঠান: <b>bsjiha@gmail.com</b></p></div>
+    </div>
+  </div>
+</section>
 
-document.addEventListener("submit", e => { const f = e.target; if(f.dataset.form && FORMS[f.dataset.form]){ e.preventDefault(); FORMS[f.dataset.form](f); } });
-document.addEventListener("click", e => { const el = e.target.closest("[data-act]"); if(!el) return; const fn = ACTS[el.dataset.act]; if(!fn) return; if(el.tagName !== "A") e.preventDefault(); fn(el, e); });
-["change","input"].forEach(t => document.addEventListener(t, e => { const el = e.target.closest("[data-change]"); if(!el) return; const fn = CHANGES[el.dataset.change]; if(!fn) return;
-  if(t==="input" && !["sf","payCalc","feePick","wPick"].includes(el.dataset.change)) return;
-  if(t==="change" && el.dataset.change==="sf" && el.tagName==="INPUT") return;
-  fn(el, e); }));
-const _render = render;
-render = function(){ _render(); if(UI.refocus){ const el = document.querySelector(`[data-change="sf"][data-k="${UI.refocus}"]`); UI.refocus = null; if(el && el.tagName==="INPUT"){ el.focus(); const n = el.value.length; el.setSelectionRange(n,n); } } };
+<!-- যোগাযোগ -->
+<section class="sec band" id="contact">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">যোগাযোগ</span><h2>আমাদের সাথে কথা বলুন</h2></div>
+    <div class="contact">
+      <div class="card cinfo">
+        <div><b>ঠিকানা</b>খাগড়াছড়ি বায়তুশ শরফ কমপ্লেক্স, বায়তুশ শরফ সড়ক, আরামবাগ, সদর, খাগড়াছড়ি পার্বত্য জেলা</div>
+        <div><b>মোবাইল</b>
+          <div class="copyline"><span id="p1">০১৮২০৭১৭১৭৭</span><button type="button" data-copy="p1">কপি</button></div>
+          <div class="copyline"><span id="p2">০১৮৬৭৯৩৪৭৪৪</span><button type="button" data-copy="p2">কপি</button></div>
+          <div class="copyline"><span id="p3">০১৮৭৭৪১৮৪৩১</span><button type="button" data-copy="p3">কপি</button></div></div>
+        <div><b>ইমেইল</b><div class="copyline"><span id="em">bsjiha@gmail.com</span><button type="button" data-copy="em">কপি</button></div></div>
+        <div id="reqBox" hidden><b>অভিযোগ, অনুরোধ ও ছুটির আবেদন</b><a id="reqLink" target="_blank" rel="noopener" href="#">অনলাইন ফরম পূরণ করুন →</a></div>
+        <a class="btn line" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Baitush+Sharaf+Complex+Arambag+Khagrachari">গুগল ম্যাপে দেখুন ↗</a>
+      </div>
+      <div class="map"><iframe title="মানচিত্র" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Baitush%20Sharaf%20Complex%2C%20Arambag%2C%20Khagrachari&z=15&output=embed"></iframe></div>
+    </div>
+  </div>
+</section>
+</main>
 
-/* ============ ওয়েবসাইট প্রকাশ, অভিভাবক পিন, ইনস্টল ============ */
-const BOOK_CATS = ["সমন্বিত পাঠ্যবই (বাংলা • English • গণিত)","কুরআন ও হিফজ","আরবি ভাষা","ইংরেজি ভাষা","বিজ্ঞান ও প্রযুক্তি","শিক্ষক সহায়িকা"];
-const BOOK_STATUS = ["প্রস্তুত","মুদ্রণাধীন","প্রি-অর্ডার","শীঘ্রই আসছে"];
-const NOTICE_TAGS = ["সাধারণ","ভর্তি","পরীক্ষা","ছুটি","প্রকাশনা","নিয়োগ","একাডেমিক"];
-const SEED_BOOKS = [
-  [0,["আমার প্রথম পাঠ","আমার দ্বিতীয় পাঠ","আমার তৃতীয় পাঠ","আমার চতুর্থ পাঠ","আমার পঞ্চম পাঠ","আমার ষষ্ঠ পাঠ"]],
-  [1,["আদর্শ হিফজ কায়দা","আদর্শ হিফজ ডায়েরি","আদর্শ শিক্ষার্থী ডায়েরি"]],
-  [2,["আল আরবিয়্যাতু লিআওলাদিনা – ০১","সহজ নাহুমীর","আরবি শব্দার্থ সংকলন – ১ম শ্রেণি","আরবি শব্দার্থ সংকলন – ২য় শ্রেণি","আরবি শব্দার্থ সংকলন – ৩য় শ্রেণি","আরবি শব্দার্থ সংকলন – ৪র্থ শ্রেণি","আরবি শব্দার্থ সংকলন – ৫ম শ্রেণি","আরবি শব্দার্থ সংকলন – ৬ষ্ঠ শ্রেণি","শব্দার্থ সংকলন – এসো আরবি শিখি ১ম খণ্ড","শব্দার্থ সংকলন – এসো আরবি শিখি ২য় খণ্ড","শব্দার্থ সংকলন – এসো আরবি শিখি ৩য় খণ্ড","শব্দার্থ সংকলন – আত তামরিনুল কিতাবি","শব্দার্থ সংকলন – মুনশায়িব"]],
-  [3,["ইংলিশ ফর ফিউচার","ইংলিশ ভোকাবুলারি – ১ম শ্রেণি","ইংলিশ ভোকাবুলারি – ২য় শ্রেণি","ইংলিশ ভোকাবুলারি – ৩য় শ্রেণি","ইংলিশ ভোকাবুলারি – ৪র্থ শ্রেণি","ইংলিশ ভোকাবুলারি – ৫ম শ্রেণি","ইংলিশ ভোকাবুলারি – ৬ষ্ঠ শ্রেণি"]],
-  [4,["লিটল ইঞ্জিনিয়ার – ০১"]],
-  [5,["আরবিতে ক্লাস পরিচালনা","ইংরেজিতে ক্লাস পরিচালনা"]]
-];
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><h4>বায়তুশ শরফ হিফজ একাডেমি</h4><p style="opacity:.85">খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি — হিফজুল কুরআন, কওমি-আলিয়া ও আধুনিক প্রযুক্তির অনন্য সমন্বয়ে আলোকিত প্রজন্ম গড়ার প্রত্যয়।</p></div>
+      <div><h4>গুরুত্বপূর্ণ লিংক</h4><ul><li><a href="#about">আমাদের সম্পর্কে</a></li><li><a href="#depts">শিক্ষা বিভাগ</a></li><li><a href="#admission">ভর্তি প্রক্রিয়া</a></li><li><a href="#fees">ফি ও বেতন</a></li><li><a href="#faq">প্রশ্নোত্তর</a></li></ul></div>
+      <div><h4>সেবা</h4><ul><li><a href="student.html">অভিভাবক লগইন</a></li><li><a href="#notice">নোটিশ বোর্ড</a></li><li><a href="#books">বই অর্ডার</a></li><li><a href="#career">ক্যারিয়ার</a></li><li><a href="office/">অফিস (কর্মীদের জন্য)</a></li></ul></div>
+      <div><h4>যোগাযোগ</h4><ul><li>আরামবাগ, সদর, খাগড়াছড়ি</li><li>০১৮২০৭১৭১৭৭</li><li>০১৮৬৭৯৩৪৭৪৪</li><li>bsjiha@gmail.com</li><li><a href="https://www.facebook.com/profile.php?id=61592286354148" target="_blank" rel="noopener">ফেসবুক পেজ ↗</a></li></ul></div>
+    </div>
+    <div class="fbot"><span>© ২০২৬ খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি</span><span>কুরআনের আলোয় আলোকিত প্রজন্ম</span></div>
+  </div>
+</footer>
 
-function noticeForm(n){
-  n = n || { date: today(), tag:"সাধারণ", published:true };
-  return `<h2>${n.id?"নোটিশ সম্পাদনা":"নতুন নোটিশ"}</h2><form data-form="saveNotice" class="fgrid"><input type="hidden" name="id" value="${esc(n.id||"")}">
-  <label style="grid-column:1/-1">শিরোনাম *<input name="title" required value="${esc(n.title)}"></label>
-  <label>তারিখ<input type="date" name="date" value="${esc(n.date)}"></label>
-  <label>ধরন<select name="tag">${NOTICE_TAGS.map(t=>`<option ${n.tag===t?"selected":""}>${t}</option>`).join("")}</select></label>
-  <label style="grid-column:1/-1">বিস্তারিত<textarea name="body" style="min-height:120px">${esc(n.body)}</textarea></label>
-  <label class="chk" style="grid-column:1/-1"><input type="checkbox" name="published" ${n.published?"checked":""}> ওয়েবসাইটে প্রকাশ করুন</label>
-  <div class="actions" style="grid-column:1/-1"><button type="button" class="btn l" data-act="closeModal">বাতিল</button><button class="btn">সংরক্ষণ</button></div></form>`;
-}
-function bookForm(b){
-  b = b || { category:BOOK_CATS[0], status:"প্রস্তুত", published:true };
-  return `<h2>${b.id?"বইয়ের তথ্য সম্পাদনা":"নতুন বই"}</h2><form data-form="saveBook" class="fgrid"><input type="hidden" name="id" value="${esc(b.id||"")}">
-  <label style="grid-column:1/-1">বইয়ের নাম *<input name="name" required value="${esc(b.name)}"></label>
-  <label>বিভাগ<select name="category">${BOOK_CATS.map(c=>`<option ${b.category===c?"selected":""}>${c}</option>`).join("")}</select></label>
-  <label>শ্রেণি / স্তর<input name="level" value="${esc(b.level)}" placeholder="যেমন: ১ম শ্রেণি"></label>
-  <label>মূল্য (টাকা)<input name="price" inputmode="numeric" value="${esc(b.price?bn(b.price):"")}"></label>
-  <label>পূর্বমূল্য (কাটা দাম, ঐচ্ছিক)<input name="mrp" inputmode="numeric" value="${esc(b.mrp?bn(b.mrp):"")}"></label>
-  <label>অবস্থা<select name="status">${BOOK_STATUS.map(s=>`<option ${b.status===s?"selected":""}>${s}</option>`).join("")}</select></label>
-  <label>স্টক (কপি)<input name="stock" inputmode="numeric" value="${esc(b.stock?bn(b.stock):"")}"></label>
-  <label style="grid-column:1/-1">সংক্ষিপ্ত পরিচিতি<textarea name="desc">${esc(b.desc)}</textarea></label>
-  <label class="chk"><input type="checkbox" name="published" ${b.published?"checked":""}> ওয়েবসাইটে দেখান</label>
-  <label class="chk"><input type="checkbox" name="featured" ${b.featured?"checked":""}> প্রথম সারিতে বড় করে দেখান</label>
-  <div class="actions" style="grid-column:1/-1"><button type="button" class="btn l" data-act="closeModal">বাতিল</button><button class="btn">সংরক্ষণ</button></div></form>`;
-}
+<div class="drawer" id="drawer" hidden>
+  <div class="shade" id="shade"></div>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <button class="x" type="button" id="cartClose" aria-label="বন্ধ করুন">×</button>
+    <h2 id="cartTitle" style="font-size:1.5rem">বইয়ের অর্ডার</h2>
+    <div id="cartItems"></div>
+    <p class="small muted" id="cartTotal"></p>
+    <form id="orderForm" novalidate style="display:grid;gap:12px">
+      <label for="o_name">নাম / প্রতিষ্ঠানের নাম<input id="o_name"></label>
+      <label for="o_phone">মোবাইল<input id="o_phone" type="tel" inputmode="tel"></label>
+      <label for="o_addr">ডেলিভারি ঠিকানা<textarea id="o_addr" rows="3"></textarea></label>
+      <p class="small" id="ordErr" role="alert" style="color:var(--bad)" hidden></p>
+      <button class="btn brand" type="submit">অর্ডার তৈরি করুন</button>
+    </form>
+    <div class="result" id="ordOut" hidden><b>অর্ডার তৈরি হয়েছে</b><pre id="ordText"></pre>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn brand" type="button" data-copy="ordText">কপি করুন</button><a class="btn line" id="ordWa" target="_blank" rel="noopener" hidden>হোয়াটসঅ্যাপে পাঠান</a></div>
+      <p class="small muted">কপি করে ০১৮২০৭১৭১৭৭ নম্বরে পাঠান। দাম ও ডেলিভারি নিশ্চিত করতে আমরা ফোন করব।</p></div>
+  </div>
+</div>
+<button class="totop" id="totop" type="button" aria-label="উপরে যান" hidden>↑</button>
 
-VIEWS.website = arg => {
-  const tab = ["notices","books","display"].includes(arg) ? arg : "notices";
-  const s = S(); const site = s.siteUrl || SITE_URL;
-  const head = `<div class="banner" style="background:var(--band);color:var(--brand)"><span>এখানে যা প্রকাশ করবেন, সিঙ্কের পর তা ওয়েবসাইটে দেখা যাবে। শিক্ষার্থীর ব্যক্তিগত তথ্য কখনো প্রকাশ্যে যায় না।</span><a class="btn s" target="_blank" href="${esc(site)}">ওয়েবসাইট দেখুন ↗</a></div>
-  <div class="tabs"><a href="#website/notices" class="${tab==="notices"?"on":""}">নোটিশ বোর্ড</a><a href="#website/books" class="${tab==="books"?"on":""}">বই ও দাম</a><a href="#website/display" class="${tab==="display"?"on":""}">ভর্তি ও প্রদর্শন</a></div>`;
-  if(tab === "notices"){
-    const list = all("notices").sort((a,b)=>(b.date||"").localeCompare(a.date||""));
-    return head + `<div class="row" style="margin-bottom:12px"><button class="btn" data-act="newNotice">+ নতুন নোটিশ</button></div>
-    ${list.length?`<div class="tw"><table><tr><th>তারিখ</th><th>শিরোনাম</th><th>ধরন</th><th>ওয়েবসাইটে</th><th></th></tr>${list.map(n=>`<tr><td>${dFmt(n.date)}</td><td><b>${esc(n.title)}</b><br><span class="small muted">${esc((n.body||"").slice(0,90))}${(n.body||"").length>90?"…":""}</span></td><td><span class="tag">${esc(n.tag)}</span></td>
-    <td><button class="btn s ${n.published?"":"l"}" data-act="toggleNotice" data-id="${n.id}">${n.published?"প্রকাশিত":"অপ্রকাশিত"}</button></td>
-    <td><button class="btn s l" data-act="editNotice" data-id="${n.id}">সম্পাদনা</button> <button class="btn s l" data-act="printNotice" data-id="${n.id}">প্রিন্ট</button> <button class="btn s l" data-act="delNotice" data-id="${n.id}">মুছুন</button></td></tr>`).join("")}</table></div>`
-    :`<div class="card empty">এখনো কোনো নোটিশ নেই। “নতুন নোটিশ” দিয়ে শুরু করুন — লোগোসহ A4 প্রিন্টও করা যাবে।</div>`}`;
-  }
-  if(tab === "books"){
-    const list = all("books").sort((a,b)=>(a.order||0)-(b.order||0));
-    return head + `<div class="row" style="margin-bottom:12px"><button class="btn" data-act="newBook">+ নতুন বই</button>${!list.length?`<button class="btn g" data-act="seedBooks">একাডেমির ৩২টি বইয়ের তালিকা যোগ করুন</button>`:""}</div>
-    ${list.length?`<div class="tw"><table><tr><th>বই</th><th>বিভাগ</th><th class="right">মূল্য</th><th>অবস্থা</th><th class="right">স্টক</th><th>ওয়েবসাইটে</th><th></th></tr>${list.map(b=>`<tr><td><b>${esc(b.name)}</b>${b.featured?` <span class="tag warn">প্রথম সারি</span>`:""}<br><span class="small muted">${esc(b.level||"")}</span></td><td class="small">${esc(b.category)}</td><td class="right">${b.price?money(b.price):`<span class="muted small">দাম নেই</span>`}</td><td><span class="tag">${esc(b.status)}</span></td><td class="right">${b.stock?bn(b.stock):"—"}</td>
-    <td><button class="btn s ${b.published?"":"l"}" data-act="toggleBook" data-id="${b.id}">${b.published?"দেখাচ্ছে":"লুকানো"}</button></td><td><button class="btn s l" data-act="editBook" data-id="${b.id}">সম্পাদনা</button></td></tr>`).join("")}</table></div>`
-    :`<div class="card empty">বইয়ের তালিকা খালি। উপরের সোনালি বোতাম চাপলে একাডেমির ৩২টি বই যোগ হবে, তারপর প্রতিটির দাম বসাবেন।</div>`}`;
-  }
-  return head + `<form data-form="saveSite" class="card"><h2>ভর্তি</h2>
-    <label class="chk"><input type="checkbox" name="admissionOpen" ${s.admissionOpen!==false?"checked":""}> ওয়েবসাইটে “ভর্তি চলছে” দেখান</label>
-    <label style="margin-top:10px">ওয়েবসাইটের উপরের ঘোষণা<input name="admissionMsg" value="${esc(s.admissionMsg||"")}"></label>
-    <div class="fgrid" style="margin-top:12px"><label>আবেদনের শেষ তারিখ (ঐচ্ছিক)<input type="date" name="admissionDeadline" value="${esc(s.admissionDeadline||"")}"></label><label>হোয়াটসঅ্যাপ হেল্পলাইন নম্বর<input name="whatsapp" value="${esc(s.whatsapp||"")}" placeholder="যেমন: ০১৮২০৭১৭১৭৭"></label></div>
-    <h2 style="margin-top:18px">প্রদর্শন</h2>
-    <label class="chk"><input type="checkbox" name="showStats" ${s.showStats!==false?"checked":""}> মোট শিক্ষার্থী ও শিক্ষক সংখ্যা ওয়েবসাইটে দেখান</label>
-    <label class="chk"><input type="checkbox" name="showFees" ${s.showFees!==false?"checked":""}> ফি ও মাসিক বেতন ওয়েবসাইটে দেখান (সেটিংসের হার ও ফি-এর খাত থেকে)</label>
-    <div class="fgrid" style="margin-top:12px"><label>ওয়েবসাইটের ঠিকানা<input name="siteUrl" value="${esc(s.siteUrl||SITE_URL)}"></label><label>অভিভাবক লগইন পাতার ঠিকানা<input name="portalUrl" value="${esc(s.portalUrl||PORTAL_URL)}"></label></div>
-    <p class="small muted">ভর্তি ও অভিযোগ ফরমের লিংক সেটিংস পাতায় দিলে ওয়েবসাইটে “অনলাইনে আবেদন” বোতাম দেখাবে।</p>
-    <div class="actions"><button class="btn">সংরক্ষণ</button></div></form>`;
-};
-
-Object.assign(FORMS, {
-  saveNotice(f){ const d = formData(f); const old = d.id ? get("notices", d.id) : null;
-    const n = Object.assign(old || { id:uid("N") }, { title:d.title.trim(), date:d.date||today(), tag:d.tag, body:d.body, published:!!d.published });
-    put("notices", n); closeModal(); render(); toast(n.published ? "নোটিশ সংরক্ষিত — সিঙ্কের পর ওয়েবসাইটে দেখাবে" : "নোটিশ সংরক্ষিত"); },
-  saveBook(f){ const d = formData(f); const old = d.id ? get("books", d.id) : null;
-    const b = Object.assign(old || { id:uid("B"), order:all("books").length+1 }, { name:d.name.trim(), category:d.category, level:d.level, price:num(d.price), mrp:num(d.mrp), status:d.status, stock:num(d.stock), desc:d.desc, published:!!d.published, featured:!!d.featured });
-    put("books", b); closeModal(); render(); toast("বইয়ের তথ্য সংরক্ষিত"); },
-  saveSite(f){ const d = formData(f); setS({ admissionOpen:!!d.admissionOpen, admissionMsg:d.admissionMsg, admissionDeadline:d.admissionDeadline||"", whatsapp:d.whatsapp||"", showStats:!!d.showStats, showFees:!!d.showFees, siteUrl:d.siteUrl.trim(), portalUrl:d.portalUrl.trim() }); render(); toast("সংরক্ষিত — সিঙ্কের পর ওয়েবসাইটে দেখাবে"); }
-});
-
-Object.assign(ACTS, {
-  newNotice(){ modal(noticeForm()); },
-  editNotice(el){ modal(noticeForm(get("notices", el.dataset.id))); },
-  toggleNotice(el){ const n = get("notices", el.dataset.id); if(!n) return; n.published = !n.published; put("notices", n); render(); },
-  delNotice(el){ confirmBox("নোটিশটি মুছে ফেলবেন? ওয়েবসাইট থেকেও সরে যাবে।", () => { remove("notices", el.dataset.id); render(); }, "মুছুন"); },
-  printNotice(el){ const n = get("notices", el.dataset.id); if(!n) return;
-    printHTML(printHead("নোটিশ") + `<p style="text-align:right">তারিখ: ${dFmt(n.date)}</p><h2 style="text-align:center;font-size:17px;margin:14px 0">বিষয়: ${esc(n.title)}</h2><div style="font-size:14px;line-height:1.9;white-space:pre-wrap;min-height:120mm">${esc(n.body||"")}</div><div class="sig" style="justify-content:flex-end"><span>কর্তৃপক্ষ<br>${esc(S().instName||"")}</span></div>`); },
-  newBook(){ modal(bookForm()); },
-  editBook(el){ modal(bookForm(get("books", el.dataset.id))); },
-  toggleBook(el){ const b = get("books", el.dataset.id); if(!b) return; b.published = !b.published; put("books", b); render(); },
-  seedBooks(){ if(all("books").length) return; let o = 0; SEED_BOOKS.forEach(([ci, names]) => names.forEach(n => put("books", { id:uid("B"), name:n, category:BOOK_CATS[ci], level:"", price:0, mrp:0, status:"প্রস্তুত", stock:0, desc:"", published:true, featured:["আমার প্রথম পাঠ","আমার দ্বিতীয় পাঠ","আদর্শ হিফজ কায়দা"].includes(n), order:++o })));
-    render(); toast("৩২টি বই যোগ হয়েছে — এবার দাম বসান"); },
-  async newPin(el){ const s = get("students", el.dataset.id); if(!s || ME.role==="teacher") return;
-    const pin = genPin(); s.pinHash = await hashPin(pin, s.id); put("students", s); render();
-    const s0 = S(); const ph = s.whatsapp || s.phone; const msg = fillTpl(s0.tplPin || "{নাম}-এর অভিভাবক অ্যাকাউন্টের পিন: {পিন}\n{পোর্টাল}", { নাম:s.name, আইডি:s.id, পিন:pin, পোর্টাল:s0.portalUrl||PORTAL_URL, প্রতিষ্ঠান:s0.instName });
-    modal(`<h2>নতুন পিন — ${esc(s.name)}</h2><p>আইডি: <b>${esc(s.id)}</b><br>পিন: <b style="font-size:1.4rem;letter-spacing:.1em">${bn(pin)}</b></p><p class="small muted">পিনটি শুধু এখন দেখা যাবে। আগের পিন আর কাজ করবে না (সিঙ্কের পর)।</p><div class="actions"><button class="btn l" data-act="closeModal">বন্ধ করুন</button>${ph?`<a class="btn wa" target="_blank" href="${waLink(ph, msg)}">হোয়াটসঅ্যাপে পাঠান</a>`:""}</div>`); },
-  async installApp(){ const e = UI.installEvt; if(!e) return; e.prompt(); try{ await e.userChoice; }catch(x){} UI.installEvt = null; render(); }
-});
-
-/* ইনস্টলযোগ্য অ্যাপ (PWA) */
-window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); UI.installEvt = e; const b = document.getElementById("installBtn"); if(b) b.hidden = false; });
-window.addEventListener("appinstalled", () => { UI.installEvt = null; toast("অ্যাপ ইনস্টল হয়েছে"); render(); });
-if("serviceWorker" in navigator && location.protocol.startsWith("http")){ window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(()=>{})); }
-
-/* ============ চালু ============ */
-(async function boot(){
-  await IDB.open();
-  const d = await IDB.get("db"), m = await IDB.get("meta");
-  if(d){ TABLES.forEach(t => DB[t] = d[t] || {}); }
-  if(m){ META = Object.assign(META, m); META.sync = Object.assign({url:"",key:"",auto:true}, m.sync||{}); }
-  if(!META.device){ META.device = String.fromCharCode(65+Math.floor(Math.random()*26), 65+Math.floor(Math.random()*26)); save(); }
-  try{ const id = sessionStorage.getItem("bjha_me"); if(id){ const u = get("users", id); if(u && u.active!==false) ME = u; } }catch(e){}
-  render();
-  if(ME && META.sync.auto) syncNow();
-})();
-</script>
+<script src="config.js" defer></script>
+<script src="assets/js/main.js?v=3.0.0" defer></script>
 </body>
 </html>
