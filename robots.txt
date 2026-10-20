@@ -1,5 +1,7 @@
+# বায়তুশ শরফ হিফজ একাডেমি — সার্চ ইঞ্জিনের নির্দেশনা
 User-agent: *
 Allow: /
 Disallow: /office/
 Disallow: /student.html
+
 Sitemap: https://hifj-academy.github.io/sitemap.xml

@@ -1,0 +1,14 @@
+{
+  "name": "খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি",
+  "short_name": "বায়তুশ শরফ হিফজ",
+  "lang": "bn",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#f5f8f6",
+  "theme_color": "#0f4c3a",
+  "icons": [
+    {"src": "/assets/img/logo-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "/assets/img/logo-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}

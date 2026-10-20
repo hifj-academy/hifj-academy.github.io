@@ -1,0 +1,59 @@
+# ==========================================================
+# বায়তুশ শরফ হিফজ একাডেমি — Apache/cPanel হোস্টিং সেটিং
+# GitHub Pages-এ এই ফাইল কোনো কাজ করে না (ক্ষতিও নেই)।
+# cPanel হোস্টিংয়ে public_html ফোল্ডারে এটি থাকলে কাজ করবে।
+# ==========================================================
+
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+# ---- সব ভিজিটরকে https:// ও www ছাড়া ঠিকানায় পাঠানো ----
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ---- নিরাপত্তা হেডার ----
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set Strict-Transport-Security "max-age=31536000"
+  # অফিস অ্যাপের service worker ও config সবসময় নতুন করে আনবে
+  <FilesMatch "(sw\.js|config\.js|index\.html|manifest\.webmanifest)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# ---- গোপন/অপ্রয়োজনীয় ফাইল লুকানো ----
+<FilesMatch "\.(gs|md|zip|bak|json)$">
+  Require all denied
+</FilesMatch>
+<FilesMatch "^(site\.webmanifest|manifest\.webmanifest)$">
+  Require all granted
+</FilesMatch>
+
+# ---- ক্যাশ: ছবি/স্টাইল দীর্ঘদিন, HTML সবসময় নতুন ----
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 hour"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
+  ExpiresByType application/manifest+json "access plus 1 day"
+</IfModule>
+
+# ---- কমপ্রেশন (দ্রুত লোড) ----
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json application/xml image/svg+xml application/manifest+json
+</IfModule>
+
+AddType application/manifest+json .webmanifest
