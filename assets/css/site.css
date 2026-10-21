@@ -1,0 +1,198 @@
+/*!
+ * বায়তুশ শরফ হিফজ একাডেমি — পোর্টাল লেআউট
+ * ফাইল: assets/css/site.css   সংস্করণ: 4.0.0
+ * কাঠামো: সাদা বক্সড পাতা → নাম ও লোগোর ব্যানার → সবুজ মেনু → সর্বশেষ নোটিশের চলমান লাইন
+ *        → (প্রথম পাতায়) তিন বিভাগ → ভর্তি আবেদন → মূল কলাম + ডান সাইডবার → ফুটার
+ */
+body{background:#e9eeeb}
+.page{max-width:1200px;margin:0 auto;background:var(--surface);box-shadow:0 0 0 1px var(--line),0 10px 40px rgba(10,53,40,.08);min-height:100vh;display:flex;flex-direction:column}
+.page>main{flex:1}
+
+/* ---- উপরের সরু লাইন ---- */
+.pstrip{background:var(--deep);color:var(--on-dark);font-size:.86rem}
+.pstrip .in{display:flex;justify-content:space-between;gap:6px 16px;flex-wrap:wrap;padding:6px 18px}
+.pstrip a{color:var(--gold-l);text-decoration:none}
+.pstrip a:hover{text-decoration:underline}
+.pstrip .r{display:flex;gap:14px;flex-wrap:wrap}
+@media (max-width:600px){.pstrip .em,#today{display:none}}
+
+/* ---- ব্যানার: প্রতিষ্ঠানের নাম ---- */
+.pbanner{position:relative;overflow:hidden;background:
+  radial-gradient(circle at 92% -20%,rgba(231,194,122,.30) 0 180px,transparent 181px),
+  radial-gradient(circle at 92% -20%,transparent 0 230px,rgba(231,194,122,.18) 231px 233px,transparent 234px),
+  linear-gradient(115deg,#fbf8ef 0%,#f3efe2 45%,#e7f0ea 100%);
+  border-bottom:4px solid var(--gold)}
+.pbanner .in{display:flex;align-items:center;gap:18px;padding:18px 18px 16px}
+.pbanner .logo{width:92px;height:92px;flex:none;border-radius:18px;box-shadow:0 6px 18px rgba(10,53,40,.18)}
+.pbanner .names{min-width:0}
+.pbanner .ar{font-family:var(--fa);color:var(--gold);font-size:1.15rem;line-height:1.4;margin:0}
+.pbanner h1{font-family:var(--fd);font-weight:400;color:var(--brand);font-size:clamp(1.35rem,3.2vw,2.2rem);line-height:1.25;margin:2px 0 4px;text-wrap:balance}
+.pbanner .en{color:var(--muted);font-size:.92rem;letter-spacing:.01em;margin:0}
+.pbanner .cta{margin-inline-start:auto;flex:none;display:grid;gap:8px;justify-items:end}
+.pbanner .cta .btn{white-space:nowrap}
+.pbanner .cta small{color:var(--muted)}
+@media (max-width:760px){
+  .pbanner .in{flex-wrap:wrap;gap:12px;padding:14px 16px}
+  .pbanner .logo{width:64px;height:64px;border-radius:14px}
+  .pbanner .names{flex:1 1 200px}
+  .pbanner .cta{margin:0;width:100%;justify-items:stretch}
+  .pbanner .cta small{display:none}
+}
+
+/* ---- মেনু ---- */
+.pnav{background:var(--brand);position:sticky;top:0;z-index:30;box-shadow:0 2px 0 var(--deep)}
+.pnav .in{display:flex;align-items:stretch;padding:0 8px}
+.pnav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap}
+.pnav li{position:relative}
+.pnav a,.pnav .dd>button{display:block;color:#fff;text-decoration:none;padding:11px 13px;font:inherit;font-size:.97rem;font-weight:500;background:none;border:0;cursor:pointer;white-space:nowrap}
+.pnav a:hover,.pnav .dd>button:hover,.pnav .dd>button[aria-expanded="true"]{background:var(--deep)}
+.pnav a.on,.pnav .dd.on>button{background:var(--gold-l);color:#1a1205}
+.pnav .dd>button::after{content:"▾";font-size:.75em;margin-inline-start:5px;opacity:.8}
+.pnav .sub{display:none;position:absolute;top:100%;left:0;min-width:230px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);box-shadow:0 12px 28px rgba(0,0,0,.14);z-index:40;padding:4px 0}
+.pnav .dd>button[aria-expanded="true"]+.sub{display:block}
+@media (hover:hover) and (min-width:861px){.pnav .dd:hover>.sub{display:block}}
+.pnav .sub a{color:var(--ink);padding:8px 14px;font-size:.94rem}
+.pnav .sub a:hover{background:var(--band);color:var(--brand)}
+.pnav .tog{display:none;margin-inline-start:auto;background:none;border:0;color:#fff;font:inherit;font-weight:600;padding:10px 12px;cursor:pointer}
+.pnav .login{margin-inline-start:auto}
+.pnav .login a{background:var(--gold);color:#1a1205;font-weight:600}
+.pnav .login a:hover{background:var(--gold-l)}
+@media (max-width:860px){
+  .pnav .in{flex-wrap:wrap;padding:0}
+  .pnav .tog{display:block}
+  .pnav .mwrap{display:none;width:100%}
+  .pnav .mwrap.open{display:block}
+  .pnav ul{flex-direction:column;width:100%}
+  .pnav a,.pnav .dd>button{width:100%;text-align:start;border-top:1px solid rgba(255,255,255,.1);padding:11px 16px}
+  .pnav .sub{position:static;box-shadow:none;border:0;background:var(--deep);padding:0}
+  .pnav .sub a{color:#e6f0eb;padding-inline-start:30px}
+  .pnav .login{margin:0}
+  .pnav .mtitle{color:#fff;font-weight:600;padding:10px 16px}
+}
+@media (min-width:861px){.pnav .mtitle{display:none}.pnav .mwrap{display:flex;width:100%}}
+
+/* ---- সর্বশেষ নোটিশ (চলমান লাইন) ---- */
+.ticker{display:flex;align-items:stretch;border-bottom:1px solid var(--line);background:#fffdf6;font-size:.95rem}
+.ticker b{flex:none;background:#b3261e;color:#fff;padding:7px 14px;font-weight:600;display:flex;align-items:center}
+.ticker .tw{overflow:hidden;flex:1;position:relative;display:flex;align-items:center;border:0;border-radius:0;background:none}
+.ticker .track{display:inline-flex;gap:46px;white-space:nowrap;padding-inline-start:100%;animation:tick 38s linear infinite}
+.ticker:hover .track,.ticker:focus-within .track{animation-play-state:paused}
+.ticker .track a{color:var(--ink);text-decoration:none}
+.ticker .track a:hover{color:var(--brand);text-decoration:underline}
+.ticker .track a::before{content:"◆";color:var(--gold);font-size:.7em;margin-inline-end:8px;vertical-align:middle}
+@keyframes tick{to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.ticker .track{animation:none;padding:0 12px;white-space:normal;flex-wrap:wrap;gap:4px 20px}}
+
+/* ---- সাধারণ বক্স ---- */
+.pmain{padding:18px}
+.box{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden;margin-bottom:18px}
+.box>.bh{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 14px;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#fff}
+.box>.bh h2,.box>.bh h3{font-family:var(--fb);font-weight:600;font-size:1.05rem;color:#fff;margin:0;line-height:1.4}
+.box>.bh a{color:var(--gold-l);font-size:.88rem;text-decoration:none;white-space:nowrap}
+.box>.bh a:hover{text-decoration:underline}
+.box>.bb{padding:14px}
+.box.gold>.bh{background:linear-gradient(90deg,#8d6417,var(--gold))}
+
+/* ---- তিন বিভাগ ---- */
+.depts3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+.dtile{position:relative;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:center;padding:16px;border-radius:12px;text-decoration:none;color:#fff;overflow:hidden;min-height:118px;box-shadow:0 6px 16px rgba(10,53,40,.14);transition:transform .15s,box-shadow .15s}
+.dtile:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(10,53,40,.2)}
+.dtile:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.dtile.t1{background:linear-gradient(135deg,#0f4c3a,#1b6b52)}
+.dtile.t2{background:linear-gradient(135deg,#14506b,#1e7193)}
+.dtile.t3{background:linear-gradient(135deg,#6b3f12,#a56a24)}
+.dtile .ic{grid-row:span 3;width:58px;height:58px;border-radius:14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;font-family:var(--fa);font-size:1.9rem;color:var(--gold-l)}
+.dtile b{font-size:1.18rem;font-weight:600;line-height:1.3}
+.dtile span{font-size:.9rem;opacity:.9;line-height:1.45}
+.dtile em{font-style:normal;font-size:.86rem;color:var(--gold-l);font-weight:600}
+.dtile::after{content:"";position:absolute;right:-40px;bottom:-40px;width:120px;height:120px;border-radius:50%;border:2px solid rgba(255,255,255,.12)}
+@media (max-width:860px){.depts3{grid-template-columns:1fr}.dtile{min-height:0}}
+
+/* ---- ভর্তি আবেদন ---- */
+.adm .bb{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:18px;align-items:start}
+@media (max-width:900px){.adm .bb{grid-template-columns:1fr}.adm .adm-form{order:-1}}
+.adm-msg{background:var(--gold-soft);border-inline-start:4px solid var(--gold);padding:10px 12px;border-radius:6px;margin:0 0 12px;font-weight:600;color:#5b3d07}
+.steps{list-style:none;margin:0 0 12px;padding:0;counter-reset:s;display:grid;gap:8px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;font-size:.95rem}
+.steps li::before{content:counter(s);width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:700;font-size:.9rem}
+.steps b{display:block;color:var(--brand)}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 10px}
+.quick a{font-size:.9rem;border:1px solid var(--line);border-radius:99px;padding:4px 12px;text-decoration:none;color:var(--brand);background:var(--band)}
+.quick a:hover{border-color:var(--brand)}
+.adm-form{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#f1f3f4}
+.adm-form .fh{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 12px;background:#fff;border-bottom:1px solid var(--line);font-size:.92rem}
+.adm-form .fh a{font-weight:600;text-decoration:none}
+.adm-form iframe{display:block;width:100%;height:980px;border:0}
+@media (max-width:600px){.adm-form iframe{height:1650px}}
+.adm-form .off{padding:28px 18px;text-align:center;background:#fff}
+.adm-form .off p{margin:0 0 12px}
+
+/* ---- মূল কলাম + সাইডবার ---- */
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start}
+.cols>*{min-width:0}
+@media (max-width:960px){.cols{grid-template-columns:minmax(0,1fr)}}
+.side .box>.bb{padding:12px 14px}
+.side ul.lk{list-style:none;margin:0;padding:0}
+.side ul.lk li{border-bottom:1px dashed var(--line)}
+.side ul.lk li:last-child{border:0}
+.side ul.lk a{display:block;padding:7px 2px;text-decoration:none;color:var(--ink)}
+.side ul.lk a::before{content:"›";color:var(--gold);font-weight:700;margin-inline-end:8px}
+.side ul.lk a:hover{color:var(--brand)}
+.side .msgbox{display:grid;gap:8px;font-size:.93rem}
+.side .msgbox .av{width:84px;height:84px;border-radius:50%;background:var(--band);border:3px solid var(--gold-soft);display:grid;place-items:center;font-family:var(--fa);font-size:2rem;color:var(--brand);margin:0 auto}
+.side .msgbox p{margin:0;color:var(--muted)}
+.side .msgbox .who{text-align:center;font-weight:600;color:var(--brand)}
+.hot{display:grid;gap:8px}
+.hot a{display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid var(--line);border-radius:8px;padding:8px 10px;text-decoration:none;color:var(--ink);font-variant-numeric:tabular-nums}
+.hot a b{color:var(--brand);font-size:1.02rem}
+.hot a:hover{border-color:var(--brand)}
+.hot a.wa{background:#1f9d55;border-color:#1f9d55;color:#fff}
+.hot a.wa b{color:#fff}
+
+/* ---- নোটিশ বোর্ড বক্স ---- */
+.nb{list-style:none;margin:0;padding:0}
+.nb li{display:grid;grid-template-columns:62px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);align-items:start}
+.nb li:last-child{border:0}
+.nb .dt{border:1px solid var(--line);border-radius:8px;text-align:center;overflow:hidden;line-height:1.2}
+.nb .dt b{display:block;background:var(--brand);color:#fff;font-size:1.15rem;padding:4px 0}
+.nb .dt span{display:block;font-size:.75rem;padding:3px 0;color:var(--muted)}
+.nb h3{font-family:var(--fb);font-size:1rem;font-weight:600;margin:0 0 2px;color:var(--ink)}
+.nb p{margin:0;font-size:.92rem;color:var(--muted)}
+.nb .tag{display:inline-block;font-size:.75rem;background:var(--gold-soft);color:#6b4a0b;border-radius:99px;padding:0 8px;margin-inline-end:6px;font-weight:600}
+
+/* ---- সেবা বক্সের গ্রিড ---- */
+.svc{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:640px){.svc{grid-template-columns:1fr}}
+.svc .box{margin:0}
+.svc .bh .i{width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.16);display:grid;place-items:center;font-size:1rem;flex:none}
+.svc .bh{justify-content:flex-start!important}
+.svc ul{list-style:none;margin:0;padding:0}
+.svc li a{display:block;padding:6px 0;border-bottom:1px dashed var(--line);text-decoration:none;color:var(--ink);font-size:.95rem}
+.svc li:last-child a{border:0}
+.svc li a::before{content:"▸";color:var(--gold);margin-inline-end:8px}
+.svc li a:hover{color:var(--brand)}
+
+/* ---- ভেতরের পাতা ---- */
+.crumb{font-size:.88rem;color:var(--muted);margin:0 0 10px}
+.crumb a{text-decoration:none}
+.ptitle{font-family:var(--fd);font-weight:400;color:var(--brand);font-size:clamp(1.5rem,3vw,2rem);margin:0 0 14px;padding-bottom:10px;border-bottom:2px solid var(--gold-soft)}
+.content .sec{padding:0 0 26px;background:none!important}
+.content .wrap{padding:0;max-width:none}
+.content .sec-head{margin-bottom:16px}
+.content .g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.content details.acc[open]{margin-bottom:12px}
+.content .dept{max-width:none}
+
+/* ---- ফুটার ---- */
+.pfoot{background:var(--deep);color:var(--on-dark);margin-top:10px}
+.pfoot .in{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:20px;padding:24px 18px}
+@media (max-width:760px){.pfoot .in{grid-template-columns:1fr}}
+.pfoot h4{color:var(--gold-l);font-family:var(--fb);font-size:1rem;margin:0 0 8px}
+.pfoot p,.pfoot li{font-size:.92rem;opacity:.9;margin:0 0 4px}
+.pfoot ul{list-style:none;margin:0;padding:0}
+.pfoot a{color:#fff;text-decoration:none}
+.pfoot a:hover{color:var(--gold-l);text-decoration:underline}
+.pfoot .bot{border-top:1px solid rgba(255,255,255,.12);padding:10px 18px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.84rem;opacity:.85}
+
+/* প্রিন্ট */
+@media print{.pstrip,.pnav,.ticker,.side,.pfoot,.adm-form,.totop,.cart-btn{display:none!important}.cols{grid-template-columns:1fr}.page{box-shadow:none}body{background:#fff}}
