@@ -134,7 +134,7 @@ tr:last-child td{border-bottom:0}
 <script>
 "use strict";
 /* ============ মূল তথ্য ও সংরক্ষণ ============ */
-const APP_VER = "1.2";
+const APP_VER = "1.3";
 const TABLES = ["students","applications","attendance","staff","staffAttendance","payments","waivers","requests","classes","feeHeads","users","settings","notices","books"];
 const SITE_URL = "https://hifj-academy.github.io";
 const PORTAL_URL = SITE_URL + "/student.html";
@@ -688,7 +688,7 @@ const FORMS = {
   async approveApp(f){ if(!isAdmin()) return; const d = formData(f); const a = get("applications", d.appId); if(!a) return;
     const sid = nextStudentId(); const fee = d.monthlyFee !== "" ? num(d.monthlyFee) : defaultFee(a.residential);
     const pin = genPin(); const pinHash = await hashPin(pin, sid);
-    put("students", { id:sid, name:a.name, father:a.father, mother:a.mother, dob:a.dob, phone:a.phone, whatsapp:a.whatsapp, address:a.address, residential:a.residential, classId:d.classId, group:d.group, roll:d.roll, admissionDate:d.admissionDate||today(), monthlyFee:fee, hifz:a.prevStudy, note:a.note, status:"active", appId:a.id, pinHash });
+    put("students", { id:sid, name:a.name, father:a.father, mother:a.mother, dob:a.dob, birthReg:a.birthReg||"", phone:a.phone, whatsapp:a.whatsapp, address:a.address, residential:a.residential, classId:d.classId, group:d.group, roll:d.roll, admissionDate:d.admissionDate||today(), monthlyFee:fee, hifz:a.prevStudy, note:a.note, status:"active", appId:a.id, pinHash });
     a.status = "approved"; a.studentId = sid; a.approvedBy = ME.id; a.approvedAt = new Date().toISOString(); put("applications", a);
     closeModal(); render(); toast("অনুমোদিত — শিক্ষার্থী আইডি " + sid);
     const ph = a.whatsapp || a.phone; const s0 = S();
