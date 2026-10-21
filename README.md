@@ -3,7 +3,7 @@
 খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমির অফিসিয়াল ওয়েবসাইট, অভিভাবক পোর্টাল ও অফিস ম্যানেজমেন্ট অ্যাপ (PWA)।
 
 - লাইভ সাইট: https://hifj-academy.github.io/
-- সংস্করণ: 3.0.0 (দেখুন `CHANGELOG.md`)
+- সংস্করণ: 4.0.0 (সরকারি পোর্টাল ধাঁচের বহু-পাতার নকশা) (দেখুন `CHANGELOG.md`)
 - প্রযুক্তি: Static HTML/CSS/vanilla JS (কোনো build step বা framework নেই), Google Apps Script + Google Sheets (ডেটা ও API)
 
 ## আর্কিটেকচার
@@ -23,12 +23,17 @@ Google Apps Script Web App  ──►  Google Sheet (মূল ডেটাব�
 
 | পথ | কাজ |
 |---|---|
-| `index.html` | মূল ওয়েবসাইট (সব অংশ এক পাতায়, `#notice`, `#admission` ইত্যাদি) |
+| `index.html` | প্রথম পাতা: নাম-ব্যানার → মেনু → সর্বশেষ নোটিশ → তিন বিভাগ → ভর্তি আবেদন (Google Form) → নোটিশ বোর্ড + সেবা বক্স + সাইডবার |
+| `about.html` | পরিচিতি, কর্তৃপক্ষের বাণী (`#message`), বৈশিষ্ট্য, হিফজ পদ্ধতি, ক্যাম্পাস, কৌশলগত পরিকল্পনা |
+| `general-hifz.html`, `academic-hifz.html`, `kitab.html` | তিন বিভাগের আলাদা পাতা ও পাঠ্যক্রম |
+| `admission.html` | ভর্তি আবেদন ফরম (`#apply`), প্রক্রিয়া, যোগ্যতা (`#entry`), ফি (`#fees`), ক্যালেন্ডার, প্রশ্নোত্তর (`#faq`) |
+| `notices.html`, `books.html`, `career.html`, `contact.html` | নোটিশ, প্রকাশনা ও অর্ডার, নিয়োগ, যোগাযোগ |
 | `student.html` | অভিভাবক/শিক্ষার্থী পোর্টাল (noindex) |
 | `404.html` | ভুল লিংকের পাতা |
 | `config.js` | **রিপোজিটরিতে আলাদা থাকে।** শুধু `window.BJHA_API = "<Web app URL>"` |
-| `assets/css/main.css` | মূল সাইটের স্টাইল; রং `:root`-এ |
-| `assets/js/main.js` | মেনু, নোটিশ, বই-অর্ডার, ফি, লাইভ ডেটা `apply()` |
+| `assets/css/main.css` | মৌলিক স্টাইল (রং `:root`-এ, কার্ড, টেবিল, বই) |
+| `assets/css/site.css` | পোর্টাল লেআউট: ব্যানার, মেনু, চলমান নোটিশ, বক্স, সাইডবার, ফুটার |
+| `assets/js/site.js` | সব পাতার স্ক্রিপ্ট: মেনু, চলমান নোটিশ, নোটিশ বোর্ড, ভর্তি ফরম, ফি, বই-অর্ডার, লাইভ ডেটা `apply()` |
 | `assets/css/portal.css`, `assets/js/portal.js` | পোর্টালের স্টাইল ও লজিক |
 | `assets/img/` | লোগো (192/512) ও `og-cover.jpg` (১২০০×৬৩০, ফেসবুক শেয়ারের ছবি) |
 | `office/` | অফিস ম্যানেজমেন্ট অ্যাপ (PWA: `index.html`, `sw.js`, `manifest.webmanifest`, আইকন) |
@@ -53,7 +58,7 @@ python -m http.server 8080
 
 ## পরিবর্তনের নিয়ম
 
-- CSS/JS বদলালে `index.html`/`student.html`-এ `?v=3.0.0` সংখ্যা বাড়ান (যেমন `3.0.1`), নইলে পুরোনো ক্যাশ থেকে যেতে পারে।
+- CSS/JS বদলালে `index.html`/`student.html`-এ `?v=4.0.0` সংখ্যা বাড়ান (যেমন `4.0.1`), নইলে পুরোনো ক্যাশ থেকে যেতে পারে।
 - অফিস অ্যাপ বদলালে `office/sw.js`-এর `VERSION` বাড়ান।
 - নোটিশ, বই, ফি, ভর্তি চালু/বন্ধ, হোয়াটসঅ্যাপ নম্বর: কোড নয়, **অফিস অ্যাপ → ওয়েবসাইট** থেকে বদলান।
 
@@ -63,7 +68,7 @@ python -m http.server 8080
 
 | ফাইল | কোথায় |
 |---|---|
-| `index.html` | `og:url`, `og:image`, `canonical`, JSON-LD (`url`, `logo`, `image`) |
+| সব `.html` পাতা | `og:url`, `og:image`, `canonical`; `index.html`-এ JSON-LD (`url`, `logo`, `image`) |
 | `robots.txt` | `Sitemap:` লাইন |
 | `sitemap.xml` | `<loc>` |
 | `CNAME` (নতুন ফাইল, শুধু GitHub Pages) | এক লাইনে ডোমেইন, যেমন `baitushsharafhifz.com` |
@@ -76,3 +81,7 @@ python -m http.server 8080
 - কোনো dependency নেই, শুধু Google Fonts (Tiro Bangla, Hind Siliguri, Amiri)।
 - নতুন পাতা যোগ করলে `sitemap.xml`-এ যোগ করুন এবং `index.html`-এর মতো `<head>` মেটা কপি করুন।
 - পাবলিক API-এর ফরম্যাট: `GET <API>?action=public` → `{settings, fees, notices[], books[], stats}`।
+
+## হেডার, মেনু ও ফুটার
+
+প্রতিটি পাতায় একই হেডার/মেনু/ফুটার আছে (স্ট্যাটিক HTML, তাই সার্চ ইঞ্জিন সহজে পড়ে)। ফোন নম্বর বা মেনু বদলালে **সব `.html` পাতায়** একই পরিবর্তন করতে হবে। GitHub-এ রিপোজিটরির উপরের সার্চে লেখা খুঁজলে কোন কোন ফাইলে আছে দেখা যায়।
