@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>হোম | খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি</title>
-    <meta name="description" content="খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি — হিফজুল কুরআন, কওমি-আলিয়া সমন্বিত শিক্ষা এবং আরবি মুকালামা, ইংরেজি স্পোকান, প্রযুক্তির অনন্য সমন্বয় : প্রথম শ্রেণি থেকে দাওরায়ে হাদিস পর্যন্ত।">
+    <meta name="description" content="খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি — হিফজুল কুরআন, কওমি-আলিয়া সমন্বিত শিক্ষা এবং আরবি মুকালামা, ইংরেজি স্পোকান, প্রযুক্তির অনন্য সমন্বয় : প্রথম শ্রেণি থেকে দাওরায়ে হাদিস পর্যন্ত।">
     <link rel="icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     
@@ -33,7 +33,6 @@
         a { text-decoration: none; color: inherit; transition: 0.2s; }
         ul { list-style: none; }
 
-        /* Main Portal Container (Dhaka Education Board Style) */
         .portal-wrapper {
             max-width: 1140px;
             margin: 0 auto;
@@ -42,7 +41,6 @@
             min-height: 100vh;
         }
 
-        /* Top Purple/Green Bar */
         .top-bar {
             background: var(--gov-purple);
             color: #fff;
@@ -64,7 +62,6 @@
         }
         .top-bar-links a:hover { background: var(--gov-gold); }
 
-        /* Header Banner / Slider */
         .header-banner {
             position: relative;
             background: linear-gradient(135deg, #0f4c3a 0%, #006a4e 60%, #134e4a 100%);
@@ -130,7 +127,6 @@
             font-size: 13px;
         }
 
-        /* Navigation Bar */
         .main-nav {
             background: #006a4e;
             border-bottom: 3px solid #b9852a;
@@ -154,7 +150,6 @@
             background: #0f4c3a;
             color: #fde68a;
         }
-        /* Dropdown */
         .dropdown {
             display: none;
             position: absolute;
@@ -192,7 +187,6 @@
             cursor: pointer;
         }
 
-        /* News Ticker (খবর/নোটিশ স্ক্রল) */
         .news-ticker {
             display: flex;
             align-items: center;
@@ -220,7 +214,6 @@
         }
         .ticker-content marquee a:hover { color: var(--gov-red); text-decoration: underline; }
 
-        /* Admission Ribbon */
         .admission-strip {
             background: linear-gradient(90deg, #fef3c7, #fde68a);
             border-bottom: 1px solid #f59e0b;
@@ -242,7 +235,6 @@
             font-size: 13px;
         }
 
-        /* Main 2-Column Portal Grid */
         .portal-body {
             display: grid;
             grid-template-columns: 7fr 3fr;
@@ -250,7 +242,6 @@
             padding: 18px;
         }
 
-        /* Official Notice Board Box (Exact Government Portal Style) */
         .notice-board-box {
             background: linear-gradient(to bottom, #ffffff 0%, #f3f4f6 100%);
             border: 1px solid var(--border-color);
@@ -317,7 +308,6 @@
         }
         .notice-all-btn:hover { background: var(--gov-green); }
 
-        /* Quick Department 3 Big Buttons */
         .dept-quick-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -337,7 +327,6 @@
         .dept-2 { background: linear-gradient(135deg, #1e3a8a, #2563eb); }
         .dept-3 { background: linear-gradient(135deg, #78350f, #b9852a); }
 
-        /* 2-Column Service Boxes (Dhaka Board Style) */
         .service-boxes-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -390,7 +379,6 @@
             text-decoration: underline;
         }
 
-        /* Embedded Admission Form Section */
         .section-panel {
             border: 1px solid var(--border-color);
             background: #fff;
@@ -408,7 +396,6 @@
         }
         .section-body { padding: 15px; }
 
-        /* Right Sidebar Styles */
         .sidebar-card {
             border: 1px solid var(--border-color);
             background: #fff;
@@ -453,7 +440,6 @@
         }
         .person-link:hover { background: var(--gov-green); color: #fff; }
 
-        /* E-Service Buttons in Sidebar */
         .eservice-list { padding: 10px; display: flex; flex-direction: column; gap: 8px; }
         .eservice-btn {
             display: flex;
@@ -482,7 +468,6 @@
         .sidebar-links li::before { content: "✔ "; color: var(--gov-green); }
         .sidebar-links li a:hover { color: var(--gov-purple); text-decoration: underline; }
 
-        /* Footer */
         .portal-footer {
             background: #1f2937;
             color: #d1d5db;
@@ -505,7 +490,6 @@
             color: #9ca3af;
         }
 
-        /* Responsive */
         @media (max-width: 860px) {
             .portal-body { grid-template-columns: 1fr; }
             .service-boxes-grid { grid-template-columns: 1fr; }
@@ -523,7 +507,7 @@
 
 <div class="portal-wrapper">
 
-    <!-- ১. TOP BAR (অফিস অ্যাপের লিংক ছাড়া) -->
+    <!-- ১. TOP BAR -->
     <div class="top-bar">
         <div>
             <span>খাগড়াছড়ি বায়তুশ শরফ কমপ্লেক্স • আরামবাগ, সদর, খাগড়াছড়ি</span>
@@ -554,7 +538,7 @@
         </div>
     </header>
 
-    <!-- ৩. NAVIGATION MENU (Dhaka Board Style) -->
+    <!-- ৩. NAVIGATION MENU -->
     <nav class="main-nav">
         <button class="mobile-menu-btn" onclick="document.getElementById('nav-list').classList.toggle('show')">☰ মেনু নির্বাচন করুন</button>
         <ul class="nav-list" id="nav-list">
@@ -593,7 +577,7 @@
         </ul>
     </nav>
 
-    <!-- ৪. NEWS TICKER (চলমান নোটিশ) -->
+    <!-- ৪. NEWS TICKER -->
     <div class="news-ticker">
         <div class="ticker-label">সর্বশেষ নোটিশ :</div>
         <div class="ticker-content">
@@ -614,12 +598,9 @@
         <a href="#online-admission-box" class="btn-apply-now">অনলাইনে আবেদন করুন →</a>
     </div>
 
-    <!-- ৬. MAIN PORTAL BODY (Left 70% + Right Sidebar 30%) -->
+    <!-- ৬. MAIN PORTAL BODY -->
     <div class="portal-body">
-
-        <!-- ================= LEFT MAIN COLUMN ================= -->
         <main>
-
             <!-- Official Notice Board -->
             <div class="notice-board-box">
                 <div class="notice-globe">🕌</div>
@@ -663,10 +644,8 @@
                 </a>
             </div>
 
-            <!-- 6 Service Boxes (Exact Dhaka Board Style) -->
+            <!-- 6 Service Boxes -->
             <div class="service-boxes-grid">
-
-                <!-- Box 1 -->
                 <div class="service-box">
                     <h3>ভর্তি ও আবেদন সেবা</h3>
                     <div class="service-box-inner">
@@ -680,7 +659,6 @@
                     </div>
                 </div>
 
-                <!-- Box 2 -->
                 <div class="service-box">
                     <h3>শিক্ষা বিভাগ ও পাঠ্যক্রম</h3>
                     <div class="service-box-inner">
@@ -694,7 +672,6 @@
                     </div>
                 </div>
 
-                <!-- Box 3 -->
                 <div class="service-box">
                     <h3>অভিভাবক ও শিক্ষার্থী পোর্টাল</h3>
                     <div class="service-box-inner">
@@ -708,7 +685,6 @@
                     </div>
                 </div>
 
-                <!-- Box 4 -->
                 <div class="service-box">
                     <h3>প্রকাশনা ও পাঠ্যবই (৩২টি বই)</h3>
                     <div class="service-box-inner">
@@ -722,7 +698,6 @@
                     </div>
                 </div>
 
-                <!-- Box 5 -->
                 <div class="service-box">
                     <h3>ক্যাম্পাস জীবন ও আবাসিক সুবিধা</h3>
                     <div class="service-box-inner">
@@ -736,7 +711,6 @@
                     </div>
                 </div>
 
-                <!-- Box 6 -->
                 <div class="service-box">
                     <h3>পরিচিতি, নিয়োগ ও যোগাযোগ</h3>
                     <div class="service-box-inner">
@@ -749,7 +723,6 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
 
             <!-- Embedded Online Admission Form Box -->
@@ -765,13 +738,10 @@
                     <iframe id="admission-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSd-YIdvkSh7SS4v5ihdFM1Qj5L780nKCkPdYTg5j5TSuBC5ug/viewform?embedded=true" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0">লোড হচ্ছে…</iframe>
                 </div>
             </div>
-
         </main>
 
-        <!-- ================= RIGHT SIDEBAR (30%) ================= -->
+        <!-- ================= RIGHT SIDEBAR ================= -->
         <aside>
-
-            <!-- Head of Institution Box -->
             <div class="sidebar-card">
                 <div class="sidebar-title">কর্তৃপক্ষের বাণী</div>
                 <div class="person-box">
@@ -787,7 +757,6 @@
                 </div>
             </div>
 
-            <!-- Internal E-Services -->
             <div class="sidebar-card">
                 <div class="sidebar-title">অনলাইন ই-সেবাসমূহ</div>
                 <div class="eservice-list">
@@ -799,7 +768,6 @@
                 </div>
             </div>
 
-            <!-- Helpline & Office Hours -->
             <div class="sidebar-card">
                 <div class="sidebar-title">জরুরি যোগাযোগ ও হেল্পলাইন</div>
                 <div style="padding:12px;font-size:13.5px;line-height:1.7;">
@@ -812,7 +780,6 @@
                 </div>
             </div>
 
-            <!-- Important Links -->
             <div class="sidebar-card">
                 <div class="sidebar-title">গুরুত্বপূর্ণ লিংকসমূহ</div>
                 <ul class="sidebar-links">
@@ -823,9 +790,7 @@
                     <li><a href="https://www.facebook.com/profile.php?id=61592286354148" target="_blank">অফিসিয়াল ফেসবুক পেজ</a></li>
                 </ul>
             </div>
-
         </aside>
-
     </div>
 
     <!-- ৭. FOOTER -->
@@ -854,7 +819,6 @@
             © ২০২৬ খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি • সর্বস্বত্ব সংরক্ষিত।
         </div>
     </footer>
-
 </div>
 
 <!-- ================= LIVE GOOGLE SHEET SYNC SCRIPT ================= -->
@@ -864,41 +828,4 @@
     if (!apiUrl) return;
     try {
         const res = await fetch(apiUrl + "?action=public");
-        const data = await res.json();
-
-        // Update Settings if available
-        if (data.settings) {
-            const s = data.settings;
-            if (s.admissionMsg) document.getElementById('admission-msg-text').innerText = s.admissionMsg;
-            if (s.admissionDeadline) document.getElementById('admission-deadline-text').innerText = `(আবেদনের শেষ তারিখ: ${s.admissionDeadline})`;
-            if (s.admissionOpen === false) document.getElementById('admission-banner').style.display = 'none';
-            if (s.whatsapp) {
-                const cleanWa = String(s.whatsapp).replace(/[^0-9]/g, '');
-                document.getElementById('wa-sidebar-btn').href = `https://wa.me/88${cleanWa.replace(/^88/, '')}`;
-            }
-        }
-
-        // Update Notices in Notice Board & Ticker
-        if (Array.isArray(data.notices) && data.notices.length > 0) {
-            const pubNotices = data.notices.filter(n => n.published !== false).slice(0, 6);
-            if (pubNotices.length > 0) {
-                document.getElementById('portal-notice-list').innerHTML = pubNotices.map(n => `
-                    <li>
-                        <a href="notices.html">${n.title}</a>
-                        <span class="notice-date">${n.date || ''}</span>
-                    </li>
-                `).join('');
-
-                document.getElementById('notice-ticker').innerHTML = pubNotices.map(n => `
-                    <a href="notices.html">★ ${n.title} (${n.date || ''})</a>
-                `).join('');
-            }
-        }
-    } catch (e) {
-        console.log("Using default static notices (offline/fallback mode).");
-    }
-})();
-</script>
-
-</body>
-</html>
+        const data = await res.json
