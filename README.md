@@ -3,7 +3,7 @@
 খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমির অফিসিয়াল ওয়েবসাইট, অভিভাবক পোর্টাল ও অফিস ম্যানেজমেন্ট অ্যাপ (PWA)।
 
 - লাইভ সাইট: https://hifj-academy.github.io/
-- সংস্করণ: 4.0.0 (সরকারি পোর্টাল ধাঁচের বহু-পাতার নকশা) (দেখুন `CHANGELOG.md`)
+- সংস্করণ: 4.1.0 (সরকারি পোর্টাল ধাঁচের বহু-পাতার নকশা) (দেখুন `CHANGELOG.md`)
 - প্রযুক্তি: Static HTML/CSS/vanilla JS (কোনো build step বা framework নেই), Google Apps Script + Google Sheets (ডেটা ও API)
 
 ## আর্কিটেকচার
@@ -35,7 +35,7 @@ Google Apps Script Web App  ──►  Google Sheet (মূল ডেটাব�
 | `assets/css/site.css` | পোর্টাল লেআউট: ব্যানার, মেনু, চলমান নোটিশ, বক্স, সাইডবার, ফুটার |
 | `assets/js/site.js` | সব পাতার স্ক্রিপ্ট: মেনু, চলমান নোটিশ, নোটিশ বোর্ড, ভর্তি ফরম, ফি, বই-অর্ডার, লাইভ ডেটা `apply()` |
 | `assets/css/portal.css`, `assets/js/portal.js` | পোর্টালের স্টাইল ও লজিক |
-| `assets/img/` | লোগো (192/512) ও `og-cover.jpg` (১২০০×৬৩০, ফেসবুক শেয়ারের ছবি) |
+| `assets/img/` | লোগো (96/192/512, স্বচ্ছ PNG), `og-cover.jpg` (১২০০×৬৩০ শেয়ার-ছবি), `muhtamim.jpg`, `campus.jpg`, `campus-800.jpg` |
 | `office/` | অফিস ম্যানেজমেন্ট অ্যাপ (PWA: `index.html`, `sw.js`, `manifest.webmanifest`, আইকন) |
 | `favicon.ico`, `site.webmanifest` | ব্রাউজার আইকন |
 | `robots.txt`, `sitemap.xml` | সার্চ ইঞ্জিন |
@@ -58,7 +58,7 @@ python -m http.server 8080
 
 ## পরিবর্তনের নিয়ম
 
-- CSS/JS বদলালে `index.html`/`student.html`-এ `?v=4.0.0` সংখ্যা বাড়ান (যেমন `4.0.1`), নইলে পুরোনো ক্যাশ থেকে যেতে পারে।
+- CSS/JS বদলালে `index.html`/`student.html`-এ `?v=4.1.0` সংখ্যা বাড়ান (যেমন `4.1.1`), নইলে পুরোনো ক্যাশ থেকে যেতে পারে।
 - অফিস অ্যাপ বদলালে `office/sw.js`-এর `VERSION` বাড়ান।
 - নোটিশ, বই, ফি, ভর্তি চালু/বন্ধ, হোয়াটসঅ্যাপ নম্বর: কোড নয়, **অফিস অ্যাপ → ওয়েবসাইট** থেকে বদলান।
 

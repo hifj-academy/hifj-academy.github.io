@@ -1,831 +1,127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>হোম | খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি</title>
-    <meta name="description" content="খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি — হিফজুল কুরআন, কওমি-আলিয়া সমন্বিত শিক্ষা এবং আরবি মুকালামা, ইংরেজি স্পোকান, প্রযুক্তির অনন্য সমন্বয় : প্রথম শ্রেণি থেকে দাওরায়ে হাদিস পর্যন্ত।">
-    <link rel="icon" href="favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Config File (Google Sheet Web App URL) -->
-    <script src="config.js"></script>
-
-    <style>
-        :root {
-            --gov-green: #006a4e;
-            --gov-dark-green: #0f4c3a;
-            --gov-purple: #683091;
-            --gov-red: #d32f2f;
-            --gov-gold: #b9852a;
-            --box-bg: #f9f9f9;
-            --border-color: #dcdcdc;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Hind Siliguri', sans-serif;
-            background-color: #e9ecef;
-            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
-            background-size: 16px 16px;
-            color: #222;
-            line-height: 1.6;
-        }
-        a { text-decoration: none; color: inherit; transition: 0.2s; }
-        ul { list-style: none; }
-
-        .portal-wrapper {
-            max-width: 1140px;
-            margin: 0 auto;
-            background: #ffffff;
-            box-shadow: 0 0 18px rgba(0,0,0,0.12);
-            min-height: 100vh;
-        }
-
-        .top-bar {
-            background: var(--gov-purple);
-            color: #fff;
-            padding: 6px 15px;
-            font-size: 13px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            border-bottom: 3px solid var(--gov-green);
-        }
-        .top-bar-links a {
-            color: #fff;
-            margin-left: 12px;
-            padding: 2px 10px;
-            border-radius: 3px;
-            background: rgba(255,255,255,0.15);
-            font-weight: 500;
-        }
-        .top-bar-links a:hover { background: var(--gov-gold); }
-
-        .header-banner {
-            position: relative;
-            background: linear-gradient(135deg, #0f4c3a 0%, #006a4e 60%, #134e4a 100%);
-            color: #fff;
-            padding: 22px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            border-bottom: 1px solid #ccc;
-            overflow: hidden;
-        }
-        .header-banner::after {
-            content: "وَلَقَدْ يَسَّرْنَا الْقُرْآنَ لِلذِّكْرِ";
-            position: absolute;
-            right: 25px;
-            bottom: 8px;
-            font-size: 28px;
-            opacity: 0.14;
-            font-weight: bold;
-            pointer-events: none;
-        }
-        .brand-box {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            z-index: 2;
-        }
-        .brand-logo {
-            width: 76px;
-            height: 76px;
-            background: #fff;
-            border-radius: 50%;
-            padding: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-            flex-shrink: 0;
-            font-size: 32px;
-            color: var(--gov-dark-green);
-            font-weight: 700;
-        }
-        .brand-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
-        .brand-text h1 {
-            font-size: 23px;
-            font-weight: 700;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-            line-height: 1.25;
-        }
-        .brand-text p {
-            font-size: 14px;
-            color: #fde68a;
-            margin-top: 3px;
-        }
-        .header-badge {
-            z-index: 2;
-            background: rgba(0,0,0,0.28);
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 8px 14px;
-            border-radius: 6px;
-            text-align: right;
-            font-size: 13px;
-        }
-
-        .main-nav {
-            background: #006a4e;
-            border-bottom: 3px solid #b9852a;
-        }
-        .nav-list {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .nav-list > li {
-            position: relative;
-            border-right: 1px solid rgba(255,255,255,0.15);
-        }
-        .nav-list > li > a {
-            display: block;
-            padding: 10px 15px;
-            color: #fff;
-            font-size: 14.5px;
-            font-weight: 600;
-        }
-        .nav-list > li:hover > a, .nav-list > li > a.active {
-            background: #0f4c3a;
-            color: #fde68a;
-        }
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #fff;
-            min-width: 220px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-            border-top: 3px solid var(--gov-purple);
-            z-index: 100;
-        }
-        .dropdown li { border-bottom: 1px solid #eee; }
-        .dropdown li a {
-            display: block;
-            padding: 8px 14px;
-            color: #333;
-            font-size: 14px;
-        }
-        .dropdown li a:hover {
-            background: #f0fdf4;
-            color: var(--gov-green);
-            padding-left: 18px;
-        }
-        .nav-list > li:hover .dropdown { display: block; }
-        .mobile-menu-btn {
-            display: none;
-            background: #0f4c3a;
-            color: #fff;
-            border: none;
-            width: 100%;
-            text-align: left;
-            padding: 10px 15px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .news-ticker {
-            display: flex;
-            align-items: center;
-            background: #fff8e6;
-            border-bottom: 1px solid #e2e8f0;
-            font-size: 14px;
-        }
-        .ticker-label {
-            background: var(--gov-red);
-            color: #fff;
-            padding: 7px 14px;
-            font-weight: 700;
-            white-space: nowrap;
-            font-size: 13.5px;
-        }
-        .ticker-content {
-            flex: 1;
-            overflow: hidden;
-            padding: 6px 12px;
-        }
-        .ticker-content marquee a {
-            margin-right: 35px;
-            color: #1e293b;
-            font-weight: 600;
-        }
-        .ticker-content marquee a:hover { color: var(--gov-red); text-decoration: underline; }
-
-        .admission-strip {
-            background: linear-gradient(90deg, #fef3c7, #fde68a);
-            border-bottom: 1px solid #f59e0b;
-            padding: 8px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            font-size: 14px;
-        }
-        .admission-strip strong { color: #92400e; }
-        .btn-apply-now {
-            background: #b91c1c;
-            color: #fff;
-            padding: 4px 14px;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 13px;
-        }
-
-        .portal-body {
-            display: grid;
-            grid-template-columns: 7fr 3fr;
-            gap: 18px;
-            padding: 18px;
-        }
-
-        .notice-board-box {
-            background: linear-gradient(to bottom, #ffffff 0%, #f3f4f6 100%);
-            border: 1px solid var(--border-color);
-            border-left: 5px solid var(--gov-green);
-            padding: 18px 20px;
-            position: relative;
-            margin-bottom: 18px;
-            display: flex;
-            gap: 18px;
-            align-items: flex-start;
-        }
-        .notice-globe {
-            width: 68px;
-            height: 68px;
-            background: #e6f4ea;
-            border: 2px solid var(--gov-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            flex-shrink: 0;
-        }
-        .notice-content { flex: 1; }
-        .notice-content h2 {
-            font-size: 20px;
-            color: var(--gov-dark-green);
-            margin-bottom: 10px;
-            border-bottom: 1px dashed #ccc;
-            padding-bottom: 5px;
-        }
-        .notice-list li {
-            padding: 5px 0;
-            border-bottom: 1px dotted #e5e7eb;
-            font-size: 14.5px;
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-        }
-        .notice-list li::before {
-            content: "▶";
-            color: var(--gov-green);
-            font-size: 11px;
-        }
-        .notice-list li a:hover {
-            color: var(--gov-green);
-            text-decoration: underline;
-        }
-        .notice-date {
-            font-size: 12px;
-            color: #666;
-            margin-left: auto;
-            white-space: nowrap;
-        }
-        .notice-all-btn {
-            display: inline-block;
-            margin-top: 10px;
-            background: #6b7280;
-            color: #fff;
-            padding: 4px 14px;
-            font-size: 13px;
-            border-radius: 3px;
-            float: right;
-        }
-        .notice-all-btn:hover { background: var(--gov-green); }
-
-        .dept-quick-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 18px;
-        }
-        .dept-card-btn {
-            padding: 12px;
-            border-radius: 6px;
-            color: #fff;
-            display: block;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .dept-card-btn h3 { font-size: 16px; font-weight: 700; }
-        .dept-card-btn p { font-size: 12px; opacity: 0.92; margin-top: 2px; }
-        .dept-1 { background: linear-gradient(135deg, #0f4c3a, #047857); }
-        .dept-2 { background: linear-gradient(135deg, #1e3a8a, #2563eb); }
-        .dept-3 { background: linear-gradient(135deg, #78350f, #b9852a); }
-
-        .service-boxes-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-        .service-box {
-            background: var(--box-bg);
-            border: 1px solid var(--border-color);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            padding: 14px;
-        }
-        .service-box h3 {
-            font-size: 16.5px;
-            color: var(--gov-dark-green);
-            border-bottom: 2px solid var(--gov-green);
-            padding-bottom: 6px;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-        .service-box-inner {
-            display: flex;
-            gap: 14px;
-            align-items: center;
-        }
-        .service-icon {
-            width: 72px;
-            height: 72px;
-            background: #fff;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            flex-shrink: 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-        }
-        .service-links li {
-            font-size: 13.8px;
-            padding: 3px 0;
-        }
-        .service-links li::before {
-            content: "▸ ";
-            color: var(--gov-green);
-            font-weight: bold;
-        }
-        .service-links li a:hover {
-            color: var(--gov-purple);
-            text-decoration: underline;
-        }
-
-        .section-panel {
-            border: 1px solid var(--border-color);
-            background: #fff;
-            margin-bottom: 18px;
-        }
-        .section-header {
-            background: var(--gov-green);
-            color: #fff;
-            padding: 8px 15px;
-            font-size: 16px;
-            font-weight: 700;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .section-body { padding: 15px; }
-
-        .sidebar-card {
-            border: 1px solid var(--border-color);
-            background: #fff;
-            margin-bottom: 16px;
-        }
-        .sidebar-title {
-            background: var(--gov-green);
-            color: #fff;
-            padding: 7px 12px;
-            font-size: 15px;
-            font-weight: 700;
-            border-left: 4px solid var(--gov-gold);
-        }
-        .person-box {
-            padding: 12px;
-            text-align: center;
-        }
-        .person-avatar {
-            width: 110px;
-            height: 125px;
-            margin: 0 auto 8px;
-            border: 2px solid var(--gov-green);
-            background: #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 42px;
-            color: var(--gov-dark-green);
-            overflow: hidden;
-        }
-        .person-avatar img { width: 100%; height: 100%; object-fit: cover; }
-        .person-name { font-weight: 700; font-size: 15px; color: #111; }
-        .person-role { font-size: 13px; color: #555; margin-bottom: 6px; }
-        .person-link {
-            display: inline-block;
-            background: #f3f4f6;
-            border: 1px solid #d1d5db;
-            padding: 3px 10px;
-            font-size: 12.5px;
-            border-radius: 3px;
-            font-weight: 600;
-        }
-        .person-link:hover { background: var(--gov-green); color: #fff; }
-
-        .eservice-list { padding: 10px; display: flex; flex-direction: column; gap: 8px; }
-        .eservice-btn {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 9px 12px;
-            background: linear-gradient(to right, #f8fafc, #f1f5f9);
-            border: 1px solid #cbd5e1;
-            border-left: 4px solid var(--gov-green);
-            font-weight: 600;
-            font-size: 14px;
-            border-radius: 3px;
-        }
-        .eservice-btn:hover {
-            background: #ecfdf5;
-            border-left-color: var(--gov-purple);
-            transform: translateX(2px);
-        }
-
-        .sidebar-links { padding: 10px 12px; }
-        .sidebar-links li {
-            padding: 6px 0;
-            border-bottom: 1px dotted #e2e8f0;
-            font-size: 13.5px;
-        }
-        .sidebar-links li::before { content: "✔ "; color: var(--gov-green); }
-        .sidebar-links li a:hover { color: var(--gov-purple); text-decoration: underline; }
-
-        .portal-footer {
-            background: #1f2937;
-            color: #d1d5db;
-            border-top: 5px solid var(--gov-green);
-            padding: 25px 20px 15px;
-            font-size: 13.5px;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 15px;
-        }
-        .footer-grid h4 { color: #fff; margin-bottom: 8px; font-size: 15px; border-bottom: 1px solid #374151; padding-bottom: 4px; }
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 12px;
-            text-align: center;
-            font-size: 12.5px;
-            color: #9ca3af;
-        }
-
-        @media (max-width: 860px) {
-            .portal-body { grid-template-columns: 1fr; }
-            .service-boxes-grid { grid-template-columns: 1fr; }
-            .dept-quick-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .mobile-menu-btn { display: block; }
-            .nav-list { display: none; flex-direction: column; }
-            .nav-list.show { display: flex; }
-            .dropdown { position: static; box-shadow: none; width: 100%; }
-            .header-badge { display: none; }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি — হিফজ মাদরাসা, খাগড়াছড়ি</title>
+<meta name="description" content="খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি — জেনারেল হিফজ, একাডেমিক হিফজ ও কিতাব বিভাগ। ২০২৭ শিক্ষাবর্ষে অনলাইনে ভর্তি আবেদন চলছে।">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="বায়তুশ শরফ হিফজ একাডেমি">
+<meta property="og:locale" content="bn_BD">
+<meta property="og:title" content="খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি — হিফজ মাদরাসা, খাগড়াছড়ি">
+<meta property="og:description" content="খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি — জেনারেল হিফজ, একাডেমিক হিফজ ও কিতাব বিভাগ। ২০২৭ শিক্ষাবর্ষে অনলাইনে ভর্তি আবেদন চলছে।">
+<meta property="og:url" content="https://hifj-academy.github.io/">
+<meta property="og:image" content="https://hifj-academy.github.io/assets/img/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0f4c3a">
+<link rel="canonical" href="https://hifj-academy.github.io/">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/logo-192.png">
+<link rel="apple-touch-icon" href="assets/img/logo-192.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiro+Bangla&family=Hind+Siliguri:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/css/main.css?v=4.1.0">
+<link rel="stylesheet" href="assets/css/site.css?v=4.1.0">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"School","name":"খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি","alternateName":"Khagrachari Baitush Sharaf Jabbaria International Hifz Academy","url":"https://hifj-academy.github.io/","logo":"https://hifj-academy.github.io/assets/img/logo-512.png","image":"https://hifj-academy.github.io/assets/img/og-cover.jpg","email":"bsjiha@gmail.com","foundingDate":"1995","slogan":"ঈমান এলম আমল","telephone":"+8801820717177","sameAs":["https://www.facebook.com/profile.php?id=61592286354148"],"address":{"@type":"PostalAddress","streetAddress":"খাগড়াছড়ি বায়তুশ শরফ কমপ্লেক্স, বায়তুশ শরফ সড়ক, আরামবাগ","addressLocality":"খাগড়াছড়ি সদর","addressRegion":"খাগড়াছড়ি","addressCountry":"BD"}}
+</script>
 </head>
 <body>
-
-<div class="portal-wrapper">
-
-    <!-- ১. TOP BAR -->
-    <div class="top-bar">
-        <div>
-            <span>খাগড়াছড়ি বায়তুশ শরফ কমপ্লেক্স • আরামবাগ, সদর, খাগড়াছড়ি</span>
-        </div>
-        <div class="top-bar-links">
-            <span>☎ ০১৮২০৭১৭১৭৭</span>
-            <a href="notices.html">📢 নোটিশ</a>
-            <a href="student.html">👨‍👩‍👦 অভিভাবক লগইন</a>
-            <a href="admission.html" style="background:#b9852a;">📝 অনলাইন ভর্তি</a>
-        </div>
-    </div>
-
-    <!-- ২. HEADER BANNER -->
-    <header class="header-banner">
-        <div class="brand-box">
-            <div class="brand-logo">
-                <img src="assets/img/logo-192.png" alt="লোগো" onerror="this.style.display='none';this.parentElement.innerText='ব';">
-            </div>
-            <div class="brand-text">
-                <h1 id="inst-name">খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি</h1>
-                <p>হিফজুল কুরআন, কওমি-আলিয়া সমন্বিত শিক্ষা এবং আরবি-ইংরেজি, বিজ্ঞান ও রোবোটিক্সের অনন্য সমন্বয়</p>
-            </div>
-        </div>
-        <div class="header-badge">
-            <div style="color:#fde68a;font-weight:700;">শিক্ষাবর্ষ ২০২৭</div>
-            <div>নূরানী • হিফজ • কিতাব বিভাগ</div>
-            <div style="font-size:12px;opacity:0.85;">ইমেইল: bsjiha@gmail.com</div>
-        </div>
-    </header>
-
-    <!-- ৩. NAVIGATION MENU -->
-    <nav class="main-nav">
-        <button class="mobile-menu-btn" onclick="document.getElementById('nav-list').classList.toggle('show')">☰ মেনু নির্বাচন করুন</button>
-        <ul class="nav-list" id="nav-list">
-            <li><a href="index.html" class="active">🏠 প্রথম পাতা</a></li>
-            <li>
-                <a href="about.html">পরিচিতি ▾</a>
-                <ul class="dropdown">
-                    <li><a href="about.html">আমাদের সম্পর্কে ও লক্ষ্য</a></li>
-                    <li><a href="about.html#message">কর্তৃপক্ষের বাণী</a></li>
-                    <li><a href="about.html#features">যা আমাদের অনন্য করেছে</a></li>
-                    <li><a href="about.html#routine">দৈনিক রুটিন ও আবাসিক হাউজ</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">একাডেমিক বিভাগ ▾</a>
-                <ul class="dropdown">
-                    <li><a href="general-hifz.html">জেনারেল হিফজ বিভাগ</a></li>
-                    <li><a href="academic-hifz.html">একাডেমিক হিফজ বিভাগ</a></li>
-                    <li><a href="kitab.html">কিতাব বিভাগ (দাওরায়ে হাদিস পর্যন্ত)</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="admission.html">ভর্তি তথ্য ▾</a>
-                <ul class="dropdown">
-                    <li><a href="admission.html">অনলাইন ভর্তি ফরম</a></li>
-                    <li><a href="admission.html#eligibility">ভর্তির যোগ্যতা ও বয়স</a></li>
-                    <li><a href="admission.html#fees">ফি ও বেতন কাঠামো</a></li>
-                    <li><a href="admission.html#faq">ভর্তি সংক্রান্ত প্রশ্নোত্তর</a></li>
-                </ul>
-            </li>
-            <li><a href="notices.html">নোটিশ বোর্ড</a></li>
-            <li><a href="books.html">প্রকাশনা ও বই (৩২টি)</a></li>
-            <li><a href="student.html">অভিভাবক পোর্টাল</a></li>
-            <li><a href="career.html">নিয়োগ বিজ্ঞপ্তি</a></li>
-            <li><a href="contact.html">যোগাযোগ</a></li>
-        </ul>
-    </nav>
-
-    <!-- ৪. NEWS TICKER -->
-    <div class="news-ticker">
-        <div class="ticker-label">সর্বশেষ নোটিশ :</div>
-        <div class="ticker-content">
-            <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" id="notice-ticker">
-                <a href="admission.html">★ ২০২৭ শিক্ষাবর্ষে নূরানী, জেনারেল হিফজ, একাডেমিক হিফজ ও কিতাব বিভাগে ভর্তি চলছে!</a>
-                <a href="notices.html">★ ভর্তি পরীক্ষা: ডিসেম্বর ২০২৬ • আবেদনের শেষ তারিখ: ৩০ নভেম্বর ২০২৬</a>
-                <a href="books.html">★ হিফজ শিক্ষার্থীদের উপযোগী একাডেমির নিজস্ব ৩২টি পাঠ্যবই প্রকাশিত হয়েছে</a>
-            </marquee>
-        </div>
-    </div>
-
-    <!-- ৫. ADMISSION RIBBON -->
-    <div class="admission-strip" id="admission-banner">
-        <div>
-            🔔 <strong id="admission-msg-text">২০২৭ শিক্ষাবর্ষে ভর্তি চলছে • ভর্তি পরীক্ষা ডিসেম্বর ২০২৬</strong>
-            <span id="admission-deadline-text" style="margin-left:10px;color:#4b5563;">(আবেদনের শেষ তারিখ: ৩০ নভেম্বর ২০২৬)</span>
-        </div>
-        <a href="#online-admission-box" class="btn-apply-now">অনলাইনে আবেদন করুন →</a>
-    </div>
-
-    <!-- ৬. MAIN PORTAL BODY -->
-    <div class="portal-body">
-        <main>
-            <!-- Official Notice Board -->
-            <div class="notice-board-box">
-                <div class="notice-globe">🕌</div>
-                <div class="notice-content">
-                    <h2>নোটিশ বোর্ড</h2>
-                    <ul class="notice-list" id="portal-notice-list">
-                        <li>
-                            <a href="notices.html">জেনারেল হিফজ বিভাগে হিফজ সম্পন্ন ও সবিনা উপলক্ষে অভিভাবক সম্মেলন</a>
-                            <span class="notice-date">০৭ সেপ্টেম্বর ২০২৬</span>
-                        </li>
-                        <li>
-                            <a href="admission.html">২০২৭ শিক্ষাবর্ষে নূরানী, জেনারেল হিফজ, একাডেমিক হিফজ ও কিতাব বিভাগে ভর্তি বিজ্ঞপ্তি</a>
-                            <span class="notice-date">২০ অক্টোবর ২০২৬</span>
-                        </li>
-                        <li>
-                            <a href="admission.html">শিক্ষার্থী ভর্তি পরীক্ষা — ডিসেম্বর ২০২৬ (তারিখ ও সময় ফোনে জানানো হবে)</a>
-                            <span class="notice-date">২১ অক্টোবর ২০২৬</span>
-                        </li>
-                        <li>
-                            <a href="notices.html">ভবন উদ্বোধন ও সেমিস্টার-১ ক্লাস শুরু — জানুয়ারি ২০২৭</a>
-                            <span class="notice-date">২২ অক্টোবর ২০২৬</span>
-                        </li>
-                    </ul>
-                    <a href="notices.html" class="notice-all-btn">সকল নোটিশ →</a>
-                </div>
-            </div>
-
-            <!-- 3 Main Departments Quick Bar -->
-            <div class="dept-quick-grid">
-                <a href="general-hifz.html" class="dept-card-btn dept-1">
-                    <h3>📖 জেনারেল হিফজ বিভাগ</h3>
-                    <p>দ্রুততম সময়ে হিফজুল কুরআন ও ৬ষ্ঠ শ্রেণি সমমান ভিত্তি</p>
-                </a>
-                <a href="academic-hifz.html" class="dept-card-btn dept-2">
-                    <h3>🎓 একাডেমিক হিফজ বিভাগ</h3>
-                    <p>হিফজুল কুরআন + পূর্ণাঙ্গ জাতীয় কারিকুলাম ও রোবোটিক্স</p>
-                </a>
-                <a href="kitab.html" class="dept-card-btn dept-3">
-                    <h3>📚 কিতাব বিভাগ</h3>
-                    <p>মাদানি নেসাব ও দাখিল-আলিম সমন্বিত দাওরায়ে হাদিস</p>
-                </a>
-            </div>
-
-            <!-- 6 Service Boxes -->
-            <div class="service-boxes-grid">
-                <div class="service-box">
-                    <h3>ভর্তি ও আবেদন সেবা</h3>
-                    <div class="service-box-inner">
-                        <div class="service-icon">📝</div>
-                        <ul class="service-links">
-                            <li><a href="#online-admission-box">অনলাইনে ভর্তির আবেদন ফরম</a></li>
-                            <li><a href="admission.html#eligibility">ভর্তির যোগ্যতা, বয়স ও শর্তাবলি</a></li>
-                            <li><a href="admission.html#fees">আবাসিক ও অনাবাসিক ফি কাঠামো</a></li>
-                            <li><a href="admission.html#calendar">ভর্তি পরীক্ষা ও একাডেমিক ক্যালেন্ডার</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-box">
-                    <h3>শিক্ষা বিভাগ ও পাঠ্যক্রম</h3>
-                    <div class="service-box-inner">
-                        <div class="service-icon">📖</div>
-                        <ul class="service-links">
-                            <li><a href="general-hifz.html">জেনারেল হিফজ বিভাগ (১ম–৬ষ্ঠ বর্ষ)</a></li>
-                            <li><a href="academic-hifz.html">একাডেমিক হিফজ বিভাগ (সমন্বিত)</a></li>
-                            <li><a href="kitab.html">কিতাব বিভাগ (১ম বর্ষ – দাওরায়ে হাদিস)</a></li>
-                            <li><a href="about.html#method">বৈজ্ঞানিক রাবত হিফজ ও পাঠদান পদ্ধতি</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-box">
-                    <h3>অভিভাবক ও শিক্ষার্থী পোর্টাল</h3>
-                    <div class="service-box-inner">
-                        <div class="service-icon">👨‍👩‍👦</div>
-                        <ul class="service-links">
-                            <li><a href="student.html">শিক্ষার্থীর দৈনিক হাজিরা ও সবক রিপোর্ট</a></li>
-                            <li><a href="student.html">মাসিক বেতন, বকেয়া ও ডিজিটাল রসিদ</a></li>
-                            <li><a href="student.html">সেমিস্টার ও বার্ষিক পরীক্ষার ফলাফল</a></li>
-                            <li><a href="contact.html">ছুটির আবেদন, অভিযোগ ও পরামর্শ ফরম</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-box">
-                    <h3>প্রকাশনা ও পাঠ্যবই (৩২টি বই)</h3>
-                    <div class="service-box-inner">
-                        <div class="service-icon">📚</div>
-                        <ul class="service-links">
-                            <li><a href="books.html">আমার প্রথম পাঠ থেকে ষষ্ঠ পাঠ সিরিজ</a></li>
-                            <li><a href="books.html">আরবি ভাষা ও Spoken English সিরিজ</a></li>
-                            <li><a href="books.html">লিটল ইঞ্জিনিয়ার (রোবোটিক্স ও STEM)</a></li>
-                            <li><a href="books.html">হোয়াটসঅ্যাপে অনলাইন বই অর্ডার</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-box">
-                    <h3>ক্যাম্পাস জীবন ও আবাসিক সুবিধা</h3>
-                    <div class="service-box-inner">
-                        <div class="service-icon">🏫</div>
-                        <ul class="service-links">
-                            <li><a href="about.html#routine">ভোর থেকে রাত পর্যন্ত আদর্শ দৈনিক রুটিন</a></li>
-                            <li><a href="about.html#campus">স্মার্ট ক্লাসরুম ও রোবোটিক্স ল্যাব</a></li>
-                            <li><a href="about.html#campus">শারীরিক শাস্তিমুক্ত আনন্দময় পরিবেশ</a></li>
-                            <li><a href="about.html#campus">স্বাস্থ্যসম্মত খাবার ও আবাসিক নিরাপত্তা</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-box">
-                    <h3>পরিচিতি, নিয়োগ ও যোগাযোগ</h3>
-                    <div class="service-box-inner">
-                        <div class="service-icon">🏛️</div>
-                        <ul class="service-links">
-                            <li><a href="about.html">প্রতিষ্ঠানের ভিশন, মিশন ও কৌশলগত পরিকল্পনা</a></li>
-                            <li><a href="about.html#message">কর্তৃপক্ষের বাণী ও পরিচালনা পর্ষদ</a></li>
-                            <li><a href="career.html">শিক্ষক ও কর্মকর্তা নিয়োগ বিজ্ঞপ্তি</a></li>
-                            <li><a href="contact.html">ঠিকানা, ম্যাপ ও হেল্পলাইন নম্বর</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Embedded Online Admission Form Box -->
-            <div class="section-panel" id="online-admission-box">
-                <div class="section-header">
-                    <span>📋 অনলাইন ভর্তি আবেদন ফরম (২০২৭ শিক্ষাবর্ষ)</span>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd-YIdvkSh7SS4v5ihdFM1Qj5L780nKCkPdYTg5j5TSuBC5ug/viewform" target="_blank" style="background:#b9852a;padding:3px 10px;border-radius:3px;font-size:12px;">নতুন ট্যাবে ফরম খুলুন ↗</a>
-                </div>
-                <div class="section-body">
-                    <p style="font-size:13.5px;color:#4b5563;margin-bottom:10px;">
-                        নিচের ফরমটি পূরণ করে <strong>Submit</strong> চাপলে আবেদনটি সরাসরি মাদরাসার ডেটাবেসে জমা হবে। যাচাই শেষে অভিভাবকের মোবাইলে শিক্ষার্থী আইডি ও পিন পাঠানো হবে।
-                    </p>
-                    <iframe id="admission-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSd-YIdvkSh7SS4v5ihdFM1Qj5L780nKCkPdYTg5j5TSuBC5ug/viewform?embedded=true" width="100%" height="520" frameborder="0" marginheight="0" marginwidth="0">লোড হচ্ছে…</iframe>
-                </div>
-            </div>
-        </main>
-
-        <!-- ================= RIGHT SIDEBAR ================= -->
-        <aside>
-            <div class="sidebar-card">
-                <div class="sidebar-title">কর্তৃপক্ষের বাণী</div>
-                <div class="person-box">
-                    <div class="person-avatar">
-                        <img src="assets/img/principal.jpg" alt="প্রধান" onerror="this.style.display='none';this.parentElement.innerText='🕌';">
-                    </div>
-                    <div class="person-name">প্রধান পরিচালক / মুহতামিম</div>
-                    <div class="person-role">খাগড়াছড়ি বায়তুশ শরফ হিফজ একাডেমি</div>
-                    <p style="font-size:12.5px;color:#444;margin-bottom:8px;text-align:justify;">
-                        “আমাদের লক্ষ্য প্রতিটি শিক্ষার্থীকে বিশুদ্ধ কুরআনের হাফেজ, মুহাক্কিক আলেম ও আধুনিক জ্ঞান-বিজ্ঞানে দক্ষ করে গড়ে তোলা।”
-                    </p>
-                    <a href="about.html#message" class="person-link">বিস্তারিত বাণী পড়ুন →</a>
-                </div>
-            </div>
-
-            <div class="sidebar-card">
-                <div class="sidebar-title">অনলাইন ই-সেবাসমূহ</div>
-                <div class="eservice-list">
-                    <a href="student.html" class="eservice-btn">🔐 অভিভাবক লগইন পোর্টাল</a>
-                    <a href="admission.html" class="eservice-btn">📝 অনলাইন ভর্তি আবেদন</a>
-                    <a href="books.html" class="eservice-btn">🛒 অনলাইন বই অর্ডার (৩২টি বই)</a>
-                    <a href="notices.html" class="eservice-btn">📢 সকল নোটিশ ও বিজ্ঞপ্তি</a>
-                    <a href="https://wa.me/8801511934745" target="_blank" id="wa-sidebar-btn" class="eservice-btn" style="border-left-color:#16a34a;background:#f0fdf4;">💬 হোয়াটসঅ্যাপ হেল্পলাইন</a>
-                </div>
-            </div>
-
-            <div class="sidebar-card">
-                <div class="sidebar-title">জরুরি যোগাযোগ ও হেল্পলাইন</div>
-                <div style="padding:12px;font-size:13.5px;line-height:1.7;">
-                    <p>📞 <strong>অফিস:</strong> <a href="tel:+8801820717177" style="color:#006a4e;font-weight:700;">০১৮২০-৭১৭১৭৭</a></p>
-                    <p>📞 <strong>ভর্তি তথ্য:</strong> <a href="tel:+8801867934744" style="color:#006a4e;font-weight:700;">০১৮৬৭-৯৩৪৭৪৪</a></p>
-                    <p>📞 <strong>বিকল্প:</strong> <a href="tel:+8801877418431" style="color:#006a4e;font-weight:700;">০১৮৭৭-৪১৮৪৩১</a></p>
-                    <p>✉️ <strong>ইমেইল:</strong> bsjiha@gmail.com</p>
-                    <hr style="margin:8px 0;border:none;border-top:1px dashed #ccc;">
-                    <p style="font-size:12.5px;color:#555;">🕘 <strong>অফিস সময়:</strong> শনি–বৃহস্পতিবার (সকাল ৮:০০ – বিকেল ৫:০০) • শুক্রবার বন্ধ</p>
-                </div>
-            </div>
-
-            <div class="sidebar-card">
-                <div class="sidebar-title">গুরুত্বপূর্ণ লিংকসমূহ</div>
-                <ul class="sidebar-links">
-                    <li><a href="general-hifz.html">জেনারেল হিফজ বিভাগের পাঠ্যক্রম</a></li>
-                    <li><a href="academic-hifz.html">একাডেমিক হিফজ বিভাগের সিলেবাস</a></li>
-                    <li><a href="kitab.html">কিতাব বিভাগের ৭ বছরের রূপরেখা</a></li>
-                    <li><a href="about.html#plan">কৌশলগত পরিকল্পনা ২০২৭–২০৪৫</a></li>
-                    <li><a href="https://www.facebook.com/profile.php?id=61592286354148" target="_blank">অফিসিয়াল ফেসবুক পেজ</a></li>
-                </ul>
-            </div>
-        </aside>
-    </div>
-
-    <!-- ৭. FOOTER -->
-    <footer class="portal-footer">
-        <div class="footer-grid">
-            <div>
-                <h4>খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি</h4>
-                <p>খাগড়াছড়ি বায়তুশ শরফ কমপ্লেক্স, বায়তুশ শরফ সড়ক, আরামবাগ, সদর, খাগড়াছড়ি।</p>
-                <p style="margin-top:6px;">ফোন: ০১৮২০৭১৭১৭৭, ০১৮৬৭৯৩৪৭৪৪ • ইমেইল: bsjiha@gmail.com</p>
-            </div>
-            <div>
-                <h4>দ্রুত নেভিগেশন</h4>
-                <p><a href="about.html">▸ আমাদের পরিচিতি ও বৈশিষ্ট্য</a></p>
-                <p><a href="admission.html">▸ ভর্তি তথ্য ও ফি কাঠামো</a></p>
-                <p><a href="notices.html">▸ নোটিশ বোর্ড</a></p>
-                <p><a href="books.html">▸ প্রকাশনা ও পাঠ্যবই</a></p>
-            </div>
-            <div>
-                <h4>পোর্টাল ও সেবা</h4>
-                <p><a href="student.html">▸ অভিভাবক লগইন পোর্টাল</a></p>
-                <p><a href="career.html">▸ শিক্ষক ও স্টাফ নিয়োগ</a></p>
-                <p><a href="contact.html">▸ যোগাযোগ ও অবস্থান</a></p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            © ২০২৬ খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি • সর্বস্বত্ব সংরক্ষিত।
-        </div>
-    </footer>
+<a class="skip" href="#content">মূল বিষয়ে যান</a>
+<noscript><div class="nojs">নোটিশ, ভর্তি ফরম ও বইয়ের তালিকা দেখতে ব্রাউজারে JavaScript চালু করুন।</div></noscript>
+<div class="page">
+<div class="pstrip"><div class="in"><span id="today">&nbsp;</span><span class="r"><a href="tel:+8801820717177">☎ ০১৮২০৭১৭১৭৭</a><a class="em" href="mailto:bsjiha@gmail.com">✉ bsjiha@gmail.com</a><a href="https://www.facebook.com/profile.php?id=61592286354148" target="_blank" rel="noopener">ⓕ ফেসবুক</a><a href="student.html">অভিভাবক লগইন</a></span></div></div>
+<header class="pbanner"><div class="in">
+  <a href="index.html" aria-label="প্রথম পাতা"><img class="logo" src="assets/img/logo-192.png" alt="খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমির লোগো" width="104" height="104"></a>
+  <div class="names">
+    <p class="motto"><span class="m1">ঈমান</span> • <span class="m2">এলম</span> • <span class="m3">আমল</span></p>
+    <h1>খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি</h1>
+    <p class="en">Khagrachari Baitush Sharaf Jabbaria International Hifz Academy</p>
+  </div>
+  <div class="cta"><a class="btn gold" href="admission.html#apply">অনলাইনে ভর্তি আবেদন</a><small>বায়তুশ শরফ কমপ্লেক্স, আরামবাগ, খাগড়াছড়ি</small></div>
+</div></header>
+<nav class="pnav" aria-label="প্রধান মেনু"><div class="in">
+  <button class="tog" id="navTog" type="button" aria-expanded="false" aria-controls="mwrap">☰ মেনু</button>
+  <div class="mwrap" id="mwrap"><ul><li><a href="index.html" class="on" aria-current="page">হোম</a></li><li class="dd"><button type="button" aria-expanded="false">প্রতিষ্ঠান পরিচিতি</button><div class="sub"><a href="about.html">আমাদের সম্পর্কে</a><a href="about.html#message">মুহতামিম সাহেবের বাণী</a><a href="about.html#unique">আমাদের বৈশিষ্ট্য</a><a href="about.html#method">হিফজ পদ্ধতি ও মূল্যায়ন</a><a href="about.html#campus">ক্যাম্পাস ও আবাসন</a><a href="about.html#strategy">কৌশলগত পরিকল্পনা</a></div></li><li class="dd"><button type="button" aria-expanded="false">বিভাগসমূহ</button><div class="sub"><a href="general-hifz.html">জেনারেল হিফজ বিভাগ</a><a href="academic-hifz.html">একাডেমিক হিফজ বিভাগ</a><a href="kitab.html">কিতাব বিভাগ</a></div></li><li class="dd"><button type="button" aria-expanded="false">ভর্তি</button><div class="sub"><a href="admission.html#apply">অনলাইনে আবেদন</a><a href="admission.html#admission">ভর্তি প্রক্রিয়া</a><a href="admission.html#entry">যোগ্যতা ও বয়স</a><a href="admission.html#fees">ফি ও বেতন</a><a href="admission.html#faq">প্রশ্নোত্তর</a></div></li><li><a href="notices.html">নোটিশ</a></li><li><a href="books.html">প্রকাশনা</a></li><li><a href="career.html">নিয়োগ</a></li><li><a href="contact.html">যোগাযোগ</a></li></ul><ul class="login"><li><a href="student.html">অভিভাবক লগইন</a></li></ul></div>
+</div></nav>
+<div class="ticker" role="region" aria-label="সর্বশেষ নোটিশ"><b>সর্বশেষ</b><div class="tw"><div class="track" id="tickerTrack"><a href="notices.html">নোটিশ বোর্ড</a></div></div></div>
+<main class="pmain" id="content">
+<div class="depts3" aria-label="শিক্ষা বিভাগসমূহ">
+  <a class="dtile t1" href="general-hifz.html"><span class="ic" aria-hidden="true">ح</span><b>জেনারেল হিফজ বিভাগ</b><span>৬ বছর • ১ম–৬ষ্ঠ শ্রেণি • নাজেরা থেকে পূর্ণ হিফজ ও দাওর</span><em>বিস্তারিত →</em></a>
+  <a class="dtile t2" href="academic-hifz.html"><span class="ic" aria-hidden="true">ع</span><b>একাডেমিক হিফজ বিভাগ</b><span>৬ বছর • হিফজের সাথে জাতীয় কারিকুলাম (বাংলা, ইংরেজি, গণিত, বিজ্ঞান)</span><em>বিস্তারিত →</em></a>
+  <a class="dtile t3" href="kitab.html"><span class="ic" aria-hidden="true">ك</span><b>কিতাব বিভাগ</b><span>৭ বছর • ১ম বর্ষ থেকে দাওরায়ে হাদিস • কওমি-আলিয়া সমন্বিত</span><em>বিস্তারিত →</em></a>
 </div>
-
-<!-- ================= LIVE GOOGLE SHEET SYNC SCRIPT ================= -->
-<script>
-(async function loadPortalLiveData() {
-    const apiUrl = window.BJHA_API;
-    if (!apiUrl) return;
-    try {
-        const res = await fetch(apiUrl + "?action=public");
-        const data = await res.json
+<section class="box adm" id="apply" aria-labelledby="applyH">
+  <div class="bh"><h2 id="applyH">ভর্তি আবেদন — ২০২৭ শিক্ষাবর্ষ</h2><span id="admDeadline" style="font-size:.9rem;color:var(--gold-l)"></span></div>
+  <div class="bb">
+    <div class="adm-info">
+      <p class="adm-msg" id="admMsg">ভর্তি চলছে: ২০২৭ শিক্ষাবর্ষ</p>
+      <ol class="steps">
+        <li><div><b>অনলাইন ফরম পূরণ</b>ভর্তি ফরমে শিক্ষার্থী ও অভিভাবকের তথ্য দিয়ে “জমা দিন” চাপুন।</div></li>
+        <li><div><b>অফিসের যোগাযোগ</b>অফিস আবেদন যাচাই করে ফোন বা হোয়াটসঅ্যাপে জানাবে।</div></li>
+        <li><div><b>ভর্তি মূল্যায়ন</b>বয়স ও স্তর অনুযায়ী তিলাওয়াত, মৌখিক বা লিখিত পরীক্ষা।</div></li>
+        <li><div><b>ভর্তি নিশ্চিত</b>কাগজপত্র জমা ও ফি পরিশোধের পর শিক্ষার্থী আইডি ও অভিভাবক লগইনের পিন।</div></li>
+      </ol>
+      <div class="quick"><a href="admission.html#entry">যোগ্যতা ও বয়স</a><a href="admission.html#fees">ফি ও বেতন</a><a href="admission.html#calendar">ক্যালেন্ডার</a><a href="admission.html#faq">প্রশ্নোত্তর</a></div>
+      <p class="small muted" style="margin:0">সাহায্য দরকার? ফোন করুন <a href="tel:+8801820717177">০১৮২০৭১৭১৭৭</a> (শুক্রবার বন্ধ)</p>
+    </div>
+    <div class="adm-form" id="admForm">
+      <div class="fh"><span>অনলাইন ভর্তি ফরম</span><a id="admNewTab" href="#" target="_blank" rel="noopener" hidden>নতুন ট্যাবে খুলুন ↗</a></div>
+      <iframe id="admFrame" title="ভর্তির আবেদন ফরম" loading="lazy" hidden></iframe>
+      <div class="off" id="admOff"><p>ফরম লোড হচ্ছে…</p><a class="btn brand" href="tel:+8801820717177">অফিসে ফোন করুন</a></div>
+    </div>
+  </div>
+</section>
+<div class="cols">
+  <div>
+    <div class="box"><div class="bh"><h2>নোটিশ বোর্ড</h2><a href="notices.html">সকল নোটিশ →</a></div><div class="bb"><ul class="nb" id="noticeHome"></ul></div></div>
+    <div class="box campus"><div class="bh"><h2>আমাদের ক্যাম্পাস</h2><a href="about.html#campus">বিস্তারিত →</a></div>
+      <figure><img src="assets/img/campus-800.jpg" srcset="assets/img/campus-800.jpg 800w, assets/img/campus.jpg 1347w" sizes="(max-width:960px) 100vw, 860px" alt="বায়তুশ শরফ হিফজ একাডেমির বহুতল একাডেমিক ভবন" width="800" height="450" loading="lazy">
+      <figcaption>বায়তুশ শরফ কমপ্লেক্স, আরামবাগ, খাগড়াছড়ি — নিরাপদ, খোলামেলা ও আলো-বাতাসপূর্ণ শিক্ষা পরিবেশ।</figcaption></figure></div>
+    <div class="svc"><div class="box"><div class="bh"><span class="i" aria-hidden="true">🏛</span><h3>প্রতিষ্ঠান পরিচিতি</h3></div><div class="bb"><ul><li><a href="about.html">আমাদের সম্পর্কে</a></li><li><a href="about.html#message">মুহতামিম সাহেবের বাণী</a></li><li><a href="about.html#unique">আমাদের বৈশিষ্ট্য</a></li><li><a href="about.html#strategy">কৌশলগত পরিকল্পনা ২০২৬–২০৪৫</a></li></ul></div></div><div class="box"><div class="bh"><span class="i" aria-hidden="true">📖</span><h3>শিক্ষা কার্যক্রম</h3></div><div class="bb"><ul><li><a href="general-hifz.html">জেনারেল হিফজ বিভাগ</a></li><li><a href="academic-hifz.html">একাডেমিক হিফজ বিভাগ</a></li><li><a href="kitab.html">কিতাব বিভাগ</a></li><li><a href="about.html#method">হিফজ পদ্ধতি ও মূল্যায়ন</a></li></ul></div></div><div class="box"><div class="bh"><span class="i" aria-hidden="true">📝</span><h3>ভর্তি তথ্য</h3></div><div class="bb"><ul><li><a href="admission.html#apply">অনলাইনে আবেদন</a></li><li><a href="admission.html#entry">ভর্তির যোগ্যতা ও বয়স</a></li><li><a href="admission.html#fees">ফি ও বেতন</a></li><li><a href="admission.html#calendar">ভর্তি ও একাডেমিক ক্যালেন্ডার</a></li><li><a href="admission.html#faq">সাধারণ প্রশ্নোত্তর</a></li></ul></div></div><div class="box"><div class="bh"><span class="i" aria-hidden="true">👪</span><h3>অভিভাবক সেবা</h3></div><div class="bb"><ul><li><a href="student.html">অভিভাবক লগইন</a></li><li><a href="contact.html">অভিযোগ ও অনুরোধ</a></li><li><a href="about.html#promise">অভিভাবকের প্রতি অঙ্গীকার</a></li><li><a href="notices.html">নোটিশ বোর্ড</a></li></ul></div></div><div class="box"><div class="bh"><span class="i" aria-hidden="true">🏠</span><h3>ক্যাম্পাস জীবন</h3></div><div class="bb"><ul><li><a href="about.html#campus">আবাসিক হাউজ ও সুযোগ-সুবিধা</a></li><li><a href="about.html#routine">হিফজ বিভাগের দৈনিক রুটিন</a></li><li><a href="about.html#unique">স্মার্ট ক্লাসরুম ও রোবোটিক্স</a></li></ul></div></div><div class="box"><div class="bh"><span class="i" aria-hidden="true">📚</span><h3>প্রকাশনা</h3></div><div class="bb"><ul><li><a href="books.html">আমাদের নিজস্ব পাঠ্যবই</a></li><li><a href="books.html#catalog">সম্পূর্ণ বইয়ের তালিকা</a></li><li><a href="books.html">বই অর্ডার করুন</a></li></ul></div></div><div class="box"><div class="bh"><span class="i" aria-hidden="true">💼</span><h3>নিয়োগ ও ক্যারিয়ার</h3></div><div class="bb"><ul><li><a href="career.html">শিক্ষক নিয়োগ</a></li><li><a href="career.html">সুযোগ-সুবিধা ও প্রক্রিয়া</a></li></ul></div></div><div class="box"><div class="bh"><span class="i" aria-hidden="true">📍</span><h3>যোগাযোগ</h3></div><div class="bb"><ul><li><a href="contact.html">ঠিকানা ও ফোন</a></li><li><a href="contact.html">ইমেইল ও ফেসবুক</a></li></ul></div></div></div>
+  </div>
+  <aside class="side">
+  <div class="box"><div class="bh"><h3>মুহতামিম সাহেবের বাণী</h3></div><div class="bb msgbox">
+    <img class="av" src="assets/img/muhtamim.jpg" alt="মাওলানা আবু ওছমান, মুহতামিম" width="120" height="120" loading="lazy">
+    <p>আলহামদুলিল্লাহ। কুরআনের হাফেজ হওয়া একজন শিশুর জন্য দুনিয়া ও আখিরাতের সবচেয়ে বড় সম্মান। আমরা চাই, প্রতিটি শিক্ষার্থী বিশুদ্ধ তিলাওয়াত ও মজবুত হিফজের পাশাপাশি সময়ের জ্ঞান-বিজ্ঞানেও দক্ষ হয়ে উঠুক…</p>
+    <div class="who">— মাওলানা আবু ওছমান<br><span style="font-weight:400;color:var(--muted);font-size:.88rem">মুহতামিম</span></div>
+    <a class="btn line" style="text-align:center" href="about.html#message">বিস্তারিত পড়ুন</a>
+  </div></div>
+  <div class="box gold"><div class="bh"><h3>হেল্পলাইন</h3></div><div class="bb hot">
+    <a href="tel:+8801820717177"><span>অফিস</span><b>০১৮২০৭১৭১৭৭</b></a>
+    <a href="tel:+8801867934744"><span>ভর্তি তথ্য</span><b>০১৮৬৭৯৩৪৭৪৪</b></a>
+    <a href="tel:+8801877418431"><span>বিকল্প</span><b>০১৮৭৭৪১৮৪৩১</b></a>
+    <a class="wa" data-wa hidden href="#"><span>হোয়াটসঅ্যাপে বার্তা</span><b>→</b></a>
+  </div></div>
+  <div class="box"><div class="bh"><h3>অভিভাবক সেবা</h3></div><div class="bb"><ul class="lk">
+    <li><a href="student.html">অভিভাবক লগইন (হাজিরা, বকেয়া, রসিদ)</a></li>
+    <li><a data-req href="contact.html">অভিযোগ, অনুরোধ ও ছুটির আবেদন</a></li>
+    <li><a href="about.html#promise">অভিভাবকের প্রতি আমাদের অঙ্গীকার</a></li>
+    <li><a href="notices.html">নোটিশ বোর্ড</a></li>
+  </ul></div></div>
+  <div class="box"><div class="bh"><h3>গুরুত্বপূর্ণ লিংক</h3></div><div class="bb"><ul class="lk">
+    <li><a href="admission.html#apply">অনলাইনে ভর্তি আবেদন</a></li>
+    <li><a href="books.html">নিজস্ব পাঠ্যবই ও অর্ডার</a></li>
+    <li><a href="https://www.facebook.com/profile.php?id=61592286354148" target="_blank" rel="noopener">ফেসবুক পেজ</a></li>
+    <li><a href="office/" rel="nofollow">অফিস (কর্মীদের জন্য)</a></li>
+  </ul></div></div>
+</aside>
+</div>
+</main><footer class="pfoot">
+  <div class="in">
+    <div><img class="flogo" src="assets/img/logo-96.png" alt="" width="72" height="72" loading="lazy"><h4>খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি</h4><p class="fmotto">ঈমান • এলম • আমল</p><p>হিফজুল কুরআন, কওমি-আলিয়া ও আধুনিক প্রযুক্তির অনন্য সমন্বয়ে আলোকিত প্রজন্ম গড়ার প্রত্যয়।</p><p>বায়তুশ শরফ কমপ্লেক্স, বায়তুশ শরফ সড়ক, আরামবাগ, খাগড়াছড়ি সদর</p></div>
+    <div><h4>দ্রুত লিংক</h4><ul><li><a href="about.html">আমাদের সম্পর্কে</a></li><li><a href="general-hifz.html">জেনারেল হিফজ বিভাগ</a></li><li><a href="academic-hifz.html">একাডেমিক হিফজ বিভাগ</a></li><li><a href="kitab.html">কিতাব বিভাগ</a></li><li><a href="admission.html">ভর্তি</a></li><li><a href="notices.html">নোটিশ</a></li></ul></div>
+    <div><h4>যোগাযোগ</h4><ul><li><a href="tel:+8801820717177">০১৮২০৭১৭১৭৭</a></li><li><a href="tel:+8801867934744">০১৮৬৭৯৩৪৭৪৪</a></li><li><a href="mailto:bsjiha@gmail.com">bsjiha@gmail.com</a></li><li><a href="https://www.facebook.com/profile.php?id=61592286354148" target="_blank" rel="noopener">ফেসবুক পেজ ↗</a></li><li><a href="student.html">অভিভাবক লগইন</a></li><li><a href="office/" rel="nofollow">অফিস (কর্মীদের জন্য)</a></li></ul></div>
+  </div>
+  <div class="bot"><span>© ২০২৬ খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমি। সর্বস্বত্ব সংরক্ষিত।</span><span>সর্বশেষ হালনাগাদ: ২৮ অক্টোবর ২০২৬</span></div>
+</footer>
+</div>
+<button class="totop" id="totop" type="button" aria-label="উপরে যান" hidden>↑</button>
+<script src="config.js" defer></script>
+<script src="assets/js/site.js?v=4.1.0" defer></script>
+</body>
+</html>
