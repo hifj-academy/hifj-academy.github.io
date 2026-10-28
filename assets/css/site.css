@@ -1,6 +1,6 @@
 /*!
  * বায়তুশ শরফ হিফজ একাডেমি — পোর্টাল লেআউট
- * ফাইল: assets/css/site.css   সংস্করণ: 4.1.0
+ * ফাইল: assets/css/site.css   সংস্করণ: 4.2.0
  * কাঠামো: সাদা বক্সড পাতা → নাম ও লোগোর ব্যানার → সবুজ মেনু → সর্বশেষ নোটিশের চলমান লাইন
  *        → (প্রথম পাতায়) তিন বিভাগ → ভর্তি আবেদন → মূল কলাম + ডান সাইডবার → ফুটার
  */
@@ -213,3 +213,12 @@ body{background:#e9eeeb}
 .pfoot .flogo{width:72px;height:72px;display:block;margin-bottom:8px;background:#fff;border-radius:50%;padding:3px}
 .pfoot .fmotto{color:var(--gold-l);font-weight:600}
 .pbanner .cta small{background:rgba(251,248,239,.88);padding:2px 8px;border-radius:6px;color:var(--ink)}
+
+/* ---- v4.2: প্রথম পাতায় মুহতামিম সাহেবের বাণী, মেনুতে ভর্তি ফরম ---- */
+.homemsg .bb{display:grid;grid-template-columns:160px 1fr;gap:20px;align-items:start}
+.homemsg img{width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:4px solid var(--gold-soft)}
+.homemsg p{margin:0 0 8px}
+.homemsg .sig{font-weight:600;color:var(--brand);margin-top:10px}
+@media (max-width:640px){.homemsg .bb{grid-template-columns:1fr;justify-items:center;text-align:center}.homemsg img{width:130px;height:130px}}
+.pnav .mwrap>ul>li>a[href="admission.html#apply"]{background:var(--gold);color:#1a1205;font-weight:600}
+.pnav .mwrap>ul>li>a[href="admission.html#apply"]:hover{background:var(--gold-l)}
