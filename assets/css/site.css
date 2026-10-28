@@ -1,6 +1,6 @@
 /*!
  * বায়তুশ শরফ হিফজ একাডেমি — পোর্টাল লেআউট
- * ফাইল: assets/css/site.css   সংস্করণ: 4.0.0
+ * ফাইল: assets/css/site.css   সংস্করণ: 4.1.0
  * কাঠামো: সাদা বক্সড পাতা → নাম ও লোগোর ব্যানার → সবুজ মেনু → সর্বশেষ নোটিশের চলমান লাইন
  *        → (প্রথম পাতায়) তিন বিভাগ → ভর্তি আবেদন → মূল কলাম + ডান সাইডবার → ফুটার
  */
@@ -22,10 +22,12 @@ body{background:#e9eeeb}
   radial-gradient(circle at 92% -20%,transparent 0 230px,rgba(231,194,122,.18) 231px 233px,transparent 234px),
   linear-gradient(115deg,#fbf8ef 0%,#f3efe2 45%,#e7f0ea 100%);
   border-bottom:4px solid var(--gold)}
+@media (min-width:761px){.pbanner{background:linear-gradient(90deg,#fbf8ef 0%,#fbf8ef 52%,rgba(251,248,239,.82) 70%,rgba(251,248,239,.35) 100%),url(../img/campus-800.jpg) right center/58% auto no-repeat,#f3efe2}}
 .pbanner .in{display:flex;align-items:center;gap:18px;padding:18px 18px 16px}
-.pbanner .logo{width:92px;height:92px;flex:none;border-radius:18px;box-shadow:0 6px 18px rgba(10,53,40,.18)}
+.pbanner .logo{width:104px;height:104px;flex:none;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(10,53,40,.25))}
 .pbanner .names{min-width:0}
-.pbanner .ar{font-family:var(--fa);color:var(--gold);font-size:1.15rem;line-height:1.4;margin:0}
+.pbanner .motto{margin:0;font-weight:700;font-size:1.02rem;letter-spacing:.03em;color:var(--muted)}
+.motto .m1{color:#0b7a3b}.motto .m2{color:#2e3a8c}.motto .m3{color:#c2177a}
 .pbanner h1{font-family:var(--fd);font-weight:400;color:var(--brand);font-size:clamp(1.35rem,3.2vw,2.2rem);line-height:1.25;margin:2px 0 4px;text-wrap:balance}
 .pbanner .en{color:var(--muted);font-size:.92rem;letter-spacing:.01em;margin:0}
 .pbanner .cta{margin-inline-start:auto;flex:none;display:grid;gap:8px;justify-items:end}
@@ -33,7 +35,7 @@ body{background:#e9eeeb}
 .pbanner .cta small{color:var(--muted)}
 @media (max-width:760px){
   .pbanner .in{flex-wrap:wrap;gap:12px;padding:14px 16px}
-  .pbanner .logo{width:64px;height:64px;border-radius:14px}
+  .pbanner .logo{width:72px;height:72px}
   .pbanner .names{flex:1 1 200px}
   .pbanner .cta{margin:0;width:100%;justify-items:stretch}
   .pbanner .cta small{display:none}
@@ -196,3 +198,18 @@ body{background:#e9eeeb}
 
 /* প্রিন্ট */
 @media print{.pstrip,.pnav,.ticker,.side,.pfoot,.adm-form,.totop,.cart-btn{display:none!important}.cols{grid-template-columns:1fr}.page{box-shadow:none}body{background:#fff}}
+
+/* ---- v4.1: ছবি ---- */
+.side .msgbox .av{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:4px solid var(--gold-soft);display:block;margin:0 auto;background:var(--band)}
+.campus figure{margin:0}
+.campus img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.campus figcaption{padding:10px 14px;font-size:.92rem;color:var(--muted)}
+.msg.withphoto{display:grid;grid-template-columns:200px 1fr;gap:22px;align-items:start}
+.msg.withphoto>img{width:200px;height:200px;border-radius:14px;object-fit:cover;object-position:50% 20%;border:4px solid var(--gold-soft)}
+@media (max-width:640px){.msg.withphoto{grid-template-columns:1fr}.msg.withphoto>img{width:150px;height:150px;margin:0 auto}}
+.campusfig{margin:0 0 20px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.campusfig img{display:block;width:100%;height:auto}
+.campusfig figcaption{padding:8px 12px;font-size:.9rem;color:var(--muted);background:var(--surface)}
+.pfoot .flogo{width:72px;height:72px;display:block;margin-bottom:8px;background:#fff;border-radius:50%;padding:3px}
+.pfoot .fmotto{color:var(--gold-l);font-weight:600}
+.pbanner .cta small{background:rgba(251,248,239,.88);padding:2px 8px;border-radius:6px;color:var(--ink)}
