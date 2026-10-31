@@ -1,0 +1,96 @@
+# ডেভেলপার নোট — বায়তুশ শরফ হিফজ একাডেমি ওয়েবসাইট
+
+> সাধারণ ব্যবহারের নিয়ম [README.md](README.md)-তে। এই ফাইল প্রোগ্রামারদের জন্য।
+
+খাগড়াছড়ি বায়তুশ শরফ জব্বারিয়া ইন্টারন্যাশনাল হিফজ একাডেমির অফিসিয়াল ওয়েবসাইট, অভিভাবক পোর্টাল ও অফিস ম্যানেজমেন্ট অ্যাপ (PWA)।
+
+- লাইভ সাইট: https://hifj-academy.github.io/
+- সংস্করণ: 6.0.0 (মাস্টার অপারেশনস ২০২৬-২৭ অনুযায়ী) (দেখুন `CHANGELOG.md`)
+- প্রযুক্তি: Static HTML/CSS/vanilla JS (কোনো build step বা framework নেই), Google Apps Script + Google Sheets (ডেটা ও API)
+
+## আর্কিটেকচার
+
+```
+অফিস অ্যাপ (office/, অফলাইন PWA, IndexedDB)
+        │  সিঙ্ক (POST, গোপন SYNC_KEY সহ)
+        ▼
+Google Apps Script Web App  ──►  Google Sheet (মূল ডেটাবেস)
+        │  GET ?action=public  (শুধু প্রকাশিত তথ্য, ক্যাশড)
+        │  POST action=portal  (শিক্ষার্থী আইডি + পিন)
+        ▼
+ওয়েবসাইট (index.html)  ও  অভিভাবক পোর্টাল (student.html)
+```
+
+## ফোল্ডার কাঠামো
+
+| পথ | কাজ |
+|---|---|
+| `index.html` | প্রথম পাতা: নাম-ব্যানার → মেনু → সর্বশেষ নোটিশ → তিন বিভাগ → ভর্তি আবেদন (Google Form) → নোটিশ বোর্ড + সেবা বক্স + সাইডবার |
+| `about.html` | পরিচিতি, কর্তৃপক্ষের বাণী (`#message`), বৈশিষ্ট্য, ক্যাম্পাস, কৌশলগত পরিকল্পনা |
+| `general-hifz.html`, `academic-hifz.html`, `kitab.html` | তিন বিভাগের আলাদা পাতা ও পাঠ্যক্রম |
+| `admission.html` | ভর্তি আবেদন ফরম (`#apply`), প্রক্রিয়া, যোগ্যতা (`#entry`), ফি (`#fees`), ক্যালেন্ডার, প্রশ্নোত্তর (`#faq`) |
+| `notices.html`, `books.html`, `career.html`, `contact.html` | নোটিশ, প্রকাশনা ও অর্ডার, নিয়োগ, যোগাযোগ |
+| `student.html` | অভিভাবক/শিক্ষার্থী পোর্টাল (noindex) |
+| `404.html` | ভুল লিংকের পাতা |
+| `config.js` | **রিপোজিটরিতে আলাদা থাকে।** শুধু `window.BJHA_API = "<Web app URL>"` |
+| `assets/css/main.css` | মৌলিক স্টাইল (রং `:root`-এ, কার্ড, টেবিল, বই) |
+| `assets/css/site.css` | পোর্টাল লেআউট: ব্যানার, মেনু, চলমান নোটিশ, বক্স, সাইডবার, ফুটার |
+| `assets/js/site.js` | সব পাতার স্ক্রিপ্ট: মেনু, চলমান নোটিশ, নোটিশ বোর্ড, ভর্তি ফরম, ফি, বই-অর্ডার, লাইভ ডেটা `apply()` |
+| `assets/css/portal.css`, `assets/js/portal.js` | পোর্টালের স্টাইল ও লজিক |
+| `assets/img/` | লোগো (96/192/512, স্বচ্ছ PNG), `og-cover.jpg` (১২০০×৬৩০ শেয়ার-ছবি), `muhtamim.jpg`, `campus.jpg`, `campus-800.jpg` |
+| `office/` | অফিস ম্যানেজমেন্ট অ্যাপ (PWA: `index.html`, `sw.js`, `manifest.webmanifest`, আইকন) |
+| `favicon.ico`, `site.webmanifest` | ব্রাউজার আইকন |
+| `robots.txt`, `sitemap.xml` | সার্চ ইঞ্জিন |
+| `.htaccess` | শুধু cPanel/Apache হোস্টিংয়ে: HTTPS, ক্যাশ, নিরাপত্তা হেডার |
+| `.nojekyll` | GitHub Pages-এ Jekyll বন্ধ রাখে |
+| `googleXXXX.html` | Search Console যাচাই ফাইল, **মুছবেন না** |
+
+## নিরাপত্তা নিয়ম (অবশ্যই মানবেন)
+
+1. `Code.gs`, `SYNC_KEY`, ব্যাকআপ JSON, শিক্ষার্থীর তালিকা **কখনও এই রিপোজিটরিতে রাখবেন না**। রিপোজিটরি পাবলিক।
+2. `config.js`-এ শুধু Web app URL থাকবে; সিঙ্ক কী নয়।
+3. পোর্টালের পিন SHA-256 (salt = student id) হিসেবে Sheet-এ থাকে; ৫ বার ভুল হলে ১৫ মিনিট লক।
+
+## লোকাল-এ চালানো
+
+```
+python -m http.server 8080
+```
+তারপর ব্রাউজারে `http://localhost:8080` (service worker-এর জন্য `file://` নয়, সার্ভার লাগবে)।
+
+## পরিবর্তনের নিয়ম
+
+- CSS/JS বদলালে `index.html`/`student.html`-এ `?v=6.0.0` সংখ্যা বাড়ান (যেমন `6.0.1`), নইলে পুরোনো ক্যাশ থেকে যেতে পারে।
+- অফিস অ্যাপ বদলালে `office/sw.js`-এর `VERSION` বাড়ান।
+- নোটিশ, বই, ফি, ভর্তি চালু/বন্ধ, হোয়াটসঅ্যাপ নম্বর: কোড নয়, **অফিস অ্যাপ → ওয়েবসাইট** থেকে বদলান।
+
+## ডোমেইন বদলানোর চেকলিস্ট
+
+`hifj-academy.github.io` লেখাটি নতুন ডোমেইন দিয়ে বদলাতে হবে এই জায়গাগুলোতে:
+
+| ফাইল | কোথায় |
+|---|---|
+| সব `.html` পাতা | `og:url`, `og:image`, `canonical`; `index.html`-এ JSON-LD (`url`, `logo`, `image`) |
+| `robots.txt` | `Sitemap:` লাইন |
+| `sitemap.xml` | `<loc>` |
+| `CNAME` (নতুন ফাইল, শুধু GitHub Pages) | এক লাইনে ডোমেইন, যেমন `baitushsharafhifz.com` |
+| অফিস অ্যাপ → ওয়েবসাইট → প্রদর্শন | `siteUrl`, `portalUrl` |
+
+বাকি সব লিংক relative, তাই আর কিছু বদলাতে হবে না।
+
+## ভবিষ্যৎ উন্নয়নের জন্য নোট (ডেভেলপারদের জন্য)
+
+- কোনো dependency নেই, শুধু Google Fonts (Tiro Bangla, Hind Siliguri, Amiri)।
+- নতুন পাতা যোগ করলে `sitemap.xml`-এ যোগ করুন এবং `index.html`-এর মতো `<head>` মেটা কপি করুন।
+- পাবলিক API-এর ফরম্যাট: `GET <API>?action=public` → `{settings, fees, notices[], books[], stats}`।
+
+## হেডার, মেনু ও ফুটার
+
+প্রতিটি পাতায় একই হেডার/মেনু/ফুটার আছে (স্ট্যাটিক HTML, তাই সার্চ ইঞ্জিন সহজে পড়ে)। ফোন নম্বর বা মেনু বদলালে **সব `.html` পাতায়** একই পরিবর্তন করতে হবে। GitHub-এ রিপোজিটরির উপরের সার্চে লেখা খুঁজলে কোন কোন ফাইলে আছে দেখা যায়।
+
+## নিজে সম্পাদনার সবচেয়ে সহজ উপায় (github.dev)
+
+1. রিপোজিটরির পাতায় কীবোর্ডে `.` (ফুলস্টপ) চাপুন — ব্রাউজারেই VS Code খুলবে।
+2. পাতার ভেতরে `✏️ সম্পাদনা:` লিখে খুঁজলে (Ctrl+F) সম্পাদনাযোগ্য অংশগুলো পাওয়া যাবে।
+3. সব পাতায় একই লেখা (ফোন, ইমেইল) বদলাতে Ctrl+Shift+H (Replace in files)।
+4. বাঁ দিকের Source Control আইকন → বার্তা লিখে **Commit & Push**।
