@@ -110,6 +110,8 @@ tr:last-child td{border-bottom:0}
 .mlist label{display:flex;gap:4px;align-items:center;border:1px solid var(--line);border-radius:7px;padding:3px 9px;font-weight:400;color:var(--ink)}
 .right{text-align:end}
 #print{display:none}
+.pgt{min-width:860px}.pgt td:nth-child(2){min-width:150px}
+.prog{page-break-inside:avoid;border:1px solid #999;border-radius:8px;padding:10px 14px;margin-bottom:14px}.prog table{width:100%;border-collapse:collapse}.prog th,.prog td{border:1px solid #bbb;padding:6px 8px;text-align:start}.prog th{background:#eef3f0;width:18%}.prog .sig{display:flex;justify-content:space-between;margin-top:34px}.prog .sig span{border-top:1px solid #333;padding-top:4px;min-width:150px;text-align:center}
 @media print{
   body>*:not(#print){display:none!important}
   #print{display:block}
@@ -134,8 +136,8 @@ tr:last-child td{border-bottom:0}
 <script>
 "use strict";
 /* ============ মূল তথ্য ও সংরক্ষণ ============ */
-const APP_VER = "1.3";
-const TABLES = ["students","applications","attendance","staff","staffAttendance","payments","waivers","requests","classes","feeHeads","users","settings","notices","books"];
+const APP_VER = "1.4";
+const TABLES = ["students","applications","attendance","staff","staffAttendance","payments","waivers","requests","classes","feeHeads","users","settings","notices","books","progress"];
 const SITE_URL = "https://hifj-academy.github.io";
 const PORTAL_URL = SITE_URL + "/student.html";
 let DB = {}; TABLES.forEach(t => DB[t] = {});
@@ -204,9 +206,9 @@ function setS(patch){ put("settings", Object.assign({id:"main"}, S(), patch)); }
 /* ভূমিকা ও অনুমতি */
 const ROLES = { admin:"ব্যবস্থাপক", office:"অফিস সহকারী", teacher:"শিক্ষক" };
 const CAN = {
-  admin:["dashboard","approvals","applications","students","attendance","fees","staff","website","settings","backup"],
-  office:["dashboard","approvals","applications","students","attendance","fees","staff","website","backup"],
-  teacher:["dashboard","attendance","students"]
+  admin:["dashboard","approvals","applications","students","attendance","progress","fees","staff","website","settings","backup"],
+  office:["dashboard","approvals","applications","students","attendance","progress","fees","staff","website","backup"],
+  teacher:["dashboard","attendance","progress","students"]
 };
 const can = page => ME && CAN[ME.role].includes(page);
 const isAdmin = () => ME && ME.role === "admin";
@@ -220,7 +222,7 @@ async function hashPin(pin, salt){
 function genPin(){ try{ const a = new Uint32Array(1); crypto.getRandomValues(a); return String(100000 + a[0] % 900000); }catch(e){ return String(100000 + Math.floor(Math.random()*900000)); } }
 
 /* শ্রেণি ও শিক্ষার্থী সহায়ক */
-const DEPTS = ["নূরানী বিভাগ","জেনারেল হিফজ বিভাগ","একাডেমিক হিফজ বিভাগ","কিতাব বিভাগ"];
+const DEPTS = ["জেনারেল হিফজ বিভাগ","একাডেমিক হিফজ বিভাগ","কিতাব বিভাগ"];
 const classesSorted = () => all("classes").sort((a,b)=>(a.order||0)-(b.order||0));
 const className = id => { const c = get("classes", id); return c ? c.name + (c.dept ? " ("+c.dept.replace(" বিভাগ","")+")" : "") : "—"; };
 const activeStudents = () => all("students").filter(s => s.status !== "left");
@@ -306,9 +308,9 @@ setInterval(() => { if(META.sync && META.sync.auto && ME) syncNow(); }, 5*60*100
 function seedDefaults(instName){
   const now = Date.now(); let o = 0;
   const add = (dept, names) => names.forEach(n => put("classes", {id:uid("C"), name:n, dept, order:++o}));
-  add("নূরানী বিভাগ", ["শিশু শ্রেণি (নূরানী)"]);
-  add("জেনারেল হিফজ বিভাগ", ["নাজেরা ১ম বর্ষ","নাজেরা ২য় বর্ষ","হিফজ ১ম বর্ষ","হিফজ ২য় বর্ষ","হিফজ ৩য় বর্ষ","দাওর বর্ষ"]);
-  add("একাডেমিক হিফজ বিভাগ", ["নাজেরা ১ম বর্ষ","নাজেরা ২য় বর্ষ","হিফজ ১ম বর্ষ","হিফজ ২য় বর্ষ","হিফজ ৩য় বর্ষ","দাওর বর্ষ"]);
+  const H = ["নাজেরা ১ম বর্ষ (১ম শ্রেণি)","নাজেরা ২য় বর্ষ (২য় শ্রেণি)","হিফজ ১ম বর্ষ (৩য় শ্রেণি)","হিফজ ২য় বর্ষ (৪র্থ শ্রেণি)","হিফজ ৩য় বর্ষ (৫ম শ্রেণি)","দাওর বর্ষ (৬ষ্ঠ শ্রেণি)"];
+  add("জেনারেল হিফজ বিভাগ", H);
+  add("একাডেমিক হিফজ বিভাগ", H);
   add("কিতাব বিভাগ", ["১ম বর্ষ","২য় বর্ষ","৩য় বর্ষ","৪র্থ বর্ষ","৫ম বর্ষ","৬ষ্ঠ বর্ষ","৭ম বর্ষ (দাওরায়ে হাদিস)"]);
   ["ভর্তি ফি","সেশন ফি","পরীক্ষা ফি","বই-খাতা","ডায়েরি","পোশাক","অন্যান্য"].forEach((n,i) => put("feeHeads", {id:uid("F"), name:n, amount:0, order:i}));
   put("settings", { id:"main", instName, address:"খাগড়াছড়ি বায়তুশ শরফ কমপ্লেক্স, বায়তুশ শরফ সড়ক, আরামবাগ, সদর, খাগড়াছড়ি", phones:"০১৮২০৭১৭১৭৭, ০১৮৬৭৯৩৪৭৪৪, ০১৮৭৭৪১৮৪৩১", email:"bsjiha@gmail.com",
@@ -323,7 +325,7 @@ function seedDefaults(instName){
 /* ============ পর্দা ও নেভিগেশন ============ */
 const NAV = [
   ["dashboard","📊 ড্যাশবোর্ড"],["approvals","✅ অনুমোদন"],["applications","📝 ভর্তি আবেদন"],["students","👨‍🎓 শিক্ষার্থী"],
-  ["attendance","📋 হাজিরা"],["fees","💰 ফি ও রসিদ"],["staff","👥 শিক্ষক-কর্মচারী"],["website","🌐 ওয়েবসাইট"],["settings","⚙️ সেটিংস"],["backup","💾 ব্যাকআপ ও সিঙ্ক"]
+  ["attendance","📋 হাজিরা"],["progress","📈 মাসিক অগ্রগতি"],["fees","💰 ফি ও রসিদ"],["staff","👥 শিক্ষক-কর্মচারী"],["website","🌐 ওয়েবসাইট"],["settings","⚙️ সেটিংস"],["backup","💾 ব্যাকআপ ও সিঙ্ক"]
 ];
 const TITLES = Object.fromEntries(NAV.map(([k,v]) => [k, v.replace(/^\S+\s/,"")]));
 function pendingCount(){ return all("applications").filter(a=>a.status==="pending").length + all("waivers").filter(w=>w.status==="pending").length + all("requests").filter(r=>r.status!=="done").length; }
@@ -474,6 +476,7 @@ function studentForm(s){
   <label>শ্রেণি *<select name="classId" required>${classOptions(s.classId)}</select></label>
   <label>গ্রুপ / শাখা<input name="group" value="${esc(s.group)}" placeholder="যেমন: গ্রুপ ১"></label><label>রোল<input name="roll" value="${esc(s.roll)}"></label>
   <label>থাকা<select name="residential"><option ${s.residential==="অনাবাসিক"?"selected":""}>অনাবাসিক</option><option ${s.residential==="আবাসিক"?"selected":""}>আবাসিক</option></select></label>
+  <label>শিক্ষার্থীকে যার হাতে দেওয়া যাবে (অনাবাসিক)<input name="pickup" value="${esc(s.pickup||"")}" placeholder="নাম, সম্পর্ক ও মোবাইল"></label>
   <label>ভর্তির তারিখ<input type="date" name="admissionDate" value="${esc(s.admissionDate)}"></label>
   <label>মাসিক বেতন (টাকা)<input name="monthlyFee" inputmode="numeric" value="${esc(s.monthlyFee??"")}" placeholder="খালি রাখলে সেটিংসের হার"></label>
   <label>হিফজ অগ্রগতি<input name="hifz" value="${esc(s.hifz)}" placeholder="যেমন: ১০ পারা"></label>
@@ -509,9 +512,10 @@ VIEWS.student = id => {
   const row = (k,v) => `<tr><th style="width:38%">${k}</th><td>${v||"—"}</td></tr>`;
   return `<div class="row" style="margin-bottom:12px"><a class="btn l" href="#students">← তালিকা</a>${ME.role!=="teacher"?`<button class="btn l" data-act="editStudent" data-id="${esc(s.id)}">সম্পাদনা</button>`:""}${can("fees")?`<a class="btn" href="#fees/collect/${encodeURIComponent(s.id)}">ফি আদায়</a>`:""}${s.phone?`<a class="btn wa" target="_blank" href="${waLink(s.whatsapp||s.phone,"আসসালামু আলাইকুম। ")}">অভিভাবককে হোয়াটসঅ্যাপ</a>`:""}</div>
   <div class="grid g2"><div class="card"><h2>${esc(s.name)} <span class="tag">${esc(s.id)}</span> ${s.status==="left"?`<span class="tag bad">প্রস্থান</span>`:""}</h2><div class="tw"><table>
-  ${row("নাম (ইংরেজি)",esc(s.nameEn))}${row("পিতা",esc(s.father))}${row("মাতা",esc(s.mother))}${row("জন্ম তারিখ",dFmt(s.dob))}${row("জন্মনিবন্ধন",esc(bn(s.birthReg)))}${row("শ্রেণি",esc(className(s.classId)))}${row("গ্রুপ / রোল",esc(s.group)+" / "+esc(bn(s.roll)))}${row("থাকা",esc(s.residential))}${row("ভর্তির তারিখ",dFmt(s.admissionDate))}${row("মোবাইল",esc(bn(s.phone)))}${row("হোয়াটসঅ্যাপ",esc(bn(s.whatsapp)))}${row("ঠিকানা",esc(s.address))}${row("হিফজ অগ্রগতি",esc(s.hifz))}${row("মন্তব্য",esc(s.note))}
+  ${row("নাম (ইংরেজি)",esc(s.nameEn))}${row("পিতা",esc(s.father))}${row("মাতা",esc(s.mother))}${row("জন্ম তারিখ",dFmt(s.dob))}${row("জন্মনিবন্ধন",esc(bn(s.birthReg)))}${row("শ্রেণি",esc(className(s.classId)))}${row("গ্রুপ / রোল",esc(s.group)+" / "+esc(bn(s.roll)))}${row("থাকা",esc(s.residential))}${row("ভর্তির তারিখ",dFmt(s.admissionDate))}${row("মোবাইল",esc(bn(s.phone)))}${row("হোয়াটসঅ্যাপ",esc(bn(s.whatsapp)))}${row("ঠিকানা",esc(s.address))}${row("হিফজ অগ্রগতি",esc(s.hifz))}${s.residential==="অনাবাসিক"?row("যার হাতে দেওয়া যাবে",esc(s.pickup)):""}${row("মন্তব্য",esc(s.note))}
   </table></div></div>
   <div>${ME.role!=="teacher"?`<div class="card"><h2>অভিভাবক অ্যাকাউন্ট</h2><p class="small">লগইন: ${esc(S().portalUrl||PORTAL_URL)} • আইডি: <b>${esc(s.id)}</b> • পিন: ${s.pinHash?`<span class="tag ok">তৈরি আছে</span>`:`<span class="tag warn">এখনো তৈরি হয়নি</span>`}</p><button class="btn s" data-act="newPin" data-id="${esc(s.id)}">${s.pinHash?"নতুন পিন দিন":"পিন তৈরি করুন"}</button></div>`:""}<div class="card"><h2>${MONTHS[+m.slice(5)-1]} মাসের হাজিরা</h2><div class="grid g4"><div class="stat"><span>উপস্থিত</span><b>${bn(P)}</b></div><div class="stat"><span>অনুপস্থিত</span><b>${bn(A)}</b></div><div class="stat"><span>ছুটি</span><b>${bn(L)}</b></div></div></div>
+  ${progressCard(s)}
   ${can("fees")?`<div class="card"><h2>ফি</h2><p>মাসিক বেতন: <b>${money(num(s.monthlyFee))}</b> • বকেয়া: <b style="color:${dues.length?"var(--bad)":"var(--ok)"}">${dues.length?money(dues.length*num(s.monthlyFee))+" ("+dues.map(mName).join(", ")+")":"নেই"}</b></p>
   ${pays.length?`<div class="tw"><table><tr><th>রসিদ</th><th>তারিখ</th><th>বিবরণ</th><th class="right">টাকা</th><th></th></tr>${pays.map(p=>`<tr><td>${esc(p.receiptNo)}</td><td>${dFmt(p.date)}</td><td class="small">${(p.items||[]).map(i=>esc(i.head)+(i.month?" ("+mName(i.month)+")":"")).join(", ")}</td><td class="right">${money(p.total)}</td><td><button class="btn s l" data-act="printReceipt" data-id="${p.id}">রসিদ</button></td></tr>`).join("")}</table></div>`:`<p class="muted small">কোনো পরিশোধ নেই</p>`}</div>`:""}</div></div>`;
 };
@@ -647,7 +651,7 @@ VIEWS.settings = () => {
     <label>মাসিক বেতন — অনাবাসিক<input name="feeNonRes" inputmode="numeric" value="${esc(bn(s.feeNonRes||0))}"></label><label>মাসিক বেতন — আবাসিক<input name="feeRes" inputmode="numeric" value="${esc(bn(s.feeRes||0))}"></label>
     <label>বকেয়া ধরার তারিখ (প্রতি মাসের)<input name="dueDay" inputmode="numeric" value="${esc(bn(s.dueDay||10))}"></label><label>শিক্ষাবর্ষ শুরুর মাস<input type="month" name="sessionStart" value="${esc(s.sessionStart)}"></label>
   </div><h2 style="margin-top:18px">হোয়াটসঅ্যাপ মেসেজের নমুনা</h2><p class="small muted">{নাম} {আইডি} {মাস} {টাকা} {তারিখ} {শ্রেণি} {দোকান} {প্রতিষ্ঠান} — এগুলো নিজে থেকে বসে যাবে।</p><div class="grid">
-    <label>বকেয়া রিমাইন্ডার<textarea name="tplDue">${esc(s.tplDue)}</textarea></label><label>অনুপস্থিতি<textarea name="tplAbsent">${esc(s.tplAbsent)}</textarea></label><label>ভর্তি অনুমোদন<textarea name="tplApproved">${esc(s.tplApproved)}</textarea></label>
+    <label>বকেয়া রিমাইন্ডার<textarea name="tplDue">${esc(s.tplDue)}</textarea></label><label>অনুপস্থিতি<textarea name="tplAbsent">${esc(s.tplAbsent)}</textarea></label><label>মাসিক অগ্রগতি<textarea name="tplProgress">${esc(s.tplProgress||TPL_PROGRESS)}</textarea></label><label>ভর্তি অনুমোদন<textarea name="tplApproved">${esc(s.tplApproved)}</textarea></label>
   </div><h2 style="margin-top:18px">অনলাইন ফরমের লিংক (গুগল ফরম)</h2><div class="fgrid"><label>ভর্তির আবেদন ফরম<input name="formAdmission" value="${esc(s.formAdmission)}"></label><label>অভিযোগ ও অনুরোধ ফরম<input name="formRequest" value="${esc(s.formRequest)}"></label></div>
   <div class="actions"><button class="btn">সংরক্ষণ</button></div></form>
 
@@ -817,6 +821,74 @@ document.addEventListener("click", e => { const el = e.target.closest("[data-act
   if(t==="input" && !["sf","payCalc","feePick","wPick"].includes(el.dataset.change)) return;
   if(t==="change" && el.dataset.change==="sf" && el.tagName==="INPUT") return;
   fn(el, e); }));
+/* ============ মাসিক অগ্রগতি (মাসে একবার, অভিভাবককে জানানো) ============ */
+const GRADES = ["অসাধারণ","ভালো","সন্তোষজনক","বিশেষ যত্ন দরকার"];
+const TPL_PROGRESS = "আসসালামু আলাইকুম। {মাস} মাসে {নাম} ({আইডি})-এর অগ্রগতি:\nহাজিরা: {হাজিরা}\nহিফজ: {পারা}\nহিফজের মান: {হিফজ}\nপড়ালেখা: {পড়ালেখা}\nআদব-আচরণ: {আচরণ}\nউস্তাদের মন্তব্য: {মন্তব্য}\nবিস্তারিত: {পোর্টাল}\n— {প্রতিষ্ঠান}";
+const isHifzClass = cid => { const c = get("classes", cid); return !c || /হিফজ/.test(c.dept||"") || /হিফজ|নাজেরা|দাওর/.test(c.name||""); };
+function monthAtt(sid, m){ let P=0,A=0,L=0; all("attendance").filter(a=>String(a.date).startsWith(m)).forEach(a => { const v=(a.marks||{})[sid]; if(v==="P")P++; else if(v==="A")A++; else if(v==="L")L++; }); return {P,A,L,t:P+A+L}; }
+const attText = x => x.t ? `${bn(x.P)} দিন উপস্থিত, ${bn(x.A)} দিন অনুপস্থিত (${bn(Math.round(x.P*100/x.t))}%)` : "";
+const prevMonth = m => { let [y,mm] = m.split("-").map(Number); mm--; if(!mm){ mm=12; y--; } return y+"-"+String(mm).padStart(2,"0"); };
+const progRec = (sid, m) => get("progress", sid+"_"+m);
+const paraText = p => p.para!=="" && p.para!=null ? `মোট ${bn(p.para)} পারা মুখস্থ` + (p.newPara>0 ? ` (এ মাসে নতুন ${bn(p.newPara)} পারা)` : "") : "";
+function progressMsg(s, p){
+  const s0 = S(); const tpl = s0.tplProgress || TPL_PROGRESS;
+  const map = { নাম:s.name, আইডি:s.id, মাস:mName(p.month), হাজিরা:attText(monthAtt(s.id,p.month)), পারা:paraText(p), হিফজ:p.hifzGrade||"", পড়ালেখা:p.studyGrade||"", আচরণ:p.adabGrade||"", মন্তব্য:p.note||"", পোর্টাল:s0.portalUrl||PORTAL_URL, প্রতিষ্ঠান:s0.instName||"" };
+  // খালি তথ্যের লাইন বাদ
+  return String(tpl).split("\n").filter(line => { const ks = [...line.matchAll(/\{([^}]+)\}/g)].map(x=>x[1]); return !ks.length || ks.some(k => map[k]); }).map(line => fillTpl(line, map)).join("\n");
+}
+const gradeSel = (name, v) => `<select name="${name}"><option value="">—</option>${GRADES.map(g=>`<option ${v===g?"selected":""}>${g}</option>`).join("")}</select>`;
+
+VIEWS.progress = () => {
+  const g = UI.pg || (UI.pg = { month: thisMonth(), cls: (classesSorted()[0]||{}).id||"" });
+  const list = activeStudents().filter(s=>s.classId===g.cls).sort((x,y)=>(num(x.roll)-num(y.roll))||x.id.localeCompare(y.id,"en",{numeric:true}));
+  const hifz = isHifzClass(g.cls);
+  const done = list.filter(s=>progRec(s.id,g.month));
+  const head = `<div class="card"><p class="small muted" style="margin:0 0 10px">মাসে একবার প্রতিটি শিক্ষার্থীর অগ্রগতি লিখুন, তারপর হোয়াটসঅ্যাপে অভিভাবককে পাঠান। অভিভাবক লগইনেও দেখা যাবে।</p>
+    <div class="row"><label>মাস<input type="month" data-change="pg" data-k="month" value="${g.month}"></label><label style="flex:1 1 240px">শ্রেণি<select data-change="pg" data-k="cls">${classOptions(g.cls)}</select></label>
+    <span class="tag ${done.length===list.length&&list.length?"ok":""}" style="align-self:center">লেখা হয়েছে ${bn(done.length)}/${bn(list.length)} জন</span></div></div>`;
+  if(!list.length) return head + `<div class="card empty">এই শ্রেণিতে কোনো শিক্ষার্থী নেই</div>`;
+  const rows = list.map(s => { const p = progRec(s.id,g.month)||{}; const pp = progRec(s.id,prevMonth(g.month)); const x = monthAtt(s.id,g.month);
+    return `<tr><td>${esc(bn(s.roll))}</td><td><b>${esc(s.name)}</b><br><span class="small muted">${esc(s.id)} • হাজিরা ${x.t?bn(Math.round(x.P*100/x.t))+"%":"—"}</span></td>
+    ${hifz?`<td><input name="${esc(s.id)}|para" inputmode="decimal" style="width:70px" value="${p.para!=null?esc(bn(p.para)):""}" placeholder="${pp&&pp.para!=null?bn(pp.para):"০"}"></td><td>${gradeSel(s.id+"|hifzGrade",p.hifzGrade)}</td>`:""}
+    <td>${gradeSel(s.id+"|studyGrade",p.studyGrade)}</td><td>${gradeSel(s.id+"|adabGrade",p.adabGrade)}</td>
+    <td><input name="${esc(s.id)}|note" value="${esc(p.note||"")}" placeholder="ছোট মন্তব্য" style="min-width:160px"></td></tr>`; }).join("");
+  const send = done.length ? `<div class="card" style="margin-top:14px"><div class="row" style="justify-content:space-between;align-items:center"><h2 style="margin:0">অভিভাবককে জানান — ${mName(g.month)}</h2><button class="btn l" data-act="printProgress">সবার রিপোর্ট প্রিন্ট</button></div>
+    ${done.map(s=>{ const p = progRec(s.id,g.month); const ph = s.whatsapp||s.phone; return `<div class="row" style="justify-content:space-between;border-bottom:1px solid var(--line);padding:6px 0"><span>${esc(s.name)} (${esc(s.id)})${p.sentAt?` <span class="tag ok">পাঠানো হয়েছে</span>`:""}</span>${ph?`<a class="btn s wa" target="_blank" data-act="markSent" data-id="${esc(p.id)}" href="${waLink(ph, progressMsg(s,p))}">হোয়াটসঅ্যাপ</a>`:`<span class="muted small">নম্বর নেই</span>`}</div>`; }).join("")}</div>` : "";
+  return head + `<form data-form="saveProgress"><div class="tw"><table class="pgt"><tr><th>রোল</th><th>শিক্ষার্থী</th>${hifz?`<th>মোট মুখস্থ পারা</th><th>হিফজের মান</th>`:""}<th>পড়ালেখা</th><th>আদব-আচরণ</th><th>মন্তব্য</th></tr>${rows}</table></div>
+    <div class="actions"><button class="btn">সংরক্ষণ</button></div></form>${send}`;
+};
+FORMS.saveProgress = f => { const g = UI.pg; const d = {}; new FormData(f).forEach((v,k) => { const i = k.lastIndexOf("|"); const sid = k.slice(0,i), fld = k.slice(i+1); (d[sid] = d[sid]||{})[fld] = String(v).trim(); });
+  let n = 0;
+  Object.entries(d).forEach(([sid, v]) => {
+    const has = v.para || v.hifzGrade || v.studyGrade || v.adabGrade || v.note; const old = progRec(sid, g.month);
+    if(!has && !old) return;
+    const pp = progRec(sid, prevMonth(g.month)); const para = v.para ? num(v.para) : null;
+    const rec = Object.assign(old||{}, { id:sid+"_"+g.month, sid, month:g.month, classId:g.cls, para, newPara: para!=null && pp && pp.para!=null ? Math.max(0, +(para - num(pp.para)).toFixed(1)) : null,
+      hifzGrade:v.hifzGrade||"", studyGrade:v.studyGrade||"", adabGrade:v.adabGrade||"", note:v.note||"" });
+    put("progress", rec); n++;
+    if(para!=null){ const s = get("students", sid); if(s){ s.hifz = `মোট ${bn(para)} পারা (${mName(g.month)})`; put("students", s); } }
+  });
+  render(); toast(n ? bn(n)+" জনের অগ্রগতি সংরক্ষিত" : "কিছু লেখা হয়নি");
+};
+CHANGES.pg = (el, ev) => { if(ev.type==="input") return; UI.pg[el.dataset.k] = el.value; render(); };
+ACTS.markSent = el => { const p = get("progress", el.dataset.id); if(p && !p.sentAt){ p.sentAt = Date.now(); put("progress", p); setTimeout(render, 300); } };
+ACTS.printProgress = () => { const g = UI.pg; const hifz = isHifzClass(g.cls);
+  const list = activeStudents().filter(s=>s.classId===g.cls && progRec(s.id,g.month)).sort((x,y)=>(num(x.roll)-num(y.roll))||x.id.localeCompare(y.id,"en",{numeric:true}));
+  printHTML(list.map(s => { const p = progRec(s.id,g.month); const x = monthAtt(s.id,g.month);
+    return `<div class="prog">${printHead("মাসিক অগ্রগতি প্রতিবেদন — " + mName(g.month))}<table>
+    <tr><th>শিক্ষার্থী</th><td>${esc(s.name)} (${esc(s.id)})</td><th>শ্রেণি</th><td>${esc(className(s.classId))}</td></tr>
+    <tr><th>হাজিরা</th><td colspan="3">${attText(x)||"—"}</td></tr>
+    ${hifz?`<tr><th>হিফজ</th><td>${paraText(p)||"—"}</td><th>হিফজের মান</th><td>${esc(p.hifzGrade||"—")}</td></tr>`:""}
+    <tr><th>পড়ালেখা</th><td>${esc(p.studyGrade||"—")}</td><th>আদব-আচরণ</th><td>${esc(p.adabGrade||"—")}</td></tr>
+    <tr><th>উস্তাদের মন্তব্য</th><td colspan="3">${esc(p.note||"—")}</td></tr></table>
+    <div class="sig"><span>শ্রেণিশিক্ষক</span><span>অভিভাবকের স্বাক্ষর</span></div></div>`; }).join(""));
+};
+function progressCard(s){
+  const ps = all("progress").filter(p=>p.sid===s.id).sort((a,b)=>b.month.localeCompare(a.month)).slice(0,6);
+  if(!ps.length) return "";
+  return `<div class="card"><h2>মাসিক অগ্রগতি</h2><div class="tw"><table><tr><th>মাস</th><th>হিফজ</th><th>পড়ালেখা</th><th>আদব</th><th>মন্তব্য</th></tr>${ps.map(p=>`<tr><td>${mName(p.month)}</td><td>${p.para!=null?bn(p.para)+" পারা":""}${p.hifzGrade?"<br><span class='small'>"+esc(p.hifzGrade)+"</span>":""}</td><td>${esc(p.studyGrade||"—")}</td><td>${esc(p.adabGrade||"—")}</td><td class="small">${esc(p.note||"")}</td></tr>`).join("")}</table></div></div>`;
+}
+
 const _render = render;
 render = function(){ _render(); if(UI.refocus){ const el = document.querySelector(`[data-change="sf"][data-k="${UI.refocus}"]`); UI.refocus = null; if(el && el.tagName==="INPUT"){ el.focus(); const n = el.value.length; el.setSelectionRange(n,n); } } };
 

@@ -1,6 +1,6 @@
 /*!
  * বায়তুশ শরফ হিফজ একাডেমি — পোর্টাল লেআউট
- * ফাইল: assets/css/site.css   সংস্করণ: 5.0.0
+ * ফাইল: assets/css/site.css   সংস্করণ: 6.0.0
  * কাঠামো: সাদা বক্সড পাতা → নাম ও লোগোর ব্যানার → সবুজ মেনু → সর্বশেষ নোটিশের চলমান লাইন
  *        → (প্রথম পাতায়) তিন বিভাগ → ভর্তি আবেদন → মূল কলাম + ডান সাইডবার → ফুটার
  */
@@ -237,3 +237,43 @@ body{background:#e9eeeb}
 .prose h2{font-size:1.2rem;margin:20px 0 8px}
 .prose ul{padding-inline-start:22px;margin:0 0 10px}
 .prose li{margin-bottom:6px}
+
+/* ===== v6.0 — মাস্টার অপারেশনস ডক অনুযায়ী নতুন অংশ ===== */
+.pbanner .tagl{color:var(--brand-2);font-size:.95rem;font-weight:500;margin:0 0 3px;text-wrap:balance}
+.pfoot .ftag{font-size:.9rem;opacity:.9}
+.g4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.lead{font-size:1.08rem;font-weight:500;color:var(--ink)}
+.card.vision{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;border:0;margin:16px 0}
+.card.vision h3{color:var(--gold-l);margin:0 0 8px}
+.card.vision p{margin:0;line-height:1.8}
+ol.mission{margin:0;padding-inline-start:1.4em;display:grid;gap:8px}
+ol.mission li::marker{color:var(--gold);font-weight:700}
+h3.mini{font-size:1.02rem;color:var(--brand);margin:14px 0 8px}
+details.acc .accb{padding:4px 18px 16px;border-top:1px solid var(--line)}
+details.acc .accb .tw{border:1px solid var(--line);border-radius:var(--r)}
+details.acc .accb p{margin:8px 0}
+ul.goals{margin:0;padding-inline-start:1.2em;display:grid;gap:6px}
+ul.chk{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+ul.chk li{position:relative;padding-inline-start:1.6em;line-height:1.7}
+ul.chk li::before{content:"✓";position:absolute;inset-inline-start:0;color:var(--brand-2);font-weight:700}
+.note{background:var(--gold-soft);border-inline-start:4px solid var(--gold);border-radius:8px;padding:10px 14px;margin:12px 0 0;font-size:.95rem}
+.arin{font-family:var(--fa);unicode-bidi:isolate;font-size:1.05em}
+td.ar,th.ar{font-family:var(--fa);font-size:1.05rem;line-height:1.9}
+.tw.cmp table{min-width:760px}
+.tw.cmp td:first-child,.tw.ladder td:first-child{font-weight:600;color:var(--brand)}
+.tw.cmp tr:first-child th:first-child{width:16%}
+.tw.ladder td{text-align:center}
+.tw.ladder tr:first-child th{text-align:center}
+.tw.kitab table{min-width:900px}
+.fac .card h3,.feat .card h3{font-size:1.02rem;color:var(--brand);margin:6px 0 4px}
+.fac .card p,.feat .card p{margin:0;font-size:.94rem;color:var(--muted)}
+.fac .ic{font-family:inherit}
+details.tm>summary{font-weight:600}
+details.tm .accb p{line-height:1.8}
+.dept .dl{grid-template-columns:auto 1fr}
+@media (max-width:600px){.lead{font-size:1rem}.pbanner .tagl{font-size:.82rem}}
+.tw.fit table{min-width:0}
+.tw.ladder td b{display:block;font-weight:600;color:var(--brand)}
+.tw.ladder .arl{display:block;font-family:var(--fa);font-size:.98rem;color:var(--muted);margin-top:2px}
+.tw.ladder td:first-child{font-weight:400}
+@media (max-width:600px){.tw.fit th,.tw.fit td{padding:9px 10px}}

@@ -43,6 +43,8 @@ function dash(j){
     <div class="stat"><span>মাসিক বেতন</span><b>${money(s.monthlyFee)}</b><span>${esc(s.residential||"")}</span></div>
     ${s.hifz?`<div class="stat"><span>হিফজ অগ্রগতি</span><b style="font-size:1.2rem">${esc(s.hifz)}</b></div>`:""}
   </div>
+  ${(j.progress||[]).length?`<div class="card"><h2>মাসিক অগ্রগতি</h2><div class="tw"><table><tr><th>মাস</th><th>হিফজ</th><th>পড়ালেখা</th><th>আদব-আচরণ</th><th>উস্তাদের মন্তব্য</th></tr>
+  ${j.progress.map(p=>`<tr><td>${mName(p.month)}</td><td>${p.para!=null&&p.para!==""?"মোট "+bn(p.para)+" পারা"+(p.newPara>0?" (নতুন "+bn(p.newPara)+")":""):""}${p.hifzGrade?"<br><span class='small muted'>"+esc(p.hifzGrade)+"</span>":""}</td><td>${esc(p.studyGrade||"—")}</td><td>${esc(p.adabGrade||"—")}</td><td class="small">${esc(p.note||"")}</td></tr>`).join("")}</table></div></div>`:""}
   <div class="card"><h2>হাজিরা (শেষ ছয় মাস)</h2><div class="tw"><table><tr><th>মাস</th><th>উপস্থিত</th><th>অনুপস্থিত</th><th>ছুটি</th><th>হার</th></tr>
   ${ms.map(m=>{const x=a.months[m], n=x.P+x.A+x.L; return `<tr><td>${mName(m)}</td><td>${bn(x.P)}</td><td>${bn(x.A)}</td><td>${bn(x.L)}</td><td>${n?bn(Math.round(x.P*100/n))+"%":"—"}</td></tr>`;}).join("")}</table></div>
   ${a.recent && a.recent.length?`<p class="small muted" style="margin:10px 0 0">সাম্প্রতিক অনুপস্থিতি/ছুটি: ${a.recent.map(r=>dFmt(r.date)+(r.v==="A"?" (অনুপস্থিত)":" (ছুটি)")).join(", ")}</p>`:""}</div>
